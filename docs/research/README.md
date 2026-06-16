@@ -19,6 +19,8 @@ This folder records one Markdown research card per actionable finding. The goal 
 10. [Data-source and tool ecosystem constraints](./10-data-source-tooling.md)
 11. [X / Reddit source-read strategy](./11-social-source-strategy.md)
 12. [Product roadmap from research](./12-product-roadmap.md)
+13. [Competitive analysis — build decision assistant](./13-competitive-analysis.md)
+14. [Development implementation plan — build decision assistant](./14-development-implementation-plan.md)
 
 ## Expert model distilled
 
