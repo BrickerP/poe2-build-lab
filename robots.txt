@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://brickerp.github.io/poe2-build-lab/sitemap.xml
