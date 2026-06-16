@@ -17,35 +17,36 @@
     {
       "type": "skill-gems",
       "source_url": "https://www.pathofexile.com/developer/docs/data",
-      "local_normalized": "data/official/skill-gems.json",
       "fetched_at": null,
-      "coverage": "missing",
+      "coverage": "official-missing",
+      "resolved_by": "data/community/manifest.json",
       "known_gaps": [
         "GGG publishes NO official skill-gem data export. Per the official developer docs, the only official PoE2 data exports are the passive (and atlas) trees.",
-        "The .build file format references skill gems by metadata id (e.g. Metadata/Items/Gems/SkillGemEarthquake); these ids only exist inside extracted game files (.datc64) via community tooling, which is out of scope (no bulk extraction / no fabrication).",
-        "Skill gem_id values therefore stay TBD in build cards and the .build exporter refuses to emit until a verified source is ingested."
+        "The .build file format references skill gems by metadata id (e.g. Metadata/Items/Gems/SkillGemEarthquake); these ids only exist inside extracted game files.",
+        "RESOLVED via COMMUNITY data: per doc 14, community-extracted gem ids are now accepted to power .build export. See data/community/manifest.json (Path of Building Community PoE2, gameId field). Officially still unavailable, hence coverage 'official-missing'."
       ]
     },
     {
       "type": "support-gems",
       "source_url": "https://www.pathofexile.com/developer/docs/data",
-      "local_normalized": "data/official/support-gems.json",
       "fetched_at": null,
-      "coverage": "missing",
+      "coverage": "official-missing",
+      "resolved_by": "data/community/manifest.json",
       "known_gaps": [
         "No official GGG support-gem export exists (same constraint as skill-gems).",
-        "The .build format references supports by metadata id (e.g. Metadata/Items/Gems/SupportGemAftershock); not available from any official export."
+        "RESOLVED via COMMUNITY data (Path of Building Community PoE2, gameId field). See data/community/manifest.json."
       ]
     },
     {
       "type": "base-items",
       "source_url": "https://www.pathofexile.com/developer/docs/data",
-      "local_normalized": "data/official/base-items.json",
       "fetched_at": null,
-      "coverage": "missing",
+      "coverage": "official-missing",
+      "resolved_by": "data/community/manifest.json",
       "known_gaps": [
         "No official GGG base-item export exists.",
-        "Note: the official .build inventory_slots use a slot id (e.g. Weapon1) plus free-text stat-priority hints, NOT a base-item id, so .build export does not require this dataset. base_item_id stays TBD only for on-page exact base requirements."
+        "The official .build inventory_slots use a slot id (e.g. Weapon1) plus free-text stat-priority hints, NOT a base-item id, so .build export does not require this dataset.",
+        "Equippable base ids + attribute requirements are available via COMMUNITY data (RePoE fork PoE2) for on-page exact base requirements only. See data/community/manifest.json."
       ]
     }
   ]

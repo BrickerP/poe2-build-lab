@@ -1,0 +1,72 @@
+{
+  "_comment": "Provenance manifest for COMMUNITY-extracted datasets, kept separate from data/official/manifest.json. GGG publishes no official skill-gem, support-gem, or base-item export, so these ids are sourced from reputable community game-data projects and clearly labelled as community (not official). See docs/research/14-development-implementation-plan.md and data/sources/community-links.json. Updated by scripts/fetch_community_data.py (fetched_at) and scripts/normalize_community_data.py (coverage/count).",
+  "provenance": "community",
+  "patch_version": "0.5.2 Early Access",
+  "generated_at": "2026-06-17",
+  "disclaimer": "Community-extracted data is accepted ONLY to resolve build ids and power .build export, with attribution and no bulk-republishing as site content. Underlying game data is (c) Grinding Gear Games.",
+  "datasets": [
+    {
+      "type": "skill-gems",
+      "provenance": "community",
+      "source": "Path of Building Community (PoE2)",
+      "source_url": "https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2",
+      "source_file": "src/Data/Gems.lua",
+      "pinned_commit": "a82a33b4fbdb7306ed93159664f7abe2c6819413",
+      "pinned_date": "2026-06-13",
+      "license": "Tooling MIT; gem data (c) Grinding Gear Games.",
+      "local_raw": "data/community/raw/pob-poe2-gems.lua",
+      "local_normalized": "data/community/skill-gems.json",
+      "fetched_at": "2026-06-17",
+      "coverage": "present",
+      "id_field": "gameId",
+      "id_form": "Metadata/Items/Gem(s)/SkillGem... (exact in-game .build path, taken per gem)",
+      "validation": "gameId form cross-validated against GGG's official .build example (SkillGemEarthquake, SkillGemBoneshatter, SupportGemAftershock, SupportGemFastForward, SupportGemImpactShockwave).",
+      "known_gaps": [
+        "Active skill gem ids only. Used to resolve build skill gem_id values and the .build exporter; not republished as a database page."
+      ],
+      "raw_bytes": 512894,
+      "count": 401
+    },
+    {
+      "type": "support-gems",
+      "provenance": "community",
+      "source": "Path of Building Community (PoE2)",
+      "source_url": "https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2",
+      "source_file": "src/Data/Gems.lua",
+      "pinned_commit": "a82a33b4fbdb7306ed93159664f7abe2c6819413",
+      "pinned_date": "2026-06-13",
+      "license": "Tooling MIT; gem data (c) Grinding Gear Games.",
+      "local_raw": "data/community/raw/pob-poe2-gems.lua",
+      "local_normalized": "data/community/support-gems.json",
+      "fetched_at": "2026-06-17",
+      "coverage": "present",
+      "id_field": "gameId",
+      "id_form": "Metadata/Items/Gem(s)/SupportGem... (exact in-game .build path, taken per gem)",
+      "known_gaps": [
+        "Support skill gem ids only. Used to resolve build support gem_id values and the .build exporter."
+      ],
+      "raw_bytes": 512894,
+      "count": 565
+    },
+    {
+      "type": "base-items",
+      "provenance": "community",
+      "source": "RePoE fork (PoE2)",
+      "source_url": "https://github.com/repoe-fork/poe2",
+      "source_file": "data/base_items.json",
+      "pinned_commit": "91560b6a62a7a26263b2cf42993c74fb652ac8e9",
+      "pinned_date": "2026-06-15",
+      "license": "RePoE tooling MIT (c) 2016 brather1ng; item data (c) Grinding Gear Games.",
+      "local_raw": "data/community/raw/repoe-base-items.json (git-ignored; fetched transiently)",
+      "local_normalized": "data/community/base-items.json",
+      "fetched_at": "2026-06-17",
+      "coverage": "present",
+      "id_form": "Metadata/Items/... (equippable bases only)",
+      "known_gaps": [
+        "The official .build inventory_slots use a slot id + free-text hints (no base-item id), so this dataset is NOT consumed by .build export. It backs on-page exact base requirements only."
+      ],
+      "raw_bytes": 7827106,
+      "count": 1861
+    }
+  ]
+}

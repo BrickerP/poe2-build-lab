@@ -4,3 +4,7 @@ node_modules/
 dist/
 __pycache__/
 *.pyc
+
+# Large community base-items raw is fetched transiently; only the compact
+# normalized data/community/base-items.json is committed (see data/community/README.md).
+data/community/raw/repoe-base-items.json

@@ -1,0 +1,31 @@
+{
+  "_comment": "COMMUNITY (non-official) data sources, kept separate from official-links.json. GGG publishes NO official skill-gem, support-gem, or base-item export (only the passive/atlas trees). Per docs/research/14-development-implementation-plan.md, community-extracted game data is accepted ONLY to resolve build ids and power .build export, with clear attribution and no bulk-republishing as site content. The underlying game data is (c) Grinding Gear Games; the tooling licenses are noted per source.",
+  "patch_version": "0.5.2 Early Access",
+  "updated_at": "2026-06-17",
+  "sources": [
+    {
+      "id": "pob-poe2-gems",
+      "label": "Path of Building Community (PoE2) — gem data",
+      "type": "community-data-export",
+      "url": "https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2",
+      "raw_data_url": "https://raw.githubusercontent.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/a82a33b4fbdb7306ed93159664f7abe2c6819413/src/Data/Gems.lua",
+      "pinned_commit": "a82a33b4fbdb7306ed93159664f7abe2c6819413",
+      "pinned_ref": "dev",
+      "pinned_date": "2026-06-13",
+      "license": "Tooling MIT; underlying gem data (c) Grinding Gear Games.",
+      "notes": "Authoritative community source for the EXACT in-game .build gem metadata id, read from each gem's `gameId` field. Cross-validated against GGG's official .build example (SkillGemEarthquake, SkillGemBoneshatter, SupportGemAftershock, SupportGemFastForward, SupportGemImpactShockwave all match). PoE2 gem paths are irregular (e.g. Spark is .../Gems/SkillGemSpark while Fireball/Blink are .../Gem/SkillGem...), so `gameId` is used per-gem rather than any blanket convention. Used only to resolve gem ids for builds and .build export, never republished as a database page."
+    },
+    {
+      "id": "repoe-poe2-base-items",
+      "label": "RePoE fork (PoE2) — base item data",
+      "type": "community-data-export",
+      "url": "https://github.com/repoe-fork/poe2",
+      "raw_data_url": "https://raw.githubusercontent.com/repoe-fork/poe2/91560b6a62a7a26263b2cf42993c74fb652ac8e9/data/base_items.json",
+      "pinned_commit": "91560b6a62a7a26263b2cf42993c74fb652ac8e9",
+      "pinned_ref": "master",
+      "pinned_date": "2026-06-15",
+      "license": "RePoE tooling MIT (c) 2016 brather1ng; underlying item data (c) Grinding Gear Games.",
+      "notes": "Community-extracted base item metadata (id, item class, drop level, attribute requirements). The official .build inventory_slots use a slot id + free-text hints (no base-item id), so this dataset is NOT consumed by .build export; it backs on-page exact base requirements only. Normalized to a compact equippable-bases index; the 7.5 MB raw is fetched transiently (pinned), not vendored."
+    }
+  ]
+}

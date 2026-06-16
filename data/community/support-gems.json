@@ -1,0 +1,7806 @@
+{
+  "generated_at": "2026-06-17",
+  "provenance": "community",
+  "kind": "support-gems",
+  "source": "Path of Building Community (PoE2) — gem data",
+  "source_url": "https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2",
+  "pinned_commit": "a82a33b4fbdb7306ed93159664f7abe2c6819413",
+  "note": "Community-extracted PoE2 data, not an official GGG export. Game data (c) Grinding Gear Games.",
+  "count": 565,
+  "items": [
+    {
+      "id": "Metadata/Items/Gems/SupportGemFireInfusion",
+      "name": "Fire Attunement",
+      "req": {
+        "str": 100,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "fire",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemMartialTempo",
+      "name": "Rapid Attacks I",
+      "req": {
+        "str": 0,
+        "dex": 100,
+        "int": 0
+      },
+      "tags": [
+        "attack",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemMartialTempoTwo",
+      "name": "Rapid Attacks II",
+      "req": {
+        "str": 0,
+        "dex": 100,
+        "int": 0
+      },
+      "tags": [
+        "attack",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemMartialTempoThree",
+      "name": "Rapid Attacks III",
+      "req": {
+        "str": 0,
+        "dex": 100,
+        "int": 0
+      },
+      "tags": [
+        "attack",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemScattershot",
+      "name": "Multishot I",
+      "req": {
+        "str": 0,
+        "dex": 100,
+        "int": 0
+      },
+      "tags": [
+        "projectile",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemScattershotTwo",
+      "name": "Multishot II",
+      "req": {
+        "str": 0,
+        "dex": 100,
+        "int": 0
+      },
+      "tags": [
+        "projectile",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemNovaProjectiles",
+      "name": "Nova Projectiles I",
+      "req": {
+        "str": 0,
+        "dex": 100,
+        "int": 0
+      },
+      "tags": [
+        "projectile",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemAcceleration",
+      "name": "Projectile Acceleration I",
+      "req": {
+        "str": 0,
+        "dex": 100,
+        "int": 0
+      },
+      "tags": [
+        "projectile",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemAccelerationTwo",
+      "name": "Projectile Acceleration II",
+      "req": {
+        "str": 0,
+        "dex": 100,
+        "int": 0
+      },
+      "tags": [
+        "projectile",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemAccelerationThree",
+      "name": "Projectile Acceleration III",
+      "req": {
+        "str": 0,
+        "dex": 100,
+        "int": 0
+      },
+      "tags": [
+        "projectile",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemColdInfusion",
+      "name": "Cold Attunement",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "cold",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemBullseye",
+      "name": "Heightened Accuracy I",
+      "req": {
+        "str": 0,
+        "dex": 100,
+        "int": 0
+      },
+      "tags": [
+        "attack",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemBullseyeTwo",
+      "name": "Heightened Accuracy II",
+      "req": {
+        "str": 0,
+        "dex": 100,
+        "int": 0
+      },
+      "tags": [
+        "attack",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemMagnifiedEffect",
+      "name": "Magnified Area I",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "area",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemMagnifiedEffectTwo",
+      "name": "Magnified Area II",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "area",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemLightningInfusion",
+      "name": "Lightning Attunement",
+      "req": {
+        "str": 0,
+        "dex": 100,
+        "int": 0
+      },
+      "tags": [
+        "lightning",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemInspiration",
+      "name": "Efficiency I",
+      "req": {
+        "str": 100,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemInspirationTwo",
+      "name": "Efficiency II",
+      "req": {
+        "str": 100,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemSupercritical",
+      "name": "Supercritical",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemBludgeon",
+      "name": "Knockback",
+      "req": {
+        "str": 100,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemLifeThief",
+      "name": "Life Leech I",
+      "req": {
+        "str": 100,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "attack",
+        "physical",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemLifeThiefTwo",
+      "name": "Life Leech II",
+      "req": {
+        "str": 100,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "attack",
+        "physical",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemLifeThiefThree",
+      "name": "Life Leech III",
+      "req": {
+        "str": 100,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "attack",
+        "physical",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemSoulThief",
+      "name": "Mana Leech",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "attack",
+        "physical",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemOisinsOath",
+      "name": "Oisin's Oath",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "lineage",
+        "spell",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemChaosInfusion",
+      "name": "Chaos Attunement",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "chaos",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemPierce",
+      "name": "Pierce I",
+      "req": {
+        "str": 0,
+        "dex": 100,
+        "int": 0
+      },
+      "tags": [
+        "projectile",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemPierceTwo",
+      "name": "Pierce II",
+      "req": {
+        "str": 0,
+        "dex": 100,
+        "int": 0
+      },
+      "tags": [
+        "projectile",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemPierceThree",
+      "name": "Pierce III",
+      "req": {
+        "str": 0,
+        "dex": 100,
+        "int": 0
+      },
+      "tags": [
+        "projectile",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemHeavySwing",
+      "name": "Heavy Swing",
+      "req": {
+        "str": 100,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "attack",
+        "melee",
+        "physical",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemArcaneTempo",
+      "name": "Rapid Casting I",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "spell",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemArcaneTempoTwo",
+      "name": "Rapid Casting II",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "spell",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemArcaneTempoThree",
+      "name": "Rapid Casting III",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "spell",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemConcentratedEffect",
+      "name": "Concentrated Area",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "area",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemBloodlust",
+      "name": "Bloodlust",
+      "req": {
+        "str": 100,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "attack",
+        "melee",
+        "physical",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemBlind",
+      "name": "Blind I",
+      "req": {
+        "str": 0,
+        "dex": 100,
+        "int": 0
+      },
+      "tags": [
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemBlindTwo",
+      "name": "Blind II",
+      "req": {
+        "str": 0,
+        "dex": 100,
+        "int": 0
+      },
+      "tags": [
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemFirePenetration",
+      "name": "Fire Penetration I",
+      "req": {
+        "str": 100,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "fire",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemFirePenetrationTwo",
+      "name": "Fire Penetration II",
+      "req": {
+        "str": 100,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "fire",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemColdPenetration",
+      "name": "Cold Penetration",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "cold",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemLightningPenetration",
+      "name": "Lightning Penetration",
+      "req": {
+        "str": 0,
+        "dex": 100,
+        "int": 0
+      },
+      "tags": [
+        "lightning",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemChain",
+      "name": "Chain I",
+      "req": {
+        "str": 0,
+        "dex": 100,
+        "int": 0
+      },
+      "tags": [
+        "chaining",
+        "projectile",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemChainTwo",
+      "name": "Chain II",
+      "req": {
+        "str": 0,
+        "dex": 100,
+        "int": 0
+      },
+      "tags": [
+        "chaining",
+        "projectile",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemChainThree",
+      "name": "Chain III",
+      "req": {
+        "str": 0,
+        "dex": 100,
+        "int": 0
+      },
+      "tags": [
+        "chaining",
+        "projectile",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemFork",
+      "name": "Fork",
+      "req": {
+        "str": 0,
+        "dex": 100,
+        "int": 0
+      },
+      "tags": [
+        "projectile",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemSpellEcho",
+      "name": "Spell Echo",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "area",
+        "spell",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemElementalArmy",
+      "name": "Elemental Army",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "minion",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemDeceleration",
+      "name": "Projectile Deceleration I",
+      "req": {
+        "str": 0,
+        "dex": 100,
+        "int": 0
+      },
+      "tags": [
+        "projectile",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemDecelerationTwo",
+      "name": "Projectile Deceleration II",
+      "req": {
+        "str": 0,
+        "dex": 100,
+        "int": 0
+      },
+      "tags": [
+        "projectile",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemVilentasPropulsion",
+      "name": "Vilenta's Propulsion",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "lineage",
+        "projectile",
+        "spell",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemIceBite",
+      "name": "Ice Bite I",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "cold",
+        "duration",
+        "support",
+        "warcry"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemIceBiteTwo",
+      "name": "Ice Bite II",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "cold",
+        "duration",
+        "support",
+        "warcry"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemBhatairsVengeance",
+      "name": "Bhatair's Vengeance",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "attack",
+        "cold",
+        "duration",
+        "support",
+        "warcry"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemGlaciation",
+      "name": "Freeze",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "cold",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemConduction",
+      "name": "Shock",
+      "req": {
+        "str": 0,
+        "dex": 100,
+        "int": 0
+      },
+      "tags": [
+        "lightning",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemControlledDestruction",
+      "name": "Controlled Destruction",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "spell",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemElementalFocus",
+      "name": "Elemental Focus",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemWildfire",
+      "name": "Wildfire",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "area",
+        "fire",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemLacerate",
+      "name": "Bleed I",
+      "req": {
+        "str": 100,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "physical",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemLacerateTwo",
+      "name": "Bleed II",
+      "req": {
+        "str": 100,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "physical",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemLacerateThree",
+      "name": "Bleed III",
+      "req": {
+        "str": 100,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "physical",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemLacerateFour",
+      "name": "Bleed IV",
+      "req": {
+        "str": 100,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "physical",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemEnvenom",
+      "name": "Poison I",
+      "req": {
+        "str": 0,
+        "dex": 100,
+        "int": 0
+      },
+      "tags": [
+        "chaos",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemEnvenomTwo",
+      "name": "Poison II",
+      "req": {
+        "str": 0,
+        "dex": 100,
+        "int": 0
+      },
+      "tags": [
+        "chaos",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemEnvenomThree",
+      "name": "Poison III",
+      "req": {
+        "str": 0,
+        "dex": 100,
+        "int": 0
+      },
+      "tags": [
+        "chaos",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemMaim",
+      "name": "Maim",
+      "req": {
+        "str": 0,
+        "dex": 100,
+        "int": 0
+      },
+      "tags": [
+        "attack",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemImmolate",
+      "name": "Immolate",
+      "req": {
+        "str": 100,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "fire",
+        "payoff",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemLastingShock",
+      "name": "Lasting Shock",
+      "req": {
+        "str": 0,
+        "dex": 100,
+        "int": 0
+      },
+      "tags": [
+        "lightning",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemBrutality",
+      "name": "Brutality I",
+      "req": {
+        "str": 100,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "physical",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemBrutalityTwo",
+      "name": "Brutality II",
+      "req": {
+        "str": 100,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "physical",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemBrutalityThree",
+      "name": "Brutality III",
+      "req": {
+        "str": 100,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "physical",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemMomentum",
+      "name": "Momentum",
+      "req": {
+        "str": 0,
+        "dex": 100,
+        "int": 0
+      },
+      "tags": [
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemArcaneSurge",
+      "name": "Arcane Surge",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "duration",
+        "spell",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemWitheringTouch",
+      "name": "Withering Touch",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "chaos",
+        "duration",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemExpand",
+      "name": "Expand",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "area",
+        "spell",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemUnleash",
+      "name": "Unleash",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "spell",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemZarokhsRevolt",
+      "name": "Zarokh's Revolt",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "spell",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemCloseCombat",
+      "name": "Close Combat I",
+      "req": {
+        "str": 0,
+        "dex": 100,
+        "int": 0
+      },
+      "tags": [
+        "attack",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemCloseCombatTwo",
+      "name": "Close Combat II",
+      "req": {
+        "str": 0,
+        "dex": 100,
+        "int": 0
+      },
+      "tags": [
+        "attack",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemRage",
+      "name": "Rage I",
+      "req": {
+        "str": 100,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "attack",
+        "melee",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemRageTwo",
+      "name": "Rage II",
+      "req": {
+        "str": 100,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "attack",
+        "melee",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemRageThree",
+      "name": "Rage III",
+      "req": {
+        "str": 100,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "attack",
+        "melee",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemFeedingFrenzy",
+      "name": "Feeding Frenzy I",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "minion",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemFeedingFrenzyTwo",
+      "name": "Feeding Frenzy II",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "minion",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemMeatShield",
+      "name": "Meat Shield I",
+      "req": {
+        "str": 100,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "minion",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemMeatShieldTwo",
+      "name": "Meat Shield II",
+      "req": {
+        "str": 100,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "minion",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemBrutusBrain",
+      "name": "Brutus' Brain",
+      "req": {
+        "str": 100,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "lineage",
+        "minion",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemInfernalLegion",
+      "name": "Infernal Legion I",
+      "req": {
+        "str": 100,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "area",
+        "fire",
+        "minion",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemInfernalLegionTwo",
+      "name": "Infernal Legion II",
+      "req": {
+        "str": 100,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "area",
+        "fire",
+        "minion",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemInfernalLegionThree",
+      "name": "Infernal Legion III",
+      "req": {
+        "str": 100,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "area",
+        "fire",
+        "minion",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemSecondWind",
+      "name": "Second Wind I",
+      "req": {
+        "str": 0,
+        "dex": 100,
+        "int": 0
+      },
+      "tags": [
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemSecondWindTwo",
+      "name": "Second Wind II",
+      "req": {
+        "str": 0,
+        "dex": 100,
+        "int": 0
+      },
+      "tags": [
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemSecondWindThree",
+      "name": "Second Wind III",
+      "req": {
+        "str": 0,
+        "dex": 100,
+        "int": 0
+      },
+      "tags": [
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemImpendingDoom",
+      "name": "Impending Doom",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "area",
+        "chaos",
+        "grants_active_skill",
+        "spell",
+        "support",
+        "trigger"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemLifetap",
+      "name": "Lifetap",
+      "req": {
+        "str": 100,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemAtaluiBloodletting",
+      "name": "Atalui's Bloodletting",
+      "req": {
+        "str": 100,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "lineage",
+        "physical",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemBehead",
+      "name": "Behead I",
+      "req": {
+        "str": 100,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "attack",
+        "melee",
+        "strike",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemBeheadTwo",
+      "name": "Behead II",
+      "req": {
+        "str": 100,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "attack",
+        "melee",
+        "strike",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemEinharsBeastrite",
+      "name": "Einhar's Beastrite",
+      "req": {
+        "str": 100,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "attack",
+        "lineage",
+        "melee",
+        "strike",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemExecute",
+      "name": "Execute I",
+      "req": {
+        "str": 100,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemExecuteTwo",
+      "name": "Execute II",
+      "req": {
+        "str": 100,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemExecuteThree",
+      "name": "Execute III",
+      "req": {
+        "str": 100,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemOvercharge",
+      "name": "Overcharge",
+      "req": {
+        "str": 0,
+        "dex": 100,
+        "int": 0
+      },
+      "tags": [
+        "lightning",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemJaggedGround",
+      "name": "Jagged Ground I",
+      "req": {
+        "str": 100,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "area",
+        "attack",
+        "duration",
+        "melee",
+        "slam",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemJaggedGroundTwo",
+      "name": "Jagged Ground II",
+      "req": {
+        "str": 100,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "area",
+        "attack",
+        "duration",
+        "melee",
+        "slam",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemInevitableCritical",
+      "name": "Inexorable Critical I",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemInevitableCriticalTwo",
+      "name": "Inexorable Critical II",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemRuthless",
+      "name": "Ruthless",
+      "req": {
+        "str": 100,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemFastForward",
+      "name": "Compressed Duration I",
+      "req": {
+        "str": 100,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "duration",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemFastForwardTwo",
+      "name": "Compressed Duration II",
+      "req": {
+        "str": 100,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "duration",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemFistOfWar",
+      "name": "Fist of War I",
+      "req": {
+        "str": 100,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "attack",
+        "melee",
+        "slam",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemFistOfWarTwo",
+      "name": "Fist of War II",
+      "req": {
+        "str": 100,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "attack",
+        "melee",
+        "slam",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemFistOfWarThree",
+      "name": "Fist of War III",
+      "req": {
+        "str": 100,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "attack",
+        "melee",
+        "slam",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemPersistence",
+      "name": "Prolonged Duration I",
+      "req": {
+        "str": 100,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "duration",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemPersistenceTwo",
+      "name": "Prolonged Duration II",
+      "req": {
+        "str": 100,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "duration",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemImpactShockwave",
+      "name": "Impact Shockwave",
+      "req": {
+        "str": 100,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "area",
+        "attack",
+        "melee",
+        "strike",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemHexBloom",
+      "name": "Hex Bloom",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "area",
+        "curse",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemFrostNexus",
+      "name": "Frost Nexus",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "area",
+        "cold",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemShockSiphon",
+      "name": "Shock Siphon",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "lightning",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemCoursingCurrent",
+      "name": "Shock Conduction",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "area",
+        "lightning",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemCoursingCurrentTwo",
+      "name": "Shock Conduction II",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "area",
+        "lightning",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemDeepFreeze",
+      "name": "Deep Freeze",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "cold",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemIgnition",
+      "name": "Ignite I",
+      "req": {
+        "str": 100,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "fire",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemIgnitionTwo",
+      "name": "Ignite II",
+      "req": {
+        "str": 100,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "fire",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemIgnitionThree",
+      "name": "Ignite III",
+      "req": {
+        "str": 100,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "fire",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemSearingFlame",
+      "name": "Searing Flame I",
+      "req": {
+        "str": 100,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "fire",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemSearingFlameTwo",
+      "name": "Searing Flame II",
+      "req": {
+        "str": 100,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "fire",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemEternalFlame",
+      "name": "Eternal Flame I",
+      "req": {
+        "str": 100,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "fire",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemEternalFlameTwo",
+      "name": "Eternal Flame II",
+      "req": {
+        "str": 100,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "fire",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemEternalFlameThree",
+      "name": "Eternal Flame III",
+      "req": {
+        "str": 100,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "fire",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemEssenceHarvest",
+      "name": "Essence Harvest",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "minion",
+        "persistent",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemExploitWeakness",
+      "name": "Exploit Weakness",
+      "req": {
+        "str": 100,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "payoff",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemEnragedWarcry",
+      "name": "Enraged Warcry I",
+      "req": {
+        "str": 100,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "support",
+        "warcry"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemEnragedWarcryTwo",
+      "name": "Enraged Warcry II",
+      "req": {
+        "str": 100,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "support",
+        "warcry"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemNeuralOverload",
+      "name": "Neural Overload",
+      "req": {
+        "str": 0,
+        "dex": 100,
+        "int": 0
+      },
+      "tags": [
+        "lightning",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemPinpointCritical",
+      "name": "Pinpoint Critical",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemPerpetualCharge",
+      "name": "Perpetual Charge",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemCorrosion",
+      "name": "Corrosion",
+      "req": {
+        "str": 0,
+        "dex": 100,
+        "int": 0
+      },
+      "tags": [
+        "chaos",
+        "physical",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemBurstingPlague",
+      "name": "Bursting Plague",
+      "req": {
+        "str": 0,
+        "dex": 100,
+        "int": 0
+      },
+      "tags": [
+        "area",
+        "chaos",
+        "grants_active_skill",
+        "physical",
+        "support",
+        "trigger"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemFortress",
+      "name": "Fortress I",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemFortressTwo",
+      "name": "Fortress II",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemAhnsCitadel",
+      "name": "Ahn's Citadel",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "lineage",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemFrostfire",
+      "name": "Frostfire",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "cold",
+        "fire",
+        "payoff",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemStormfire",
+      "name": "Stormfire",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "fire",
+        "lightning",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemOverabundance",
+      "name": "Overabundance I",
+      "req": {
+        "str": 0,
+        "dex": 100,
+        "int": 0
+      },
+      "tags": [
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemOverabundanceTwo",
+      "name": "Overabundance II",
+      "req": {
+        "str": 0,
+        "dex": 100,
+        "int": 0
+      },
+      "tags": [
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemElectrocute",
+      "name": "Electrocute",
+      "req": {
+        "str": 0,
+        "dex": 100,
+        "int": 0
+      },
+      "tags": [
+        "lightning",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemEonyrsThunder",
+      "name": "Eonyr's Thunder",
+      "req": {
+        "str": 0,
+        "dex": 100,
+        "int": 0
+      },
+      "tags": [
+        "area",
+        "grants_active_skill",
+        "lightning",
+        "lineage",
+        "spell",
+        "support",
+        "trigger"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemWindWave",
+      "name": "Wind Wave",
+      "req": {
+        "str": 0,
+        "dex": 100,
+        "int": 0
+      },
+      "tags": [
+        "area",
+        "grants_active_skill",
+        "support",
+        "trigger"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemBitingFrost",
+      "name": "Biting Frost I",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "cold",
+        "payoff",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemBitingFrostTwo",
+      "name": "Biting Frost II",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "cold",
+        "payoff",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemElementalDischarge",
+      "name": "Elemental Discharge",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "area",
+        "cold",
+        "fire",
+        "grants_active_skill",
+        "lightning",
+        "payoff",
+        "spell",
+        "support",
+        "trigger"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemHourglass",
+      "name": "Hourglass",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemFieryDeath",
+      "name": "Fiery Death",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "area",
+        "fire",
+        "grants_active_skill",
+        "spell",
+        "support",
+        "trigger"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemDeadlyHeralds",
+      "name": "Deadly Herald",
+      "req": {
+        "str": 0,
+        "dex": 100,
+        "int": 0
+      },
+      "tags": [
+        "herald",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemManaFlare",
+      "name": "Mana Flare",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "area",
+        "fire",
+        "grants_active_skill",
+        "spell",
+        "support",
+        "trigger"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemLockdown",
+      "name": "Lockdown",
+      "req": {
+        "str": 0,
+        "dex": 100,
+        "int": 0
+      },
+      "tags": [
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemOverpower",
+      "name": "Stun I",
+      "req": {
+        "str": 100,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemOverpowerTwo",
+      "name": "Stun II",
+      "req": {
+        "str": 100,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemOverpowerThree",
+      "name": "Stun III",
+      "req": {
+        "str": 100,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemMobility",
+      "name": "Mobility",
+      "req": {
+        "str": 0,
+        "dex": 100,
+        "int": 0
+      },
+      "tags": [
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemPin",
+      "name": "Pin I",
+      "req": {
+        "str": 0,
+        "dex": 100,
+        "int": 0
+      },
+      "tags": [
+        "physical",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemPinTwo",
+      "name": "Pin II",
+      "req": {
+        "str": 0,
+        "dex": 100,
+        "int": 0
+      },
+      "tags": [
+        "physical",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemPinThree",
+      "name": "Pin III",
+      "req": {
+        "str": 0,
+        "dex": 100,
+        "int": 0
+      },
+      "tags": [
+        "physical",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemAmbush",
+      "name": "Ambush",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemBounty",
+      "name": "Bounty I",
+      "req": {
+        "str": 0,
+        "dex": 100,
+        "int": 0
+      },
+      "tags": [
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemBountyTwo",
+      "name": "Bounty II",
+      "req": {
+        "str": 0,
+        "dex": 100,
+        "int": 0
+      },
+      "tags": [
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemManaBounty",
+      "name": "Mana Bounty",
+      "req": {
+        "str": 0,
+        "dex": 100,
+        "int": 0
+      },
+      "tags": [
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemLifeBounty",
+      "name": "Life Bounty",
+      "req": {
+        "str": 0,
+        "dex": 100,
+        "int": 0
+      },
+      "tags": [
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemMinionInstability",
+      "name": "Minion Instability",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "fire",
+        "minion",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemHeightenedCurse",
+      "name": "Heightened Curse",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "curse",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemCorpseConservation",
+      "name": "Corpse Conservation",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemDecayingHex",
+      "name": "Decaying Hex",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "chaos",
+        "curse",
+        "duration",
+        "grants_active_skill",
+        "spell",
+        "support",
+        "trigger"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemFocusedCurse",
+      "name": "Focused Curse",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "curse",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemRitualisticCurse",
+      "name": "Ritualistic Curse",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "area",
+        "curse",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemMinionPact",
+      "name": "Minion Pact I",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "minion",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemMinionPactTwo",
+      "name": "Minion Pact II",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "minion",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemLastGasp",
+      "name": "Last Gasp",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "duration",
+        "minion",
+        "persistent",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemTecrodsRevenge",
+      "name": "Tecrod's Revenge",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "duration",
+        "lineage",
+        "minion",
+        "persistent",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemLifeDrain",
+      "name": "Life Drain",
+      "req": {
+        "str": 0,
+        "dex": 100,
+        "int": 0
+      },
+      "tags": [
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemSoulDrain",
+      "name": "Soul Drain",
+      "req": {
+        "str": 0,
+        "dex": 100,
+        "int": 0
+      },
+      "tags": [
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemInnervate",
+      "name": "Innervate",
+      "req": {
+        "str": 0,
+        "dex": 100,
+        "int": 0
+      },
+      "tags": [
+        "duration",
+        "lightning",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemComorbidity",
+      "name": "Escalating Poison",
+      "req": {
+        "str": 0,
+        "dex": 100,
+        "int": 0
+      },
+      "tags": [
+        "chaos",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemProfusion",
+      "name": "Charge Profusion I",
+      "req": {
+        "str": 0,
+        "dex": 100,
+        "int": 0
+      },
+      "tags": [
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemProfusionTwo",
+      "name": "Charge Profusion II",
+      "req": {
+        "str": 0,
+        "dex": 100,
+        "int": 0
+      },
+      "tags": [
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemMurderousIntent",
+      "name": "Murderous Intent",
+      "req": {
+        "str": 0,
+        "dex": 100,
+        "int": 0
+      },
+      "tags": [
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemRagingCry",
+      "name": "Raging Cry",
+      "req": {
+        "str": 100,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "support",
+        "warcry"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemDemolisher",
+      "name": "Armour Demolisher I",
+      "req": {
+        "str": 100,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemDemolisherTwo",
+      "name": "Armour Demolisher II",
+      "req": {
+        "str": 100,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemUruksSmelting",
+      "name": "Uruk's Smelting",
+      "req": {
+        "str": 100,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "lineage",
+        "physical",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemRageforged",
+      "name": "Rageforged I",
+      "req": {
+        "str": 100,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemRageforgedTwo",
+      "name": "Rageforged II",
+      "req": {
+        "str": 100,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemArmourExplosion",
+      "name": "Armour Explosion",
+      "req": {
+        "str": 100,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "area",
+        "attack",
+        "fire",
+        "grants_active_skill",
+        "payoff",
+        "support",
+        "trigger",
+        "warcry"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemStompingGround",
+      "name": "Stomping Ground",
+      "req": {
+        "str": 100,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "area",
+        "attack",
+        "grants_active_skill",
+        "support",
+        "trigger"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemCrescendo",
+      "name": "Crescendo I",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "attack",
+        "melee",
+        "strike",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemCrescendoTwo",
+      "name": "Crescendo II",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "attack",
+        "melee",
+        "strike",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemCrescendoThree",
+      "name": "Crescendo III",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "attack",
+        "melee",
+        "strike",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemFireExposure",
+      "name": "Fire Exposure",
+      "req": {
+        "str": 100,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "duration",
+        "fire",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemLightningExposure",
+      "name": "Lightning Exposure",
+      "req": {
+        "str": 0,
+        "dex": 100,
+        "int": 0
+      },
+      "tags": [
+        "duration",
+        "lightning",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemColdExposure",
+      "name": "Cold Exposure",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "cold",
+        "duration",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemDeadlyPoison",
+      "name": "Deadly Poison I",
+      "req": {
+        "str": 0,
+        "dex": 100,
+        "int": 0
+      },
+      "tags": [
+        "chaos",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemDeadlyPoisonTwo",
+      "name": "Deadly Poison II",
+      "req": {
+        "str": 0,
+        "dex": 100,
+        "int": 0
+      },
+      "tags": [
+        "chaos",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemDeepCuts",
+      "name": "Deep Cuts I",
+      "req": {
+        "str": 100,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "physical",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemDeepCutsTwo",
+      "name": "Deep Cuts II",
+      "req": {
+        "str": 100,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "physical",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemCorruptingCry",
+      "name": "Corrupting Cry I",
+      "req": {
+        "str": 100,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "duration",
+        "grants_active_skill",
+        "physical",
+        "support",
+        "trigger",
+        "warcry"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemCorruptingCryTwo",
+      "name": "Corrupting Cry II",
+      "req": {
+        "str": 100,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "duration",
+        "grants_active_skill",
+        "physical",
+        "support",
+        "trigger",
+        "warcry"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemCorruptingCryThree",
+      "name": "Paquate's Pact",
+      "req": {
+        "str": 100,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "duration",
+        "grants_active_skill",
+        "lineage",
+        "physical",
+        "support",
+        "trigger",
+        "warcry"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemWindowOfOpportunity",
+      "name": "Window of Opportunity I",
+      "req": {
+        "str": 0,
+        "dex": 100,
+        "int": 0
+      },
+      "tags": [
+        "channelling",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemWindowOfOpportunityTwo",
+      "name": "Window of Opportunity II",
+      "req": {
+        "str": 0,
+        "dex": 100,
+        "int": 0
+      },
+      "tags": [
+        "channelling",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemFireMastery",
+      "name": "Fire Mastery",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "fire",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemColdMastery",
+      "name": "Cold Mastery",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "cold",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemLightningMastery",
+      "name": "Lightning Mastery",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "lightning",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemChaosMastery",
+      "name": "Chaos Mastery",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "chaos",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemPhysicalMastery",
+      "name": "Physical Mastery",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "physical",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemMinionMastery",
+      "name": "Minion Mastery",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "minion",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemSwiftAffliction",
+      "name": "Swift Affliction I",
+      "req": {
+        "str": 0,
+        "dex": 100,
+        "int": 0
+      },
+      "tags": [
+        "duration",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemSwiftAfflictionTwo",
+      "name": "Swift Affliction II",
+      "req": {
+        "str": 0,
+        "dex": 100,
+        "int": 0
+      },
+      "tags": [
+        "duration",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemSwiftAfflictionThree",
+      "name": "Swift Affliction III",
+      "req": {
+        "str": 0,
+        "dex": 100,
+        "int": 0
+      },
+      "tags": [
+        "duration",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemIntenseAgony",
+      "name": "Intense Agony",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "duration",
+        "spell",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemDrainAilments",
+      "name": "Drain Ailments",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "spell",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemChaoticFreeze",
+      "name": "Chaotic Freeze",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "chaos",
+        "spell",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemComboFinisher",
+      "name": "Combo Finisher I",
+      "req": {
+        "str": 0,
+        "dex": 100,
+        "int": 0
+      },
+      "tags": [
+        "attack",
+        "conditional",
+        "melee",
+        "strike",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemComboFinisherTwo",
+      "name": "Combo Finisher II",
+      "req": {
+        "str": 0,
+        "dex": 100,
+        "int": 0
+      },
+      "tags": [
+        "attack",
+        "conditional",
+        "melee",
+        "strike",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemAilithLineage",
+      "name": "Ailith's Chimes",
+      "req": {
+        "str": 0,
+        "dex": 100,
+        "int": 0
+      },
+      "tags": [
+        "lineage",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemEncumbrance",
+      "name": "Slow Potency",
+      "req": {
+        "str": 0,
+        "dex": 100,
+        "int": 0
+      },
+      "tags": [
+        "spell",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemPrecision",
+      "name": "Precision I",
+      "req": {
+        "str": 0,
+        "dex": 100,
+        "int": 0
+      },
+      "tags": [
+        "buff",
+        "persistent",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemPrecisionTwo",
+      "name": "Precision II",
+      "req": {
+        "str": 0,
+        "dex": 100,
+        "int": 0
+      },
+      "tags": [
+        "buff",
+        "persistent",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemClarity",
+      "name": "Clarity I",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "buff",
+        "persistent",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemClarityTwo",
+      "name": "Clarity II",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "buff",
+        "persistent",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemVitality",
+      "name": "Vitality I",
+      "req": {
+        "str": 100,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "buff",
+        "persistent",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemVitalityTwo",
+      "name": "Vitality II",
+      "req": {
+        "str": 100,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "buff",
+        "persistent",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemHerbalism",
+      "name": "Herbalism I",
+      "req": {
+        "str": 100,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "buff",
+        "persistent",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemHerbalismTwo",
+      "name": "Herbalism II",
+      "req": {
+        "str": 100,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "buff",
+        "persistent",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemCannibalism",
+      "name": "Cannibalism I",
+      "req": {
+        "str": 100,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "buff",
+        "persistent",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemCannibalismTwo",
+      "name": "Cannibalism II",
+      "req": {
+        "str": 100,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "buff",
+        "persistent",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemRupture",
+      "name": "Rupture",
+      "req": {
+        "str": 100,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "physical",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemCullingStrike",
+      "name": "Culling Strike I",
+      "req": {
+        "str": 0,
+        "dex": 100,
+        "int": 0
+      },
+      "tags": [
+        "attack",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemCullingStrikeTwo",
+      "name": "Culling Strike II",
+      "req": {
+        "str": 0,
+        "dex": 100,
+        "int": 0
+      },
+      "tags": [
+        "attack",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemSpellCascade",
+      "name": "Spell Cascade",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "area",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemSplinter",
+      "name": "Armour Break I",
+      "req": {
+        "str": 100,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "physical",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemSplinterTwo",
+      "name": "Armour Break II",
+      "req": {
+        "str": 100,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "physical",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemSplinterThree",
+      "name": "Armour Break III",
+      "req": {
+        "str": 100,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "physical",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemLongshot",
+      "name": "Longshot I",
+      "req": {
+        "str": 0,
+        "dex": 100,
+        "int": 0
+      },
+      "tags": [
+        "attack",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemLongshotTwo",
+      "name": "Longshot II",
+      "req": {
+        "str": 0,
+        "dex": 100,
+        "int": 0
+      },
+      "tags": [
+        "attack",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemDiscombobulate",
+      "name": "Daze",
+      "req": {
+        "str": 0,
+        "dex": 100,
+        "int": 0
+      },
+      "tags": [
+        "attack",
+        "physical",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemCursedGround",
+      "name": "Cursed Ground",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "curse",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemDoedresUndoing",
+      "name": "Doedre's Undoing",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "area",
+        "chaos",
+        "curse",
+        "grants_active_skill",
+        "lineage",
+        "spell",
+        "support",
+        "trigger"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemHayoxisFulmination",
+      "name": "Hayoxi's Fulmination",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "area",
+        "chaos",
+        "cold",
+        "curse",
+        "fire",
+        "grants_active_skill",
+        "lightning",
+        "lineage",
+        "physical",
+        "spell",
+        "support",
+        "trigger"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemZerphisLegacy",
+      "name": "Zerphi's Infamy",
+      "req": {
+        "str": 100,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "lineage",
+        "support",
+        "warcry"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemHelbrymsHide",
+      "name": "Helbrym's Hide",
+      "req": {
+        "str": 100,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "buff",
+        "lineage",
+        "shapeshift",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemPrimalArmament",
+      "name": "Elemental Armament I",
+      "req": {
+        "str": 100,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "attack",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemPrimalArmamentTwo",
+      "name": "Elemental Armament II",
+      "req": {
+        "str": 100,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "attack",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemPrimalArmamentThree",
+      "name": "Elemental Armament III",
+      "req": {
+        "str": 100,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "attack",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemIngenuity",
+      "name": "Cooldown Recovery I",
+      "req": {
+        "str": 0,
+        "dex": 100,
+        "int": 0
+      },
+      "tags": [
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemIngenuityTwo",
+      "name": "Cooldown Recovery II",
+      "req": {
+        "str": 0,
+        "dex": 100,
+        "int": 0
+      },
+      "tags": [
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemFontofBlood",
+      "name": "Font of Blood",
+      "req": {
+        "str": 100,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "support",
+        "totem"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemFontofMana",
+      "name": "Font of Mana",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "support",
+        "totem"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemAftershock",
+      "name": "Aftershock I",
+      "req": {
+        "str": 100,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "attack",
+        "melee",
+        "slam",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemAftershockTwo",
+      "name": "Aftershock II",
+      "req": {
+        "str": 100,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "attack",
+        "melee",
+        "slam",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemSlamAftershocks",
+      "name": "Tectonic Slams",
+      "req": {
+        "str": 100,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "attack",
+        "melee",
+        "slam",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemHolyDescent",
+      "name": "Holy Descent",
+      "req": {
+        "str": 100,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "area",
+        "duration",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemBurningInscription",
+      "name": "Burning Inscription",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "area",
+        "fire",
+        "grants_active_skill",
+        "support",
+        "trigger"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemDoubleBarrel",
+      "name": "Double Barrel I",
+      "req": {
+        "str": 100,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "ammunition",
+        "projectile",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemDoubleBarrelTwo",
+      "name": "Double Barrel II",
+      "req": {
+        "str": 100,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "ammunition",
+        "projectile",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemDoubleBarrelThree",
+      "name": "Double Barrel III",
+      "req": {
+        "str": 100,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "ammunition",
+        "projectile",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemCombatReload",
+      "name": "Ratha's Assault",
+      "req": {
+        "str": 0,
+        "dex": 100,
+        "int": 0
+      },
+      "tags": [
+        "ammunition",
+        "lineage",
+        "projectile",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemAutoReload",
+      "name": "Auto Reload",
+      "req": {
+        "str": 100,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "ammunition",
+        "projectile",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemAmmoConservation",
+      "name": "Ammo Conservation I",
+      "req": {
+        "str": 0,
+        "dex": 100,
+        "int": 0
+      },
+      "tags": [
+        "ammunition",
+        "projectile",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemAmmoConservationTwo",
+      "name": "Ammo Conservation II",
+      "req": {
+        "str": 0,
+        "dex": 100,
+        "int": 0
+      },
+      "tags": [
+        "ammunition",
+        "projectile",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemAmmoConservationThree",
+      "name": "Ammo Conservation III",
+      "req": {
+        "str": 0,
+        "dex": 100,
+        "int": 0
+      },
+      "tags": [
+        "ammunition",
+        "projectile",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemAmmoConservationFour",
+      "name": "Arjun's Medal",
+      "req": {
+        "str": 0,
+        "dex": 100,
+        "int": 0
+      },
+      "tags": [
+        "ammunition",
+        "lineage",
+        "projectile",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemNimbleReload",
+      "name": "Nimble Reload",
+      "req": {
+        "str": 0,
+        "dex": 100,
+        "int": 0
+      },
+      "tags": [
+        "ammunition",
+        "projectile",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemFreshClip",
+      "name": "Fresh Clip I",
+      "req": {
+        "str": 100,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemFreshClipTwo",
+      "name": "Fresh Clip II",
+      "req": {
+        "str": 100,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemSacrificialLamb",
+      "name": "Sacrificial Lamb I",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "minion",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemSacrificialLambTwo",
+      "name": "Sacrificial Lamb II",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "minion",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemBranchingFissures",
+      "name": "Branching Fissures I",
+      "req": {
+        "str": 100,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemBranchingFissuresTwo",
+      "name": "Branching Fissures II",
+      "req": {
+        "str": 100,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemUpheaval",
+      "name": "Upheaval I",
+      "req": {
+        "str": 100,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemUpheavalTwo",
+      "name": "Upheaval II",
+      "req": {
+        "str": 100,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemKaomsMadness",
+      "name": "Kaom's Madness",
+      "req": {
+        "str": 100,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "attack",
+        "lineage",
+        "melee",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemDespoiler",
+      "name": "Lasting Ground",
+      "req": {
+        "str": 100,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemRicochet",
+      "name": "Ricochet I",
+      "req": {
+        "str": 0,
+        "dex": 100,
+        "int": 0
+      },
+      "tags": [
+        "projectile",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemRicochetTwo",
+      "name": "Ricochet II",
+      "req": {
+        "str": 0,
+        "dex": 100,
+        "int": 0
+      },
+      "tags": [
+        "projectile",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemAncestralUrgency",
+      "name": "Urgent Totems I",
+      "req": {
+        "str": 100,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "support",
+        "totem"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemAncestralUrgencyTwo",
+      "name": "Urgent Totems II",
+      "req": {
+        "str": 100,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "support",
+        "totem"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemAncestralUrgencyThree",
+      "name": "Urgent Totems III",
+      "req": {
+        "str": 100,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "support",
+        "totem"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemLongFuse",
+      "name": "Long Fuse I",
+      "req": {
+        "str": 100,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemLongFuseTwo",
+      "name": "Long Fuse II",
+      "req": {
+        "str": 100,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemPayload",
+      "name": "Payload",
+      "req": {
+        "str": 0,
+        "dex": 100,
+        "int": 0
+      },
+      "tags": [
+        "grenade",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemStripAway",
+      "name": "Potent Exposure",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "spell",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemIronwood",
+      "name": "Reinforced Totems I",
+      "req": {
+        "str": 100,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "support",
+        "totem"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemIronwoodTwo",
+      "name": "Reinforced Totems II",
+      "req": {
+        "str": 100,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "support",
+        "totem"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemConsideredCasting",
+      "name": "Considered Casting",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "spell",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemWildshards",
+      "name": "Wildshards I",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "projectile",
+        "spell",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemWildshardsTwo",
+      "name": "Wildshards II",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "projectile",
+        "spell",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemWildshardsThree",
+      "name": "Sione's Temper",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "lineage",
+        "projectile",
+        "spell",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemIcicle",
+      "name": "Icicle",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemGlacier",
+      "name": "Glacier",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemHeft",
+      "name": "Heft",
+      "req": {
+        "str": 100,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "physical",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemRisingTempest",
+      "name": "Rising Tempest",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemExtraction",
+      "name": "Extraction",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "chaos",
+        "spell",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemAstralProjection",
+      "name": "Astral Projection",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemPracticedCombo",
+      "name": "Practiced Combo",
+      "req": {
+        "str": 0,
+        "dex": 100,
+        "int": 0
+      },
+      "tags": [
+        "attack",
+        "melee",
+        "strike",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemCulmination",
+      "name": "Culmination I",
+      "req": {
+        "str": 0,
+        "dex": 100,
+        "int": 0
+      },
+      "tags": [
+        "attack",
+        "conditional",
+        "melee",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemCulminationTwo",
+      "name": "Culmination II",
+      "req": {
+        "str": 0,
+        "dex": 100,
+        "int": 0
+      },
+      "tags": [
+        "attack",
+        "conditional",
+        "melee",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemExpanse",
+      "name": "Expanse",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "area",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemExcise",
+      "name": "Excise",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemExecrate",
+      "name": "Execrate",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemEnergyRetention",
+      "name": "Energy Retention",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "support",
+        "trigger"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemFerocity",
+      "name": "Ferocity",
+      "req": {
+        "str": 0,
+        "dex": 100,
+        "int": 0
+      },
+      "tags": [
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemAblation",
+      "name": "Sacrificial Offering",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemGuatelitzi",
+      "name": "Guatelitzi's Ablation",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "lineage",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemDanseMacabre",
+      "name": "Danse Macabre",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemCapacitor",
+      "name": "Energy Capacitor",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemImpetus",
+      "name": "Boundless Energy I",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemImpetusTwo",
+      "name": "Boundless Energy II",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemDissipate",
+      "name": "Harmonic Remnants I",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "remnant",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemDissipateTwo",
+      "name": "Harmonic Remnants II",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "remnant",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemFluke",
+      "name": "Fluke",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "support",
+        "trigger"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemFlukeTwo",
+      "name": "Ixchel's Torment",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "lineage",
+        "support",
+        "trigger"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemZenith",
+      "name": "Zenith I",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "spell",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemZenithTwo",
+      "name": "Zenith II",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "spell",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemBidding",
+      "name": "Bidding I",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "command",
+        "minion",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemBiddingTwo",
+      "name": "Bidding II",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "command",
+        "minion",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemBiddingThree",
+      "name": "Bidding III",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "command",
+        "minion",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemCommandment",
+      "name": "Commandment",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "command",
+        "minion",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemAdhere",
+      "name": "Adhesive Grenades I",
+      "req": {
+        "str": 0,
+        "dex": 100,
+        "int": 0
+      },
+      "tags": [
+        "grenade",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemAdhereTwo",
+      "name": "Adhesive Grenades II",
+      "req": {
+        "str": 0,
+        "dex": 100,
+        "int": 0
+      },
+      "tags": [
+        "grenade",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemRetaliate",
+      "name": "Retaliate I",
+      "req": {
+        "str": 100,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "attack",
+        "melee",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemRetaliateTwo",
+      "name": "Retaliate II",
+      "req": {
+        "str": 100,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "attack",
+        "melee",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemSalvo",
+      "name": "Salvo",
+      "req": {
+        "str": 0,
+        "dex": 100,
+        "int": 0
+      },
+      "tags": [
+        "attack",
+        "projectile",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemCadence",
+      "name": "Cadence",
+      "req": {
+        "str": 0,
+        "dex": 100,
+        "int": 0
+      },
+      "tags": [
+        "attack",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemVolt",
+      "name": "Volt",
+      "req": {
+        "str": 0,
+        "dex": 100,
+        "int": 0
+      },
+      "tags": [
+        "attack",
+        "lightning",
+        "projectile",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemBoneShrapnel",
+      "name": "Bone Shrapnel",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "area",
+        "grants_active_skill",
+        "physical",
+        "support",
+        "trigger"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemAlignment",
+      "name": "Alignment I",
+      "req": {
+        "str": 0,
+        "dex": 100,
+        "int": 0
+      },
+      "tags": [
+        "attack",
+        "projectile",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemAlignmentTwo",
+      "name": "Alignment II",
+      "req": {
+        "str": 0,
+        "dex": 100,
+        "int": 0
+      },
+      "tags": [
+        "attack",
+        "projectile",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemAlignmentThree",
+      "name": "Alignment III",
+      "req": {
+        "str": 0,
+        "dex": 100,
+        "int": 0
+      },
+      "tags": [
+        "attack",
+        "projectile",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemDerange",
+      "name": "Derange",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemChargedShots",
+      "name": "Charged Shots I",
+      "req": {
+        "str": 0,
+        "dex": 100,
+        "int": 0
+      },
+      "tags": [
+        "attack",
+        "projectile",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemChargedShotsTwo",
+      "name": "Charged Shots II",
+      "req": {
+        "str": 0,
+        "dex": 100,
+        "int": 0
+      },
+      "tags": [
+        "attack",
+        "projectile",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemProfanity",
+      "name": "Profanity I",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "chaos",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemProfanityTwo",
+      "name": "Profanity II",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "chaos",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemBurgeon",
+      "name": "Burgeon I",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "channelling",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemBurgeonTwo",
+      "name": "Burgeon II",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "channelling",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemSteadfast",
+      "name": "Steadfast I",
+      "req": {
+        "str": 100,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "channelling",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemSteadfastTwo",
+      "name": "Steadfast II",
+      "req": {
+        "str": 100,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "channelling",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemFlamepierce",
+      "name": "Flamepierce",
+      "req": {
+        "str": 100,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "fire",
+        "projectile",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemFreezefork",
+      "name": "Freezefork",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "cold",
+        "projectile",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemStormchain",
+      "name": "Stormchain",
+      "req": {
+        "str": 0,
+        "dex": 100,
+        "int": 0
+      },
+      "tags": [
+        "chaining",
+        "lightning",
+        "projectile",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemVerglas",
+      "name": "Verglas",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "cold",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemEmbitter",
+      "name": "Embitter",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "cold",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemBattershout",
+      "name": "Battershout",
+      "req": {
+        "str": 100,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "area",
+        "grants_active_skill",
+        "payoff",
+        "physical",
+        "support",
+        "trigger",
+        "warcry"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemAbidingHex",
+      "name": "Abiding Hex",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "curse",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemRustedSpikes",
+      "name": "Rusted Spikes",
+      "req": {
+        "str": 100,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemCrazedMinions",
+      "name": "Crazed Minions",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "minion",
+        "persistent",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemSpectralVolley",
+      "name": "Spectral Volley",
+      "req": {
+        "str": 0,
+        "dex": 100,
+        "int": 0
+      },
+      "tags": [
+        "attack",
+        "projectile",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemDeathmarch",
+      "name": "Deathmarch",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "minion",
+        "persistent",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemAcrimony",
+      "name": "Acrimony",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemConcoct",
+      "name": "Concoct I",
+      "req": {
+        "str": 100,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemConcoctTwo",
+      "name": "Concoct II",
+      "req": {
+        "str": 100,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemAmbrosia",
+      "name": "Ambrosia",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemAmbrosiaTwo",
+      "name": "Ambrosia II",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemDomain",
+      "name": "Persistent Ground I",
+      "req": {
+        "str": 100,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemDomainTwo",
+      "name": "Persistent Ground II",
+      "req": {
+        "str": 100,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemDomainThree",
+      "name": "Persistent Ground III",
+      "req": {
+        "str": 100,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemFigurehead",
+      "name": "Selfless Remnants",
+      "req": {
+        "str": 100,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "remnant",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemInterlude",
+      "name": "Remnant Potency I",
+      "req": {
+        "str": 100,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "remnant",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemInterludeTwo",
+      "name": "Remnant Potency II",
+      "req": {
+        "str": 100,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "remnant",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemInterludeThree",
+      "name": "Remnant Potency III",
+      "req": {
+        "str": 100,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "remnant",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemReverberate",
+      "name": "Reverberate",
+      "req": {
+        "str": 100,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "attack",
+        "melee",
+        "slam",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemClash",
+      "name": "Clash",
+      "req": {
+        "str": 100,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "attack",
+        "melee",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemMalady",
+      "name": "Malady",
+      "req": {
+        "str": 0,
+        "dex": 100,
+        "int": 0
+      },
+      "tags": [
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemSyzygy",
+      "name": "Syzygy",
+      "req": {
+        "str": 100,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "attack",
+        "fire",
+        "melee",
+        "slam",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemOverextend",
+      "name": "Overextend",
+      "req": {
+        "str": 0,
+        "dex": 100,
+        "int": 0
+      },
+      "tags": [
+        "attack",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemRetreat",
+      "name": "Retreat I",
+      "req": {
+        "str": 0,
+        "dex": 100,
+        "int": 0
+      },
+      "tags": [
+        "projectile",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemRetreatTwo",
+      "name": "Retreat II",
+      "req": {
+        "str": 0,
+        "dex": 100,
+        "int": 0
+      },
+      "tags": [
+        "projectile",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemRetreatThree",
+      "name": "Retreat III",
+      "req": {
+        "str": 0,
+        "dex": 100,
+        "int": 0
+      },
+      "tags": [
+        "projectile",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemPursuit",
+      "name": "Pursuit I",
+      "req": {
+        "str": 0,
+        "dex": 100,
+        "int": 0
+      },
+      "tags": [
+        "attack",
+        "melee",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemPursuitTwo",
+      "name": "Pursuit II",
+      "req": {
+        "str": 0,
+        "dex": 100,
+        "int": 0
+      },
+      "tags": [
+        "attack",
+        "melee",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemPursuitThree",
+      "name": "Pursuit III",
+      "req": {
+        "str": 0,
+        "dex": 100,
+        "int": 0
+      },
+      "tags": [
+        "attack",
+        "melee",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemReach",
+      "name": "Overreach",
+      "req": {
+        "str": 0,
+        "dex": 100,
+        "int": 0
+      },
+      "tags": [
+        "area",
+        "attack",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemCommiserate",
+      "name": "Commiserate",
+      "req": {
+        "str": 0,
+        "dex": 100,
+        "int": 0
+      },
+      "tags": [
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemBlindside",
+      "name": "Blindside",
+      "req": {
+        "str": 0,
+        "dex": 100,
+        "int": 0
+      },
+      "tags": [
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemHitAndRun",
+      "name": "Hit and Run",
+      "req": {
+        "str": 0,
+        "dex": 100,
+        "int": 0
+      },
+      "tags": [
+        "attack",
+        "conditional",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemCracklingBarrier",
+      "name": "Crackling Barrier",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "channelling",
+        "lightning",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemDefy",
+      "name": "Defy I",
+      "req": {
+        "str": 100,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "attack",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemDefyTwo",
+      "name": "Defy II",
+      "req": {
+        "str": 100,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "attack",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemVolatility",
+      "name": "Volatility",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "chaos",
+        "physical",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemMuster",
+      "name": "Muster",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "minion",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemEnormity",
+      "name": "Hulking Minions",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "minion",
+        "persistent",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemCaltrops",
+      "name": "Caltrops",
+      "req": {
+        "str": 0,
+        "dex": 100,
+        "int": 0
+      },
+      "tags": [
+        "area",
+        "attack",
+        "duration",
+        "grants_active_skill",
+        "hazard",
+        "projectile",
+        "support",
+        "trigger"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemHaemocrystals",
+      "name": "Haemocrystals",
+      "req": {
+        "str": 100,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "area",
+        "attack",
+        "grants_active_skill",
+        "physical",
+        "support",
+        "trigger"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemSpar",
+      "name": "Spar",
+      "req": {
+        "str": 100,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "attack",
+        "melee",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemDauntless",
+      "name": "Dauntless",
+      "req": {
+        "str": 100,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "conditional",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemMagnetism",
+      "name": "Magnetic Remnants",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemAncestralCall",
+      "name": "Ancestral Call I",
+      "req": {
+        "str": 100,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "attack",
+        "melee",
+        "strike",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemAncestralCallTwo",
+      "name": "Ancestral Call II",
+      "req": {
+        "str": 100,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "attack",
+        "melee",
+        "strike",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemQuillBurst",
+      "name": "Quill Burst",
+      "req": {
+        "str": 100,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "area",
+        "attack",
+        "grants_active_skill",
+        "melee",
+        "physical",
+        "support",
+        "trigger"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemAncestralAid",
+      "name": "Ancestral Aid",
+      "req": {
+        "str": 100,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "attack",
+        "conditional",
+        "melee",
+        "strike",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemShockingLeap",
+      "name": "Shocking Leap",
+      "req": {
+        "str": 0,
+        "dex": 100,
+        "int": 0
+      },
+      "tags": [
+        "area",
+        "duration",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemBarbs",
+      "name": "Barbs I",
+      "req": {
+        "str": 100,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "attack",
+        "melee",
+        "strike",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemBarbsTwo",
+      "name": "Barbs II",
+      "req": {
+        "str": 100,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "attack",
+        "melee",
+        "strike",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemBarbsThree",
+      "name": "Barbs III",
+      "req": {
+        "str": 100,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "attack",
+        "melee",
+        "strike",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemArmsLength",
+      "name": "Arms Length",
+      "req": {
+        "str": 100,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemCharmBounty",
+      "name": "Charm Bounty",
+      "req": {
+        "str": 0,
+        "dex": 100,
+        "int": 0
+      },
+      "tags": [
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemThornskin",
+      "name": "Thornskin I",
+      "req": {
+        "str": 100,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "buff",
+        "persistent",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemThornskinTwo",
+      "name": "Thornskin II",
+      "req": {
+        "str": 100,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "buff",
+        "persistent",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemMysticism",
+      "name": "Mysticism I",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "buff",
+        "persistent",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemMysticismTwo",
+      "name": "Mysticism II",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "buff",
+        "persistent",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemDireStrike",
+      "name": "Direstrike I",
+      "req": {
+        "str": 100,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "buff",
+        "persistent",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemDireStrikeTwo",
+      "name": "Direstrike II",
+      "req": {
+        "str": 100,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "buff",
+        "persistent",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemUpwelling",
+      "name": "Upwelling I",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "buff",
+        "persistent",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemUpwellingTwo",
+      "name": "Upwelling II",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "buff",
+        "persistent",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemWarmBlooded",
+      "name": "Warm Blooded",
+      "req": {
+        "str": 0,
+        "dex": 100,
+        "int": 0
+      },
+      "tags": [
+        "buff",
+        "persistent",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemCoolHeaded",
+      "name": "Cool Headed",
+      "req": {
+        "str": 100,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "buff",
+        "persistent",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemStrongHearted",
+      "name": "Strong Hearted",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "buff",
+        "persistent",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemUntouchable",
+      "name": "Untouchable",
+      "req": {
+        "str": 0,
+        "dex": 100,
+        "int": 0
+      },
+      "tags": [
+        "attack",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemRefraction",
+      "name": "Refraction I",
+      "req": {
+        "str": 100,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "buff",
+        "persistent",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemRefractionTwo",
+      "name": "Refraction II",
+      "req": {
+        "str": 100,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "buff",
+        "persistent",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemRefractionThree",
+      "name": "Refraction III",
+      "req": {
+        "str": 100,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "buff",
+        "persistent",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemGreatwood",
+      "name": "Cirel's Cultivation",
+      "req": {
+        "str": 100,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "lineage",
+        "support",
+        "totem"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemSplinteringTotem",
+      "name": "Splinter Totem I",
+      "req": {
+        "str": 100,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "support",
+        "totem"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemSplinteringTotemTwo",
+      "name": "Splinter Totem II",
+      "req": {
+        "str": 100,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "support",
+        "totem"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemPunchThrough",
+      "name": "Punch Through",
+      "req": {
+        "str": 0,
+        "dex": 100,
+        "int": 0
+      },
+      "tags": [
+        "attack",
+        "melee",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemRip",
+      "name": "Rip",
+      "req": {
+        "str": 100,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "attack",
+        "duration",
+        "melee",
+        "physical",
+        "remnant",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemTear",
+      "name": "Tear",
+      "req": {
+        "str": 100,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "attack",
+        "melee",
+        "physical",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemBrink",
+      "name": "Brink I",
+      "req": {
+        "str": 100,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "attack",
+        "melee",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemBrinkTwo",
+      "name": "Brink II",
+      "req": {
+        "str": 100,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "attack",
+        "melee",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemTireless",
+      "name": "Tireless",
+      "req": {
+        "str": 100,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "support",
+        "warcry"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemVolcanicEruption",
+      "name": "Volcanic Eruption",
+      "req": {
+        "str": 100,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "area",
+        "attack",
+        "fire",
+        "grants_active_skill",
+        "melee",
+        "projectile",
+        "strike",
+        "support",
+        "trigger"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemRetort",
+      "name": "Frenzied Riposte",
+      "req": {
+        "str": 0,
+        "dex": 100,
+        "int": 0
+      },
+      "tags": [
+        "attack",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemTwofold",
+      "name": "Heightened Charges",
+      "req": {
+        "str": 0,
+        "dex": 100,
+        "int": 0
+      },
+      "tags": [
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemIncision",
+      "name": "Incision",
+      "req": {
+        "str": 100,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "attack",
+        "physical",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemCatharsis",
+      "name": "Catharsis",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "chaos",
+        "conditional",
+        "physical",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemDelayedGratification",
+      "name": "Delayed Gratification",
+      "req": {
+        "str": 0,
+        "dex": 100,
+        "int": 0
+      },
+      "tags": [
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemLoyalty",
+      "name": "Loyalty",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "minion",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemRomirasRequital",
+      "name": "Romira's Requital",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "lineage",
+        "minion",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemRearm",
+      "name": "Rearm I",
+      "req": {
+        "str": 0,
+        "dex": 100,
+        "int": 0
+      },
+      "tags": [
+        "hazard",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemRearmTwo",
+      "name": "Rearm II",
+      "req": {
+        "str": 0,
+        "dex": 100,
+        "int": 0
+      },
+      "tags": [
+        "hazard",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemDelayedReaction",
+      "name": "Delayed Reaction",
+      "req": {
+        "str": 0,
+        "dex": 100,
+        "int": 0
+      },
+      "tags": [
+        "hazard",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemGambleshot",
+      "name": "Gambleshot",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "projectile",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemUnerringPower",
+      "name": "Unerring Power",
+      "req": {
+        "str": 0,
+        "dex": 100,
+        "int": 0
+      },
+      "tags": [
+        "attack",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemImpale",
+      "name": "Impale",
+      "req": {
+        "str": 0,
+        "dex": 100,
+        "int": 0
+      },
+      "tags": [
+        "attack",
+        "physical",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemPerfection",
+      "name": "Perfection",
+      "req": {
+        "str": 0,
+        "dex": 100,
+        "int": 0
+      },
+      "tags": [
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemDeliberation",
+      "name": "Deliberation",
+      "req": {
+        "str": 0,
+        "dex": 100,
+        "int": 0
+      },
+      "tags": [
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemExpedite",
+      "name": "Short Fuse I",
+      "req": {
+        "str": 100,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemExpediteTwo",
+      "name": "Short Fuse II",
+      "req": {
+        "str": 100,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemUndermine",
+      "name": "Undermine",
+      "req": {
+        "str": 100,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "physical",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemSingleOut",
+      "name": "Mark for Death",
+      "req": {
+        "str": 100,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "mark",
+        "physical",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemSingleOutTwo",
+      "name": "Mark for Death II",
+      "req": {
+        "str": 100,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "mark",
+        "physical",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemAdmixture",
+      "name": "Admixture",
+      "req": {
+        "str": 0,
+        "dex": 100,
+        "int": 0
+      },
+      "tags": [
+        "chaos",
+        "physical",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemStoicism",
+      "name": "Stoicism I",
+      "req": {
+        "str": 100,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemStoicismTwo",
+      "name": "Stoicism II",
+      "req": {
+        "str": 100,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemGrudge",
+      "name": "Relentless Rage",
+      "req": {
+        "str": 100,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemBrambleslam",
+      "name": "Brambleslam",
+      "req": {
+        "str": 100,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "area",
+        "attack",
+        "grants_active_skill",
+        "hazard",
+        "melee",
+        "physical",
+        "plant",
+        "slam",
+        "support",
+        "trigger"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemInhibitor",
+      "name": "Inhibitor",
+      "req": {
+        "str": 0,
+        "dex": 100,
+        "int": 0
+      },
+      "tags": [
+        "spell",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemStaticShocks",
+      "name": "Static Shocks",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "area",
+        "duration",
+        "grants_active_skill",
+        "lightning",
+        "spell",
+        "support",
+        "sustained",
+        "trigger"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemHardyTotems",
+      "name": "Hardy Totems I",
+      "req": {
+        "str": 100,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "support",
+        "totem"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemHardyTotemsTwo",
+      "name": "Hardy Totems II",
+      "req": {
+        "str": 100,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "support",
+        "totem"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemHardyTotemsThree",
+      "name": "Tawhoa's Tending",
+      "req": {
+        "str": 100,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "area",
+        "grants_active_skill",
+        "lineage",
+        "physical",
+        "support",
+        "totem",
+        "trigger"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemSuffuse",
+      "name": "Encroaching Ground",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "area",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemLivingLightning",
+      "name": "Living Lightning",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "duration",
+        "grants_active_skill",
+        "lightning",
+        "minion",
+        "support",
+        "trigger"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemLivingLightningTwo",
+      "name": "Living Lightning II",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "duration",
+        "grants_active_skill",
+        "lightning",
+        "minion",
+        "support",
+        "trigger"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemFrozenSpite",
+      "name": "Frozen Spite",
+      "req": {
+        "str": 0,
+        "dex": 100,
+        "int": 0
+      },
+      "tags": [
+        "area",
+        "cold",
+        "grants_active_skill",
+        "projectile",
+        "support",
+        "trigger"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemShockingRift",
+      "name": "Electromagnetism",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "area",
+        "grants_active_skill",
+        "lightning",
+        "payoff",
+        "spell",
+        "support",
+        "sustained",
+        "trigger"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemPietysMercy",
+      "name": "Dominus' Grasp",
+      "req": {
+        "str": 0,
+        "dex": 100,
+        "int": 0
+      },
+      "tags": [
+        "chaining",
+        "lineage",
+        "projectile",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemFlamePillar",
+      "name": "Flame Pillar",
+      "req": {
+        "str": 100,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "area",
+        "fire",
+        "grants_active_skill",
+        "support",
+        "trigger"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemStreamlinedRounds",
+      "name": "Streamlined Rounds",
+      "req": {
+        "str": 0,
+        "dex": 100,
+        "int": 0
+      },
+      "tags": [
+        "ammunition",
+        "projectile",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemPerfectedEndurance",
+      "name": "Perfected Endurance",
+      "req": {
+        "str": 0,
+        "dex": 100,
+        "int": 0
+      },
+      "tags": [
+        "channelling",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemEnduringImpact",
+      "name": "Enduring Impact I",
+      "req": {
+        "str": 100,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemEnduringImpactTwo",
+      "name": "Enduring Impact II",
+      "req": {
+        "str": 100,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemCrater",
+      "name": "Crater",
+      "req": {
+        "str": 100,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "area",
+        "attack",
+        "duration",
+        "fire",
+        "grants_active_skill",
+        "melee",
+        "support",
+        "trigger"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemVanguard",
+      "name": "Vanguard I",
+      "req": {
+        "str": 100,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemVanguardTwo",
+      "name": "Vanguard II",
+      "req": {
+        "str": 100,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemCrystallineShards",
+      "name": "Crystalline Shards",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemSkitteringStone",
+      "name": "Skittering Stone I",
+      "req": {
+        "str": 100,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "duration",
+        "grants_active_skill",
+        "minion",
+        "physical",
+        "support",
+        "trigger"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemSkitteringStoneTwo",
+      "name": "Skittering Stone II",
+      "req": {
+        "str": 100,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "duration",
+        "grants_active_skill",
+        "minion",
+        "physical",
+        "support",
+        "trigger"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemDiallasDesire",
+      "name": "Dialla's Desire",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "lineage",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemKalisasCrescendo",
+      "name": "Kalisa's Crescendo",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "lineage",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemDurability",
+      "name": "Durability",
+      "req": {
+        "str": 0,
+        "dex": 100,
+        "int": 0
+      },
+      "tags": [
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemXophsPyre",
+      "name": "Xoph's Pyre",
+      "req": {
+        "str": 100,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "chaos",
+        "fire",
+        "lineage",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemEshsRadiance",
+      "name": "Esh's Radiance",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "chaos",
+        "lightning",
+        "lineage",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemTulsStillness",
+      "name": "Tul's Stillness",
+      "req": {
+        "str": 0,
+        "dex": 100,
+        "int": 0
+      },
+      "tags": [
+        "chaos",
+        "cold",
+        "lineage",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemUulNetolsEmbrace",
+      "name": "Uul-Netol's Embrace",
+      "req": {
+        "str": 100,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "chaos",
+        "lineage",
+        "physical",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemRakiatasFlow",
+      "name": "Rakiata's Flow",
+      "req": {
+        "str": 0,
+        "dex": 100,
+        "int": 0
+      },
+      "tags": [
+        "lineage",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemRigwaldsFerocity",
+      "name": "Rigwald's Ferocity",
+      "req": {
+        "str": 0,
+        "dex": 100,
+        "int": 0
+      },
+      "tags": [
+        "attack",
+        "lineage",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemUhtredsExodus",
+      "name": "Uhtred's Exodus",
+      "req": {
+        "str": 100,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "lineage",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemUhtredsOmen",
+      "name": "Uhtred's Omen",
+      "req": {
+        "str": 100,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "lineage",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemUhtredsAugury",
+      "name": "Uhtred's Augury",
+      "req": {
+        "str": 100,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "lineage",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemDaressosPassion",
+      "name": "Daresso's Passion",
+      "req": {
+        "str": 100,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "banner",
+        "lineage",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemAtzirisAllure",
+      "name": "Atziri's Allure",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "curse",
+        "lineage",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemAtzirisImpatience",
+      "name": "Atziri's Impatience",
+      "req": {
+        "str": 0,
+        "dex": 100,
+        "int": 0
+      },
+      "tags": [
+        "lineage",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemTacatisIre",
+      "name": "Tacati's Ire",
+      "req": {
+        "str": 0,
+        "dex": 100,
+        "int": 0
+      },
+      "tags": [
+        "chaos",
+        "lineage",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemZarokhsRefrain",
+      "name": "Zarokh's Refrain",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "area",
+        "lineage",
+        "spell",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemGarukhansResolve",
+      "name": "Garukhan's Resolve",
+      "req": {
+        "str": 0,
+        "dex": 100,
+        "int": 0
+      },
+      "tags": [
+        "attack",
+        "conditional",
+        "lineage",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemKurgalsLeash",
+      "name": "Kurgal's Leash",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "chaos",
+        "lineage",
+        "minion",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemKulemaksDominion",
+      "name": "Kulemak's Dominion",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "lineage",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemAmanamusTithe",
+      "name": "Amanamu's Tithe",
+      "req": {
+        "str": 100,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "lineage",
+        "minion",
+        "persistent",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemVarashtasBlessing",
+      "name": "Varashta's Blessing",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "lineage",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemArbitersIgnition",
+      "name": "Arbiter's Ignition",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "fire",
+        "lineage",
+        "spell",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemArakaalisLust",
+      "name": "Arakaali's Lust",
+      "req": {
+        "str": 0,
+        "dex": 100,
+        "int": 0
+      },
+      "tags": [
+        "lineage",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemTasaliosRhythm",
+      "name": "Tasalio's Rhythm",
+      "req": {
+        "str": 0,
+        "dex": 100,
+        "int": 0
+      },
+      "tags": [
+        "lineage",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemXibaquasRending",
+      "name": "Xibaqua's Rending",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "area",
+        "fire",
+        "grants_active_skill",
+        "lineage",
+        "support",
+        "trigger"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemKhatalsRejuvenation",
+      "name": "Khatal's Rejuvenation",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "lineage",
+        "remnant",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemMorganasTempest",
+      "name": "Morgana's Tempest",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "lineage",
+        "storm",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemCreepingChill",
+      "name": "Creeping Chill",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "area",
+        "cold",
+        "grants_active_skill",
+        "support",
+        "trigger"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemMarkOfSiphoning",
+      "name": "Mark of Siphoning",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "mark",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemMarkOfSiphoningTwo",
+      "name": "Mark of Siphoning II",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "mark",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemThrillOfTheKill",
+      "name": "Thrill of the Kill",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "attack",
+        "duration",
+        "lightning",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemThrillOfTheKillTwo",
+      "name": "Thrill of the Kill II",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "attack",
+        "duration",
+        "lightning",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemExposingCry",
+      "name": "Exposing Cry",
+      "req": {
+        "str": 100,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "duration",
+        "support",
+        "warcry"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemOpeningMove",
+      "name": "Opening Move",
+      "req": {
+        "str": 100,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemExplosiveGrowth",
+      "name": "Accelerated Growth",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "area",
+        "grants_active_skill",
+        "plant",
+        "spell",
+        "support",
+        "trigger"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemExplosiveGrowthTwo",
+      "name": "Accelerated Growth II",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "area",
+        "grants_active_skill",
+        "plant",
+        "spell",
+        "support",
+        "trigger"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemFanTheFlames",
+      "name": "Fan The Flames",
+      "req": {
+        "str": 100,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "area",
+        "attack",
+        "fire",
+        "grants_active_skill",
+        "support",
+        "trigger"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemFanTheFlamesTwo",
+      "name": "Fan The Flames II",
+      "req": {
+        "str": 100,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "area",
+        "attack",
+        "fire",
+        "grants_active_skill",
+        "support",
+        "trigger"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemDeadlyCurrent",
+      "name": "Coursing Current",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "chaining",
+        "grants_active_skill",
+        "lightning",
+        "projectile",
+        "spell",
+        "support",
+        "trigger"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemPoisonSpores",
+      "name": "Poison Spores",
+      "req": {
+        "str": 0,
+        "dex": 100,
+        "int": 0
+      },
+      "tags": [
+        "area",
+        "attack",
+        "buff",
+        "chaos",
+        "duration",
+        "grants_active_skill",
+        "physical",
+        "plant",
+        "support",
+        "trigger"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemDeadlyResolve",
+      "name": "Deadly Resolve",
+      "req": {
+        "str": 100,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "area",
+        "attack",
+        "channelling",
+        "grants_active_skill",
+        "physical",
+        "stages",
+        "support",
+        "trigger"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemAdvancingStorm",
+      "name": "Advancing Storm",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "storm",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemEchoingCry",
+      "name": "Echoing Cry",
+      "req": {
+        "str": 100,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "area",
+        "conditional",
+        "support",
+        "warcry"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemGorge",
+      "name": "Gorge",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemEmpoweredSparks",
+      "name": "Empowered Sparks I",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "duration",
+        "grants_active_skill",
+        "lightning",
+        "projectile",
+        "support",
+        "trigger"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemControlledHazard",
+      "name": "Controlled Hazard",
+      "req": {
+        "str": 0,
+        "dex": 100,
+        "int": 0
+      },
+      "tags": [
+        "hazard",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemBrittleArmour",
+      "name": "Brittle Armour",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "cold",
+        "physical",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemRendingApex",
+      "name": "Rending Apex",
+      "req": {
+        "str": 100,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "attack",
+        "melee",
+        "strike",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemPracticalMagic",
+      "name": "Practical Magic I",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "duration",
+        "spell",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemPracticalMagicTwo",
+      "name": "Practical Magic II",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "duration",
+        "spell",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemBlazingCritical",
+      "name": "Blazing Critical",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "attack",
+        "duration",
+        "fire",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemConcussiveSpells",
+      "name": "Concussive Spells",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "physical",
+        "spell",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemEternalMark",
+      "name": "Eternal Mark",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "mark",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemCatalysingElements",
+      "name": "Catalysing Elements",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "area",
+        "cold",
+        "fire",
+        "grants_active_skill",
+        "lightning",
+        "spell",
+        "support",
+        "trigger"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemNovaProjectilesTwo",
+      "name": "Nova Projectiles II",
+      "req": {
+        "str": 0,
+        "dex": 100,
+        "int": 0
+      },
+      "tags": [
+        "projectile",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemChargedMark",
+      "name": "Charged Mark",
+      "req": {
+        "str": 0,
+        "dex": 100,
+        "int": 0
+      },
+      "tags": [
+        "area",
+        "duration",
+        "grants_active_skill",
+        "mark",
+        "spell",
+        "support",
+        "trigger"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemMinionMeleeSplash",
+      "name": "Minion Splash I",
+      "req": {
+        "str": 100,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "attack",
+        "melee",
+        "minion",
+        "strike",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemMinionMeleeSplashTwo",
+      "name": "Minion Splash II",
+      "req": {
+        "str": 100,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "attack",
+        "melee",
+        "minion",
+        "strike",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemHerDeclaration",
+      "name": "Her Declaration",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "buff",
+        "lineage",
+        "persistent",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemPrototypeSeventeen",
+      "name": "Prototype Seventeen",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "lineage",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemSeraphsHeart",
+      "name": "Seraph's Heart",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "buff",
+        "lineage",
+        "persistent",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemUhtredsRite",
+      "name": "Uhtred's Rite",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "duration",
+        "lineage",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemTrickstersShard",
+      "name": "Trickster's Shard",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "area",
+        "duration",
+        "grants_active_skill",
+        "lineage",
+        "spell",
+        "support",
+        "trigger"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemArbitersReach",
+      "name": "Arbiter's Reach",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "buff",
+        "duration",
+        "lineage",
+        "persistent",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemTangmazusThurible",
+      "name": "Tangmazu's Thurible",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "lineage",
+        "minion",
+        "persistent",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemEshsProwess",
+      "name": "Esh's Prowess",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "lightning",
+        "lineage",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemBreachlordsRift",
+      "name": "Breachlord's Rift",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "cold",
+        "lightning",
+        "lineage",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemBreachlordsAmalgam",
+      "name": "Breachlord's Amalgam",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "cold",
+        "lightning",
+        "lineage",
+        "projectile",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemVruunsAftermath",
+      "name": "Vruun's Aftermath",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "lineage",
+        "support",
+        "warcry"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemVruunsInevitability",
+      "name": "Vruun's Inevitability",
+      "req": {
+        "str": 100,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "attack",
+        "conditional",
+        "lineage",
+        "melee",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemUhtredsConstellation",
+      "name": "Uhtred's Constellation",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "lineage",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemMedvedsFelling",
+      "name": "Medved's Felling",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "attack",
+        "lineage",
+        "melee",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemVoranasSiege",
+      "name": "Vorana's Siege",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "area",
+        "lineage",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemStyrnsMountain",
+      "name": "Styrn's Mountain",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "lineage",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemStyrnsFerocity",
+      "name": "Styrn's Ferocity",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "lineage",
+        "physical",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemCathasBrilliance",
+      "name": "Catha's Brilliance",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "area",
+        "fire",
+        "lineage",
+        "minion",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemMorrigansInsight",
+      "name": "Morrigan's Insight",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "cold",
+        "duration",
+        "grants_active_skill",
+        "lineage",
+        "payoff",
+        "support",
+        "trigger"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SupportGemTulsAvalanche",
+      "name": "Tul's Avalanche",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "area",
+        "lineage",
+        "spell",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemConcussiveRunes",
+      "name": "Concussive Runes",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "area",
+        "attack",
+        "grants_active_skill",
+        "melee",
+        "slam",
+        "support",
+        "trigger"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemRunicInfusion",
+      "name": "Runic Infusion",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "attack",
+        "physical",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemRuneforgedBlades",
+      "name": "Runeforged Blades",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "attack",
+        "grants_active_skill",
+        "payoff",
+        "projectile",
+        "support",
+        "trigger"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemRunicExtraction",
+      "name": "Runic Extraction",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "remnant",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemScouringFlame",
+      "name": "Scouring Flame",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "fire",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemFistOfKalguur",
+      "name": "Fist Of Kalguur",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "area",
+        "attack",
+        "duration",
+        "grants_active_skill",
+        "melee",
+        "physical",
+        "slam",
+        "support",
+        "trigger"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemHealingRunes",
+      "name": "Healing Runes",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "buff",
+        "persistent",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportGemOlrothsHubris",
+      "name": "Olroth's Hubris",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "lineage",
+        "support"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,7249 @@
+{
+  "generated_at": "2026-06-17",
+  "provenance": "community",
+  "kind": "skill-gems",
+  "source": "Path of Building Community (PoE2) — gem data",
+  "source_url": "https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2",
+  "pinned_commit": "a82a33b4fbdb7306ed93159664f7abe2c6819413",
+  "note": "Community-extracted PoE2 data, not an official GGG export. Game data (c) Grinding Gear Games.",
+  "count": 401,
+  "items": [
+    {
+      "id": "Metadata/Items/Gems/SkillGemIceNova",
+      "name": "Ice Nova",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "area",
+        "cold",
+        "duration",
+        "grants_active_skill",
+        "intelligence",
+        "nova",
+        "repeatable",
+        "spell"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemLeapSlam",
+      "name": "Leap Slam",
+      "req": {
+        "str": 100,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "area",
+        "attack",
+        "grants_active_skill",
+        "melee",
+        "payoff",
+        "slam",
+        "strength",
+        "travel"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemMoltenCrash",
+      "name": "Molten Crash",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "area",
+        "attack",
+        "bear",
+        "grants_active_skill",
+        "melee",
+        "shapeshift",
+        "slam",
+        "travel"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemShieldCharge",
+      "name": "Shield Charge",
+      "req": {
+        "str": 100,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "area",
+        "attack",
+        "channelling",
+        "grants_active_skill",
+        "melee",
+        "physical",
+        "strength",
+        "travel"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemDetonateDead",
+      "name": "Detonate Dead",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "area",
+        "detonator",
+        "fire",
+        "grants_active_skill",
+        "intelligence",
+        "physical",
+        "repeatable",
+        "spell"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemVolatileDead",
+      "name": "Volatile Dead",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "area",
+        "fire",
+        "grants_active_skill",
+        "intelligence",
+        "repeatable",
+        "spell"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemRaiseZombie",
+      "name": "Raise Zombie",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "duration",
+        "grants_active_skill",
+        "intelligence",
+        "minion",
+        "physical"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemFlickerStrike",
+      "name": "Flicker Strike",
+      "req": {
+        "str": 0,
+        "dex": 50,
+        "int": 50
+      },
+      "tags": [
+        "area",
+        "attack",
+        "dexterity",
+        "grants_active_skill",
+        "intelligence",
+        "melee",
+        "strike"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemSpark",
+      "name": "Spark",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "duration",
+        "grants_active_skill",
+        "intelligence",
+        "lightning",
+        "projectile",
+        "repeatable",
+        "spell"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemSummonSpectre",
+      "name": "Spectre: {0}",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "grants_active_skill",
+        "intelligence",
+        "minion",
+        "persistent"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemFrostWall",
+      "name": "Frost Wall",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "area",
+        "cold",
+        "duration",
+        "grants_active_skill",
+        "intelligence",
+        "spell"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemEnervatingNova",
+      "name": "Enervating Nova",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "area",
+        "duration",
+        "grants_active_skill",
+        "intelligence",
+        "lightning",
+        "nova",
+        "repeatable",
+        "spell"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemTemporalChains",
+      "name": "Temporal Chains",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "area",
+        "curse",
+        "duration",
+        "grants_active_skill",
+        "intelligence",
+        "repeatable",
+        "spell"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemEnfeeble",
+      "name": "Enfeeble",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "area",
+        "curse",
+        "duration",
+        "grants_active_skill",
+        "intelligence",
+        "repeatable",
+        "spell"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemSnipersMark",
+      "name": "Sniper's Mark",
+      "req": {
+        "str": 0,
+        "dex": 100,
+        "int": 0
+      },
+      "tags": [
+        "dexterity",
+        "duration",
+        "grants_active_skill",
+        "mark"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemDespair",
+      "name": "Despair",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "area",
+        "chaos",
+        "curse",
+        "duration",
+        "grants_active_skill",
+        "intelligence",
+        "repeatable",
+        "spell"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemLightningWarp",
+      "name": "Lightning Warp",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "area",
+        "duration",
+        "grants_active_skill",
+        "intelligence",
+        "lightning",
+        "remnant",
+        "repeatable",
+        "spell"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemVileDisruption",
+      "name": "His Vile Intrusion",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "area",
+        "duration",
+        "grants_active_skill",
+        "intelligence",
+        "physical",
+        "repeatable",
+        "spell"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemArmourBreaker",
+      "name": "Armour Breaker",
+      "req": {
+        "str": 100,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "area",
+        "attack",
+        "grants_active_skill",
+        "melee",
+        "physical",
+        "strength",
+        "strike"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemRainOfArrows",
+      "name": "Rain of Arrows",
+      "req": {
+        "str": 0,
+        "dex": 100,
+        "int": 0
+      },
+      "tags": [
+        "area",
+        "attack",
+        "dexterity",
+        "grants_active_skill",
+        "projectile",
+        "sustained"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemFirestorm",
+      "name": "Firestorm",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "area",
+        "duration",
+        "fire",
+        "grants_active_skill",
+        "intelligence",
+        "repeatable",
+        "spell",
+        "storm",
+        "sustained"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemFallingThunder",
+      "name": "Falling Thunder",
+      "req": {
+        "str": 0,
+        "dex": 50,
+        "int": 50
+      },
+      "tags": [
+        "area",
+        "attack",
+        "dexterity",
+        "grants_active_skill",
+        "intelligence",
+        "lightning",
+        "melee",
+        "projectile",
+        "slam"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemPowerSiphon",
+      "name": "Power Siphon",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "grants_active_skill",
+        "intelligence",
+        "physical",
+        "spell"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemLightningArrow",
+      "name": "Lightning Arrow",
+      "req": {
+        "str": 0,
+        "dex": 100,
+        "int": 0
+      },
+      "tags": [
+        "area",
+        "attack",
+        "chaining",
+        "dexterity",
+        "grants_active_skill",
+        "lightning",
+        "projectile",
+        "repeatable"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemDiscipline",
+      "name": "Discipline",
+      "req": {
+        "str": 25,
+        "dex": 0,
+        "int": 75
+      },
+      "tags": [
+        "aura",
+        "buff",
+        "grants_active_skill",
+        "intelligence",
+        "persistent",
+        "strength"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemShockwaveTotem",
+      "name": "Shockwave Totem",
+      "req": {
+        "str": 100,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "area",
+        "attack",
+        "duration",
+        "grants_active_skill",
+        "melee",
+        "nova",
+        "slam",
+        "strength",
+        "totem"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemValakosCharge",
+      "name": "Valako's Charge",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "area",
+        "chaining",
+        "grants_active_skill",
+        "lightning",
+        "spell",
+        "trigger"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemArc",
+      "name": "Arc",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "chaining",
+        "grants_active_skill",
+        "intelligence",
+        "lightning",
+        "projectile",
+        "repeatable",
+        "spell"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemArcticArmour",
+      "name": "Arctic Armour",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "buff",
+        "cold",
+        "grants_active_skill",
+        "intelligence",
+        "persistent",
+        "spell",
+        "stages",
+        "sustained"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemElementalWeakness",
+      "name": "Elemental Weakness",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "area",
+        "cold",
+        "curse",
+        "duration",
+        "fire",
+        "grants_active_skill",
+        "intelligence",
+        "lightning",
+        "repeatable",
+        "spell"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemIncinerate",
+      "name": "Incinerate",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "area",
+        "channelling",
+        "duration",
+        "fire",
+        "grants_active_skill",
+        "intelligence",
+        "spell",
+        "sustained"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemPurityOfFire",
+      "name": "Purity of Fire",
+      "req": {
+        "str": 25,
+        "dex": 0,
+        "int": 75
+      },
+      "tags": [
+        "aura",
+        "buff",
+        "fire",
+        "grants_active_skill",
+        "intelligence",
+        "persistent",
+        "strength"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemPurityOfIce",
+      "name": "Purity of Ice",
+      "req": {
+        "str": 25,
+        "dex": 0,
+        "int": 75
+      },
+      "tags": [
+        "aura",
+        "buff",
+        "cold",
+        "grants_active_skill",
+        "intelligence",
+        "persistent",
+        "strength"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemPurityOfLightning",
+      "name": "Purity of Lightning",
+      "req": {
+        "str": 25,
+        "dex": 0,
+        "int": 75
+      },
+      "tags": [
+        "aura",
+        "buff",
+        "grants_active_skill",
+        "intelligence",
+        "lightning",
+        "persistent",
+        "strength"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemImpurity",
+      "name": "Impurity",
+      "req": {
+        "str": 25,
+        "dex": 0,
+        "int": 75
+      },
+      "tags": [
+        "aura",
+        "buff",
+        "chaos",
+        "grants_active_skill",
+        "intelligence",
+        "persistent",
+        "strength"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemFlameblast",
+      "name": "Flameblast",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "area",
+        "channelling",
+        "fire",
+        "grants_active_skill",
+        "intelligence",
+        "nova",
+        "spell",
+        "stages"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemBarrage",
+      "name": "Barrage",
+      "req": {
+        "str": 0,
+        "dex": 100,
+        "int": 0
+      },
+      "tags": [
+        "buff",
+        "dexterity",
+        "duration",
+        "grants_active_skill",
+        "spell"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemBallLightning",
+      "name": "Ball Lightning",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "area",
+        "chaining",
+        "duration",
+        "grants_active_skill",
+        "intelligence",
+        "lightning",
+        "projectile",
+        "repeatable",
+        "spell",
+        "sustained"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemBoneOffering",
+      "name": "Bone Offering",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "area",
+        "buff",
+        "duration",
+        "grants_active_skill",
+        "intelligence",
+        "minion",
+        "physical"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemHeraldOfAsh",
+      "name": "Herald of Ash",
+      "req": {
+        "str": 100,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "area",
+        "buff",
+        "duration",
+        "fire",
+        "grants_active_skill",
+        "herald",
+        "persistent",
+        "strength"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemHeraldOfIce",
+      "name": "Herald of Ice",
+      "req": {
+        "str": 0,
+        "dex": 50,
+        "int": 50
+      },
+      "tags": [
+        "area",
+        "attack",
+        "buff",
+        "cold",
+        "dexterity",
+        "grants_active_skill",
+        "herald",
+        "intelligence",
+        "payoff",
+        "persistent"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemHeraldOfThunder",
+      "name": "Herald of Thunder",
+      "req": {
+        "str": 0,
+        "dex": 100,
+        "int": 0
+      },
+      "tags": [
+        "area",
+        "attack",
+        "buff",
+        "dexterity",
+        "grants_active_skill",
+        "herald",
+        "lightning",
+        "payoff",
+        "persistent"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemBlasphemy",
+      "name": "Blasphemy",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "area",
+        "aura",
+        "buff",
+        "grants_active_skill",
+        "intelligence",
+        "meta",
+        "persistent"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemInfernalCry",
+      "name": "Infernal Cry",
+      "req": {
+        "str": 100,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "area",
+        "duration",
+        "fire",
+        "grants_active_skill",
+        "nova",
+        "strength",
+        "trigger",
+        "warcry"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemShatteringSpite",
+      "name": "Shattering Spite",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "area",
+        "attack",
+        "fire",
+        "grants_active_skill",
+        "lightning",
+        "physical"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemRighteousDescent",
+      "name": "Righteous Descent",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "area",
+        "attack",
+        "grants_active_skill",
+        "lightning",
+        "melee",
+        "physical",
+        "slam",
+        "travel"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemRollingMagma",
+      "name": "Rolling Magma",
+      "req": {
+        "str": 50,
+        "dex": 0,
+        "int": 50
+      },
+      "tags": [
+        "area",
+        "attack",
+        "detonator",
+        "fire",
+        "grants_active_skill",
+        "intelligence",
+        "projectile",
+        "shapeshift",
+        "strength",
+        "wyvern"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemFrostBomb",
+      "name": "Frost Bomb",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "area",
+        "cold",
+        "duration",
+        "grants_active_skill",
+        "intelligence",
+        "orb",
+        "remnant",
+        "spell"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemOrbOfStorms",
+      "name": "Orb of Storms",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "area",
+        "chaining",
+        "duration",
+        "grants_active_skill",
+        "intelligence",
+        "lightning",
+        "orb",
+        "remnant",
+        "repeatable",
+        "spell",
+        "sustained"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemEarthquake",
+      "name": "Earthquake",
+      "req": {
+        "str": 100,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "area",
+        "attack",
+        "duration",
+        "grants_active_skill",
+        "melee",
+        "slam",
+        "strength"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemContagion",
+      "name": "Contagion",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "area",
+        "chaos",
+        "duration",
+        "grants_active_skill",
+        "intelligence",
+        "repeatable",
+        "spell"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemWither",
+      "name": "Wither",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "area",
+        "channelling",
+        "chaos",
+        "duration",
+        "grants_active_skill",
+        "intelligence",
+        "spell"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemEssenceDrain",
+      "name": "Essence Drain",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "chaos",
+        "duration",
+        "grants_active_skill",
+        "intelligence",
+        "projectile",
+        "repeatable",
+        "spell"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemSunder",
+      "name": "Sunder",
+      "req": {
+        "str": 100,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "area",
+        "attack",
+        "duration",
+        "grants_active_skill",
+        "melee",
+        "payoff",
+        "slam",
+        "strength"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemFrostbolt",
+      "name": "Frostbolt",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "area",
+        "cold",
+        "grants_active_skill",
+        "intelligence",
+        "projectile",
+        "repeatable",
+        "spell"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemSkeletalWarrior",
+      "name": "Skeletal Sniper",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "chaos",
+        "fire",
+        "grants_active_skill",
+        "intelligence",
+        "minion",
+        "persistent",
+        "physical"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemSkeletalReaver",
+      "name": "Skeletal Reaver",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "grants_active_skill",
+        "intelligence",
+        "minion",
+        "persistent",
+        "physical"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemSkeletalBrute",
+      "name": "Skeletal Brute",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "grants_active_skill",
+        "intelligence",
+        "minion",
+        "payoff",
+        "persistent",
+        "physical",
+        "warcry"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemSkeletalSniper",
+      "name": "Skeletal Sniper",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "chaos",
+        "fire",
+        "grants_active_skill",
+        "intelligence",
+        "minion",
+        "persistent",
+        "physical"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemSkeletalFrostMage",
+      "name": "Skeletal Frost Mage",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "cold",
+        "grants_active_skill",
+        "intelligence",
+        "minion",
+        "persistent"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemSkeletalStormMage",
+      "name": "Skeletal Storm Mage",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "grants_active_skill",
+        "intelligence",
+        "lightning",
+        "minion",
+        "persistent"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemSkeletalArsonist",
+      "name": "Skeletal Arsonist",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "detonator",
+        "fire",
+        "grants_active_skill",
+        "intelligence",
+        "minion",
+        "persistent"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemSkeletalCleric",
+      "name": "Skeletal Cleric",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "grants_active_skill",
+        "intelligence",
+        "minion",
+        "persistent"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemAzmerianWolf",
+      "name": "Azmerian Wolf",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "companion",
+        "grants_active_skill",
+        "minion",
+        "persistent",
+        "physical"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemMistRaven",
+      "name": "Mist Raven",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "chaos",
+        "companion",
+        "grants_active_skill",
+        "minion",
+        "persistent",
+        "physical"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemSpiralingConspiracy",
+      "name": "Spiraling Conspiracy",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "area",
+        "chaos",
+        "duration",
+        "grants_active_skill",
+        "intelligence",
+        "minion",
+        "persistent",
+        "physical"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemVulnerability",
+      "name": "Vulnerability",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "area",
+        "curse",
+        "duration",
+        "grants_active_skill",
+        "intelligence",
+        "physical",
+        "repeatable",
+        "spell"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemSoulrend",
+      "name": "Soulrend",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "chaos",
+        "duration",
+        "grants_active_skill",
+        "intelligence",
+        "projectile",
+        "repeatable",
+        "spell"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemPlagueBearer",
+      "name": "Plague Bearer",
+      "req": {
+        "str": 0,
+        "dex": 100,
+        "int": 0
+      },
+      "tags": [
+        "area",
+        "buff",
+        "chaos",
+        "dexterity",
+        "grants_active_skill",
+        "nova",
+        "persistent",
+        "physical"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemArtilleryBallista",
+      "name": "Siege Ballista",
+      "req": {
+        "str": 50,
+        "dex": 50,
+        "int": 0
+      },
+      "tags": [
+        "area",
+        "attack",
+        "dexterity",
+        "duration",
+        "fire",
+        "grants_active_skill",
+        "projectile",
+        "repeatable",
+        "strength",
+        "sustained",
+        "totem"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemSeismicCry",
+      "name": "Seismic Cry",
+      "req": {
+        "str": 100,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "area",
+        "grants_active_skill",
+        "nova",
+        "physical",
+        "strength",
+        "warcry"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemEarthshatter",
+      "name": "Earthshatter",
+      "req": {
+        "str": 100,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "area",
+        "attack",
+        "duration",
+        "grants_active_skill",
+        "melee",
+        "slam",
+        "strength"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemSigilOfPower",
+      "name": "Sigil of Power",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "area",
+        "duration",
+        "grants_active_skill",
+        "intelligence",
+        "spell",
+        "stages"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemSigilOfLife",
+      "name": "Rite of Restoration",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "area",
+        "duration",
+        "grants_active_skill",
+        "spell",
+        "stages"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemFlameWall",
+      "name": "Flame Wall",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "area",
+        "duration",
+        "fire",
+        "grants_active_skill",
+        "intelligence",
+        "repeatable",
+        "spell"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemHexblast",
+      "name": "Hexblast",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "area",
+        "chaos",
+        "grants_active_skill",
+        "intelligence",
+        "payoff",
+        "repeatable",
+        "spell"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemExsanguinate",
+      "name": "Exsanguinate",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "chaining",
+        "duration",
+        "grants_active_skill",
+        "intelligence",
+        "physical",
+        "repeatable",
+        "spell"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemReap",
+      "name": "Reap",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "area",
+        "duration",
+        "grants_active_skill",
+        "intelligence",
+        "physical",
+        "spell"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemBoneshatter",
+      "name": "Boneshatter",
+      "req": {
+        "str": 100,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "area",
+        "attack",
+        "grants_active_skill",
+        "melee",
+        "strength",
+        "strike"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemEyeOfWinter",
+      "name": "Eye of Winter",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "cold",
+        "grants_active_skill",
+        "intelligence",
+        "projectile",
+        "spell"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemTornado",
+      "name": "Tornado",
+      "req": {
+        "str": 50,
+        "dex": 0,
+        "int": 50
+      },
+      "tags": [
+        "area",
+        "duration",
+        "grants_active_skill",
+        "intelligence",
+        "physical",
+        "spell",
+        "storm",
+        "strength",
+        "wind"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemLightningConduit",
+      "name": "Lightning Conduit",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "area",
+        "grants_active_skill",
+        "intelligence",
+        "lightning",
+        "spell"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemGalvanicField",
+      "name": "Galvanic Field",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "area",
+        "buff",
+        "chaining",
+        "duration",
+        "grants_active_skill",
+        "intelligence",
+        "lightning",
+        "orb",
+        "spell",
+        "sustained"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemVolcanicFissure",
+      "name": "Volcanic Fissure",
+      "req": {
+        "str": 100,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "area",
+        "attack",
+        "duration",
+        "fire",
+        "grants_active_skill",
+        "melee",
+        "slam",
+        "strength",
+        "sustained"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemRapidAssault",
+      "name": "Rapid Assault",
+      "req": {
+        "str": 0,
+        "dex": 100,
+        "int": 0
+      },
+      "tags": [
+        "area",
+        "attack",
+        "dexterity",
+        "duration",
+        "grants_active_skill",
+        "melee",
+        "physical",
+        "strike"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemDisengage",
+      "name": "Disengage",
+      "req": {
+        "str": 0,
+        "dex": 100,
+        "int": 0
+      },
+      "tags": [
+        "area",
+        "attack",
+        "dexterity",
+        "grants_active_skill",
+        "melee",
+        "strike",
+        "travel"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemBloodHunt",
+      "name": "Blood Hunt",
+      "req": {
+        "str": 0,
+        "dex": 100,
+        "int": 0
+      },
+      "tags": [
+        "area",
+        "attack",
+        "dexterity",
+        "grants_active_skill",
+        "melee",
+        "payoff",
+        "physical",
+        "strike"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemWhirlingSlash",
+      "name": "Whirling Slash",
+      "req": {
+        "str": 0,
+        "dex": 100,
+        "int": 0
+      },
+      "tags": [
+        "area",
+        "attack",
+        "dexterity",
+        "grants_active_skill",
+        "melee",
+        "stages",
+        "strike",
+        "wind"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemSpearfield",
+      "name": "Spearfield",
+      "req": {
+        "str": 0,
+        "dex": 100,
+        "int": 0
+      },
+      "tags": [
+        "area",
+        "attack",
+        "dexterity",
+        "duration",
+        "grants_active_skill",
+        "hazard",
+        "melee",
+        "sustained"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemLightningSpear",
+      "name": "Lightning Spear",
+      "req": {
+        "str": 0,
+        "dex": 100,
+        "int": 0
+      },
+      "tags": [
+        "area",
+        "attack",
+        "dexterity",
+        "grants_active_skill",
+        "lightning",
+        "projectile",
+        "repeatable"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemGlacialLance",
+      "name": "Glacial Lance",
+      "req": {
+        "str": 0,
+        "dex": 100,
+        "int": 0
+      },
+      "tags": [
+        "area",
+        "attack",
+        "cold",
+        "dexterity",
+        "duration",
+        "grants_active_skill",
+        "projectile",
+        "repeatable"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemWhirlingAssault",
+      "name": "Whirling Assault",
+      "req": {
+        "str": 0,
+        "dex": 50,
+        "int": 50
+      },
+      "tags": [
+        "area",
+        "attack",
+        "dexterity",
+        "grants_active_skill",
+        "intelligence",
+        "melee",
+        "strike"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemRollingSlam",
+      "name": "Rolling Slam",
+      "req": {
+        "str": 100,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "area",
+        "attack",
+        "grants_active_skill",
+        "melee",
+        "slam",
+        "strength"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemEscapeShot",
+      "name": "Escape Shot",
+      "req": {
+        "str": 0,
+        "dex": 100,
+        "int": 0
+      },
+      "tags": [
+        "area",
+        "attack",
+        "cold",
+        "dexterity",
+        "grants_active_skill",
+        "projectile",
+        "trigger"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemSuperchargedSlam",
+      "name": "Supercharged Slam",
+      "req": {
+        "str": 100,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "area",
+        "attack",
+        "channelling",
+        "grants_active_skill",
+        "melee",
+        "slam",
+        "stages",
+        "strength"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemWindBlast",
+      "name": "Wind Blast",
+      "req": {
+        "str": 0,
+        "dex": 50,
+        "int": 50
+      },
+      "tags": [
+        "area",
+        "attack",
+        "dexterity",
+        "grants_active_skill",
+        "intelligence",
+        "melee",
+        "wind"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemWaveOfFrost",
+      "name": "Wave of Frost",
+      "req": {
+        "str": 0,
+        "dex": 50,
+        "int": 50
+      },
+      "tags": [
+        "area",
+        "attack",
+        "cold",
+        "dexterity",
+        "grants_active_skill",
+        "intelligence",
+        "melee"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemIceStrike",
+      "name": "Ice Strike",
+      "req": {
+        "str": 0,
+        "dex": 50,
+        "int": 50
+      },
+      "tags": [
+        "area",
+        "attack",
+        "cold",
+        "dexterity",
+        "grants_active_skill",
+        "intelligence",
+        "melee",
+        "strike"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemGlacialCascade",
+      "name": "Glacial Cascade",
+      "req": {
+        "str": 0,
+        "dex": 50,
+        "int": 50
+      },
+      "tags": [
+        "area",
+        "attack",
+        "cold",
+        "dexterity",
+        "grants_active_skill",
+        "intelligence",
+        "melee",
+        "payoff"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemComet",
+      "name": "Comet",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "area",
+        "cold",
+        "grants_active_skill",
+        "intelligence",
+        "repeatable",
+        "spell"
+      ]
+    },
+    {
+      "id": "Metadata/items/Gems/SkillGemStaffConsecrate",
+      "name": "Consecrate",
+      "req": {
+        "str": 50,
+        "dex": 0,
+        "int": 50
+      },
+      "tags": [
+        "area",
+        "duration",
+        "grants_active_skill",
+        "intelligence",
+        "nova",
+        "spell",
+        "strength"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemRipwireBallista",
+      "name": "Artillery Ballista",
+      "req": {
+        "str": 50,
+        "dex": 50,
+        "int": 0
+      },
+      "tags": [
+        "area",
+        "attack",
+        "dexterity",
+        "duration",
+        "grants_active_skill",
+        "projectile",
+        "strength",
+        "sustained",
+        "totem"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemManaTempest",
+      "name": "Mana Tempest",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "buff",
+        "grants_active_skill",
+        "intelligence",
+        "lightning",
+        "spell",
+        "storm"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemKillingPalm",
+      "name": "Killing Palm",
+      "req": {
+        "str": 0,
+        "dex": 50,
+        "int": 50
+      },
+      "tags": [
+        "area",
+        "attack",
+        "dexterity",
+        "grants_active_skill",
+        "intelligence",
+        "melee",
+        "physical",
+        "strike"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemCrushingFear",
+      "name": "Crushing Fear",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "area",
+        "attack",
+        "chaos",
+        "grants_active_skill",
+        "melee",
+        "physical",
+        "strike"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemShatteringPalm",
+      "name": "Shattering Palm",
+      "req": {
+        "str": 0,
+        "dex": 50,
+        "int": 50
+      },
+      "tags": [
+        "area",
+        "attack",
+        "cold",
+        "dexterity",
+        "grants_active_skill",
+        "intelligence",
+        "melee",
+        "strike",
+        "trigger"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemVolcano",
+      "name": "Volcano",
+      "req": {
+        "str": 50,
+        "dex": 0,
+        "int": 50
+      },
+      "tags": [
+        "area",
+        "channelling",
+        "duration",
+        "fire",
+        "grants_active_skill",
+        "intelligence",
+        "projectile",
+        "spell",
+        "strength",
+        "sustained"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemWolfPack",
+      "name": "Wolf Pack",
+      "req": {
+        "str": 50,
+        "dex": 0,
+        "int": 50
+      },
+      "tags": [
+        "companion",
+        "grants_active_skill",
+        "intelligence",
+        "minion",
+        "persistent",
+        "physical",
+        "strength"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemHyenaCackle",
+      "name": "Cackling Companions",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "companion",
+        "grants_active_skill",
+        "minion",
+        "persistent",
+        "physical"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemSpiralVolley",
+      "name": "Spiral Volley",
+      "req": {
+        "str": 0,
+        "dex": 100,
+        "int": 0
+      },
+      "tags": [
+        "attack",
+        "dexterity",
+        "grants_active_skill",
+        "projectile",
+        "sustained"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemBearMaul",
+      "name": "Maul",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "area",
+        "attack",
+        "bear",
+        "grants_active_skill",
+        "melee",
+        "shapeshift",
+        "strike"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemRend",
+      "name": "Rend",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "area",
+        "attack",
+        "duration",
+        "grants_active_skill",
+        "melee",
+        "shapeshift",
+        "strike",
+        "wyvern"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemWolfPounce",
+      "name": "Pounce",
+      "req": {
+        "str": 50,
+        "dex": 0,
+        "int": 50
+      },
+      "tags": [
+        "area",
+        "attack",
+        "duration",
+        "grants_active_skill",
+        "intelligence",
+        "mark",
+        "melee",
+        "meta",
+        "minion",
+        "shapeshift",
+        "slam",
+        "strength",
+        "travel",
+        "trigger",
+        "wolf"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemLightningBolt",
+      "name": "Lightning Bolt",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "area",
+        "grants_active_skill",
+        "intelligence",
+        "lightning",
+        "repeatable",
+        "spell"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemBearRampage",
+      "name": "Rampage",
+      "req": {
+        "str": 50,
+        "dex": 0,
+        "int": 50
+      },
+      "tags": [
+        "area",
+        "attack",
+        "bear",
+        "channelling",
+        "grants_active_skill",
+        "intelligence",
+        "melee",
+        "shapeshift",
+        "slam",
+        "strength",
+        "sustained",
+        "travel"
+      ]
+    },
+    {
+      "id": "Metadata/items/Gems/SkillGemStaffUnleash",
+      "name": "Unleash",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "buff",
+        "duration",
+        "grants_active_skill",
+        "intelligence",
+        "spell"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemThunderstorm",
+      "name": "Thunderstorm",
+      "req": {
+        "str": 50,
+        "dex": 0,
+        "int": 50
+      },
+      "tags": [
+        "area",
+        "duration",
+        "grants_active_skill",
+        "intelligence",
+        "lightning",
+        "spell",
+        "storm",
+        "strength",
+        "sustained"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemFuriousSlam",
+      "name": "Furious Slam",
+      "req": {
+        "str": 50,
+        "dex": 0,
+        "int": 50
+      },
+      "tags": [
+        "area",
+        "attack",
+        "bear",
+        "grants_active_skill",
+        "intelligence",
+        "melee",
+        "shapeshift",
+        "slam",
+        "strength"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemFerociousRoar",
+      "name": "Ferocious Roar",
+      "req": {
+        "str": 50,
+        "dex": 0,
+        "int": 50
+      },
+      "tags": [
+        "area",
+        "bear",
+        "grants_active_skill",
+        "intelligence",
+        "meta",
+        "nova",
+        "shapeshift",
+        "strength",
+        "warcry"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemCastOnElementalAilment",
+      "name": "Cast on Elemental Ailment",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "buff",
+        "cold",
+        "fire",
+        "grants_active_skill",
+        "intelligence",
+        "lightning",
+        "meta",
+        "persistent",
+        "trigger"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemCastOnMeleeKill",
+      "name": "Cast on Melee Kill",
+      "req": {
+        "str": 50,
+        "dex": 0,
+        "int": 50
+      },
+      "tags": [
+        "buff",
+        "grants_active_skill",
+        "intelligence",
+        "meta",
+        "persistent",
+        "strength",
+        "trigger"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemCastOnCritical",
+      "name": "Cast on Critical",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "buff",
+        "grants_active_skill",
+        "intelligence",
+        "meta",
+        "persistent",
+        "trigger"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemBarrierInvocation",
+      "name": "Barrier Invocation",
+      "req": {
+        "str": 0,
+        "dex": 50,
+        "int": 50
+      },
+      "tags": [
+        "buff",
+        "dexterity",
+        "grants_active_skill",
+        "intelligence",
+        "invocation",
+        "meta",
+        "persistent",
+        "trigger"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemCastOnDodge",
+      "name": "Cast on Dodge",
+      "req": {
+        "str": 0,
+        "dex": 50,
+        "int": 50
+      },
+      "tags": [
+        "buff",
+        "dexterity",
+        "grants_active_skill",
+        "intelligence",
+        "meta",
+        "persistent",
+        "trigger"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemCastOnMeleeStun",
+      "name": "Cast on Melee Stun",
+      "req": {
+        "str": 100,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "buff",
+        "grants_active_skill",
+        "meta",
+        "persistent",
+        "strength",
+        "trigger"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemLingeringIllusion",
+      "name": "Lingering Illusion",
+      "req": {
+        "str": 0,
+        "dex": 50,
+        "int": 50
+      },
+      "tags": [
+        "buff",
+        "dexterity",
+        "duration",
+        "grants_active_skill",
+        "intelligence",
+        "persistent",
+        "remnant"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemGhostDance",
+      "name": "Ghost Dance",
+      "req": {
+        "str": 0,
+        "dex": 50,
+        "int": 50
+      },
+      "tags": [
+        "buff",
+        "dexterity",
+        "grants_active_skill",
+        "intelligence",
+        "persistent"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemAncestralWarriorTotem",
+      "name": "Ancestral Warrior Totem",
+      "req": {
+        "str": 100,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "area",
+        "attack",
+        "conditional",
+        "duration",
+        "grants_active_skill",
+        "melee",
+        "meta",
+        "strength",
+        "totem"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemSpellTotem",
+      "name": "Spell Totem",
+      "req": {
+        "str": 50,
+        "dex": 0,
+        "int": 50
+      },
+      "tags": [
+        "conditional",
+        "duration",
+        "grants_active_skill",
+        "intelligence",
+        "meta",
+        "spell",
+        "strength",
+        "totem"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemExplosiveGrenade",
+      "name": "Explosive Grenade",
+      "req": {
+        "str": 50,
+        "dex": 50,
+        "int": 0
+      },
+      "tags": [
+        "area",
+        "attack",
+        "detonator",
+        "dexterity",
+        "fire",
+        "grants_active_skill",
+        "grenade",
+        "projectile",
+        "strength"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemFlashGrenade",
+      "name": "Flash Grenade",
+      "req": {
+        "str": 50,
+        "dex": 50,
+        "int": 0
+      },
+      "tags": [
+        "area",
+        "attack",
+        "dexterity",
+        "grants_active_skill",
+        "grenade",
+        "projectile",
+        "strength"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemOilGrenade",
+      "name": "Oil Grenade",
+      "req": {
+        "str": 50,
+        "dex": 50,
+        "int": 0
+      },
+      "tags": [
+        "area",
+        "attack",
+        "dexterity",
+        "duration",
+        "fire",
+        "grants_active_skill",
+        "grenade",
+        "projectile",
+        "strength"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemGasGrenade",
+      "name": "Gas Grenade",
+      "req": {
+        "str": 50,
+        "dex": 50,
+        "int": 0
+      },
+      "tags": [
+        "area",
+        "attack",
+        "chaos",
+        "dexterity",
+        "duration",
+        "fire",
+        "grants_active_skill",
+        "grenade",
+        "projectile",
+        "strength"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemVoltaicGrenade",
+      "name": "Voltaic Grenade",
+      "req": {
+        "str": 50,
+        "dex": 50,
+        "int": 0
+      },
+      "tags": [
+        "area",
+        "attack",
+        "dexterity",
+        "duration",
+        "grants_active_skill",
+        "grenade",
+        "lightning",
+        "projectile",
+        "strength"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemPainOffering",
+      "name": "Pain Offering",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "area",
+        "buff",
+        "duration",
+        "grants_active_skill",
+        "intelligence",
+        "minion"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemTempestFlurry",
+      "name": "Tempest Flurry",
+      "req": {
+        "str": 0,
+        "dex": 50,
+        "int": 50
+      },
+      "tags": [
+        "area",
+        "attack",
+        "dexterity",
+        "grants_active_skill",
+        "intelligence",
+        "lightning",
+        "melee",
+        "strike"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemStaggeringPalm",
+      "name": "Staggering Palm",
+      "req": {
+        "str": 0,
+        "dex": 50,
+        "int": 50
+      },
+      "tags": [
+        "area",
+        "attack",
+        "buff",
+        "dexterity",
+        "duration",
+        "grants_active_skill",
+        "intelligence",
+        "melee",
+        "physical",
+        "projectile",
+        "strike",
+        "wind"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemChargedStaff",
+      "name": "Charged Staff",
+      "req": {
+        "str": 0,
+        "dex": 50,
+        "int": 50
+      },
+      "tags": [
+        "area",
+        "attack",
+        "buff",
+        "conditional",
+        "dexterity",
+        "duration",
+        "grants_active_skill",
+        "intelligence",
+        "lightning",
+        "spell"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemSiphoningStrike",
+      "name": "Siphoning Strike",
+      "req": {
+        "str": 0,
+        "dex": 50,
+        "int": 50
+      },
+      "tags": [
+        "area",
+        "attack",
+        "dexterity",
+        "grants_active_skill",
+        "intelligence",
+        "lightning",
+        "melee",
+        "payoff",
+        "strike"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemTempestBell",
+      "name": "Tempest Bell",
+      "req": {
+        "str": 0,
+        "dex": 50,
+        "int": 50
+      },
+      "tags": [
+        "area",
+        "attack",
+        "conditional",
+        "dexterity",
+        "duration",
+        "grants_active_skill",
+        "intelligence",
+        "melee",
+        "sustained"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemChaosbolt",
+      "name": "Chaos Bolt",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "chaos",
+        "grants_active_skill",
+        "intelligence",
+        "projectile",
+        "repeatable",
+        "spell"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemCoilingBolts",
+      "name": "Coiling Bolts",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "chaos",
+        "grants_active_skill",
+        "intelligence",
+        "projectile",
+        "repeatable",
+        "spell"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemFrozenLocus",
+      "name": "Frozen Locus",
+      "req": {
+        "str": 0,
+        "dex": 50,
+        "int": 50
+      },
+      "tags": [
+        "area",
+        "attack",
+        "cold",
+        "dexterity",
+        "duration",
+        "grants_active_skill",
+        "intelligence",
+        "melee"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemBonestorm",
+      "name": "Bonestorm",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "area",
+        "channelling",
+        "grants_active_skill",
+        "intelligence",
+        "physical",
+        "projectile",
+        "spell"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemBoneCage",
+      "name": "Bone Cage",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "area",
+        "duration",
+        "grants_active_skill",
+        "intelligence",
+        "nova",
+        "physical",
+        "repeatable",
+        "spell"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemUnearth",
+      "name": "Unearth",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "area",
+        "duration",
+        "grants_active_skill",
+        "intelligence",
+        "minion",
+        "physical",
+        "repeatable",
+        "spell"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemDetonatingArrow",
+      "name": "Detonating Arrow",
+      "req": {
+        "str": 0,
+        "dex": 100,
+        "int": 0
+      },
+      "tags": [
+        "area",
+        "attack",
+        "channelling",
+        "detonator",
+        "dexterity",
+        "fire",
+        "grants_active_skill",
+        "projectile",
+        "repeatable",
+        "stages"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemPoisonBurstArrow",
+      "name": "Poisonburst Arrow",
+      "req": {
+        "str": 0,
+        "dex": 100,
+        "int": 0
+      },
+      "tags": [
+        "area",
+        "attack",
+        "chaos",
+        "dexterity",
+        "duration",
+        "grants_active_skill",
+        "projectile",
+        "repeatable"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemFirebolt",
+      "name": "Firebolt",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "area",
+        "fire",
+        "grants_active_skill",
+        "intelligence",
+        "projectile",
+        "repeatable",
+        "spell"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemToxicGrowth",
+      "name": "Toxic Growth",
+      "req": {
+        "str": 0,
+        "dex": 100,
+        "int": 0
+      },
+      "tags": [
+        "area",
+        "attack",
+        "chaos",
+        "dexterity",
+        "grants_active_skill",
+        "plant",
+        "projectile",
+        "repeatable"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemStormcallerArrow",
+      "name": "Stormcaller Arrow",
+      "req": {
+        "str": 0,
+        "dex": 100,
+        "int": 0
+      },
+      "tags": [
+        "area",
+        "attack",
+        "dexterity",
+        "duration",
+        "grants_active_skill",
+        "lightning",
+        "projectile",
+        "repeatable"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemPhantasmalArrow",
+      "name": "Phantasmal Arrow",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "area",
+        "attack",
+        "duration",
+        "fire",
+        "grants_active_skill",
+        "projectile",
+        "repeatable"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemLightningRod",
+      "name": "Lightning Rod",
+      "req": {
+        "str": 0,
+        "dex": 100,
+        "int": 0
+      },
+      "tags": [
+        "area",
+        "attack",
+        "dexterity",
+        "duration",
+        "grants_active_skill",
+        "lightning",
+        "projectile",
+        "repeatable",
+        "sustained"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemSnipe",
+      "name": "Snipe",
+      "req": {
+        "str": 0,
+        "dex": 100,
+        "int": 0
+      },
+      "tags": [
+        "area",
+        "attack",
+        "channelling",
+        "cold",
+        "dexterity",
+        "grants_active_skill",
+        "payoff",
+        "projectile",
+        "repeatable"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemGasArrow",
+      "name": "Gas Arrow",
+      "req": {
+        "str": 0,
+        "dex": 100,
+        "int": 0
+      },
+      "tags": [
+        "area",
+        "attack",
+        "chaos",
+        "dexterity",
+        "duration",
+        "fire",
+        "grants_active_skill",
+        "projectile",
+        "repeatable"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemSolarOrb",
+      "name": "Solar Orb",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "area",
+        "duration",
+        "fire",
+        "grants_active_skill",
+        "intelligence",
+        "orb",
+        "repeatable",
+        "spell",
+        "sustained"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemFireball",
+      "name": "Fireball",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "area",
+        "fire",
+        "grants_active_skill",
+        "intelligence",
+        "projectile",
+        "repeatable",
+        "spell"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemElectrocutingArrow",
+      "name": "Electrocuting Arrow",
+      "req": {
+        "str": 0,
+        "dex": 100,
+        "int": 0
+      },
+      "tags": [
+        "area",
+        "attack",
+        "dexterity",
+        "duration",
+        "grants_active_skill",
+        "lightning",
+        "projectile",
+        "repeatable"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemColdSnap",
+      "name": "Snap",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "area",
+        "cold",
+        "fire",
+        "grants_active_skill",
+        "intelligence",
+        "lightning",
+        "payoff",
+        "remnant",
+        "repeatable",
+        "spell"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemPerfectStrike",
+      "name": "Perfect Strike",
+      "req": {
+        "str": 100,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "area",
+        "attack",
+        "channelling",
+        "fire",
+        "grants_active_skill",
+        "melee",
+        "strength",
+        "strike"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemShieldBlock",
+      "name": "Raise Shield",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "area",
+        "attack",
+        "channelling",
+        "grants_active_skill",
+        "melee",
+        "physical"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemResonatingShield",
+      "name": "Resonating Shield",
+      "req": {
+        "str": 100,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "area",
+        "attack",
+        "channelling",
+        "grants_active_skill",
+        "melee",
+        "physical",
+        "strength",
+        "sustained"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemManaRemnants",
+      "name": "Mana Remnants",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "buff",
+        "grants_active_skill",
+        "intelligence",
+        "persistent",
+        "remnant"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemSanguineRevelry",
+      "name": "Sanguine Revelry",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "buff",
+        "grants_active_skill",
+        "persistent",
+        "remnant"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemMagmaBarrier",
+      "name": "Magma Barrier",
+      "req": {
+        "str": 100,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "area",
+        "attack",
+        "buff",
+        "fire",
+        "grants_active_skill",
+        "melee",
+        "persistent",
+        "strength",
+        "trigger"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemFreezingShards",
+      "name": "Freezing Shards",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "cold",
+        "grants_active_skill",
+        "intelligence",
+        "projectile",
+        "repeatable",
+        "spell"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemVineArrow",
+      "name": "Vine Arrow",
+      "req": {
+        "str": 0,
+        "dex": 100,
+        "int": 0
+      },
+      "tags": [
+        "area",
+        "attack",
+        "chaos",
+        "dexterity",
+        "duration",
+        "grants_active_skill",
+        "plant",
+        "projectile",
+        "repeatable"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemRhoaMount",
+      "name": "Rhoa Mount",
+      "req": {
+        "str": 0,
+        "dex": 100,
+        "int": 0
+      },
+      "tags": [
+        "buff",
+        "companion",
+        "dexterity",
+        "grants_active_skill",
+        "minion",
+        "persistent"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemCorpseCloud",
+      "name": "Decompose",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "area",
+        "chaos",
+        "duration",
+        "fire",
+        "grants_active_skill",
+        "intelligence",
+        "spell"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemRagingSpirits",
+      "name": "Raging Spirits",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "buff",
+        "duration",
+        "fire",
+        "grants_active_skill",
+        "intelligence",
+        "minion",
+        "persistent"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemTwister",
+      "name": "Twister",
+      "req": {
+        "str": 0,
+        "dex": 100,
+        "int": 0
+      },
+      "tags": [
+        "area",
+        "attack",
+        "dexterity",
+        "duration",
+        "grants_active_skill",
+        "projectile",
+        "repeatable",
+        "wind"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemDetonateMinion",
+      "name": "Detonate Minion",
+      "req": {
+        "str": 0,
+        "dex": 100,
+        "int": 0
+      },
+      "tags": [
+        "area",
+        "attack",
+        "dexterity",
+        "fire",
+        "grants_active_skill"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemExplosiveSpear",
+      "name": "Explosive Spear",
+      "req": {
+        "str": 0,
+        "dex": 100,
+        "int": 0
+      },
+      "tags": [
+        "area",
+        "attack",
+        "detonator",
+        "dexterity",
+        "duration",
+        "fire",
+        "grants_active_skill",
+        "projectile",
+        "repeatable"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemThunderousLeap",
+      "name": "Thunderous Leap",
+      "req": {
+        "str": 0,
+        "dex": 100,
+        "int": 0
+      },
+      "tags": [
+        "area",
+        "attack",
+        "detonator",
+        "dexterity",
+        "grants_active_skill",
+        "lightning",
+        "melee",
+        "slam",
+        "travel"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemWindDancer",
+      "name": "Wind Dancer",
+      "req": {
+        "str": 0,
+        "dex": 100,
+        "int": 0
+      },
+      "tags": [
+        "area",
+        "attack",
+        "buff",
+        "dexterity",
+        "grants_active_skill",
+        "melee",
+        "persistent",
+        "stages",
+        "trigger"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemProfaneRitual",
+      "name": "Profane Ritual",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "area",
+        "chaos",
+        "duration",
+        "grants_active_skill",
+        "intelligence",
+        "repeatable",
+        "spell"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemSoulOffering",
+      "name": "Soul Offering",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "buff",
+        "duration",
+        "grants_active_skill",
+        "intelligence",
+        "minion"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemDarkEffigy",
+      "name": "Dark Effigy",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "area",
+        "chaos",
+        "duration",
+        "grants_active_skill",
+        "intelligence",
+        "projectile",
+        "spell",
+        "totem"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemSkeletalWarriorWeaponSkill",
+      "name": "Skeletal Warrior",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "grants_active_skill",
+        "intelligence",
+        "minion",
+        "persistent",
+        "physical"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemGrimFeast",
+      "name": "Grim Feast",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "buff",
+        "grants_active_skill",
+        "intelligence",
+        "minion",
+        "persistent",
+        "remnant",
+        "spell"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemCastOnMinionDeath",
+      "name": "Cast on Minion Death",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "buff",
+        "grants_active_skill",
+        "intelligence",
+        "meta",
+        "minion",
+        "persistent",
+        "trigger"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemScavengedPlating",
+      "name": "Scavenged Plating",
+      "req": {
+        "str": 100,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "buff",
+        "duration",
+        "grants_active_skill",
+        "persistent",
+        "physical",
+        "strength"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemManaDrain",
+      "name": "Mana Drain",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "grants_active_skill",
+        "intelligence",
+        "spell"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemBoneBlast",
+      "name": "Bone Blast",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "area",
+        "duration",
+        "grants_active_skill",
+        "intelligence",
+        "physical",
+        "repeatable",
+        "spell"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemBlink",
+      "name": "Blink",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "buff",
+        "grants_active_skill",
+        "intelligence",
+        "persistent",
+        "spell",
+        "travel"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemBlackPowderBlitz",
+      "name": "Black Powder Blitz",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "area",
+        "buff",
+        "detonator",
+        "fire",
+        "grants_active_skill",
+        "persistent",
+        "physical",
+        "travel"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemMoltenBlast",
+      "name": "Molten Blast",
+      "req": {
+        "str": 100,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "area",
+        "attack",
+        "fire",
+        "grants_active_skill",
+        "projectile",
+        "strength"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemMalice",
+      "name": "Malice",
+      "req": {
+        "str": 25,
+        "dex": 0,
+        "int": 75
+      },
+      "tags": [
+        "aura",
+        "buff",
+        "duration",
+        "grants_active_skill",
+        "intelligence",
+        "persistent",
+        "strength"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemHammerOfTheGods",
+      "name": "Hammer of the Gods",
+      "req": {
+        "str": 100,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "area",
+        "attack",
+        "conditional",
+        "duration",
+        "grants_active_skill",
+        "melee",
+        "slam",
+        "strength"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemLivingBombPlayer",
+      "name": "Living Bomb",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "area",
+        "duration",
+        "fire",
+        "grants_active_skill",
+        "intelligence",
+        "remnant",
+        "spell"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemStampede",
+      "name": "Stampede",
+      "req": {
+        "str": 100,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "area",
+        "attack",
+        "duration",
+        "grants_active_skill",
+        "melee",
+        "slam",
+        "strength",
+        "travel"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemShieldWall",
+      "name": "Shield Wall",
+      "req": {
+        "str": 100,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "area",
+        "attack",
+        "duration",
+        "grants_active_skill",
+        "melee",
+        "physical",
+        "strength"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemFortifyingCry",
+      "name": "Fortifying Cry",
+      "req": {
+        "str": 100,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "area",
+        "attack",
+        "duration",
+        "grants_active_skill",
+        "melee",
+        "nova",
+        "physical",
+        "strength",
+        "trigger",
+        "warcry"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemEmberFusillade",
+      "name": "Ember Fusillade",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "area",
+        "duration",
+        "fire",
+        "grants_active_skill",
+        "intelligence",
+        "projectile",
+        "repeatable",
+        "spell"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemScatteringCalamity",
+      "name": "His Scattering Calamity",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "area",
+        "duration",
+        "grants_active_skill",
+        "intelligence",
+        "lightning",
+        "projectile",
+        "repeatable",
+        "spell"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemHighVelocityRounds",
+      "name": "High Velocity Rounds",
+      "req": {
+        "str": 50,
+        "dex": 50,
+        "int": 0
+      },
+      "tags": [
+        "ammunition",
+        "attack",
+        "dexterity",
+        "duration",
+        "grants_active_skill",
+        "payoff",
+        "physical",
+        "projectile",
+        "strength"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemFragmentationRounds",
+      "name": "Fragmentation Rounds",
+      "req": {
+        "str": 50,
+        "dex": 50,
+        "int": 0
+      },
+      "tags": [
+        "ammunition",
+        "area",
+        "attack",
+        "dexterity",
+        "grants_active_skill",
+        "merging",
+        "payoff",
+        "projectile",
+        "strength"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemSiegeCascade",
+      "name": "Siege Cascade",
+      "req": {
+        "str": 50,
+        "dex": 50,
+        "int": 0
+      },
+      "tags": [
+        "ammunition",
+        "area",
+        "attack",
+        "dexterity",
+        "grants_active_skill",
+        "projectile",
+        "strength",
+        "sustained"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemArmourPiercingRounds",
+      "name": "Armour Piercing Rounds",
+      "req": {
+        "str": 50,
+        "dex": 50,
+        "int": 0
+      },
+      "tags": [
+        "ammunition",
+        "attack",
+        "dexterity",
+        "grants_active_skill",
+        "physical",
+        "projectile",
+        "strength"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemExplosiveShot",
+      "name": "Explosive Shot",
+      "req": {
+        "str": 50,
+        "dex": 50,
+        "int": 0
+      },
+      "tags": [
+        "ammunition",
+        "area",
+        "attack",
+        "detonator",
+        "dexterity",
+        "fire",
+        "grants_active_skill",
+        "projectile",
+        "strength"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemIncendiaryShot",
+      "name": "Incendiary Shot",
+      "req": {
+        "str": 50,
+        "dex": 50,
+        "int": 0
+      },
+      "tags": [
+        "ammunition",
+        "area",
+        "attack",
+        "dexterity",
+        "fire",
+        "grants_active_skill",
+        "merging",
+        "projectile",
+        "strength"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemRapidShot",
+      "name": "Rapid Shot",
+      "req": {
+        "str": 50,
+        "dex": 50,
+        "int": 0
+      },
+      "tags": [
+        "ammunition",
+        "attack",
+        "dexterity",
+        "fire",
+        "grants_active_skill",
+        "projectile",
+        "strength"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemGlacialBolt",
+      "name": "Glacial Bolt",
+      "req": {
+        "str": 50,
+        "dex": 50,
+        "int": 0
+      },
+      "tags": [
+        "ammunition",
+        "area",
+        "attack",
+        "cold",
+        "dexterity",
+        "duration",
+        "grants_active_skill",
+        "projectile",
+        "strength"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemPermafrostBolts",
+      "name": "Permafrost Bolts",
+      "req": {
+        "str": 50,
+        "dex": 50,
+        "int": 0
+      },
+      "tags": [
+        "ammunition",
+        "area",
+        "attack",
+        "cold",
+        "dexterity",
+        "grants_active_skill",
+        "merging",
+        "projectile",
+        "strength"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemHailstormRounds",
+      "name": "Hailstorm Rounds",
+      "req": {
+        "str": 50,
+        "dex": 50,
+        "int": 0
+      },
+      "tags": [
+        "ammunition",
+        "area",
+        "attack",
+        "cold",
+        "dexterity",
+        "grants_active_skill",
+        "projectile",
+        "strength",
+        "sustained"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemIceShards",
+      "name": "Ice Shards",
+      "req": {
+        "str": 50,
+        "dex": 50,
+        "int": 0
+      },
+      "tags": [
+        "ammunition",
+        "area",
+        "attack",
+        "cold",
+        "dexterity",
+        "grants_active_skill",
+        "hazard",
+        "projectile",
+        "strength",
+        "sustained"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemPlasmaBlast",
+      "name": "Plasma Blast",
+      "req": {
+        "str": 50,
+        "dex": 50,
+        "int": 0
+      },
+      "tags": [
+        "ammunition",
+        "area",
+        "attack",
+        "channelling",
+        "dexterity",
+        "grants_active_skill",
+        "lightning",
+        "projectile",
+        "strength"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemGalvanicShards",
+      "name": "Galvanic Shards",
+      "req": {
+        "str": 50,
+        "dex": 50,
+        "int": 0
+      },
+      "tags": [
+        "ammunition",
+        "attack",
+        "chaining",
+        "dexterity",
+        "grants_active_skill",
+        "lightning",
+        "merging",
+        "projectile",
+        "strength"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemStormblastBolts",
+      "name": "Stormblast Bolts",
+      "req": {
+        "str": 50,
+        "dex": 50,
+        "int": 0
+      },
+      "tags": [
+        "ammunition",
+        "area",
+        "attack",
+        "dexterity",
+        "duration",
+        "grants_active_skill",
+        "lightning",
+        "projectile",
+        "strength"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemShockburstRounds",
+      "name": "Shockburst Rounds",
+      "req": {
+        "str": 50,
+        "dex": 50,
+        "int": 0
+      },
+      "tags": [
+        "ammunition",
+        "area",
+        "attack",
+        "dexterity",
+        "grants_active_skill",
+        "lightning",
+        "payoff",
+        "projectile",
+        "strength"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemPlayerDefaultQuarterstaff",
+      "name": "Quarterstaff Strike",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "area",
+        "attack",
+        "grants_active_skill",
+        "melee",
+        "strike"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemPlayerDefault1HMace",
+      "name": "Mace Strike",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "area",
+        "attack",
+        "grants_active_skill",
+        "melee",
+        "strike"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemPlayerDefaultMaceMace",
+      "name": "Mace Strike",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "area",
+        "attack",
+        "grants_active_skill",
+        "melee",
+        "strike"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemPlayerDefault2HMace",
+      "name": "Mace Strike",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "area",
+        "attack",
+        "grants_active_skill",
+        "melee",
+        "strike"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemPlayerDefaultSpear",
+      "name": "Spear Stab",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "area",
+        "attack",
+        "grants_active_skill",
+        "melee",
+        "strike"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemPlayerDefaultSpearOffHand",
+      "name": "Spear Stab",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "area",
+        "attack",
+        "grants_active_skill",
+        "melee",
+        "strike"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemPlayerDefaultSpearThrow",
+      "name": "Spear Throw",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "area",
+        "attack",
+        "grants_active_skill",
+        "projectile",
+        "repeatable"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemPlayerDefaultBow",
+      "name": "Bow Shot",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "attack",
+        "grants_active_skill",
+        "projectile",
+        "repeatable"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemPlayerDefaultCrossbow",
+      "name": "Crossbow Shot",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "ammunition",
+        "area",
+        "attack",
+        "grants_active_skill",
+        "projectile"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemPlayerDefaultGrenadeLauncher",
+      "name": "Grenade",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "area",
+        "attack",
+        "duration",
+        "grants_active_skill",
+        "grenade",
+        "physical",
+        "projectile"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemAscendancyLifeRemnants",
+      "name": "Life Remnants",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "buff",
+        "grants_active_skill",
+        "persistent",
+        "remnant"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemAscendancyExplosiveConcoction",
+      "name": "Explosive Concoction",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "area",
+        "attack",
+        "fire",
+        "grants_active_skill",
+        "projectile"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemAscendancyFulminatingConcoction",
+      "name": "Fulminating Concoction",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "area",
+        "attack",
+        "grants_active_skill",
+        "lightning",
+        "projectile"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemAscendancyShatteringConcoction",
+      "name": "Shattering Concoction",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "area",
+        "attack",
+        "cold",
+        "grants_active_skill",
+        "projectile"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemAscendancyPoisonousConcoction",
+      "name": "Acidic Concoction",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "area",
+        "attack",
+        "grants_active_skill",
+        "physical",
+        "projectile"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemAscendancyBleedingConcoction",
+      "name": "Bleeding Concoction",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "area",
+        "attack",
+        "grants_active_skill",
+        "physical",
+        "projectile"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemAscendancyMeditate",
+      "name": "Meditate",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "channelling",
+        "grants_active_skill",
+        "spell"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemAscendancyElementalStorm",
+      "name": "Elemental Storm",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "area",
+        "cold",
+        "duration",
+        "fire",
+        "grants_active_skill",
+        "lightning",
+        "orb",
+        "spell",
+        "trigger"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemAscendancyUnboundAvatar",
+      "name": "Unbound Avatar",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "buff",
+        "cold",
+        "conditional",
+        "duration",
+        "fire",
+        "grants_active_skill",
+        "lightning"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemAscendancySummonInfernalHound",
+      "name": "Summon Infernal Hound",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "companion",
+        "fire",
+        "grants_active_skill",
+        "minion",
+        "persistent"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemAscendancySummonWaterDjinn",
+      "name": "Navira, the Last Mirage",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "cold",
+        "command",
+        "grants_active_skill",
+        "minion",
+        "persistent"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemAscendancySummonFireDjinn",
+      "name": "Ruzhan, the Blazing Sword",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "command",
+        "fire",
+        "grants_active_skill",
+        "minion",
+        "persistent"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemAscendancySummonSandDjinn",
+      "name": "Kelari, the Tainted Sands",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "command",
+        "grants_active_skill",
+        "minion",
+        "persistent",
+        "physical"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemAscendancyCorpseBeetles",
+      "name": "Kelari's Malediction",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "command",
+        "duration",
+        "grants_active_skill",
+        "minion",
+        "persistent"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemAscendancyAlignFate",
+      "name": "Align Fate",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "buff",
+        "grants_active_skill",
+        "persistent"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemAscendancyMomentOfVulnerability",
+      "name": "Moment of Vulnerability",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "area",
+        "grants_active_skill",
+        "nova",
+        "spell"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemAscendancyTemporalRift",
+      "name": "Temporal Rift",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "buff",
+        "grants_active_skill",
+        "persistent",
+        "spell"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemAscendancyTimeFreeze",
+      "name": "Time Freeze",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "area",
+        "duration",
+        "grants_active_skill",
+        "spell"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemAscendancyTimeSnap",
+      "name": "Time Snap",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "grants_active_skill",
+        "spell"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemAscendancyEncasedInJade",
+      "name": "Encase in Jade",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "buff",
+        "duration",
+        "grants_active_skill",
+        "physical",
+        "spell"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemAscendancyDemonForm",
+      "name": "Demon Form",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "buff",
+        "grants_active_skill",
+        "shapeshift"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemAscendancySorceryWard",
+      "name": "Sorcery Ward",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "buff",
+        "cold",
+        "fire",
+        "grants_active_skill",
+        "lightning",
+        "persistent",
+        "spell"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemAscendancyIntoTheBreach",
+      "name": "Into the Breach",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "buff",
+        "grants_active_skill",
+        "persistent",
+        "remnant"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemAscendancyAncestralSpirits",
+      "name": "Ancestral Spirits",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "duration",
+        "grants_active_skill",
+        "minion",
+        "trigger"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemAscendancyRitualSacrifice",
+      "name": "Ritual Sacrifice",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "buff",
+        "duration",
+        "grants_active_skill"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemAscendancyBloodBoil",
+      "name": "Blood Boil",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "area",
+        "buff",
+        "duration",
+        "grants_active_skill",
+        "persistent",
+        "physical"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemAscendancyVividStampede",
+      "name": "Vivid Stampede",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "area",
+        "attack",
+        "duration",
+        "grants_active_skill",
+        "lightning",
+        "trigger"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemWildProtector",
+      "name": "Wild Protector",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "companion",
+        "grants_active_skill",
+        "minion",
+        "persistent",
+        "physical"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemAscendancyHollowForm",
+      "name": "Hollow Form",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "attack",
+        "channelling",
+        "grants_active_skill",
+        "melee",
+        "meta",
+        "sustained"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemAscendancyHollowFocus",
+      "name": "Hollow Focus",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "area",
+        "attack",
+        "buff",
+        "duration",
+        "grants_active_skill",
+        "persistent"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemAscendancyHollowResonance",
+      "name": "Hollow Resonance",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "area",
+        "attack",
+        "grants_active_skill",
+        "trigger"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemAscendancyMirageDeadeye",
+      "name": "Mirage Deadeye",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "buff",
+        "duration",
+        "grants_active_skill",
+        "meta",
+        "persistent",
+        "trigger"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemAscendancyInevitableAgony",
+      "name": "Inevitable Agony",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "area",
+        "duration",
+        "grants_active_skill",
+        "repeatable",
+        "spell"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemAscendanyMetaDeadeyeMarks",
+      "name": "Called Shots",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "area",
+        "buff",
+        "grants_active_skill",
+        "meta",
+        "persistent"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemAscendancyFireSpellOnHit",
+      "name": "Fire Spell on Hit",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "buff",
+        "fire",
+        "grants_active_skill",
+        "meta",
+        "persistent",
+        "trigger"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemAscendancyManifestWeapon",
+      "name": "Manifest Weapon",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "companion",
+        "grants_active_skill",
+        "minion",
+        "persistent"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemAscendancyTemperWeapon",
+      "name": "Temper Weapon",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "area",
+        "attack",
+        "buff",
+        "channelling",
+        "fire",
+        "grants_active_skill",
+        "melee",
+        "trigger"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemAscendancySupportingFire",
+      "name": "Supporting Fire",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "grants_active_skill",
+        "minion",
+        "persistent"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemAscendancyVoidIllusion",
+      "name": "Void Illusion",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "area",
+        "attack",
+        "buff",
+        "duration",
+        "grants_active_skill",
+        "persistent",
+        "trigger"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemShockchainArrow",
+      "name": "Shockchain Arrow",
+      "req": {
+        "str": 0,
+        "dex": 100,
+        "int": 0
+      },
+      "tags": [
+        "area",
+        "attack",
+        "chaining",
+        "dexterity",
+        "grants_active_skill",
+        "lightning",
+        "payoff",
+        "projectile",
+        "repeatable"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemVaultingImpact",
+      "name": "Vaulting Impact",
+      "req": {
+        "str": 0,
+        "dex": 50,
+        "int": 50
+      },
+      "tags": [
+        "area",
+        "attack",
+        "dexterity",
+        "duration",
+        "grants_active_skill",
+        "intelligence",
+        "melee",
+        "payoff",
+        "physical",
+        "slam",
+        "travel"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemStormWave",
+      "name": "Storm Wave",
+      "req": {
+        "str": 0,
+        "dex": 50,
+        "int": 50
+      },
+      "tags": [
+        "area",
+        "attack",
+        "dexterity",
+        "grants_active_skill",
+        "intelligence",
+        "lightning",
+        "melee"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemMantraOfDestruction",
+      "name": "Mantra of Destruction",
+      "req": {
+        "str": 0,
+        "dex": 50,
+        "int": 50
+      },
+      "tags": [
+        "buff",
+        "chaos",
+        "conditional",
+        "dexterity",
+        "duration",
+        "grants_active_skill",
+        "intelligence"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemAscendancyElementalExpression",
+      "name": "Elemental Expression",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "area",
+        "chaining",
+        "cold",
+        "fire",
+        "grants_active_skill",
+        "lightning",
+        "projectile",
+        "spell",
+        "trigger"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemIceShot",
+      "name": "Ice Shot",
+      "req": {
+        "str": 0,
+        "dex": 100,
+        "int": 0
+      },
+      "tags": [
+        "attack",
+        "cold",
+        "dexterity",
+        "grants_active_skill",
+        "projectile",
+        "repeatable"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemWarBanner",
+      "name": "War Banner",
+      "req": {
+        "str": 50,
+        "dex": 50,
+        "int": 0
+      },
+      "tags": [
+        "area",
+        "aura",
+        "banner",
+        "buff",
+        "conditional",
+        "dexterity",
+        "duration",
+        "grants_active_skill",
+        "persistent",
+        "strength"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemDefianceBanner",
+      "name": "Defiance Banner",
+      "req": {
+        "str": 50,
+        "dex": 50,
+        "int": 0
+      },
+      "tags": [
+        "area",
+        "aura",
+        "banner",
+        "buff",
+        "conditional",
+        "dexterity",
+        "duration",
+        "grants_active_skill",
+        "persistent",
+        "strength"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemDreadBanner",
+      "name": "Dread Banner",
+      "req": {
+        "str": 50,
+        "dex": 50,
+        "int": 0
+      },
+      "tags": [
+        "area",
+        "aura",
+        "banner",
+        "buff",
+        "conditional",
+        "dexterity",
+        "duration",
+        "grants_active_skill",
+        "persistent",
+        "strength"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemFreezingMark",
+      "name": "Freezing Mark",
+      "req": {
+        "str": 0,
+        "dex": 50,
+        "int": 50
+      },
+      "tags": [
+        "buff",
+        "cold",
+        "dexterity",
+        "duration",
+        "grants_active_skill",
+        "intelligence",
+        "mark"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemVoltaicMark",
+      "name": "Voltaic Mark",
+      "req": {
+        "str": 0,
+        "dex": 100,
+        "int": 0
+      },
+      "tags": [
+        "buff",
+        "dexterity",
+        "duration",
+        "grants_active_skill",
+        "lightning",
+        "mark"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemHandOfChayula",
+      "name": "Hand of Chayula",
+      "req": {
+        "str": 0,
+        "dex": 50,
+        "int": 50
+      },
+      "tags": [
+        "area",
+        "attack",
+        "chaos",
+        "dexterity",
+        "grants_active_skill",
+        "intelligence",
+        "melee",
+        "meta",
+        "strike"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemTimeOfNeed",
+      "name": "Time of Need",
+      "req": {
+        "str": 75,
+        "dex": 0,
+        "int": 25
+      },
+      "tags": [
+        "buff",
+        "grants_active_skill",
+        "intelligence",
+        "persistent",
+        "strength"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemElementalInvocation",
+      "name": "Elemental Invocation",
+      "req": {
+        "str": 0,
+        "dex": 50,
+        "int": 50
+      },
+      "tags": [
+        "buff",
+        "cold",
+        "dexterity",
+        "fire",
+        "grants_active_skill",
+        "intelligence",
+        "invocation",
+        "lightning",
+        "meta",
+        "persistent",
+        "trigger"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemAttrition",
+      "name": "Attrition",
+      "req": {
+        "str": 50,
+        "dex": 50,
+        "int": 0
+      },
+      "tags": [
+        "buff",
+        "dexterity",
+        "grants_active_skill",
+        "persistent",
+        "strength"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemElementalConflux",
+      "name": "Elemental Conflux",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "buff",
+        "cold",
+        "duration",
+        "fire",
+        "grants_active_skill",
+        "intelligence",
+        "lightning",
+        "persistent"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemEmergencyReload",
+      "name": "Emergency Reload",
+      "req": {
+        "str": 50,
+        "dex": 50,
+        "int": 0
+      },
+      "tags": [
+        "buff",
+        "dexterity",
+        "duration",
+        "grants_active_skill",
+        "strength"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemClusterGrenade",
+      "name": "Cluster Grenade",
+      "req": {
+        "str": 50,
+        "dex": 50,
+        "int": 0
+      },
+      "tags": [
+        "area",
+        "attack",
+        "dexterity",
+        "fire",
+        "grants_active_skill",
+        "grenade",
+        "projectile",
+        "strength"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemTornadoShot",
+      "name": "Tornado Shot",
+      "req": {
+        "str": 0,
+        "dex": 100,
+        "int": 0
+      },
+      "tags": [
+        "area",
+        "attack",
+        "dexterity",
+        "duration",
+        "grants_active_skill",
+        "physical",
+        "projectile",
+        "repeatable",
+        "wind"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemChargeInfusion",
+      "name": "Charge Regulation",
+      "req": {
+        "str": 0,
+        "dex": 50,
+        "int": 50
+      },
+      "tags": [
+        "buff",
+        "dexterity",
+        "grants_active_skill",
+        "intelligence",
+        "persistent"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemShardScavenger",
+      "name": "Shard Scavenger",
+      "req": {
+        "str": 50,
+        "dex": 50,
+        "int": 0
+      },
+      "tags": [
+        "buff",
+        "cold",
+        "dexterity",
+        "duration",
+        "fire",
+        "grants_active_skill",
+        "lightning",
+        "persistent",
+        "physical",
+        "strength"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemOverwhelmingPresence",
+      "name": "Overwhelming Presence",
+      "req": {
+        "str": 100,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "aura",
+        "buff",
+        "grants_active_skill",
+        "persistent",
+        "strength"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemAlchemistsBoon",
+      "name": "Alchemist's Boon",
+      "req": {
+        "str": 0,
+        "dex": 100,
+        "int": 0
+      },
+      "tags": [
+        "aura",
+        "buff",
+        "dexterity",
+        "grants_active_skill",
+        "persistent"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemReapersInvocation",
+      "name": "Reaper's Invocation",
+      "req": {
+        "str": 0,
+        "dex": 50,
+        "int": 50
+      },
+      "tags": [
+        "buff",
+        "dexterity",
+        "grants_active_skill",
+        "intelligence",
+        "invocation",
+        "meta",
+        "persistent",
+        "trigger"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemSacrifice",
+      "name": "Sacrifice",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "buff",
+        "grants_active_skill",
+        "intelligence",
+        "minion",
+        "persistent"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemArchmage",
+      "name": "Archmage",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "buff",
+        "grants_active_skill",
+        "intelligence",
+        "lightning",
+        "persistent"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemMagneticSalvo",
+      "name": "Magnetic Salvo",
+      "req": {
+        "str": 0,
+        "dex": 100,
+        "int": 0
+      },
+      "tags": [
+        "area",
+        "attack",
+        "dexterity",
+        "grants_active_skill",
+        "lightning",
+        "projectile"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemFreezingSalvo",
+      "name": "Freezing Salvo",
+      "req": {
+        "str": 0,
+        "dex": 100,
+        "int": 0
+      },
+      "tags": [
+        "area",
+        "attack",
+        "cold",
+        "dexterity",
+        "grants_active_skill",
+        "projectile",
+        "repeatable"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemBerserk",
+      "name": "Berserk",
+      "req": {
+        "str": 100,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "buff",
+        "grants_active_skill",
+        "persistent",
+        "strength"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemHeraldOfPlague",
+      "name": "Herald of Plague",
+      "req": {
+        "str": 0,
+        "dex": 100,
+        "int": 0
+      },
+      "tags": [
+        "buff",
+        "chaos",
+        "dexterity",
+        "grants_active_skill",
+        "herald",
+        "persistent"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemHeraldOfBlood",
+      "name": "Herald of Blood",
+      "req": {
+        "str": 50,
+        "dex": 50,
+        "int": 0
+      },
+      "tags": [
+        "area",
+        "attack",
+        "buff",
+        "dexterity",
+        "grants_active_skill",
+        "herald",
+        "payoff",
+        "persistent",
+        "physical",
+        "strength"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemWitheringPresence",
+      "name": "Withering Presence",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "aura",
+        "buff",
+        "chaos",
+        "duration",
+        "grants_active_skill",
+        "intelligence",
+        "persistent"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemRavenousSwarm",
+      "name": "Ravenous Swarm",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "buff",
+        "chaos",
+        "duration",
+        "grants_active_skill",
+        "intelligence",
+        "minion",
+        "persistent",
+        "physical"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemMirageArcher",
+      "name": "Mirage Archer",
+      "req": {
+        "str": 0,
+        "dex": 100,
+        "int": 0
+      },
+      "tags": [
+        "buff",
+        "dexterity",
+        "duration",
+        "grants_active_skill",
+        "meta",
+        "persistent",
+        "trigger"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemCombatFrenzy",
+      "name": "Combat Frenzy",
+      "req": {
+        "str": 0,
+        "dex": 100,
+        "int": 0
+      },
+      "tags": [
+        "buff",
+        "dexterity",
+        "grants_active_skill",
+        "persistent"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemCastOnBlock",
+      "name": "Cast on Block",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "buff",
+        "grants_active_skill",
+        "meta",
+        "persistent",
+        "trigger"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemCastCurseOnBlock",
+      "name": "Curse on Block",
+      "req": {
+        "str": 0,
+        "dex": 50,
+        "int": 50
+      },
+      "tags": [
+        "buff",
+        "dexterity",
+        "grants_active_skill",
+        "intelligence",
+        "meta",
+        "persistent",
+        "trigger"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemGatheringStorm",
+      "name": "Gathering Storm",
+      "req": {
+        "str": 0,
+        "dex": 50,
+        "int": 50
+      },
+      "tags": [
+        "area",
+        "attack",
+        "channelling",
+        "dexterity",
+        "duration",
+        "grants_active_skill",
+        "intelligence",
+        "lightning",
+        "melee",
+        "travel"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemUniqueBreachLightningBolt",
+      "name": "Lightning Bolt",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "area",
+        "grants_active_skill",
+        "intelligence",
+        "lightning",
+        "repeatable",
+        "spell",
+        "trigger"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemWhirlwindLance",
+      "name": "Whirlwind Lance",
+      "req": {
+        "str": 0,
+        "dex": 100,
+        "int": 0
+      },
+      "tags": [
+        "area",
+        "attack",
+        "dexterity",
+        "duration",
+        "grants_active_skill",
+        "projectile",
+        "repeatable",
+        "wind"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemPrimalStrikes",
+      "name": "Primal Strikes",
+      "req": {
+        "str": 0,
+        "dex": 100,
+        "int": 0
+      },
+      "tags": [
+        "area",
+        "attack",
+        "dexterity",
+        "grants_active_skill",
+        "lightning",
+        "melee",
+        "payoff",
+        "strike"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemCullTheWeak",
+      "name": "Cull The Weak",
+      "req": {
+        "str": 0,
+        "dex": 100,
+        "int": 0
+      },
+      "tags": [
+        "area",
+        "attack",
+        "dexterity",
+        "grants_active_skill",
+        "melee",
+        "strike"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemFangsOfFrost",
+      "name": "Fangs of Frost",
+      "req": {
+        "str": 0,
+        "dex": 100,
+        "int": 0
+      },
+      "tags": [
+        "area",
+        "attack",
+        "cold",
+        "dexterity",
+        "grants_active_skill",
+        "melee",
+        "strike"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemWindSerpentsFury",
+      "name": "Wind Serpent's Fury",
+      "req": {
+        "str": 0,
+        "dex": 100,
+        "int": 0
+      },
+      "tags": [
+        "area",
+        "attack",
+        "conditional",
+        "dexterity",
+        "grants_active_skill",
+        "melee",
+        "sustained",
+        "wind"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemRake",
+      "name": "Rake",
+      "req": {
+        "str": 0,
+        "dex": 100,
+        "int": 0
+      },
+      "tags": [
+        "area",
+        "attack",
+        "dexterity",
+        "grants_active_skill",
+        "melee",
+        "physical",
+        "strike"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemBloodhoundsMark",
+      "name": "Bloodhound's Mark",
+      "req": {
+        "str": 0,
+        "dex": 100,
+        "int": 0
+      },
+      "tags": [
+        "area",
+        "attack",
+        "dexterity",
+        "duration",
+        "grants_active_skill",
+        "mark",
+        "payoff",
+        "physical",
+        "trigger"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemTameBeast",
+      "name": "Tame Beast",
+      "req": {
+        "str": 0,
+        "dex": 100,
+        "int": 0
+      },
+      "tags": [
+        "companion",
+        "dexterity",
+        "duration",
+        "grants_active_skill",
+        "minion",
+        "persistent"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemSpearOfSolaris",
+      "name": "Spear of Solaris",
+      "req": {
+        "str": 0,
+        "dex": 100,
+        "int": 0
+      },
+      "tags": [
+        "area",
+        "attack",
+        "conditional",
+        "dexterity",
+        "fire",
+        "grants_active_skill",
+        "projectile",
+        "sustained"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemStormLance",
+      "name": "Storm Lance",
+      "req": {
+        "str": 0,
+        "dex": 100,
+        "int": 0
+      },
+      "tags": [
+        "area",
+        "attack",
+        "dexterity",
+        "duration",
+        "grants_active_skill",
+        "lightning",
+        "projectile",
+        "repeatable",
+        "sustained"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemParry",
+      "name": "Parry",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "attack",
+        "channelling",
+        "duration",
+        "grants_active_skill",
+        "melee",
+        "physical"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemElementalSundering",
+      "name": "Elemental Sundering",
+      "req": {
+        "str": 0,
+        "dex": 100,
+        "int": 0
+      },
+      "tags": [
+        "area",
+        "attack",
+        "cold",
+        "dexterity",
+        "fire",
+        "grants_active_skill",
+        "lightning",
+        "melee",
+        "nova",
+        "payoff"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemSummonBeast",
+      "name": "Companion: {0}",
+      "req": {
+        "str": 0,
+        "dex": 100,
+        "int": 0
+      },
+      "tags": [
+        "companion",
+        "dexterity",
+        "grants_active_skill",
+        "minion",
+        "persistent"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemCastOnCharmUse",
+      "name": "Cast on Charm Use",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "buff",
+        "grants_active_skill",
+        "meta",
+        "persistent",
+        "trigger"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemTrinity",
+      "name": "Trinity",
+      "req": {
+        "str": 0,
+        "dex": 50,
+        "int": 50
+      },
+      "tags": [
+        "buff",
+        "cold",
+        "dexterity",
+        "fire",
+        "grants_active_skill",
+        "intelligence",
+        "lightning",
+        "persistent"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemTrailOfCaltrops",
+      "name": "Trail of Caltrops",
+      "req": {
+        "str": 0,
+        "dex": 100,
+        "int": 0
+      },
+      "tags": [
+        "area",
+        "attack",
+        "buff",
+        "dexterity",
+        "duration",
+        "grants_active_skill",
+        "hazard",
+        "persistent",
+        "physical",
+        "projectile",
+        "trigger"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemAscendancyInfuseWeapon",
+      "name": "Elemental Surge",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "area",
+        "attack",
+        "cold",
+        "fire",
+        "grants_active_skill",
+        "lightning",
+        "trigger"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemChaoticInfusion",
+      "name": "Chaotic Surge",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "area",
+        "attack",
+        "chaos",
+        "grants_active_skill",
+        "trigger"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemLightningSpellOnHit",
+      "name": "Thundergod's Wrath",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "buff",
+        "grants_active_skill",
+        "lightning",
+        "meta",
+        "persistent",
+        "trigger"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemConvalescence",
+      "name": "Convalescence",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "buff",
+        "duration",
+        "grants_active_skill",
+        "intelligence",
+        "persistent",
+        "spell"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemGeminiSurge",
+      "name": "Gemini Surge",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "area",
+        "attack",
+        "cold",
+        "fire",
+        "grants_active_skill",
+        "trigger"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemWingBlast",
+      "name": "Wing Blast",
+      "req": {
+        "str": 50,
+        "dex": 0,
+        "int": 50
+      },
+      "tags": [
+        "area",
+        "attack",
+        "grants_active_skill",
+        "intelligence",
+        "melee",
+        "shapeshift",
+        "strength",
+        "wind",
+        "wyvern"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemExplodingPoisonToad",
+      "name": "Bursting Fen Toad",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "area",
+        "attack",
+        "chaos",
+        "grants_active_skill",
+        "physical",
+        "trigger"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemOilBarrage",
+      "name": "Oil Barrage",
+      "req": {
+        "str": 50,
+        "dex": 0,
+        "int": 50
+      },
+      "tags": [
+        "area",
+        "attack",
+        "channelling",
+        "grants_active_skill",
+        "intelligence",
+        "projectile",
+        "shapeshift",
+        "strength",
+        "sustained",
+        "wyvern"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemIronWard",
+      "name": "Iron Ward",
+      "req": {
+        "str": 100,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "area",
+        "buff",
+        "grants_active_skill",
+        "nova",
+        "persistent",
+        "physical",
+        "strength"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemWyvernFlameBreath",
+      "name": "Flame Breath",
+      "req": {
+        "str": 50,
+        "dex": 0,
+        "int": 50
+      },
+      "tags": [
+        "area",
+        "attack",
+        "channelling",
+        "detonator",
+        "duration",
+        "fire",
+        "grants_active_skill",
+        "intelligence",
+        "shapeshift",
+        "strength",
+        "sustained",
+        "wyvern"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemEntangle",
+      "name": "Entangle",
+      "req": {
+        "str": 50,
+        "dex": 0,
+        "int": 50
+      },
+      "tags": [
+        "area",
+        "duration",
+        "grants_active_skill",
+        "intelligence",
+        "physical",
+        "plant",
+        "repeatable",
+        "spell",
+        "strength",
+        "sustained"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemIceFragments",
+      "name": "Ice Fragments",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "area",
+        "attack",
+        "cold",
+        "grants_active_skill",
+        "projectile",
+        "trigger"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemWolfShred",
+      "name": "Shred",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "area",
+        "attack",
+        "cold",
+        "grants_active_skill",
+        "melee",
+        "payoff",
+        "projectile",
+        "shapeshift",
+        "strike",
+        "trigger",
+        "wolf"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemBearFuryOfTheMountain",
+      "name": "Fury of the Mountain",
+      "req": {
+        "str": 50,
+        "dex": 0,
+        "int": 50
+      },
+      "tags": [
+        "area",
+        "attack",
+        "bear",
+        "channelling",
+        "duration",
+        "grants_active_skill",
+        "intelligence",
+        "melee",
+        "shapeshift",
+        "slam",
+        "strength",
+        "sustained"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemWolfCrossSlash",
+      "name": "Cross Slash",
+      "req": {
+        "str": 50,
+        "dex": 0,
+        "int": 50
+      },
+      "tags": [
+        "area",
+        "attack",
+        "grants_active_skill",
+        "intelligence",
+        "melee",
+        "shapeshift",
+        "strength",
+        "wolf"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemIcestorm",
+      "name": "Icestorm",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "area",
+        "cold",
+        "duration",
+        "grants_active_skill",
+        "intelligence",
+        "payoff",
+        "repeatable",
+        "spell",
+        "storm",
+        "sustained"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemPinnacleOfPower",
+      "name": "Pinnacle of Power",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "buff",
+        "cold",
+        "conditional",
+        "duration",
+        "fire",
+        "grants_active_skill",
+        "lightning",
+        "spell"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemCrossbowRequiem",
+      "name": "Requiem",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "ammunition",
+        "area",
+        "attack",
+        "cold",
+        "conditional",
+        "grants_active_skill",
+        "projectile"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemLunarAssault",
+      "name": "Lunar Assault",
+      "req": {
+        "str": 50,
+        "dex": 0,
+        "int": 50
+      },
+      "tags": [
+        "area",
+        "attack",
+        "cold",
+        "grants_active_skill",
+        "intelligence",
+        "melee",
+        "shapeshift",
+        "strength",
+        "strike",
+        "wolf"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemHeartOfIce",
+      "name": "Heart of Ice",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "aura",
+        "buff",
+        "cold",
+        "grants_active_skill",
+        "intelligence",
+        "persistent",
+        "spell"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemWyvernDevour",
+      "name": "Devour",
+      "req": {
+        "str": 50,
+        "dex": 0,
+        "int": 50
+      },
+      "tags": [
+        "area",
+        "attack",
+        "grants_active_skill",
+        "intelligence",
+        "melee",
+        "shapeshift",
+        "slam",
+        "strength",
+        "wyvern"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemThrashingVines",
+      "name": "Thrashing Vines",
+      "req": {
+        "str": 50,
+        "dex": 0,
+        "int": 50
+      },
+      "tags": [
+        "area",
+        "duration",
+        "grants_active_skill",
+        "intelligence",
+        "physical",
+        "plant",
+        "spell",
+        "strength",
+        "sustained"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemWolfLunarBlessing",
+      "name": "Lunar Blessing",
+      "req": {
+        "str": 50,
+        "dex": 0,
+        "int": 50
+      },
+      "tags": [
+        "area",
+        "attack",
+        "buff",
+        "cold",
+        "duration",
+        "grants_active_skill",
+        "intelligence",
+        "shapeshift",
+        "strength",
+        "trigger",
+        "warcry",
+        "wolf"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemWolfArcticHowl",
+      "name": "Arctic Howl",
+      "req": {
+        "str": 50,
+        "dex": 0,
+        "int": 50
+      },
+      "tags": [
+        "area",
+        "buff",
+        "cold",
+        "duration",
+        "grants_active_skill",
+        "intelligence",
+        "nova",
+        "shapeshift",
+        "strength",
+        "warcry",
+        "wolf"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemForgeHammer",
+      "name": "Forge Hammer",
+      "req": {
+        "str": 100,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "area",
+        "attack",
+        "duration",
+        "fire",
+        "grants_active_skill",
+        "melee",
+        "slam",
+        "strength"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemFulmination",
+      "name": "Fulmination",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "aura",
+        "buff",
+        "grants_active_skill",
+        "intelligence",
+        "lightning",
+        "persistent"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemMortarCannon",
+      "name": "Mortar Cannon",
+      "req": {
+        "str": 50,
+        "dex": 50,
+        "int": 0
+      },
+      "tags": [
+        "dexterity",
+        "duration",
+        "grants_active_skill",
+        "grenade",
+        "meta",
+        "strength",
+        "totem"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemAncestralCry",
+      "name": "Ancestral Cry",
+      "req": {
+        "str": 100,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "area",
+        "attack",
+        "buff",
+        "conditional",
+        "duration",
+        "fire",
+        "grants_active_skill",
+        "melee",
+        "nova",
+        "projectile",
+        "slam",
+        "strength",
+        "trigger",
+        "warcry"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemPrimalBounty",
+      "name": "Primal Bounty",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "buff",
+        "grants_active_skill",
+        "trigger"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemFeastOfFlesh",
+      "name": "Feast of Flesh",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "area",
+        "buff",
+        "grants_active_skill",
+        "intelligence",
+        "nova",
+        "repeatable",
+        "spell"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemToxicDomain",
+      "name": "Toxic Domain",
+      "req": {
+        "str": 0,
+        "dex": 100,
+        "int": 0
+      },
+      "tags": [
+        "area",
+        "attack",
+        "buff",
+        "chaos",
+        "dexterity",
+        "duration",
+        "grants_active_skill",
+        "physical",
+        "plant"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemSpellslinger",
+      "name": "Spellslinger",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "buff",
+        "grants_active_skill",
+        "intelligence",
+        "invocation",
+        "meta",
+        "persistent",
+        "trigger"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemIceTippedArrows",
+      "name": "Ice-Tipped Arrows",
+      "req": {
+        "str": 0,
+        "dex": 100,
+        "int": 0
+      },
+      "tags": [
+        "area",
+        "attack",
+        "buff",
+        "cold",
+        "dexterity",
+        "duration",
+        "grants_active_skill",
+        "projectile",
+        "spell",
+        "trigger"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemCracklingPalm",
+      "name": "Crackling Palm",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "area",
+        "attack",
+        "buff",
+        "grants_active_skill",
+        "lightning",
+        "persistent"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemFuturePast",
+      "name": "Future-Past",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "buff",
+        "duration",
+        "grants_active_skill",
+        "persistent"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemRunicTempering",
+      "name": "Runic Tempering",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "channelling",
+        "grants_active_skill"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemHisWinnowingFlame",
+      "name": "His Winnowing Flame",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "area",
+        "fire",
+        "grants_active_skill",
+        "intelligence",
+        "payoff",
+        "spell",
+        "trigger"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemHisFoulEmergence",
+      "name": "His Foul Emergence",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "area",
+        "chaos",
+        "duration",
+        "grants_active_skill",
+        "intelligence",
+        "physical",
+        "repeatable",
+        "spell"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemSiphonElements",
+      "name": "Siphon Elements",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "buff",
+        "cold",
+        "fire",
+        "grants_active_skill",
+        "intelligence",
+        "lightning",
+        "persistent",
+        "remnant"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemFrostDarts",
+      "name": "Frost Darts",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "area",
+        "cold",
+        "grants_active_skill",
+        "intelligence",
+        "payoff",
+        "projectile",
+        "repeatable",
+        "spell"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemTriggeredAbyssalApparition",
+      "name": "Abyssal Apparition",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "grants_active_skill",
+        "spell",
+        "trigger"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemBriarpatch",
+      "name": "Briarpatch",
+      "req": {
+        "str": 50,
+        "dex": 0,
+        "int": 50
+      },
+      "tags": [
+        "area",
+        "buff",
+        "duration",
+        "grants_active_skill",
+        "intelligence",
+        "persistent",
+        "physical",
+        "plant",
+        "spell",
+        "strength",
+        "sustained"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemEternalRage",
+      "name": "Eternal Rage",
+      "req": {
+        "str": 100,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "buff",
+        "grants_active_skill",
+        "persistent",
+        "strength"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemSavageFury",
+      "name": "Savage Fury",
+      "req": {
+        "str": 50,
+        "dex": 0,
+        "int": 50
+      },
+      "tags": [
+        "buff",
+        "duration",
+        "grants_active_skill",
+        "intelligence",
+        "persistent",
+        "strength"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemWalkingCalamity",
+      "name": "Walking Calamity",
+      "req": {
+        "str": 50,
+        "dex": 0,
+        "int": 50
+      },
+      "tags": [
+        "area",
+        "attack",
+        "bear",
+        "buff",
+        "conditional",
+        "duration",
+        "fire",
+        "grants_active_skill",
+        "intelligence",
+        "shapeshift",
+        "strength",
+        "trigger"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemTheStarsAnswer",
+      "name": "The Stars Answer",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "area",
+        "buff",
+        "cold",
+        "duration",
+        "grants_active_skill",
+        "physical",
+        "spell",
+        "trigger"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemAscendancyApocalypse",
+      "name": "Apocalypse",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "area",
+        "buff",
+        "cold",
+        "conditional",
+        "duration",
+        "fire",
+        "grants_active_skill",
+        "lightning",
+        "spell",
+        "storm",
+        "trigger"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemMirrorOfRefraction",
+      "name": "Mirror of Refraction",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 100
+      },
+      "tags": [
+        "buff",
+        "duration",
+        "grants_active_skill",
+        "intelligence",
+        "persistent"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemBarkskin",
+      "name": "Barkskin",
+      "req": {
+        "str": 50,
+        "dex": 0,
+        "int": 50
+      },
+      "tags": [
+        "buff",
+        "duration",
+        "grants_active_skill",
+        "intelligence",
+        "persistent",
+        "strength"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemFeralInvocation",
+      "name": "Feral Invocation",
+      "req": {
+        "str": 50,
+        "dex": 0,
+        "int": 50
+      },
+      "tags": [
+        "buff",
+        "grants_active_skill",
+        "intelligence",
+        "invocation",
+        "meta",
+        "persistent",
+        "strength"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemArchonOfChayula",
+      "name": "Archon of Chayula",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "area",
+        "attack",
+        "buff",
+        "chaos",
+        "conditional",
+        "duration",
+        "grants_active_skill",
+        "physical",
+        "storm",
+        "trigger"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemAncientGifts",
+      "name": "Wildwood's Gifts",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "buff",
+        "grants_active_skill",
+        "persistent",
+        "remnant"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemStarbornOnslaught",
+      "name": "Starborn Onslaught",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "area",
+        "attack",
+        "cold",
+        "duration",
+        "grants_active_skill",
+        "melee",
+        "physical",
+        "slam"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemAzmerianSwarm",
+      "name": "Azmerian Swarms",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "buff",
+        "cold",
+        "duration",
+        "fire",
+        "grants_active_skill",
+        "lightning",
+        "minion",
+        "persistent",
+        "physical"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemHarbingerOfMadness",
+      "name": "Harbinger of Madness",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "area",
+        "buff",
+        "grants_active_skill",
+        "persistent",
+        "physical"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemGlacialClash",
+      "name": "Soaring Midnight",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "area",
+        "attack",
+        "cold",
+        "grants_active_skill",
+        "melee",
+        "physical",
+        "projectile",
+        "slam",
+        "travel"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemSpiritVessel",
+      "name": "Spirit Vessel",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "companion",
+        "grants_active_skill",
+        "meta",
+        "minion",
+        "persistent"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemMidnightStar",
+      "name": "Midnight Zenith",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "area",
+        "buff",
+        "cold",
+        "duration",
+        "grants_active_skill",
+        "persistent"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemAscendancyVirtuousBarrier",
+      "name": "Virtuous Barrier",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "buff",
+        "grants_active_skill",
+        "persistent"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemLeylines",
+      "name": "Leylines",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "area",
+        "buff",
+        "duration",
+        "grants_active_skill",
+        "persistent"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemFrostflameNova",
+      "name": "Frostflame Nova",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "area",
+        "cold",
+        "fire",
+        "grants_active_skill",
+        "nova",
+        "repeatable",
+        "spell"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemHollowShell",
+      "name": "Hollow Shell",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "area",
+        "buff",
+        "grants_active_skill",
+        "nova",
+        "spell"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemMoltenShower",
+      "name": "Molten Shower",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "area",
+        "attack",
+        "fire",
+        "grants_active_skill",
+        "projectile",
+        "trigger"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemPoweredByVerisium",
+      "name": "Powered by Verisium",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "grants_active_skill",
+        "repeatable",
+        "spell"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemRefutation",
+      "name": "Refutation",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "buff",
+        "duration",
+        "grants_active_skill",
+        "repeatable",
+        "spell"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemRepulsion",
+      "name": "Repulsion",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "area",
+        "attack",
+        "curse",
+        "duration",
+        "grants_active_skill",
+        "physical",
+        "repeatable",
+        "spell",
+        "trigger"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemTriskelionCascade",
+      "name": "Triskelion Cascade",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "buff",
+        "duration",
+        "grants_active_skill",
+        "spell"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemGelidPalm",
+      "name": "Gelid Palm",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "area",
+        "attack",
+        "buff",
+        "cold",
+        "grants_active_skill",
+        "persistent"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemSkyfall",
+      "name": "Skyfall",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "area",
+        "cold",
+        "conditional",
+        "grants_active_skill",
+        "minion",
+        "physical",
+        "repeatable",
+        "spell"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemDetonateLiving",
+      "name": "Detonate Living",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "area",
+        "grants_active_skill",
+        "physical",
+        "repeatable",
+        "spell"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemAnimusExchange",
+      "name": "Animus Exchange",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "grants_active_skill",
+        "spell"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemBitterDead",
+      "name": "Bitter Dead",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "area",
+        "cold",
+        "grants_active_skill",
+        "repeatable",
+        "spell"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemEternalMarch",
+      "name": "Eternal March",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "grants_active_skill",
+        "minion",
+        "spell"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemGrimPillars",
+      "name": "Grim Pillars",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "area",
+        "cold",
+        "duration",
+        "grants_active_skill",
+        "nova",
+        "spell"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemVerisiumManifestation",
+      "name": "Verisium Manifestations",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "buff",
+        "duration",
+        "grants_active_skill",
+        "minion",
+        "persistent"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemRemnantsOfKalguur",
+      "name": "Remnants of Kalguur",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "buff",
+        "grants_active_skill",
+        "persistent",
+        "remnant"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemWardboundMinions",
+      "name": "Wardbound Minions",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "duration",
+        "grants_active_skill",
+        "minion",
+        "repeatable",
+        "spell"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemFragmentsOfThePast",
+      "name": "Fragments Of The Past",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "area",
+        "attack",
+        "cold",
+        "duration",
+        "grants_active_skill",
+        "projectile",
+        "sustained",
+        "trigger"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemConductiveRunes",
+      "name": "Conductive Runes",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "area",
+        "attack",
+        "duration",
+        "grants_active_skill",
+        "hazard",
+        "lightning"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemUniqueAtziriHerald",
+      "name": "Herald of the Royal Queen",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "area",
+        "attack",
+        "buff",
+        "grants_active_skill",
+        "herald",
+        "payoff",
+        "persistent",
+        "physical"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemAnimusSplinters",
+      "name": "Animus Splinters",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "grants_active_skill",
+        "meta"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemRunicReprieve",
+      "name": "Runic Reprieve",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "channelling",
+        "grants_active_skill",
+        "spell"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemVoltaicBarrier",
+      "name": "Voltaic Barrier",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "area",
+        "attack",
+        "chaining",
+        "grants_active_skill",
+        "lightning",
+        "trigger"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SupportOlrothsConviction",
+      "name": "Olroth's Conviction",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "lineage",
+        "support"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemExplosiveTransmutation",
+      "name": "Explosive Transmutation",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "area",
+        "buff",
+        "chaos",
+        "cold",
+        "fire",
+        "grants_active_skill",
+        "lightning",
+        "persistent",
+        "physical",
+        "spell",
+        "trigger"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemRainOfBlades",
+      "name": "Rain of Blades",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "area",
+        "attack",
+        "buff",
+        "duration",
+        "grants_active_skill",
+        "trigger"
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemSmashToSmithereens",
+      "name": "Smash to Smithereens",
+      "req": {
+        "str": 0,
+        "dex": 0,
+        "int": 0
+      },
+      "tags": [
+        "area",
+        "attack",
+        "fire",
+        "grants_active_skill",
+        "trigger"
+      ]
+    }
+  ]
+}
