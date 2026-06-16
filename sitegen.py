@@ -16,6 +16,7 @@ SITE = {
 NAV = [
     ("Home", "index.html"),
     ("Build Cards", "builds/index.html"),
+    ("Attribute Checker", "tools/attribute-checker.html"),
     ("Beginner Guide", "guides/beginner-guide.html"),
     ("Currency", "guides/currency-guide.html"),
     ("Checklist", "tools/beginner-build-checklist.html"),
@@ -225,6 +226,69 @@ pages = [
 """
     },
     {
+        "path": "tools/attribute-checker.html",
+        "title": "PoE2 Attribute, Spirit & Gear-Swap Checker",
+        "description": "Free Path of Exile 2 calculator: check Strength/Dexterity/Intelligence deficits, Spirit reservation, and whether swapping a gear slot breaks a skill or Spirit reservation. Prefills from build cards. No backend.",
+        "heading": "Attribute, Spirit & gear-swap checker",
+        "subtitle": "Planning aid · verify in game",
+        "scripts": ["assets/js/attribute-calculator.js"],
+        "content": """
+<p class=\"lede\">Answer two questions competitors leave separate: <em>what attributes am I missing?</em> and <em>what breaks if I swap this gear?</em> Open this tool from a build card to prefill its Spirit and gear-swap data, or enter values manually.</p>
+<div id=\"build-banner\" class=\"notice\" style=\"display:none\"></div>
+<div class=\"notice notice-warn\"><strong>Planning aid — verify in game.</strong> Exact gem and base attribute requirements need a verified data source; until then, enter the requirement you want to meet. Numbers here are guidance, not a guarantee.</div>
+
+<section class=\"build-section\" id=\"attr-calc\">
+  <h2>1. Attribute deficits</h2>
+  <p class=\"muted\">Enter the highest requirement you need to meet (from a gem or a gear base), your current attributes from the tree/quests, and what your gear adds.</p>
+  <table class=\"calc-input\">
+    <thead><tr><th>Attribute</th><th>Requirement</th><th>Current (tree/quests)</th><th>From gear</th></tr></thead>
+    <tbody>
+      <tr><th>Strength</th><td><input id=\"req-str\" type=\"number\" min=\"0\" value=\"0\"></td><td><input id=\"cur-str\" type=\"number\" min=\"0\" value=\"0\"></td><td><input id=\"gear-str\" type=\"number\" min=\"0\" value=\"0\"></td></tr>
+      <tr><th>Dexterity</th><td><input id=\"req-dex\" type=\"number\" min=\"0\" value=\"0\"></td><td><input id=\"cur-dex\" type=\"number\" min=\"0\" value=\"0\"></td><td><input id=\"gear-dex\" type=\"number\" min=\"0\" value=\"0\"></td></tr>
+      <tr><th>Intelligence</th><td><input id=\"req-int\" type=\"number\" min=\"0\" value=\"0\"></td><td><input id=\"cur-int\" type=\"number\" min=\"0\" value=\"0\"></td><td><input id=\"gear-int\" type=\"number\" min=\"0\" value=\"0\"></td></tr>
+    </tbody>
+  </table>
+  <p id=\"attr-summary\" class=\"calc-summary\"></p>
+  <table class=\"kv\"><thead><tr><th>Attribute</th><th>Required</th><th>Effective</th><th>Result</th></tr></thead><tbody id=\"attr-results\"></tbody></table>
+</section>
+
+<section class=\"build-section\" id=\"spirit-calc\">
+  <h2>2. Spirit reservation</h2>
+  <p class=\"muted\">Reservation builds (auras, minions, companions, persistent buffs) are gated by Spirit. Enter your Spirit capacity and total reservation.</p>
+  <table class=\"calc-input\">
+    <tbody>
+      <tr><th>Spirit capacity</th><td><input id=\"spirit-capacity\" type=\"number\" min=\"0\" value=\"0\"></td></tr>
+      <tr><th>Spirit reserved</th><td><input id=\"spirit-reserved\" type=\"number\" min=\"0\" value=\"0\"></td></tr>
+    </tbody>
+  </table>
+  <p id=\"spirit-result\" class=\"calc-summary\"></p>
+  <div id=\"spirit-sources\"></div>
+</section>
+
+<section class=\"build-section\" id=\"swap-calc\">
+  <h2>3. Will this gear swap break something?</h2>
+  <p class=\"muted\">Pick the slot you want to change. We show the build's authored swap warnings, then simulate the attributes/Spirit you would lose.</p>
+  <p><label>Slot to swap: <select id=\"swap-slot\"></select></label></p>
+  <table class=\"calc-input\">
+    <thead><tr><th colspan=\"4\">Attributes / Spirit this slot currently gives you</th></tr>
+    <tr><th>Strength</th><th>Dexterity</th><th>Intelligence</th><th>Spirit</th></tr></thead>
+    <tbody><tr>
+      <td><input id=\"swap-str\" type=\"number\" min=\"0\" value=\"0\"></td>
+      <td><input id=\"swap-dex\" type=\"number\" min=\"0\" value=\"0\"></td>
+      <td><input id=\"swap-int\" type=\"number\" min=\"0\" value=\"0\"></td>
+      <td><input id=\"swap-spirit\" type=\"number\" min=\"0\" value=\"0\"></td>
+    </tr></tbody>
+  </table>
+  <div id=\"swap-result\"></div>
+</section>
+
+<section class=\"build-section\">
+  <h2>How this helps</h2>
+  <p>Beginners often swap an amulet or weapon for more damage and suddenly a skill greys out or a minion vanishes. That is usually a lost attribute requirement or a lost Spirit source. This checker connects your planned requirements, your Spirit budget, and the build's gear-swap warnings so you can see the breakage before it happens — then confirm it in game.</p>
+</section>
+"""
+    },
+    {
         "path": "guides/import-build-files.html",
         "title": "How to Import PoE2 .build Files (In-Game Build Planner)",
         "description": "Where to put Path of Exile 2 .build files on Windows and SteamOS, how to load them in the in-game Build Planner, and why in-game editing is not supported.",
@@ -333,6 +397,7 @@ def render_page(page):
         subtitle = page.get('subtitle', f'Updated {SITE["updated"]} · {SITE["patch"]}')
         main_intro = f'<section class="page-title"><p class="eyebrow">{subtitle}</p><h1>{escape(heading)}</h1></section>'
     robots_meta = '\n  <meta name="robots" content="noindex, follow">' if page.get('noindex') else ''
+    scripts_html = ''.join(f'<script src="{prefix}{escape(s)}" defer></script>' for s in page.get('scripts', []))
     html = f'''<!doctype html>
 <html lang="en">
 <head>
@@ -353,6 +418,7 @@ def render_page(page):
   <header class="site-header"><a class="brand" href="{prefix}index.html">PoE2 Build Lab</a><nav>{nav}</nav></header>
   <main>{main_intro}<article class="article">{page['content']}</article></main>
   <footer><p>Independent Path of Exile 2 beginner guide site. Not affiliated with Grinding Gear Games.</p><p><a href="{prefix}privacy-policy.html">Privacy Policy</a> · <a href="{prefix}contact.html">Contact</a> · <a href="{prefix}sitemap.xml">Sitemap</a></p></footer>
+  {scripts_html}
 </body>
 </html>'''
     return html
@@ -498,11 +564,13 @@ def render_passive_block(build):
 def render_attributes_block(build):
     attrs = build.get("attributes", {})
     notes = li_list(attrs.get("notes", []))
+    checker = f'../tools/attribute-checker.html?build={build["id"]}'
     return (
         '<section class="build-section"><h2>Attributes</h2>'
         f'<p>Deficit policy: <b>{escape(attrs.get("deficit_policy", "warn"))}</b>. '
-        'Exact Str/Dex/Int numbers depend on verified gem and base data; the attribute checker (Phase 3) will compute deficits.</p>'
-        f'<ul>{notes}</ul></section>'
+        'Exact Str/Dex/Int numbers depend on verified gem and base data; enter the requirement you want to meet in the checker.</p>'
+        f'<ul>{notes}</ul>'
+        f'<p><a class="button" href="{checker}">Open in attribute &amp; gear-swap checker</a></p></section>'
     )
 
 
@@ -743,7 +811,7 @@ for p in all_pages:
     out.write_text(render_page(p), encoding='utf-8')
 
 Path('styles.css').write_text(r'''
-:root{--bg:#0d1117;--panel:#161b22;--panel2:#1f2937;--text:#e6edf3;--muted:#9da7b3;--accent:#f59e0b;--accent2:#60a5fa;--line:#30363d;--good:#34d399}*{box-sizing:border-box}body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:radial-gradient(circle at top left,#1d2a3a 0,#0d1117 36rem);color:var(--text);line-height:1.65}.site-header{position:sticky;top:0;z-index:10;display:flex;justify-content:space-between;align-items:center;padding:1rem clamp(1rem,4vw,4rem);background:rgba(13,17,23,.88);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}.brand{font-weight:800;color:var(--text);text-decoration:none;letter-spacing:.02em}nav{display:flex;gap:.85rem;flex-wrap:wrap}nav a,footer a,.article a{color:#93c5fd;text-decoration:none}nav a{font-size:.93rem;color:var(--muted)}nav a.active,nav a:hover{color:var(--text)}main{max-width:1120px;margin:auto;padding:2.5rem clamp(1rem,4vw,3rem)}.hero{padding:4rem 0 3rem;max-width:860px}.hero h1,.page-title h1{font-size:clamp(2.4rem,7vw,5.4rem);line-height:1;margin:.25rem 0 1rem;letter-spacing:-.06em}.hero p{font-size:1.22rem;color:var(--muted);max-width:760px}.eyebrow{color:var(--accent);text-transform:uppercase;font-size:.78rem;font-weight:800;letter-spacing:.12em}.hero-actions{display:flex;gap:1rem;flex-wrap:wrap;margin-top:1.5rem}.button{display:inline-block;background:linear-gradient(135deg,#f59e0b,#f97316);color:#111827!important;padding:.78rem 1rem;border-radius:999px;font-weight:800;text-decoration:none}.button.secondary{background:#243244;color:var(--text)!important;border:1px solid var(--line)}.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem}.card,.content-block,.article{background:rgba(22,27,34,.78);border:1px solid var(--line);border-radius:20px;padding:1.25rem;box-shadow:0 20px 60px rgba(0,0,0,.18)}.card.highlight{background:linear-gradient(160deg,rgba(245,158,11,.18),rgba(22,27,34,.9));border-color:rgba(245,158,11,.45)}.card h2,.card h3{line-height:1.15;margin:.3rem 0}.content-block{margin:1rem 0}.page-title{padding:2rem 0 1rem}.article{max-width:880px;margin:auto}.article .lede{font-size:1.2rem;color:#c9d1d9}.notice{border-left:4px solid var(--accent);background:rgba(245,158,11,.08);padding:1rem;border-radius:12px;margin:1rem 0}table{width:100%;border-collapse:collapse;margin:1.25rem 0;background:rgba(15,23,42,.4);border-radius:14px;overflow:hidden}th,td{border-bottom:1px solid var(--line);padding:.8rem;text-align:left;vertical-align:top}th{color:#facc15;background:rgba(255,255,255,.04)}tr:last-child td{border-bottom:0}h2{margin-top:2rem;line-height:1.2}ul,ol{padding-left:1.35rem}.checklist{display:grid;gap:.75rem}.checklist label{display:flex;gap:.65rem;align-items:flex-start;background:rgba(255,255,255,.04);padding:.85rem;border-radius:12px;border:1px solid var(--line)}input[type=checkbox]{margin-top:.35rem}footer{max-width:1120px;margin:2rem auto;padding:2rem clamp(1rem,4vw,3rem);color:var(--muted);border-top:1px solid var(--line)}.tag-row{display:flex;flex-wrap:wrap;gap:.5rem;margin:1rem 0}.tag{display:inline-block;font-size:.8rem;background:rgba(255,255,255,.05);border:1px solid var(--line);border-radius:999px;padding:.25rem .7rem;color:var(--muted)}.tag b{color:var(--text);font-weight:700}.tag-ok{border-color:rgba(52,211,153,.5)}.tag-warn{border-color:rgba(245,158,11,.5)}.badge{display:inline-block;font-size:.72rem;font-weight:800;text-transform:uppercase;letter-spacing:.06em;padding:.2rem .55rem;border-radius:6px}.badge-ok{background:rgba(52,211,153,.18);color:#6ee7b7}.badge-warn{background:rgba(245,158,11,.18);color:#fcd34d}.badge-bad{background:rgba(248,113,113,.18);color:#fca5a5}.muted{color:var(--muted)}.build-section{margin-top:2rem;padding-top:1.25rem;border-top:1px solid var(--line)}.build-section h2{margin-top:0}.build-section h3{margin:1rem 0 .3rem;font-size:1rem;color:#facc15}table.kv th{width:34%;color:var(--muted);background:transparent}table.kv td{color:var(--text)}table.gear th{color:#facc15}.skill{background:rgba(255,255,255,.03);border:1px solid var(--line);border-radius:12px;padding:.8rem 1rem;margin:.6rem 0}.skill h3{margin:.1rem 0;color:var(--text)}.skill .role{font-size:.7rem;text-transform:uppercase;letter-spacing:.08em;color:var(--accent);border:1px solid var(--line);border-radius:6px;padding:.1rem .4rem;margin-left:.4rem}.supports{margin:.4rem 0 0}.notice-warn{border-left-color:var(--accent)}.notice-bad{border-left-color:#f87171;background:rgba(248,113,113,.08)}.src-links a{margin-right:.8rem}.build-card .card-head{display:flex;align-items:center;gap:.6rem;margin-bottom:.3rem}.build-card .cls{color:var(--muted);font-size:.85rem}.build-card h2{margin:.2rem 0}.build-card h2 a{color:var(--text)}.build-card .import-line{font-size:.82rem;margin:.4rem 0 .8rem}.build-grid .button{margin-top:.4rem}
+:root{--bg:#0d1117;--panel:#161b22;--panel2:#1f2937;--text:#e6edf3;--muted:#9da7b3;--accent:#f59e0b;--accent2:#60a5fa;--line:#30363d;--good:#34d399}*{box-sizing:border-box}body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:radial-gradient(circle at top left,#1d2a3a 0,#0d1117 36rem);color:var(--text);line-height:1.65}.site-header{position:sticky;top:0;z-index:10;display:flex;justify-content:space-between;align-items:center;padding:1rem clamp(1rem,4vw,4rem);background:rgba(13,17,23,.88);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}.brand{font-weight:800;color:var(--text);text-decoration:none;letter-spacing:.02em}nav{display:flex;gap:.85rem;flex-wrap:wrap}nav a,footer a,.article a{color:#93c5fd;text-decoration:none}nav a{font-size:.93rem;color:var(--muted)}nav a.active,nav a:hover{color:var(--text)}main{max-width:1120px;margin:auto;padding:2.5rem clamp(1rem,4vw,3rem)}.hero{padding:4rem 0 3rem;max-width:860px}.hero h1,.page-title h1{font-size:clamp(2.4rem,7vw,5.4rem);line-height:1;margin:.25rem 0 1rem;letter-spacing:-.06em}.hero p{font-size:1.22rem;color:var(--muted);max-width:760px}.eyebrow{color:var(--accent);text-transform:uppercase;font-size:.78rem;font-weight:800;letter-spacing:.12em}.hero-actions{display:flex;gap:1rem;flex-wrap:wrap;margin-top:1.5rem}.button{display:inline-block;background:linear-gradient(135deg,#f59e0b,#f97316);color:#111827!important;padding:.78rem 1rem;border-radius:999px;font-weight:800;text-decoration:none}.button.secondary{background:#243244;color:var(--text)!important;border:1px solid var(--line)}.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem}.card,.content-block,.article{background:rgba(22,27,34,.78);border:1px solid var(--line);border-radius:20px;padding:1.25rem;box-shadow:0 20px 60px rgba(0,0,0,.18)}.card.highlight{background:linear-gradient(160deg,rgba(245,158,11,.18),rgba(22,27,34,.9));border-color:rgba(245,158,11,.45)}.card h2,.card h3{line-height:1.15;margin:.3rem 0}.content-block{margin:1rem 0}.page-title{padding:2rem 0 1rem}.article{max-width:880px;margin:auto}.article .lede{font-size:1.2rem;color:#c9d1d9}.notice{border-left:4px solid var(--accent);background:rgba(245,158,11,.08);padding:1rem;border-radius:12px;margin:1rem 0}table{width:100%;border-collapse:collapse;margin:1.25rem 0;background:rgba(15,23,42,.4);border-radius:14px;overflow:hidden}th,td{border-bottom:1px solid var(--line);padding:.8rem;text-align:left;vertical-align:top}th{color:#facc15;background:rgba(255,255,255,.04)}tr:last-child td{border-bottom:0}h2{margin-top:2rem;line-height:1.2}ul,ol{padding-left:1.35rem}.checklist{display:grid;gap:.75rem}.checklist label{display:flex;gap:.65rem;align-items:flex-start;background:rgba(255,255,255,.04);padding:.85rem;border-radius:12px;border:1px solid var(--line)}input[type=checkbox]{margin-top:.35rem}footer{max-width:1120px;margin:2rem auto;padding:2rem clamp(1rem,4vw,3rem);color:var(--muted);border-top:1px solid var(--line)}.tag-row{display:flex;flex-wrap:wrap;gap:.5rem;margin:1rem 0}.tag{display:inline-block;font-size:.8rem;background:rgba(255,255,255,.05);border:1px solid var(--line);border-radius:999px;padding:.25rem .7rem;color:var(--muted)}.tag b{color:var(--text);font-weight:700}.tag-ok{border-color:rgba(52,211,153,.5)}.tag-warn{border-color:rgba(245,158,11,.5)}.badge{display:inline-block;font-size:.72rem;font-weight:800;text-transform:uppercase;letter-spacing:.06em;padding:.2rem .55rem;border-radius:6px}.badge-ok{background:rgba(52,211,153,.18);color:#6ee7b7}.badge-warn{background:rgba(245,158,11,.18);color:#fcd34d}.badge-bad{background:rgba(248,113,113,.18);color:#fca5a5}.muted{color:var(--muted)}.build-section{margin-top:2rem;padding-top:1.25rem;border-top:1px solid var(--line)}.build-section h2{margin-top:0}.build-section h3{margin:1rem 0 .3rem;font-size:1rem;color:#facc15}table.kv th{width:34%;color:var(--muted);background:transparent}table.kv td{color:var(--text)}table.gear th{color:#facc15}.skill{background:rgba(255,255,255,.03);border:1px solid var(--line);border-radius:12px;padding:.8rem 1rem;margin:.6rem 0}.skill h3{margin:.1rem 0;color:var(--text)}.skill .role{font-size:.7rem;text-transform:uppercase;letter-spacing:.08em;color:var(--accent);border:1px solid var(--line);border-radius:6px;padding:.1rem .4rem;margin-left:.4rem}.supports{margin:.4rem 0 0}.notice-warn{border-left-color:var(--accent)}.notice-bad{border-left-color:#f87171;background:rgba(248,113,113,.08)}.src-links a{margin-right:.8rem}.build-card .card-head{display:flex;align-items:center;gap:.6rem;margin-bottom:.3rem}.build-card .cls{color:var(--muted);font-size:.85rem}.build-card h2{margin:.2rem 0}.build-card h2 a{color:var(--text)}.build-card .import-line{font-size:.82rem;margin:.4rem 0 .8rem}.build-grid .button{margin-top:.4rem}.calc-input input{width:100%;max-width:8rem;background:rgba(15,23,42,.6);border:1px solid var(--line);border-radius:8px;color:var(--text);padding:.45rem .55rem;font:inherit}.calc-input th{color:var(--muted)}.calc-summary{font-weight:700;padding:.6rem .8rem;border-radius:10px;margin:1rem 0}.res-ok{color:#6ee7b7}.res-bad{color:#fca5a5}td.res-ok{color:#6ee7b7}td.res-bad{color:#fca5a5}.calc-summary.res-ok{background:rgba(52,211,153,.12)}.calc-summary.res-bad{background:rgba(248,113,113,.12)}#swap-slot{background:rgba(15,23,42,.6);border:1px solid var(--line);border-radius:8px;color:var(--text);padding:.45rem .6rem;font:inherit}
 @media(max-width:820px){.site-header{align-items:flex-start;gap:1rem;flex-direction:column}.grid{grid-template-columns:1fr}.hero{padding-top:2rem}th,td{display:block;width:100%}th{display:none}td{border-bottom:0;padding:.55rem .8rem}tr{display:block;border-bottom:1px solid var(--line);padding:.45rem 0}table.kv th{display:none}}
 '''.strip()+"\n", encoding='utf-8')
 

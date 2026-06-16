@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PoE2 Attribute, Spirit &amp; Gear-Swap Checker</title>
+  <meta name="description" content="Free Path of Exile 2 calculator: check Strength/Dexterity/Intelligence deficits, Spirit reservation, and whether swapping a gear slot breaks a skill or Spirit reservation. Prefills from build cards. No backend.">
+  <link rel="canonical" href="https://brickerp.github.io/poe2-build-lab/tools/attribute-checker.html">
+  <meta property="og:title" content="PoE2 Attribute, Spirit &amp; Gear-Swap Checker">
+  <meta property="og:description" content="Free Path of Exile 2 calculator: check Strength/Dexterity/Intelligence deficits, Spirit reservation, and whether swapping a gear slot breaks a skill or Spirit reservation. Prefills from build cards. No backend.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://brickerp.github.io/poe2-build-lab/tools/attribute-checker.html">
+  <link rel="stylesheet" href="../styles.css">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1111218417177666" crossorigin="anonymous"></script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":'PoE2 Attribute, Spirit & Gear-Swap Checker',"description":'Free Path of Exile 2 calculator: check Strength/Dexterity/Intelligence deficits, Spirit reservation, and whether swapping a gear slot breaks a skill or Spirit reservation. Prefills from build cards. No backend.',"url":'https://brickerp.github.io/poe2-build-lab/tools/attribute-checker.html',"dateModified":"2026-06-16"}</script>
+</head>
+<body>
+  <header class="site-header"><a class="brand" href="../index.html">PoE2 Build Lab</a><nav><a href="../index.html">Home</a><a href="../builds/index.html">Build Cards</a><a class="active" href="../tools/attribute-checker.html">Attribute Checker</a><a href="../guides/beginner-guide.html">Beginner Guide</a><a href="../guides/currency-guide.html">Currency</a><a href="../tools/beginner-build-checklist.html">Checklist</a><a href="../about.html">About</a></nav></header>
+  <main><section class="page-title"><p class="eyebrow">Planning aid · verify in game</p><h1>Attribute, Spirit &amp; gear-swap checker</h1></section><article class="article">
+<p class="lede">Answer two questions competitors leave separate: <em>what attributes am I missing?</em> and <em>what breaks if I swap this gear?</em> Open this tool from a build card to prefill its Spirit and gear-swap data, or enter values manually.</p>
+<div id="build-banner" class="notice" style="display:none"></div>
+<div class="notice notice-warn"><strong>Planning aid — verify in game.</strong> Exact gem and base attribute requirements need a verified data source; until then, enter the requirement you want to meet. Numbers here are guidance, not a guarantee.</div>
+
+<section class="build-section" id="attr-calc">
+  <h2>1. Attribute deficits</h2>
+  <p class="muted">Enter the highest requirement you need to meet (from a gem or a gear base), your current attributes from the tree/quests, and what your gear adds.</p>
+  <table class="calc-input">
+    <thead><tr><th>Attribute</th><th>Requirement</th><th>Current (tree/quests)</th><th>From gear</th></tr></thead>
+    <tbody>
+      <tr><th>Strength</th><td><input id="req-str" type="number" min="0" value="0"></td><td><input id="cur-str" type="number" min="0" value="0"></td><td><input id="gear-str" type="number" min="0" value="0"></td></tr>
+      <tr><th>Dexterity</th><td><input id="req-dex" type="number" min="0" value="0"></td><td><input id="cur-dex" type="number" min="0" value="0"></td><td><input id="gear-dex" type="number" min="0" value="0"></td></tr>
+      <tr><th>Intelligence</th><td><input id="req-int" type="number" min="0" value="0"></td><td><input id="cur-int" type="number" min="0" value="0"></td><td><input id="gear-int" type="number" min="0" value="0"></td></tr>
+    </tbody>
+  </table>
+  <p id="attr-summary" class="calc-summary"></p>
+  <table class="kv"><thead><tr><th>Attribute</th><th>Required</th><th>Effective</th><th>Result</th></tr></thead><tbody id="attr-results"></tbody></table>
+</section>
+
+<section class="build-section" id="spirit-calc">
+  <h2>2. Spirit reservation</h2>
+  <p class="muted">Reservation builds (auras, minions, companions, persistent buffs) are gated by Spirit. Enter your Spirit capacity and total reservation.</p>
+  <table class="calc-input">
+    <tbody>
+      <tr><th>Spirit capacity</th><td><input id="spirit-capacity" type="number" min="0" value="0"></td></tr>
+      <tr><th>Spirit reserved</th><td><input id="spirit-reserved" type="number" min="0" value="0"></td></tr>
+    </tbody>
+  </table>
+  <p id="spirit-result" class="calc-summary"></p>
+  <div id="spirit-sources"></div>
+</section>
+
+<section class="build-section" id="swap-calc">
+  <h2>3. Will this gear swap break something?</h2>
+  <p class="muted">Pick the slot you want to change. We show the build's authored swap warnings, then simulate the attributes/Spirit you would lose.</p>
+  <p><label>Slot to swap: <select id="swap-slot"></select></label></p>
+  <table class="calc-input">
+    <thead><tr><th colspan="4">Attributes / Spirit this slot currently gives you</th></tr>
+    <tr><th>Strength</th><th>Dexterity</th><th>Intelligence</th><th>Spirit</th></tr></thead>
+    <tbody><tr>
+      <td><input id="swap-str" type="number" min="0" value="0"></td>
+      <td><input id="swap-dex" type="number" min="0" value="0"></td>
+      <td><input id="swap-int" type="number" min="0" value="0"></td>
+      <td><input id="swap-spirit" type="number" min="0" value="0"></td>
+    </tr></tbody>
+  </table>
+  <div id="swap-result"></div>
+</section>
+
+<section class="build-section">
+  <h2>How this helps</h2>
+  <p>Beginners often swap an amulet or weapon for more damage and suddenly a skill greys out or a minion vanishes. That is usually a lost attribute requirement or a lost Spirit source. This checker connects your planned requirements, your Spirit budget, and the build's gear-swap warnings so you can see the breakage before it happens — then confirm it in game.</p>
+</section>
+</article></main>
+  <footer><p>Independent Path of Exile 2 beginner guide site. Not affiliated with Grinding Gear Games.</p><p><a href="../privacy-policy.html">Privacy Policy</a> · <a href="../contact.html">Contact</a> · <a href="../sitemap.xml">Sitemap</a></p></footer>
+  <script src="../assets/js/attribute-calculator.js" defer></script>
+</body>
+</html>
