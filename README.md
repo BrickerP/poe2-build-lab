@@ -10,7 +10,7 @@ Live URL target: https://brickerp.github.io/poe2-build-lab/
 - [x] SEO titles/descriptions
 - [x] `robots.txt` and `sitemap.xml`
 - [x] About / Contact / Privacy Policy
-- [ ] Google Search Console URL-prefix property and verification
+- [x] Google Search Console URL-prefix property and verification
 - [ ] AdSense approval and publisher ID
 
 ## AdSense status
@@ -20,3 +20,7 @@ AdSense is intentionally not active until the site has an approved publisher ID 
 ## Operations
 
 See `docs/OPERATIONS.md` for Search Console, sitemap, AdSense, and weekly content operations.
+
+## Research pack
+
+The current domain research and product roadmap live in `docs/research/README.md`.

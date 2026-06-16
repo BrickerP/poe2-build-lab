@@ -68,3 +68,7 @@ Do not add fake publisher IDs or placeholder ad scripts. Ads should remain off u
 - More original value: screenshots, tables, checklists, tools.
 - Patch freshness: update pages quickly after official changes.
 - Avoid thin/AI-only pages; they increase Search/AdSense policy risk.
+
+## Research cadence
+
+Before adding build pages, review `docs/research/README.md`. Each new repeated player pain point should get its own Markdown card under `docs/research/` before it becomes a page or tool.
