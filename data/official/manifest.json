@@ -11,37 +11,41 @@
       "local_normalized": "data/official/passive-tree.json",
       "fetched_at": "2026-06-16",
       "coverage": "complete",
-      "known_gaps": []
+      "known_gaps": [],
+      "coverage_notes": "Normalized 5150 passive node ids (numeric + semantic) and 22 ascendancy code/name mappings plus per-class base attributes from the official GGG export."
     },
     {
       "type": "skill-gems",
-      "source_url": "",
+      "source_url": "https://www.pathofexile.com/developer/docs/data",
       "local_normalized": "data/official/skill-gems.json",
       "fetched_at": null,
       "coverage": "missing",
       "known_gaps": [
-        "No authoritative GGG skill-gem id export vendored yet.",
-        "Skill gem_id values remain TBD in build cards until a verified source is ingested."
+        "GGG publishes NO official skill-gem data export. Per the official developer docs, the only official PoE2 data exports are the passive (and atlas) trees.",
+        "The .build file format references skill gems by metadata id (e.g. Metadata/Items/Gems/SkillGemEarthquake); these ids only exist inside extracted game files (.datc64) via community tooling, which is out of scope (no bulk extraction / no fabrication).",
+        "Skill gem_id values therefore stay TBD in build cards and the .build exporter refuses to emit until a verified source is ingested."
       ]
     },
     {
       "type": "support-gems",
-      "source_url": "",
+      "source_url": "https://www.pathofexile.com/developer/docs/data",
       "local_normalized": "data/official/support-gems.json",
       "fetched_at": null,
       "coverage": "missing",
       "known_gaps": [
-        "No authoritative GGG support-gem id export vendored yet."
+        "No official GGG support-gem export exists (same constraint as skill-gems).",
+        "The .build format references supports by metadata id (e.g. Metadata/Items/Gems/SupportGemAftershock); not available from any official export."
       ]
     },
     {
       "type": "base-items",
-      "source_url": "",
+      "source_url": "https://www.pathofexile.com/developer/docs/data",
       "local_normalized": "data/official/base-items.json",
       "fetched_at": null,
       "coverage": "missing",
       "known_gaps": [
-        "Base-item attribute requirement data not yet vendored; gear base_item_id stays TBD."
+        "No official GGG base-item export exists.",
+        "Note: the official .build inventory_slots use a slot id (e.g. Weapon1) plus free-text stat-priority hints, NOT a base-item id, so .build export does not require this dataset. base_item_id stays TBD only for on-page exact base requirements."
       ]
     }
   ]

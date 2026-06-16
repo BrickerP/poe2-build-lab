@@ -27,16 +27,12 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 BUILDS_DIR = ROOT / "data" / "builds"
 SCHEMA_PATH = BUILDS_DIR / "schema.json"
-MANIFEST_PATH = ROOT / "data" / "official" / "manifest.json"
+OFFICIAL_DIR = ROOT / "data" / "official"
+MANIFEST_PATH = OFFICIAL_DIR / "manifest.json"
+PASSIVE_TREE_PATH = OFFICIAL_DIR / "passive-tree.json"
 
 TBD = "TBD"
 DEFAULT_REVIEW_WINDOW_DAYS = 45
-
-# Fields whose values are exact game mechanics. They may stay "TBD" in drafts
-# but must be resolved before a build is published.
-EXACT_ID_FIELDS_DESC = (
-    "ascendancy, skill gem ids, support gem ids, gear base item ids, passive node ids"
-)
 
 
 # --------------------------------------------------------------------------- #
@@ -151,27 +147,65 @@ def _typename(instance):
 # Business rules from doc 14
 # --------------------------------------------------------------------------- #
 def collect_exact_ids(build):
-    """Yield (label, value) for every field that must hold an exact game id."""
-    yield ("ascendancy", build.get("ascendancy"))
+    """Yield (label, value, category) for every field that must hold an exact id.
+
+    Categories drive the published-build gate (see business_rules):
+
+    - ``gem``       skill/support gem ids. Rendered by archetype name, never as an
+                    exact id, and consumed only by the .build exporter, which is
+                    independently gated by build_file.enabled. Per doc 14 release
+                    sequence item 5 ("Publish Build Cards without .build export if
+                    IDs are not ready"), these may stay TBD on a published card.
+    - ``ascendancy`` rendered on the page and required by .build export; must be
+                    resolved and verified against official data to publish.
+    - ``node``      passive node ids. Optional; when present they assert exact
+                    tree placement and must be real official ids.
+    - ``base``      gear base-item ids. Optional; when present they assert an
+                    exact base and require a non-missing base-items dataset.
+    """
+    yield ("ascendancy", build.get("ascendancy"), "ascendancy")
     for i, skill in enumerate(build.get("skills", [])):
-        yield (f"skills[{i}].gem_id", skill.get("gem_id"))
+        yield (f"skills[{i}].gem_id", skill.get("gem_id"), "gem")
         for j, sup in enumerate(skill.get("supports", [])):
-            yield (f"skills[{i}].supports[{j}].gem_id", sup.get("gem_id"))
+            yield (f"skills[{i}].supports[{j}].gem_id", sup.get("gem_id"), "gem")
     for slot_name, slot in build.get("gear_slots", {}).items():
         if "base_item_id" in slot:
-            yield (f"gear_slots.{slot_name}.base_item_id", slot.get("base_item_id"))
+            yield (f"gear_slots.{slot_name}.base_item_id", slot.get("base_item_id"), "base")
     for i, milestone in enumerate(build.get("passive_milestones", [])):
         for j, node in enumerate(milestone.get("node_ids", [])):
-            yield (f"passive_milestones[{i}].node_ids[{j}]", node)
+            yield (f"passive_milestones[{i}].node_ids[{j}]", node, "node")
+
+
+def dataset_coverage(manifest, dataset_type):
+    if not manifest:
+        return None
+    for ds in manifest.get("datasets", []):
+        if ds.get("type") == dataset_type:
+            return ds.get("coverage")
+    return None
 
 
 def manifest_passive_tree_complete(manifest):
-    if not manifest:
-        return False
-    for ds in manifest.get("datasets", []):
-        if ds.get("type") == "passive-tree":
-            return ds.get("coverage") == "complete"
-    return False
+    return dataset_coverage(manifest, "passive-tree") == "complete"
+
+
+def official_ascendancies(passive_tree):
+    """Return the set of valid ascendancy names + codes from official data."""
+    valid = set()
+    if not passive_tree:
+        return valid
+    for asc in passive_tree.get("ascendancies", []):
+        if asc.get("name"):
+            valid.add(asc["name"])
+        if asc.get("code"):
+            valid.add(asc["code"])
+    return valid
+
+
+def official_node_ids(passive_tree):
+    if not passive_tree:
+        return set()
+    return set(passive_tree.get("node_ids", [])) | set(passive_tree.get("semantic_node_ids", []))
 
 
 def parse_date(value):
@@ -181,25 +215,59 @@ def parse_date(value):
         return None
 
 
-def business_rules(build, manifest, errors):
+def business_rules(build, manifest, passive_tree, errors):
     status = build.get("status")
     published = status == "published"
 
     exact_ids = list(collect_exact_ids(build))
+    valid_asc = official_ascendancies(passive_tree)
+    valid_nodes = official_node_ids(passive_tree)
 
-    # TBD policy: allowed in drafts, blocked on published exact-mechanics fields.
+    # Published-build TBD policy (doc 14 build-data rules + release sequence item 5):
+    #   - ascendancy is rendered and required by export -> must resolve AND match
+    #     official data; a missing ascendancy dataset cannot back a published claim.
+    #   - node ids / base ids are optional, but when present they assert exact
+    #     mechanics and must be real (and base ids need a non-missing dataset).
+    #   - skill/support gem ids may remain TBD: the card renders skills by name
+    #     and the only consumer (.build export) is gated by build_file.enabled.
     if published:
-        tbd_hits = [label for label, value in exact_ids if value == TBD]
-        if tbd_hits:
-            errors.append(
-                "published build still has TBD in exact-mechanics fields "
-                f"({EXACT_ID_FIELDS_DESC}): {', '.join(tbd_hits)}"
-            )
+        for label, value, cat in exact_ids:
+            if cat == "ascendancy":
+                if value == TBD or not value:
+                    errors.append(
+                        f"published build has unresolved {label} (TBD); resolve it from "
+                        "official data before publishing"
+                    )
+                elif valid_asc and value not in valid_asc:
+                    errors.append(
+                        f"published build {label}={value!r} is not a known official "
+                        "ascendancy name/code in data/official/passive-tree.json"
+                    )
+                elif not valid_asc:
+                    errors.append(
+                        f"published build asserts {label}={value!r} but official "
+                        "ascendancy data is unavailable to verify it"
+                    )
+            elif cat == "node":
+                if value == TBD:
+                    errors.append(f"published build has TBD passive node id at {label}")
+                elif valid_nodes and value not in valid_nodes:
+                    errors.append(
+                        f"published build {label}={value!r} is not a known official passive node id"
+                    )
+            elif cat == "base":
+                if value == TBD:
+                    errors.append(f"published build has TBD base-item id at {label}")
+                elif dataset_coverage(manifest, "base-items") in (None, "missing"):
+                    errors.append(
+                        f"published build asserts exact {label}={value!r} but the "
+                        "base-items dataset is missing/unverified in the manifest"
+                    )
 
     # .build export must never ship placeholder ids, regardless of status.
     build_file = build.get("build_file", {})
     if build_file.get("enabled"):
-        tbd_hits = [label for label, value in exact_ids if value == TBD]
+        tbd_hits = [label for label, value, _ in exact_ids if value == TBD]
         if tbd_hits:
             errors.append(
                 "build_file.enabled=true but exact ids are still TBD: "
@@ -209,6 +277,11 @@ def business_rules(build, manifest, errors):
             errors.append(
                 "build_file.enabled=true but official passive-tree dataset is not "
                 "marked coverage='complete' in data/official/manifest.json"
+            )
+        asc = build.get("ascendancy")
+        if valid_asc and asc not in valid_asc:
+            errors.append(
+                f"build_file.enabled=true but ascendancy {asc!r} is not a known official ascendancy"
             )
         if not build_file.get("path"):
             errors.append("build_file.enabled=true but build_file.path is empty")
@@ -265,6 +338,7 @@ def main():
 
     schema = load_json(SCHEMA_PATH)
     manifest = load_json(MANIFEST_PATH) if MANIFEST_PATH.exists() else None
+    passive_tree = load_json(PASSIVE_TREE_PATH) if PASSIVE_TREE_PATH.exists() else None
 
     build_paths = sorted(p for p in BUILDS_DIR.glob("*.json") if p.name != "schema.json")
     if not build_paths:
@@ -298,7 +372,7 @@ def main():
 
         # Only run business rules when the structure is sane enough.
         if isinstance(build, dict):
-            business_rules(build, manifest, errors)
+            business_rules(build, manifest, passive_tree, errors)
 
         if errors:
             total_errors += len(errors)

@@ -27,10 +27,17 @@
     },
     {
       "id": "poe-build-planner-docs",
-      "label": "Official in-game Build Planner / .build files",
+      "label": "Official in-game Build Planner / .build file format",
       "type": "official",
-      "url": "https://www.pathofexile.com/pathofexile2",
-      "notes": "Read before enabling .build export (Phase 2). Replace with the exact docs URL once confirmed."
+      "url": "https://www.pathofexile.com/developer/docs/game",
+      "notes": "Authoritative .build JSON schema (Version 1, Experimental): name, author, ascendancy code, passives by semantic node id, skills/supports by metadata id, inventory_slots by slot id + free-text. scripts/export_build_files.py targets this format."
+    },
+    {
+      "id": "poe-developer-data-exports",
+      "label": "Official GGG developer data exports",
+      "type": "official-data-export",
+      "url": "https://www.pathofexile.com/developer/docs/data",
+      "notes": "Confirms the ONLY official PoE2 data exports are the passive (and atlas) trees. There is no official skill-gem, support-gem, or base-item export; those ids would require community game-file extraction and are intentionally kept TBD."
     }
   ]
 }
