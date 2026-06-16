@@ -385,8 +385,11 @@ def render_patch_trust_block(build):
         for l in build.get("source_links", []) if l.get("url")
     )
     links_html = f'<p class="src-links">Sources: {links}</p>' if links else ""
+    asc = build.get("ascendancy", "")
+    asc_display = asc if asc and asc != "TBD" else "Pending verified data"
     rows = [
         ("Patch version", build.get("patch_version", "?")),
+        ("Class / ascendancy", f'{build.get("class","?")} / {asc_display}'),
         ("Last reviewed", build.get("last_reviewed", "?")),
         ("Review state", REVIEW_STATE_LABELS.get(build.get("review_state", "draft"), ("Unknown", ""))[0]),
         ("Trust score", f'{trust.get("score", "?")} / 5'),
@@ -644,12 +647,21 @@ def build_detail_page(build):
     }
 
 
+def class_line(build):
+    """'Sorceress · Stormweaver' once an ascendancy is resolved, else just the class."""
+    cls = build.get("class", "")
+    asc = build.get("ascendancy", "")
+    if asc and asc != "TBD":
+        return f"{cls} · {asc}"
+    return cls
+
+
 def render_build_card(build):
     imp_kind, imp_text = import_status(build)
     href = f"{build['id']}.html"
     return f"""
 <article class="card build-card">
-  <div class="card-head">{review_badge(build)} <span class="cls">{escape(build.get('class',''))}</span></div>
+  <div class="card-head">{review_badge(build)} <span class="cls">{escape(class_line(build))}</span></div>
   <h2><a href="{href}">{escape(build['name'])}</a></h2>
   <p>{escape(build.get('summary',''))}</p>
   <div class="tag-row">

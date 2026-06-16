@@ -9,9 +9,9 @@
   ],
   "patch_version": "0.5.2 Early Access",
   "last_reviewed": "2026-06-16",
-  "status": "draft",
-  "review_state": "draft",
-  "review_notes": "Research-backed archetype skeleton. Not yet in-game tested; exact gem and base ids pending verified data.",
+  "status": "published",
+  "review_state": "needs_testing",
+  "review_notes": "Published as a research-backed decision card with its ascendancy resolved from the official GGG passive-tree export (Sorceress -> Stormweaver). Not yet in-game tested, so it is labeled 'needs in-game testing'. Skill/support gem ids stay TBD because GGG publishes no official gem export, so .build export remains disabled (no placeholder ids are ever exported).",
   "known_broken_by_patch": [],
   "source": {
     "type": "self-authored",
@@ -38,7 +38,7 @@
     "risks": ["not-in-game-tested", "patch-sensitive"]
   },
   "class": "Sorceress",
-  "ascendancy": "TBD",
+  "ascendancy": "Stormweaver",
   "budget": "low",
   "complexity": "low",
   "gear_dependency": "low",
