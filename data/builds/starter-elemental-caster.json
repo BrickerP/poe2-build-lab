@@ -1,0 +1,190 @@
+{
+  "id": "starter-elemental-caster",
+  "name": "Starter Elemental Caster",
+  "summary": "A ranged elemental spell starter that lets new players learn boss patterns from a safe distance while scaling damage through gem levels and elemental damage rather than expensive uniques.",
+  "who_should_play": [
+    "First-time Path of Exile 2 players who want safe spacing during boss fights.",
+    "Players who prefer one clear main-damage button over juggling many skills.",
+    "Players on a low budget who want a build that works on campaign rares."
+  ],
+  "patch_version": "0.5.2 Early Access",
+  "last_reviewed": "2026-06-16",
+  "status": "draft",
+  "review_state": "draft",
+  "review_notes": "Research-backed archetype skeleton. Not yet in-game tested; exact gem and base ids pending verified data.",
+  "known_broken_by_patch": [],
+  "source": {
+    "type": "self-authored",
+    "url": "",
+    "notes": "Authored from research cards 03-09; not a copied creator build."
+  },
+  "source_links": [
+    { "label": "Official PoE2 patch notes forum", "url": "https://www.pathofexile.com/forum/view-forum/2212" }
+  ],
+  "trust": {
+    "score": 3,
+    "proof": ["research-card", "manual-review"],
+    "source_type": "self-authored",
+    "verified_at": "2026-06-16",
+    "budget_floor": "low",
+    "controller_friendly": "unknown",
+    "hardcore_viable": "unknown",
+    "ssf_viable": "yes",
+    "trade_viable": "yes",
+    "failure_modes": [
+      "Fragile if elemental resistances and life are ignored while pushing damage.",
+      "Mana sustain can stall the rotation if too many supports are added early."
+    ],
+    "risks": ["not-in-game-tested", "patch-sensitive"]
+  },
+  "class": "Sorceress",
+  "ascendancy": "TBD",
+  "budget": "low",
+  "complexity": "low",
+  "gear_dependency": "low",
+  "content_fit": {
+    "campaign": "recommended",
+    "early_maps": "viable",
+    "pinnacle": "unknown"
+  },
+  "uses_spirit": false,
+  "skills": [
+    {
+      "name": "Primary elemental spell",
+      "role": "main",
+      "gem_id": "TBD",
+      "supports": [
+        { "name": "Added elemental damage support", "gem_id": "TBD", "note": "Flat damage scales well early." },
+        { "name": "Cast speed / reliability support", "gem_id": "TBD", "note": "Smoother feel before chasing raw damage." }
+      ],
+      "note": "Pick one spell you can aim comfortably and commit to scaling it."
+    },
+    {
+      "name": "Movement / escape skill",
+      "role": "movement",
+      "gem_id": "TBD",
+      "supports": [],
+      "note": "Repositioning is a defensive layer for a ranged caster."
+    }
+  ],
+  "passive_milestones": [
+    { "stage": "Early campaign", "goal": "Take nearby life and elemental damage clusters; avoid travelling far for niche keystones." },
+    { "stage": "Mid campaign", "goal": "Pick up cast speed and a recovery/leech node so the rotation sustains during longer fights." },
+    { "stage": "Late campaign", "goal": "Path toward resistance and life mastery options before chasing pure damage." }
+  ],
+  "attributes": {
+    "required": { "str": 0, "dex": 0, "int": 0 },
+    "planned": { "str": 0, "dex": 0, "int": 0 },
+    "deficit_policy": "warn",
+    "notes": [
+      "Exact Strength/Dexterity/Intelligence requirements need verified gem and base data before publishing as final.",
+      "Caster gems are Intelligence-weighted; keep Intelligence comfortably above your highest gem requirement."
+    ]
+  },
+  "gear_slots": {
+    "weapon": {
+      "base": "Spell-focused weapon (wand/sceptre/staff)",
+      "priority": ["+gem levels or spell/elemental damage", "cast speed", "mana or attributes"],
+      "budget_note": "Use a cheap rare during campaign; do not chase perfect affixes early."
+    },
+    "body_armour": {
+      "base": "Energy-shield or hybrid base that meets attribute requirements",
+      "priority": ["life or energy shield", "elemental resistances", "attributes if a gem is gated"],
+      "budget_note": "Survivability first; a defensive chest outvalues a damage roll early."
+    },
+    "helmet": {
+      "base": "Any base meeting attribute requirements",
+      "priority": ["life or energy shield", "resistances", "attributes"],
+      "budget_note": "A plain rare with life and resists is enough for campaign."
+    },
+    "gloves": {
+      "base": "Any base meeting attribute requirements",
+      "priority": ["resistances", "life", "cast speed if affordable"],
+      "budget_note": "Fill resistance gaps here cheaply."
+    },
+    "boots": {
+      "base": "Any defensive base that meets attribute requirements",
+      "priority": ["movement speed", "life or energy shield", "resistances"],
+      "budget_note": "Movement speed is a practical defensive stat for a ranged caster."
+    },
+    "belt": {
+      "base": "Any belt base",
+      "priority": ["life", "resistances", "flask or charm utility"],
+      "budget_note": "Belts are an easy slot to patch resistance holes."
+    },
+    "amulet": {
+      "base": "Any amulet base",
+      "priority": ["+intelligence", "spell/elemental damage", "life or resistances"],
+      "budget_note": "The amulet often carries the Intelligence that keeps your gems usable."
+    },
+    "ring_1": {
+      "base": "Any ring base",
+      "priority": ["elemental resistances", "life", "attributes if a requirement is tight"],
+      "budget_note": "Rings are your most flexible resistance slots."
+    },
+    "ring_2": {
+      "base": "Any ring base",
+      "priority": ["elemental resistances", "life", "mana or attributes"],
+      "budget_note": "Pair with ring 1 to finish capping resistances."
+    }
+  },
+  "gear_swap_warnings": [
+    {
+      "slot": "amulet",
+      "removed_stats": ["+intelligence"],
+      "breaks": ["Primary elemental spell"],
+      "message": "If your amulet supplies the Intelligence that meets your spell gem requirement, swapping it without replacing that Intelligence can disable your main skill."
+    }
+  ],
+  "defenses": {
+    "campaign_targets": [
+      "Keep elemental resistances as high as the campaign allows for your level.",
+      "Keep life or energy shield current with your zone level."
+    ],
+    "early_maps_targets": [
+      "Cap elemental resistances.",
+      "Have a repeatable recovery source and a movement option."
+    ],
+    "recovery": "Plan one reliable recovery layer (life/ES regeneration, leech, or flask uptime).",
+    "movement_baseline": "Movement speed on boots plus a movement/escape skill.",
+    "chaos_resistance_note": "Chaos resistance is a bonus during campaign, not a campaign priority.",
+    "map_mods_to_avoid": ["Not yet verified in-game for this draft; review before mapping."]
+  },
+  "trade_handoff": {
+    "enabled": true,
+    "filters": [
+      {
+        "slot": "weapon",
+        "budget_tier": "low",
+        "required_stats": ["spell or elemental damage", "matching attribute requirement you can meet"],
+        "optional_stats": ["+gem levels", "cast speed"],
+        "ignore_at_low_budget": ["perfect tier affixes", "high-cost prefix/suffix combos"]
+      },
+      {
+        "slot": "boots",
+        "budget_tier": "low",
+        "required_stats": ["movement speed", "one needed resistance"],
+        "optional_stats": ["life or energy shield"],
+        "ignore_at_low_budget": ["damage rolls"]
+      },
+      {
+        "slot": "ring_1",
+        "budget_tier": "low",
+        "required_stats": ["elemental resistance"],
+        "optional_stats": ["life", "attributes"],
+        "ignore_at_low_budget": ["damage rolls"]
+      },
+      {
+        "slot": "amulet",
+        "budget_tier": "low",
+        "required_stats": ["+intelligence or resistances"],
+        "optional_stats": ["spell/elemental damage", "life"],
+        "ignore_at_low_budget": ["luxury double-damage rolls"]
+      }
+    ]
+  },
+  "build_file": {
+    "enabled": false,
+    "path": ""
+  }
+}

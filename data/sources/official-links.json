@@ -1,0 +1,36 @@
+{
+  "_comment": "Canonical official / authoritative source links for the data provenance hierarchy in doc 14. Community sources are intentionally excluded here; they belong in per-build source_links with clear labeling.",
+  "patch_version": "0.5.2 Early Access",
+  "updated_at": "2026-06-16",
+  "sources": [
+    {
+      "id": "ggg-passive-tree-export",
+      "label": "GGG PoE2 passive skill tree export",
+      "type": "official-data-export",
+      "url": "https://github.com/grindinggear/poe2-skilltree-export",
+      "raw_data_url": "https://raw.githubusercontent.com/grindinggear/poe2-skilltree-export/master/data.json",
+      "notes": "Primary source for passive node ids used by .build export and passive milestones."
+    },
+    {
+      "id": "poe2-official-site",
+      "label": "Path of Exile 2 official site",
+      "type": "official",
+      "url": "https://www.pathofexile.com/pathofexile2",
+      "notes": "Official product and news landing page."
+    },
+    {
+      "id": "poe2-patch-notes-forum",
+      "label": "Official PoE2 patch notes forum",
+      "type": "official",
+      "url": "https://www.pathofexile.com/forum/view-forum/2212",
+      "notes": "Authoritative patch notes and hotfix threads. Check first during patch windows."
+    },
+    {
+      "id": "poe-build-planner-docs",
+      "label": "Official in-game Build Planner / .build files",
+      "type": "official",
+      "url": "https://www.pathofexile.com/pathofexile2",
+      "notes": "Read before enabling .build export (Phase 2). Replace with the exact docs URL once confirmed."
+    }
+  ]
+}

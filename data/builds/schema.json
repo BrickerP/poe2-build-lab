@@ -1,0 +1,346 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://brickerp.github.io/poe2-build-lab/data/builds/schema.json",
+  "title": "PoE2 Build Lab build card",
+  "description": "Machine-readable build card. Authored from research, not bulk-scraped. See docs/research/14-development-implementation-plan.md for the canonical contract. scripts/validate_builds.py enforces the rules; this file documents the shape.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "name",
+    "patch_version",
+    "last_reviewed",
+    "status",
+    "review_state",
+    "known_broken_by_patch",
+    "source",
+    "trust",
+    "class",
+    "ascendancy",
+    "budget",
+    "complexity",
+    "gear_dependency",
+    "content_fit",
+    "skills",
+    "attributes",
+    "gear_slots",
+    "defenses",
+    "trade_handoff",
+    "build_file"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9][a-z0-9-]*[a-z0-9]$",
+      "description": "Stable slug used for the page filename and URL."
+    },
+    "name": { "type": "string", "minLength": 2 },
+    "summary": {
+      "type": "string",
+      "description": "One- or two-sentence decision summary shown at the top of the card."
+    },
+    "who_should_play": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Plain statements of who this archetype fits."
+    },
+    "patch_version": { "type": "string", "minLength": 1 },
+    "last_reviewed": {
+      "type": "string",
+      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$"
+    },
+    "status": {
+      "type": "string",
+      "enum": ["draft", "published"],
+      "description": "draft pages are noindex and excluded from sitemap; published pages are indexed and subject to strict validation."
+    },
+    "review_state": {
+      "type": "string",
+      "enum": ["current", "needs_review", "needs_testing", "stale", "broken", "draft"],
+      "description": "Operational freshness. needs_testing is a draft sub-state for archetypes not yet in-game verified."
+    },
+    "review_notes": { "type": "string" },
+    "review_window_days": {
+      "type": "integer",
+      "minimum": 1,
+      "description": "Optional override for the staleness window applied to published, current builds."
+    },
+    "known_broken_by_patch": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Patch IDs or notes that invalidate the build. Empty list is allowed but the field is mandatory."
+    },
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["type", "url", "notes"],
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": ["self-authored", "creator", "official", "community"]
+        },
+        "url": { "type": "string" },
+        "notes": { "type": "string" }
+      }
+    },
+    "source_links": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["label", "url"],
+        "properties": {
+          "label": { "type": "string" },
+          "url": { "type": "string" }
+        }
+      }
+    },
+    "trust": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "score",
+        "proof",
+        "source_type",
+        "verified_at",
+        "budget_floor",
+        "controller_friendly",
+        "hardcore_viable",
+        "ssf_viable",
+        "trade_viable",
+        "failure_modes",
+        "risks"
+      ],
+      "properties": {
+        "score": { "type": "integer", "minimum": 0, "maximum": 5 },
+        "proof": { "type": "array", "items": { "type": "string" } },
+        "source_type": {
+          "type": "string",
+          "enum": ["self-authored", "creator", "official", "community"]
+        },
+        "verified_at": {
+          "type": "string",
+          "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$"
+        },
+        "budget_floor": {
+          "type": "string",
+          "enum": ["low", "medium", "high"]
+        },
+        "controller_friendly": { "$ref": "#/definitions/viability" },
+        "hardcore_viable": { "$ref": "#/definitions/viability" },
+        "ssf_viable": { "$ref": "#/definitions/viability" },
+        "trade_viable": { "$ref": "#/definitions/viability" },
+        "failure_modes": { "type": "array", "items": { "type": "string" } },
+        "risks": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "class": { "type": "string", "minLength": 1 },
+    "ascendancy": { "type": "string", "minLength": 1 },
+    "budget": { "$ref": "#/definitions/tier" },
+    "complexity": { "$ref": "#/definitions/tier" },
+    "gear_dependency": { "$ref": "#/definitions/tier" },
+    "content_fit": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["campaign", "early_maps", "pinnacle"],
+      "properties": {
+        "campaign": { "$ref": "#/definitions/fit" },
+        "early_maps": { "$ref": "#/definitions/fit" },
+        "pinnacle": { "$ref": "#/definitions/fit" }
+      }
+    },
+    "skills": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["name", "role", "gem_id", "supports"],
+        "properties": {
+          "name": { "type": "string" },
+          "role": {
+            "type": "string",
+            "enum": ["main", "secondary", "boss", "movement", "utility", "aura", "defense", "curse"]
+          },
+          "gem_id": { "type": "string" },
+          "supports": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["name", "gem_id"],
+              "properties": {
+                "name": { "type": "string" },
+                "gem_id": { "type": "string" },
+                "note": { "type": "string" }
+              }
+            }
+          },
+          "note": { "type": "string" }
+        }
+      }
+    },
+    "passive_milestones": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["stage", "goal"],
+        "properties": {
+          "stage": { "type": "string" },
+          "goal": { "type": "string" },
+          "node_ids": { "type": "array", "items": { "type": "string" } }
+        }
+      }
+    },
+    "attributes": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["required", "planned", "deficit_policy", "notes"],
+      "properties": {
+        "required": { "$ref": "#/definitions/attr_triple" },
+        "planned": { "$ref": "#/definitions/attr_triple" },
+        "deficit_policy": {
+          "type": "string",
+          "enum": ["warn", "block", "ignore"]
+        },
+        "notes": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "spirit_budget": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["required", "planned", "sources", "notes"],
+      "properties": {
+        "required": { "type": "integer", "minimum": 0 },
+        "planned": { "type": "integer", "minimum": 0 },
+        "sources": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["name", "amount"],
+            "properties": {
+              "name": { "type": "string" },
+              "amount": { "type": "integer" }
+            }
+          }
+        },
+        "notes": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "uses_spirit": {
+      "type": "boolean",
+      "description": "Set true when the build reserves Spirit (auras, persistent buffs, reservation). Forces spirit_budget to be present."
+    },
+    "gear_slots": {
+      "type": "object",
+      "minProperties": 1,
+      "additionalProperties": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["base", "priority"],
+        "properties": {
+          "base": { "type": "string" },
+          "base_item_id": { "type": "string" },
+          "attribute_requirements": { "$ref": "#/definitions/attr_triple" },
+          "priority": {
+            "type": "array",
+            "minItems": 1,
+            "items": { "type": "string" }
+          },
+          "budget_note": { "type": "string" }
+        }
+      }
+    },
+    "gear_swap_warnings": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["slot", "removed_stats", "breaks", "message"],
+        "properties": {
+          "slot": { "type": "string" },
+          "removed_stats": { "type": "array", "items": { "type": "string" } },
+          "breaks": { "type": "array", "items": { "type": "string" } },
+          "message": { "type": "string" }
+        }
+      }
+    },
+    "defenses": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["campaign_targets", "map_mods_to_avoid"],
+      "properties": {
+        "campaign_targets": { "type": "array", "items": { "type": "string" } },
+        "early_maps_targets": { "type": "array", "items": { "type": "string" } },
+        "recovery": { "type": "string" },
+        "movement_baseline": { "type": "string" },
+        "chaos_resistance_note": { "type": "string" },
+        "map_mods_to_avoid": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "trade_handoff": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["enabled", "filters"],
+      "properties": {
+        "enabled": { "type": "boolean" },
+        "filters": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["slot", "budget_tier", "required_stats"],
+            "properties": {
+              "slot": { "type": "string" },
+              "budget_tier": { "$ref": "#/definitions/tier" },
+              "required_stats": { "type": "array", "items": { "type": "string" } },
+              "optional_stats": { "type": "array", "items": { "type": "string" } },
+              "ignore_at_low_budget": { "type": "array", "items": { "type": "string" } },
+              "trade_url": { "type": "string" },
+              "approx_price": { "type": "string" },
+              "checked_at": {
+                "type": "string",
+                "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$"
+              }
+            }
+          }
+        }
+      }
+    },
+    "build_file": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["enabled", "path"],
+      "properties": {
+        "enabled": { "type": "boolean" },
+        "path": { "type": "string" }
+      }
+    }
+  },
+  "definitions": {
+    "viability": {
+      "type": "string",
+      "enum": ["yes", "no", "unknown"]
+    },
+    "tier": {
+      "type": "string",
+      "enum": ["low", "medium", "high"]
+    },
+    "fit": {
+      "type": "string",
+      "enum": ["recommended", "viable", "unknown", "not_recommended"]
+    },
+    "attr_triple": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["str", "dex", "int"],
+      "properties": {
+        "str": { "type": "integer", "minimum": 0 },
+        "dex": { "type": "integer", "minimum": 0 },
+        "int": { "type": "integer", "minimum": 0 }
+      }
+    }
+  }
+}

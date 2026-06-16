@@ -16,7 +16,3 @@ Live URL target: https://brickerp.github.io/poe2-build-lab/
 ## AdSense status
 
 AdSense publisher ID `pub-1111218417177666` is configured in the site code and `ads.txt`; actual ad serving still depends on Google site review and Auto ads status.
-
-## Operations
-
-See `docs/OPERATIONS.md` for Search Console, sitemap, AdSense, and weekly content operations.

@@ -1,0 +1,15 @@
+{
+  "_comment": "Patch tracking ledger for the Content and Patch Ops workstream (doc 14). Add an entry per material patch/hotfix and link affected builds so staleness can be reasoned about.",
+  "current_patch": "0.5.2 Early Access",
+  "updated_at": "2026-06-16",
+  "patches": [
+    {
+      "patch_version": "0.5.2 Early Access",
+      "date": "2026-06-16",
+      "source_url": "https://www.pathofexile.com/forum/view-forum/2212",
+      "summary": "Baseline patch the current build cards are reviewed against.",
+      "affects_builds": [],
+      "review_state_after": "current"
+    }
+  ]
+}

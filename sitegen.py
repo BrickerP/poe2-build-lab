@@ -1,3 +1,4 @@
+import json
 from pathlib import Path
 from html import escape
 from datetime import date
@@ -14,12 +15,24 @@ SITE = {
 
 NAV = [
     ("Home", "index.html"),
-    ("Beginner Builds", "builds/best-beginner-builds.html"),
+    ("Build Cards", "builds/index.html"),
     ("Beginner Guide", "guides/beginner-guide.html"),
     ("Currency", "guides/currency-guide.html"),
     ("Checklist", "tools/beginner-build-checklist.html"),
     ("About", "about.html"),
 ]
+
+# Review-state presentation. Keys must match build review_state enum values.
+REVIEW_STATE_LABELS = {
+    "current": ("Patch-reviewed", "ok"),
+    "needs_review": ("Needs review", "warn"),
+    "needs_testing": ("Needs in-game testing", "warn"),
+    "stale": ("Stale", "warn"),
+    "broken": ("Known broken", "bad"),
+    "draft": ("Draft", "warn"),
+}
+
+VIABILITY_LABELS = {"yes": "Yes", "no": "No", "unknown": "Unknown"}
 
 pages = [
     {
@@ -29,7 +42,7 @@ pages = [
         "hero": True,
         "content": """
 <section class=\"grid cards\">
-  <article class=\"card highlight\"><p class=\"eyebrow\">Start here</p><h2>Best beginner build archetypes</h2><p>Pick a simple, forgiving build direction before spending your first passive points.</p><a class=\"button\" href=\"builds/best-beginner-builds.html\">Read beginner builds</a></article>
+  <article class=\"card highlight\"><p class=\"eyebrow\">Start here</p><h2>Build cards</h2><p>Compare starter builds by patch trust, budget, complexity, gear priorities, and what can go wrong — before spending your first passive points.</p><a class=\"button\" href=\"builds/index.html\">Browse build cards</a></article>
   <article class=\"card\"><p class=\"eyebrow\">New player guide</p><h2>What to do first</h2><p>A quick path through skills, support gems, defenses, and early upgrades.</p><a href=\"guides/beginner-guide.html\">Open guide</a></article>
   <article class=\"card\"><p class=\"eyebrow\">Systems</p><h2>Currency basics</h2><p>Understand common crafting and upgrade currencies before you waste valuable items.</p><a href=\"guides/currency-guide.html\">Learn currency</a></article>
 </section>
@@ -80,6 +93,7 @@ pages = [
 </ul>
 <h2>Next step</h2>
 <p>Pick one archetype, finish Act 1 with it, and keep notes on deaths: one-shot, damage too low, mana issues, or unclear mechanics. Those notes tell you what to fix before copying a more advanced build.</p>
+<p>For a structured, decision-by-decision view of each starter, see the <a href=\"index.html\">build cards</a>: patch trust, budget, gear slot priorities, defenses, and import status in one place.</p>
 """
     },
     {
@@ -282,18 +296,20 @@ def render_page(page):
   <p class="eyebrow">Patch-aware beginner guides · Updated {SITE['updated']}</p>
   <h1>{SITE['name']}</h1>
   <p>{SITE['tagline']}</p>
-  <div class="hero-actions"><a class="button" href="builds/best-beginner-builds.html">Start with builds</a><a class="button secondary" href="tools/beginner-build-checklist.html">Open checklist</a></div>
+  <div class="hero-actions"><a class="button" href="builds/index.html">Browse build cards</a><a class="button secondary" href="tools/beginner-build-checklist.html">Open checklist</a></div>
 </section>
 '''
     else:
-        main_intro = f'<section class="page-title"><p class="eyebrow">Updated {SITE["updated"]} · {SITE["patch"]}</p><h1>{escape(heading)}</h1></section>'
+        subtitle = page.get('subtitle', f'Updated {SITE["updated"]} · {SITE["patch"]}')
+        main_intro = f'<section class="page-title"><p class="eyebrow">{subtitle}</p><h1>{escape(heading)}</h1></section>'
+    robots_meta = '\n  <meta name="robots" content="noindex, follow">' if page.get('noindex') else ''
     html = f'''<!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{escape(page['title'])}</title>
-  <meta name="description" content="{escape(page['description'])}">
+  <meta name="description" content="{escape(page['description'])}">{robots_meta}
   <link rel="canonical" href="{canonical}">
   <meta property="og:title" content="{escape(page['title'])}">
   <meta property="og:description" content="{escape(page['description'])}">
@@ -311,18 +327,384 @@ def render_page(page):
 </html>'''
     return html
 
-for p in pages:
+# --------------------------------------------------------------------------- #
+# Build Cards (Phase 1) — rendered from data/builds/*.json
+# --------------------------------------------------------------------------- #
+BUILDS_DIR = Path("data/builds")
+
+
+def load_builds():
+    """Load and sort build JSON files. schema.json is metadata, not a build."""
+    builds = []
+    if not BUILDS_DIR.exists():
+        return builds
+    for path in sorted(BUILDS_DIR.glob("*.json")):
+        if path.name == "schema.json":
+            continue
+        builds.append(json.loads(path.read_text(encoding="utf-8")))
+    return builds
+
+
+def tag(label, value, kind="info"):
+    return f'<span class="tag tag-{kind}">{escape(label)}: <b>{escape(str(value))}</b></span>'
+
+
+def review_badge(build):
+    label, kind = REVIEW_STATE_LABELS.get(build.get("review_state", "draft"), ("Unknown", "warn"))
+    return f'<span class="badge badge-{kind}">{escape(label)}</span>'
+
+
+def import_status(build):
+    bf = build.get("build_file", {})
+    if bf.get("enabled") and bf.get("path"):
+        return ("available", "Import file ready")
+    return ("unavailable", "Import file not yet available")
+
+
+def li_list(items):
+    return "".join(f"<li>{escape(str(i))}</li>" for i in items) if items else "<li>None recorded yet.</li>"
+
+
+def render_build_tags(build):
+    imp_kind, imp_text = import_status(build)
+    tags = [
+        tag("Patch", build.get("patch_version", "?")),
+        tag("Budget", build.get("budget", "?")),
+        tag("Complexity", build.get("complexity", "?")),
+        tag("Gear dependency", build.get("gear_dependency", "?")),
+        f'<span class="tag tag-{"ok" if imp_kind=="available" else "warn"}">{escape(imp_text)}</span>',
+    ]
+    return '<div class="tag-row">' + "".join(tags) + "</div>"
+
+
+def render_patch_trust_block(build):
+    src = build.get("source", {})
+    trust = build.get("trust", {})
+    links = "".join(
+        f'<a href="{escape(l["url"])}" rel="nofollow noopener">{escape(l["label"])}</a>'
+        for l in build.get("source_links", []) if l.get("url")
+    )
+    links_html = f'<p class="src-links">Sources: {links}</p>' if links else ""
+    rows = [
+        ("Patch version", build.get("patch_version", "?")),
+        ("Last reviewed", build.get("last_reviewed", "?")),
+        ("Review state", REVIEW_STATE_LABELS.get(build.get("review_state", "draft"), ("Unknown", ""))[0]),
+        ("Trust score", f'{trust.get("score", "?")} / 5'),
+        ("Source", f'{escape(src.get("type", "?"))} — {escape(src.get("notes", ""))}'),
+        ("Verification proof", ", ".join(trust.get("proof", [])) or "none"),
+    ]
+    table = "".join(f"<tr><th>{escape(k)}</th><td>{v if k=='Source' else escape(str(v))}</td></tr>" for k, v in rows)
+    return f"""
+<section class="build-section">
+  <h2>Patch &amp; trust</h2>
+  <table class="kv">{table}</table>
+  {links_html}
+</section>"""
+
+
+def render_known_broken_block(build):
+    broken = build.get("known_broken_by_patch", [])
+    if broken:
+        body = f'<div class="notice notice-bad"><strong>Known broken by patch:</strong><ul>{li_list(broken)}</ul></div>'
+    else:
+        body = '<p class="muted">No patches are currently recorded as breaking this build. This field is always tracked so a patch cannot silently invalidate the page.</p>'
+    return f'<section class="build-section"><h2>Known broken by patch</h2>{body}</section>'
+
+
+def render_viability_block(build):
+    trust = build.get("trust", {})
+    fit = build.get("content_fit", {})
+    rows = [
+        ("Controller-friendly", VIABILITY_LABELS.get(trust.get("controller_friendly", "unknown"))),
+        ("Hardcore viable", VIABILITY_LABELS.get(trust.get("hardcore_viable", "unknown"))),
+        ("SSF viable", VIABILITY_LABELS.get(trust.get("ssf_viable", "unknown"))),
+        ("Trade viable", VIABILITY_LABELS.get(trust.get("trade_viable", "unknown"))),
+        ("Campaign", fit.get("campaign", "unknown").replace("_", " ")),
+        ("Early maps", fit.get("early_maps", "unknown").replace("_", " ")),
+        ("Pinnacle", fit.get("pinnacle", "unknown").replace("_", " ")),
+    ]
+    table = "".join(f"<tr><th>{escape(k)}</th><td>{escape(str(v))}</td></tr>" for k, v in rows)
+    return f'<section class="build-section"><h2>Viability &amp; content fit</h2><table class="kv">{table}</table></section>'
+
+
+def render_skills_block(build):
+    items = []
+    for skill in build.get("skills", []):
+        supports = skill.get("supports", [])
+        sup_html = ""
+        if supports:
+            sup_items = "".join(
+                f"<li><b>{escape(s['name'])}</b>{(' — ' + escape(s['note'])) if s.get('note') else ''}</li>"
+                for s in supports
+            )
+            sup_html = f"<ul class='supports'>{sup_items}</ul>"
+        note = f"<p class='muted'>{escape(skill['note'])}</p>" if skill.get("note") else ""
+        items.append(
+            f"<div class='skill'><h3>{escape(skill['name'])} "
+            f"<span class='role'>{escape(skill['role'])}</span></h3>{note}{sup_html}</div>"
+        )
+    return f'<section class="build-section"><h2>Skills &amp; supports</h2>{"".join(items)}</section>'
+
+
+def render_passive_block(build):
+    milestones = build.get("passive_milestones", [])
+    if not milestones:
+        body = '<p class="muted">Passive milestones placeholder — exact node ids pending verified passive-tree mapping.</p>'
+    else:
+        rows = "".join(
+            f"<tr><th>{escape(m['stage'])}</th><td>{escape(m['goal'])}</td></tr>"
+            for m in milestones
+        )
+        body = (
+            f'<table class="kv">{rows}</table>'
+            '<p class="muted">Exact passive node ids are not yet mapped for this draft; goals are directional.</p>'
+        )
+    return f'<section class="build-section"><h2>Passive milestones</h2>{body}</section>'
+
+
+def render_attributes_block(build):
+    attrs = build.get("attributes", {})
+    notes = li_list(attrs.get("notes", []))
+    return (
+        '<section class="build-section"><h2>Attributes</h2>'
+        f'<p>Deficit policy: <b>{escape(attrs.get("deficit_policy", "warn"))}</b>. '
+        'Exact Str/Dex/Int numbers depend on verified gem and base data; the attribute checker (Phase 3) will compute deficits.</p>'
+        f'<ul>{notes}</ul></section>'
+    )
+
+
+def render_spirit_block(build):
+    spirit = build.get("spirit_budget")
+    if not spirit:
+        return ""
+    sources = spirit.get("sources", [])
+    src_html = (
+        "".join(f"<li>{escape(s['name'])}: {escape(str(s['amount']))}</li>" for s in sources)
+        if sources else "<li>Sources not yet itemized.</li>"
+    )
+    return (
+        '<section class="build-section"><h2>Spirit budget</h2>'
+        f'<p>Required: <b>{spirit.get("required", 0)}</b> · Planned: <b>{spirit.get("planned", 0)}</b></p>'
+        f'<p class="muted">Reservation sources:</p><ul>{src_html}</ul>'
+        f'<ul>{li_list(spirit.get("notes", []))}</ul></section>'
+    )
+
+
+def render_gear_block(build):
+    rows = []
+    for slot, data in build.get("gear_slots", {}).items():
+        prio = ", ".join(data.get("priority", []))
+        note = data.get("budget_note", "")
+        rows.append(
+            f"<tr><th>{escape(slot.replace('_', ' '))}</th>"
+            f"<td>{escape(data.get('base', ''))}</td>"
+            f"<td>{escape(prio)}</td>"
+            f"<td class='muted'>{escape(note)}</td></tr>"
+        )
+    table = (
+        "<table class='gear'><thead><tr><th>Slot</th><th>Base</th>"
+        "<th>Stat priority (highest first)</th><th>Budget note</th></tr></thead>"
+        f"<tbody>{''.join(rows)}</tbody></table>"
+    )
+    return f'<section class="build-section"><h2>Gear slot priorities</h2>{table}</section>'
+
+
+def render_gear_swap_block(build):
+    warnings = build.get("gear_swap_warnings", [])
+    if not warnings:
+        return ""
+    items = "".join(
+        f"<div class='notice notice-warn'><strong>{escape(w['slot'].replace('_',' '))}:</strong> "
+        f"{escape(w['message'])}"
+        f"{(' <span class=muted>Breaks: ' + escape(', '.join(w['breaks'])) + '</span>') if w.get('breaks') else ''}"
+        "</div>"
+        for w in warnings
+    )
+    return f'<section class="build-section"><h2>Gear-swap warnings</h2>{items}</section>'
+
+
+def render_defense_block(build):
+    d = build.get("defenses", {})
+    parts = [f'<h3>Campaign targets</h3><ul>{li_list(d.get("campaign_targets", []))}</ul>']
+    if d.get("early_maps_targets"):
+        parts.append(f'<h3>Early maps targets</h3><ul>{li_list(d.get("early_maps_targets"))}</ul>')
+    extra = []
+    for label, key in (("Recovery", "recovery"), ("Movement", "movement_baseline"), ("Chaos resistance", "chaos_resistance_note")):
+        if d.get(key):
+            extra.append(f"<li><b>{label}:</b> {escape(d[key])}</li>")
+    if extra:
+        parts.append(f'<ul>{"".join(extra)}</ul>')
+    if d.get("map_mods_to_avoid"):
+        parts.append(f'<h3>Map mods to avoid</h3><ul>{li_list(d.get("map_mods_to_avoid"))}</ul>')
+    return f'<section class="build-section"><h2>Defensive checklist</h2>{"".join(parts)}</section>'
+
+
+def render_risks_block(build):
+    trust = build.get("trust", {})
+    return (
+        '<section class="build-section"><h2>Known risks &amp; failure modes</h2>'
+        f'<h3>Failure modes</h3><ul>{li_list(trust.get("failure_modes", []))}</ul>'
+        f'<h3>Risk flags</h3><ul>{li_list(trust.get("risks", []))}</ul></section>'
+    )
+
+
+def render_trade_block(build):
+    handoff = build.get("trade_handoff", {})
+    if not handoff.get("enabled") or not handoff.get("filters"):
+        return ""
+    rows = []
+    for f in handoff["filters"]:
+        price = ""
+        if f.get("approx_price"):
+            price = f" <span class='muted'>(~{escape(f['approx_price'])}, checked {escape(f.get('checked_at',''))})</span>"
+        rows.append(
+            f"<tr><th>{escape(f['slot'].replace('_',' '))}</th>"
+            f"<td>{escape(f.get('budget_tier',''))}</td>"
+            f"<td>{escape(', '.join(f.get('required_stats', [])))}</td>"
+            f"<td class='muted'>{escape(', '.join(f.get('optional_stats', [])))}</td>"
+            f"<td class='muted'>{escape(', '.join(f.get('ignore_at_low_budget', [])))}{price}</td></tr>"
+        )
+    table = (
+        "<table class='gear'><thead><tr><th>Slot</th><th>Budget</th><th>Required stats</th>"
+        "<th>Nice to have</th><th>Ignore at low budget</th></tr></thead>"
+        f"<tbody>{''.join(rows)}</tbody></table>"
+    )
+    return (
+        '<section class="build-section"><h2>How to search trade</h2>'
+        '<p class="muted">Search these stats on the official trade site. We do not quote live prices; '
+        'use this as a filter recipe, not a price promise.</p>'
+        f'{table}</section>'
+    )
+
+
+def render_import_block(build):
+    kind, text = import_status(build)
+    if kind == "available":
+        bf = build["build_file"]
+        return (
+            '<section class="build-section"><h2>In-game import (.build)</h2>'
+            f'<p><a class="button" href="../{escape(bf["path"])}">Download .build file</a></p></section>'
+        )
+    return (
+        '<section class="build-section"><h2>In-game import (.build)</h2>'
+        '<div class="notice"><strong>Import file not yet available.</strong> '
+        'This is a published guide, not yet an in-game import file. A <code>.build</code> export will be '
+        'added once exact passive, skill, support, and base-item ids are verified (no placeholders are exported).</div></section>'
+    )
+
+
+def build_page_content(build):
+    draft_notice = ""
+    if build.get("status") == "draft":
+        draft_notice = (
+            '<div class="notice notice-warn"><strong>Draft card.</strong> '
+            'This archetype is research-backed but not yet in-game verified, so it is not indexed for search. '
+            'Exact gem, base, and passive ids are still being confirmed against verified data before this card is published.</div>'
+        )
+    summary = f'<p class="lede">{escape(build.get("summary", ""))}</p>' if build.get("summary") else ""
+    who = ""
+    if build.get("who_should_play"):
+        who = f'<section class="build-section"><h2>Who should play this</h2><ul>{li_list(build["who_should_play"])}</ul></section>'
+    return "".join([
+        render_build_tags(build),
+        draft_notice,
+        summary,
+        who,
+        render_patch_trust_block(build),
+        render_known_broken_block(build),
+        render_viability_block(build),
+        render_skills_block(build),
+        render_passive_block(build),
+        render_attributes_block(build),
+        render_spirit_block(build),
+        render_gear_block(build),
+        render_gear_swap_block(build),
+        render_defense_block(build),
+        render_risks_block(build),
+        render_trade_block(build),
+        render_import_block(build),
+    ])
+
+
+def build_detail_page(build):
+    name = build["name"]
+    patch = build.get("patch_version", SITE["patch"])
+    return {
+        "path": f"builds/{build['id']}.html",
+        "title": f"{name} PoE2 Build Card for {patch}",
+        "description": (
+            f"{name}: PoE2 build card with patch trust, budget, complexity, gear slot priorities, "
+            f"attributes, Spirit, defenses, and .build import status."
+        ),
+        "heading": name,
+        "subtitle": f"{patch} · {REVIEW_STATE_LABELS.get(build.get('review_state','draft'),('Draft','warn'))[0]} · Last reviewed {build.get('last_reviewed','?')}",
+        "noindex": build.get("status") != "published",
+        "in_sitemap": build.get("status") == "published",
+        "content": build_page_content(build),
+    }
+
+
+def render_build_card(build):
+    imp_kind, imp_text = import_status(build)
+    href = f"{build['id']}.html"
+    return f"""
+<article class="card build-card">
+  <div class="card-head">{review_badge(build)} <span class="cls">{escape(build.get('class',''))}</span></div>
+  <h2><a href="{href}">{escape(build['name'])}</a></h2>
+  <p>{escape(build.get('summary',''))}</p>
+  <div class="tag-row">
+    {tag("Budget", build.get("budget","?"))}
+    {tag("Complexity", build.get("complexity","?"))}
+    {tag("Gear", build.get("gear_dependency","?"))}
+  </div>
+  <p class="muted import-line">{escape(imp_text)} · Patch {escape(build.get('patch_version','?'))}</p>
+  <a class="button" href="{href}">Open build card</a>
+</article>"""
+
+
+def build_index_content(builds):
+    cards = "".join(render_build_card(b) for b in builds)
+    return f"""
+<p class="lede">Each build card connects the decisions a starter actually has to make: is it patch-reviewed, how expensive is it, how complex is it, which gear slots matter first, and what can go wrong. Compare archetypes here before reading a long guide.</p>
+<div class="notice"><strong>Updated:</strong> {SITE['updated']} · <strong>Patch:</strong> {SITE['patch']}. Draft cards are research-backed starting points, not in-game-verified meta promises.</div>
+<section class="grid cards build-grid">{cards}</section>
+<section class="content-block">
+  <h2>Looking for the archetype overview?</h2>
+  <p>The original <a href="best-beginner-builds.html">beginner build archetypes</a> page is still available as a higher-level comparison.</p>
+</section>
+"""
+
+
+builds_data = load_builds()
+build_index_page = {
+    "path": "builds/index.html",
+    "title": "PoE2 Build Cards: Patch-Reviewed Starter Builds",
+    "description": "Path of Exile 2 build cards comparing starter builds by patch trust, budget, complexity, gear slot priorities, attributes, defenses, and .build import status.",
+    "heading": "PoE2 build cards",
+    "in_sitemap": True,
+    "content": build_index_content(builds_data),
+}
+build_pages = [build_index_page] + [build_detail_page(b) for b in builds_data]
+
+all_pages = pages + build_pages
+
+for p in all_pages:
     out = Path(p['path'])
     out.parent.mkdir(parents=True, exist_ok=True)
     out.write_text(render_page(p), encoding='utf-8')
 
 Path('styles.css').write_text(r'''
-:root{--bg:#0d1117;--panel:#161b22;--panel2:#1f2937;--text:#e6edf3;--muted:#9da7b3;--accent:#f59e0b;--accent2:#60a5fa;--line:#30363d;--good:#34d399}*{box-sizing:border-box}body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:radial-gradient(circle at top left,#1d2a3a 0,#0d1117 36rem);color:var(--text);line-height:1.65}.site-header{position:sticky;top:0;z-index:10;display:flex;justify-content:space-between;align-items:center;padding:1rem clamp(1rem,4vw,4rem);background:rgba(13,17,23,.88);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}.brand{font-weight:800;color:var(--text);text-decoration:none;letter-spacing:.02em}nav{display:flex;gap:.85rem;flex-wrap:wrap}nav a,footer a,.article a{color:#93c5fd;text-decoration:none}nav a{font-size:.93rem;color:var(--muted)}nav a.active,nav a:hover{color:var(--text)}main{max-width:1120px;margin:auto;padding:2.5rem clamp(1rem,4vw,3rem)}.hero{padding:4rem 0 3rem;max-width:860px}.hero h1,.page-title h1{font-size:clamp(2.4rem,7vw,5.4rem);line-height:1;margin:.25rem 0 1rem;letter-spacing:-.06em}.hero p{font-size:1.22rem;color:var(--muted);max-width:760px}.eyebrow{color:var(--accent);text-transform:uppercase;font-size:.78rem;font-weight:800;letter-spacing:.12em}.hero-actions{display:flex;gap:1rem;flex-wrap:wrap;margin-top:1.5rem}.button{display:inline-block;background:linear-gradient(135deg,#f59e0b,#f97316);color:#111827!important;padding:.78rem 1rem;border-radius:999px;font-weight:800;text-decoration:none}.button.secondary{background:#243244;color:var(--text)!important;border:1px solid var(--line)}.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem}.card,.content-block,.article{background:rgba(22,27,34,.78);border:1px solid var(--line);border-radius:20px;padding:1.25rem;box-shadow:0 20px 60px rgba(0,0,0,.18)}.card.highlight{background:linear-gradient(160deg,rgba(245,158,11,.18),rgba(22,27,34,.9));border-color:rgba(245,158,11,.45)}.card h2,.card h3{line-height:1.15;margin:.3rem 0}.content-block{margin:1rem 0}.page-title{padding:2rem 0 1rem}.article{max-width:880px;margin:auto}.article .lede{font-size:1.2rem;color:#c9d1d9}.notice{border-left:4px solid var(--accent);background:rgba(245,158,11,.08);padding:1rem;border-radius:12px;margin:1rem 0}table{width:100%;border-collapse:collapse;margin:1.25rem 0;background:rgba(15,23,42,.4);border-radius:14px;overflow:hidden}th,td{border-bottom:1px solid var(--line);padding:.8rem;text-align:left;vertical-align:top}th{color:#facc15;background:rgba(255,255,255,.04)}tr:last-child td{border-bottom:0}h2{margin-top:2rem;line-height:1.2}ul,ol{padding-left:1.35rem}.checklist{display:grid;gap:.75rem}.checklist label{display:flex;gap:.65rem;align-items:flex-start;background:rgba(255,255,255,.04);padding:.85rem;border-radius:12px;border:1px solid var(--line)}input[type=checkbox]{margin-top:.35rem}footer{max-width:1120px;margin:2rem auto;padding:2rem clamp(1rem,4vw,3rem);color:var(--muted);border-top:1px solid var(--line)}@media(max-width:820px){.site-header{align-items:flex-start;gap:1rem;flex-direction:column}.grid{grid-template-columns:1fr}.hero{padding-top:2rem}th,td{display:block;width:100%}th{display:none}td{border-bottom:0;padding:.55rem .8rem}tr{display:block;border-bottom:1px solid var(--line);padding:.45rem 0}}
+:root{--bg:#0d1117;--panel:#161b22;--panel2:#1f2937;--text:#e6edf3;--muted:#9da7b3;--accent:#f59e0b;--accent2:#60a5fa;--line:#30363d;--good:#34d399}*{box-sizing:border-box}body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:radial-gradient(circle at top left,#1d2a3a 0,#0d1117 36rem);color:var(--text);line-height:1.65}.site-header{position:sticky;top:0;z-index:10;display:flex;justify-content:space-between;align-items:center;padding:1rem clamp(1rem,4vw,4rem);background:rgba(13,17,23,.88);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}.brand{font-weight:800;color:var(--text);text-decoration:none;letter-spacing:.02em}nav{display:flex;gap:.85rem;flex-wrap:wrap}nav a,footer a,.article a{color:#93c5fd;text-decoration:none}nav a{font-size:.93rem;color:var(--muted)}nav a.active,nav a:hover{color:var(--text)}main{max-width:1120px;margin:auto;padding:2.5rem clamp(1rem,4vw,3rem)}.hero{padding:4rem 0 3rem;max-width:860px}.hero h1,.page-title h1{font-size:clamp(2.4rem,7vw,5.4rem);line-height:1;margin:.25rem 0 1rem;letter-spacing:-.06em}.hero p{font-size:1.22rem;color:var(--muted);max-width:760px}.eyebrow{color:var(--accent);text-transform:uppercase;font-size:.78rem;font-weight:800;letter-spacing:.12em}.hero-actions{display:flex;gap:1rem;flex-wrap:wrap;margin-top:1.5rem}.button{display:inline-block;background:linear-gradient(135deg,#f59e0b,#f97316);color:#111827!important;padding:.78rem 1rem;border-radius:999px;font-weight:800;text-decoration:none}.button.secondary{background:#243244;color:var(--text)!important;border:1px solid var(--line)}.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem}.card,.content-block,.article{background:rgba(22,27,34,.78);border:1px solid var(--line);border-radius:20px;padding:1.25rem;box-shadow:0 20px 60px rgba(0,0,0,.18)}.card.highlight{background:linear-gradient(160deg,rgba(245,158,11,.18),rgba(22,27,34,.9));border-color:rgba(245,158,11,.45)}.card h2,.card h3{line-height:1.15;margin:.3rem 0}.content-block{margin:1rem 0}.page-title{padding:2rem 0 1rem}.article{max-width:880px;margin:auto}.article .lede{font-size:1.2rem;color:#c9d1d9}.notice{border-left:4px solid var(--accent);background:rgba(245,158,11,.08);padding:1rem;border-radius:12px;margin:1rem 0}table{width:100%;border-collapse:collapse;margin:1.25rem 0;background:rgba(15,23,42,.4);border-radius:14px;overflow:hidden}th,td{border-bottom:1px solid var(--line);padding:.8rem;text-align:left;vertical-align:top}th{color:#facc15;background:rgba(255,255,255,.04)}tr:last-child td{border-bottom:0}h2{margin-top:2rem;line-height:1.2}ul,ol{padding-left:1.35rem}.checklist{display:grid;gap:.75rem}.checklist label{display:flex;gap:.65rem;align-items:flex-start;background:rgba(255,255,255,.04);padding:.85rem;border-radius:12px;border:1px solid var(--line)}input[type=checkbox]{margin-top:.35rem}footer{max-width:1120px;margin:2rem auto;padding:2rem clamp(1rem,4vw,3rem);color:var(--muted);border-top:1px solid var(--line)}.tag-row{display:flex;flex-wrap:wrap;gap:.5rem;margin:1rem 0}.tag{display:inline-block;font-size:.8rem;background:rgba(255,255,255,.05);border:1px solid var(--line);border-radius:999px;padding:.25rem .7rem;color:var(--muted)}.tag b{color:var(--text);font-weight:700}.tag-ok{border-color:rgba(52,211,153,.5)}.tag-warn{border-color:rgba(245,158,11,.5)}.badge{display:inline-block;font-size:.72rem;font-weight:800;text-transform:uppercase;letter-spacing:.06em;padding:.2rem .55rem;border-radius:6px}.badge-ok{background:rgba(52,211,153,.18);color:#6ee7b7}.badge-warn{background:rgba(245,158,11,.18);color:#fcd34d}.badge-bad{background:rgba(248,113,113,.18);color:#fca5a5}.muted{color:var(--muted)}.build-section{margin-top:2rem;padding-top:1.25rem;border-top:1px solid var(--line)}.build-section h2{margin-top:0}.build-section h3{margin:1rem 0 .3rem;font-size:1rem;color:#facc15}table.kv th{width:34%;color:var(--muted);background:transparent}table.kv td{color:var(--text)}table.gear th{color:#facc15}.skill{background:rgba(255,255,255,.03);border:1px solid var(--line);border-radius:12px;padding:.8rem 1rem;margin:.6rem 0}.skill h3{margin:.1rem 0;color:var(--text)}.skill .role{font-size:.7rem;text-transform:uppercase;letter-spacing:.08em;color:var(--accent);border:1px solid var(--line);border-radius:6px;padding:.1rem .4rem;margin-left:.4rem}.supports{margin:.4rem 0 0}.notice-warn{border-left-color:var(--accent)}.notice-bad{border-left-color:#f87171;background:rgba(248,113,113,.08)}.src-links a{margin-right:.8rem}.build-card .card-head{display:flex;align-items:center;gap:.6rem;margin-bottom:.3rem}.build-card .cls{color:var(--muted);font-size:.85rem}.build-card h2{margin:.2rem 0}.build-card h2 a{color:var(--text)}.build-card .import-line{font-size:.82rem;margin:.4rem 0 .8rem}.build-grid .button{margin-top:.4rem}
+@media(max-width:820px){.site-header{align-items:flex-start;gap:1rem;flex-direction:column}.grid{grid-template-columns:1fr}.hero{padding-top:2rem}th,td{display:block;width:100%}th{display:none}td{border-bottom:0;padding:.55rem .8rem}tr{display:block;border-bottom:1px solid var(--line);padding:.45rem 0}table.kv th{display:none}}
 '''.strip()+"\n", encoding='utf-8')
 
-# Search and crawling helpers
+# Search and crawling helpers.
+# Public pages go in the sitemap; draft/noindex build pages are excluded so
+# unverified content is never presented to search engines as authoritative.
 urls = []
-for p in pages:
+for p in all_pages:
+    if p.get('noindex') or p.get('in_sitemap') is False:
+        continue
     loc = SITE['url'] + ('' if p['path']=='index.html' else p['path'])
     urls.append(f"  <url><loc>{loc}</loc><lastmod>{SITE['updated']}</lastmod></url>")
 Path('sitemap.xml').write_text('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + '\n'.join(urls) + '\n</urlset>\n', encoding='utf-8')

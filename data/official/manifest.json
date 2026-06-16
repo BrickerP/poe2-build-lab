@@ -1,0 +1,48 @@
+{
+  "_comment": "Provenance manifest for official / game-compatible datasets. Updated by scripts/fetch_official_passive_tree.py and scripts/normalize_official_data.py. Coverage is honest about gaps; see docs/research/14-development-implementation-plan.md Phase 0.5.",
+  "patch_version": "0.5.2 Early Access",
+  "generated_at": "2026-06-16",
+  "datasets": [
+    {
+      "type": "passive-tree",
+      "source_repo": "grindinggear/poe2-skilltree-export",
+      "source_url": "https://raw.githubusercontent.com/grindinggear/poe2-skilltree-export/master/data.json",
+      "local_raw": "data/passive-tree/data.json",
+      "local_normalized": "data/official/passive-tree.json",
+      "fetched_at": "2026-06-16",
+      "coverage": "complete",
+      "known_gaps": []
+    },
+    {
+      "type": "skill-gems",
+      "source_url": "",
+      "local_normalized": "data/official/skill-gems.json",
+      "fetched_at": null,
+      "coverage": "missing",
+      "known_gaps": [
+        "No authoritative GGG skill-gem id export vendored yet.",
+        "Skill gem_id values remain TBD in build cards until a verified source is ingested."
+      ]
+    },
+    {
+      "type": "support-gems",
+      "source_url": "",
+      "local_normalized": "data/official/support-gems.json",
+      "fetched_at": null,
+      "coverage": "missing",
+      "known_gaps": [
+        "No authoritative GGG support-gem id export vendored yet."
+      ]
+    },
+    {
+      "type": "base-items",
+      "source_url": "",
+      "local_normalized": "data/official/base-items.json",
+      "fetched_at": null,
+      "coverage": "missing",
+      "known_gaps": [
+        "Base-item attribute requirement data not yet vendored; gear base_item_id stays TBD."
+      ]
+    }
+  ]
+}

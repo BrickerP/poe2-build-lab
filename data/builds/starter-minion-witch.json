@@ -1,0 +1,185 @@
+{
+  "id": "starter-minion-witch",
+  "name": "Starter Minion / Companion Witch",
+  "summary": "A minion-oriented Witch starter where summoned bodies absorb pressure and deal damage while the player learns enemy attacks. Beginner-friendly, but minion scaling and Spirit reservation need attention.",
+  "who_should_play": [
+    "New players who want extra bodies between them and danger while learning.",
+    "Players who prefer commanding minions over precise aiming.",
+    "Players who can tolerate slightly more complex scaling (Spirit, minion stats)."
+  ],
+  "patch_version": "0.5.2 Early Access",
+  "last_reviewed": "2026-06-16",
+  "status": "draft",
+  "review_state": "draft",
+  "review_notes": "Research-backed archetype skeleton. Minion mechanics are patch-sensitive; exact Spirit costs and gem ids pending verified data.",
+  "known_broken_by_patch": [],
+  "source": {
+    "type": "self-authored",
+    "url": "",
+    "notes": "Authored from research cards 03-09; not a copied creator build."
+  },
+  "source_links": [
+    { "label": "Official PoE2 patch notes forum", "url": "https://www.pathofexile.com/forum/view-forum/2212" }
+  ],
+  "trust": {
+    "score": 3,
+    "proof": ["research-card", "manual-review"],
+    "source_type": "self-authored",
+    "verified_at": "2026-06-16",
+    "budget_floor": "low",
+    "controller_friendly": "unknown",
+    "hardcore_viable": "unknown",
+    "ssf_viable": "yes",
+    "trade_viable": "yes",
+    "failure_modes": [
+      "Minions die repeatedly if their survivability and your Spirit setup are neglected.",
+      "Minion scaling is patch-sensitive; a balance change can shift power noticeably.",
+      "Player can become too passive and forget personal defenses."
+    ],
+    "risks": ["not-in-game-tested", "patch-sensitive", "minion-balance-sensitive"]
+  },
+  "class": "Witch",
+  "ascendancy": "TBD",
+  "budget": "low",
+  "complexity": "medium",
+  "gear_dependency": "medium",
+  "content_fit": {
+    "campaign": "recommended",
+    "early_maps": "viable",
+    "pinnacle": "unknown"
+  },
+  "uses_spirit": true,
+  "skills": [
+    {
+      "name": "Primary minion skill",
+      "role": "main",
+      "gem_id": "TBD",
+      "supports": [
+        { "name": "Minion damage support", "gem_id": "TBD", "note": "Core damage scaling for the army." },
+        { "name": "Minion survivability support", "gem_id": "TBD", "note": "Fewer resummons means smoother clear." }
+      ],
+      "note": "Keep your minion count stable before chasing raw minion damage."
+    },
+    {
+      "name": "Secondary minion or companion",
+      "role": "secondary",
+      "gem_id": "TBD",
+      "supports": [],
+      "note": "A tankier body or utility companion for boss fights."
+    },
+    {
+      "name": "Movement / escape skill",
+      "role": "movement",
+      "gem_id": "TBD",
+      "supports": [],
+      "note": "You still need to dodge; minions do not make you invincible."
+    }
+  ],
+  "passive_milestones": [
+    { "stage": "Early campaign", "goal": "Take early minion damage and minion life clusters near the Witch start." },
+    { "stage": "Mid campaign", "goal": "Pick up Spirit / reservation efficiency and personal life nodes." },
+    { "stage": "Late campaign", "goal": "Balance minion survivability with your own defensive masteries before pure damage." }
+  ],
+  "attributes": {
+    "required": { "str": 0, "dex": 0, "int": 0 },
+    "planned": { "str": 0, "dex": 0, "int": 0 },
+    "deficit_policy": "warn",
+    "notes": [
+      "Exact attribute requirements need verified gem and base data before publishing as final.",
+      "Minion gems are Intelligence-weighted; some support gems may pull a small Strength or Dexterity requirement."
+    ]
+  },
+  "spirit_budget": {
+    "required": 0,
+    "planned": 0,
+    "sources": [],
+    "notes": [
+      "Minions and persistent companions reserve Spirit; exact costs depend on gem levels and need verified gem data.",
+      "Track every reservation so you do not silently run out of Spirit when adding a companion or aura.",
+      "Until verified, treat Spirit capacity as the gate on how many minions you can sustain."
+    ]
+  },
+  "gear_slots": {
+    "weapon": {
+      "base": "Sceptre or minion-supporting spell weapon",
+      "priority": ["+minion gem levels or minion damage", "Spirit", "attributes"],
+      "budget_note": "A weapon that grants Spirit or +minion levels is worth more than raw spell damage here."
+    },
+    "body_armour": {
+      "base": "Energy-shield or hybrid base that meets attribute requirements",
+      "priority": ["life or energy shield", "elemental resistances", "Spirit if available"],
+      "budget_note": "Your own survivability matters; do not rely on minions as your only defense."
+    },
+    "helmet": {
+      "base": "Any base meeting attribute requirements",
+      "priority": ["life or energy shield", "resistances", "minion modifiers if available"],
+      "budget_note": "A plain rare with life and resists is enough for campaign."
+    },
+    "gloves": {
+      "base": "Any base meeting attribute requirements",
+      "priority": ["resistances", "life", "minion or cast modifiers if affordable"],
+      "budget_note": "Fill resistance gaps cheaply here."
+    },
+    "boots": {
+      "base": "Any defensive base that meets attribute requirements",
+      "priority": ["movement speed", "life or energy shield", "resistances"],
+      "budget_note": "Movement speed keeps you out of danger while minions fight."
+    },
+    "belt": {
+      "base": "Any belt base",
+      "priority": ["life", "resistances", "flask or charm utility"],
+      "budget_note": "Easy slot to patch resistance holes."
+    },
+    "amulet": {
+      "base": "Any amulet base",
+      "priority": ["Spirit or +intelligence", "minion modifiers", "life or resistances"],
+      "budget_note": "The amulet can carry Spirit or Intelligence that keeps your minion setup running."
+    },
+    "ring_1": {
+      "base": "Any ring base",
+      "priority": ["elemental resistances", "life", "attributes if a requirement is tight"],
+      "budget_note": "Rings are your most flexible resistance slots."
+    },
+    "ring_2": {
+      "base": "Any ring base",
+      "priority": ["elemental resistances", "life", "mana or attributes"],
+      "budget_note": "Pair with ring 1 to finish capping resistances."
+    }
+  },
+  "gear_swap_warnings": [
+    {
+      "slot": "amulet",
+      "removed_stats": ["Spirit", "+intelligence"],
+      "breaks": ["Primary minion skill", "Secondary minion or companion"],
+      "message": "If your amulet supplies Spirit or the Intelligence your minion gems need, swapping it without replacing that Spirit/Intelligence can desummon minions or disable a companion."
+    },
+    {
+      "slot": "weapon",
+      "removed_stats": ["Spirit"],
+      "breaks": ["Secondary minion or companion"],
+      "message": "A weapon that grants Spirit is part of your reservation budget; swapping to a non-Spirit weapon may leave you unable to sustain all minions."
+    }
+  ],
+  "defenses": {
+    "campaign_targets": [
+      "Keep elemental resistances as high as the campaign allows for your level.",
+      "Keep your own life or energy shield current; do not hide behind minions alone."
+    ],
+    "early_maps_targets": [
+      "Cap elemental resistances.",
+      "Maintain minion survivability so you are not constantly resummoning under pressure."
+    ],
+    "recovery": "Plan a personal recovery layer plus minion regeneration/leech where available.",
+    "movement_baseline": "Movement speed on boots plus a movement/escape skill.",
+    "chaos_resistance_note": "Chaos resistance is a bonus during campaign, not a campaign priority.",
+    "map_mods_to_avoid": ["Not yet verified in-game for this draft; review before mapping."]
+  },
+  "trade_handoff": {
+    "enabled": false,
+    "filters": []
+  },
+  "build_file": {
+    "enabled": false,
+    "path": ""
+  }
+}
