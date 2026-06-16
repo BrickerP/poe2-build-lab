@@ -225,6 +225,36 @@ pages = [
 """
     },
     {
+        "path": "guides/import-build-files.html",
+        "title": "How to Import PoE2 .build Files (In-Game Build Planner)",
+        "description": "Where to put Path of Exile 2 .build files on Windows and SteamOS, how to load them in the in-game Build Planner, and why in-game editing is not supported.",
+        "heading": "How to import PoE2 .build files",
+        "content": """
+<p class=\"lede\">Path of Exile 2 has an official in-game <strong>Build Planner</strong>. It reads <code>.build</code> files and highlights the matching passives, skill gems, and gear slots inside the game — no alt-tabbing. It is plug-and-play: importing works, but creating or editing builds inside the game is not currently supported.</p>
+<div class=\"notice\"><strong>Source:</strong> Official <a href=\"https://www.pathofexile.com/developer/docs/game\" rel=\"nofollow noopener\">Path of Exile developer docs — Build Planner</a>. The <code>.build</code> format is Version 1 (Experimental); paths below are the official defaults.</div>
+<h2>1. Get a .build file</h2>
+<p>Download a <code>.build</code> file from a guide that offers one. The file is plain JSON describing the ascendancy, passives, skill/support gems, and per-slot gear priorities.</p>
+<h2>2. Put it in the Build Planner folder</h2>
+<p>The game only reads <code>.build</code> files from a specific folder. Create it if it does not exist, then drop the file in.</p>
+<table><thead><tr><th>Platform</th><th>Build Planner folder</th></tr></thead><tbody>
+<tr><td>Windows</td><td><code>C:\\Users\\&lt;YourName&gt;\\Documents\\My Games\\Path of Exile 2\\BuildPlanner</code></td></tr>
+<tr><td>SteamOS</td><td><code>/home/deck/.local/share/Steam/steamapps/compatdata/2315204395/pfx/drive_c/users/steamuser/Documents/My Games/Path of Exile 2/BuildPlanner</code></td></tr>
+</tbody></table>
+<h2>3. Load it in-game</h2>
+<ol>
+<li>Launch Path of Exile 2 and load your character.</li>
+<li>Open the Passive Skill Tree (default <kbd>P</kbd>).</li>
+<li>Click the Build Planner icon in the top-left of the tree screen.</li>
+<li>Select your imported build from the list. Hints light up across your tree, skill bar, and gear slots.</li>
+</ol>
+<h2>In-game editing is not supported</h2>
+<p>You can import and follow a build, but you cannot author or edit one inside Path of Exile 2. Make changes in the source file (or an external planner) and reload.</p>
+<h2>Why PoE2 Build Lab does not ship .build files yet</h2>
+<div class=\"notice notice-warn\"><strong>Honest status:</strong> Our exporter targets the official <code>.build</code> schema and maps each build's ascendancy (verified against the official passive-tree export), gear-slot priorities, and skills. But the official data exports do <strong>not</strong> include skill-gem or support-gem ids — those only exist in extracted game files. Rather than ship a <code>.build</code> with placeholder gem ids that would fail to import, we keep export disabled until verified gem ids are available. Build cards say plainly when an import file is not yet available.</div>
+<p>For background on the decision chain, see the <a href=\"../builds/index.html\">build cards</a>.</p>
+"""
+    },
+    {
         "path": "about.html",
         "title": "About PoE2 Build Lab",
         "description": "About PoE2 Build Lab, an independent Path of Exile 2 beginner guide site.",
@@ -586,13 +616,20 @@ def render_import_block(build):
         bf = build["build_file"]
         return (
             '<section class="build-section"><h2>In-game import (.build)</h2>'
-            f'<p><a class="button" href="../{escape(bf["path"])}">Download .build file</a></p></section>'
+            f'<p><a class="button" href="../{escape(bf["path"])}">Download .build file</a></p>'
+            '<p class="muted">New to import files? See '
+            '<a href="../guides/import-build-files.html">how to import PoE2 .build files</a>.</p>'
+            '</section>'
         )
     return (
         '<section class="build-section"><h2>In-game import (.build)</h2>'
         '<div class="notice"><strong>Import file not yet available.</strong> '
         'This is a published guide, not yet an in-game import file. A <code>.build</code> export will be '
-        'added once exact passive, skill, support, and base-item ids are verified (no placeholders are exported).</div></section>'
+        'added once verified skill-gem ids exist (GGG publishes no official gem export, and we never '
+        'ship placeholder ids). The ascendancy and gear-slot hints are already resolved; only the gem ids are pending.</div>'
+        '<p class="muted">Want to understand the format and folder paths? See '
+        '<a href="../guides/import-build-files.html">how to import PoE2 .build files</a>.</p>'
+        '</section>'
     )
 
 

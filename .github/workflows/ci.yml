@@ -19,6 +19,11 @@ jobs:
       - name: Validate build data
         run: python3 scripts/validate_builds.py
 
+      - name: Check .build exporter (refuses placeholder ids)
+        run: |
+          python3 scripts/export_build_files.py --selftest
+          python3 scripts/export_build_files.py --check
+
       - name: Regenerate site
         run: python3 sitegen.py
 
