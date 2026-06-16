@@ -2,6 +2,8 @@ from pathlib import Path
 from html import escape
 from datetime import date
 
+ADSENSE_CLIENT = "ca-pub-1111218417177666"
+
 SITE = {
     "name": "PoE2 Build Lab",
     "tagline": "Clear Path of Exile 2 starter guides, build checklists, and patch-aware beginner notes.",
@@ -246,7 +248,7 @@ pages = [
 <h2>Analytics</h2>
 <p>The site may use Google Search Console to understand how pages appear in Google Search. Search Console reports aggregated search performance and does not create user accounts on this site.</p>
 <h2>Advertising</h2>
-<p>The site is prepared for future advertising, but Google AdSense is not active until a valid publisher ID and approved AdSense account are configured.</p>
+<p>The site includes Google AdSense code using publisher ID <code>pub-1111218417177666</code>. Google and its advertising partners may use cookies or similar technologies to serve and measure ads when Google enables ad serving for this site.</p>
 <h2>External links</h2>
 <p>The site links to external resources such as official game pages, patch notes, and GitHub. External sites have their own privacy policies.</p>
 <h2>Contact</h2>
@@ -298,8 +300,8 @@ def render_page(page):
   <meta property="og:type" content="website">
   <meta property="og:url" content="{canonical}">
   <link rel="stylesheet" href="{prefix}styles.css">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client={ADSENSE_CLIENT}" crossorigin="anonymous"></script>
   <script type="application/ld+json">{{"@context":"https://schema.org","@type":"WebPage","name":{page['title']!r},"description":{page['description']!r},"url":{canonical!r},"dateModified":"{SITE['updated']}"}}</script>
-  <!-- Future AdSense hook: add approved publisher script here only after AdSense approval. -->
 </head>
 <body>
   <header class="site-header"><a class="brand" href="{prefix}index.html">PoE2 Build Lab</a><nav>{nav}</nav></header>
@@ -325,6 +327,6 @@ for p in pages:
     urls.append(f"  <url><loc>{loc}</loc><lastmod>{SITE['updated']}</lastmod></url>")
 Path('sitemap.xml').write_text('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + '\n'.join(urls) + '\n</urlset>\n', encoding='utf-8')
 Path('robots.txt').write_text(f"User-agent: *\nAllow: /\nSitemap: {SITE['url']}sitemap.xml\n", encoding='utf-8')
-Path('ads.txt').write_text("# AdSense not active yet. Add the official google.com publisher line after account approval.\n", encoding='utf-8')
+Path('ads.txt').write_text("google.com, pub-1111218417177666, DIRECT, f08c47fec0942fa0\n", encoding='utf-8')
 Path('404.html').write_text(render_page({"path":"404.html","title":"Page not found - PoE2 Build Lab","description":"Page not found.","heading":"Page not found","content":"<p>The page you requested does not exist yet. Start from the <a href=\"index.html\">homepage</a>.</p>"}), encoding='utf-8')
-Path('README.md').write_text(f"""# PoE2 Build Lab\n\nStatic beginner-guide site for Path of Exile 2.\n\nLive URL target: {SITE['url']}\n\n## Launch checklist\n\n- [x] Static pages\n- [x] SEO titles/descriptions\n- [x] `robots.txt` and `sitemap.xml`\n- [x] About / Contact / Privacy Policy\n- [ ] Google Search Console URL-prefix property and verification\n- [ ] AdSense approval and publisher ID\n\n## AdSense status\n\nAdSense is intentionally not active until the site has an approved publisher ID and sufficient original content.\n""", encoding='utf-8')
+Path('README.md').write_text(f"""# PoE2 Build Lab\n\nStatic beginner-guide site for Path of Exile 2.\n\nLive URL target: {SITE['url']}\n\n## Launch checklist\n\n- [x] Static pages\n- [x] SEO titles/descriptions\n- [x] `robots.txt` and `sitemap.xml`\n- [x] About / Contact / Privacy Policy\n- [x] Google Search Console URL-prefix property and verification\n- [x] AdSense publisher ID configured in site code\n\n## AdSense status\n\nAdSense publisher ID `pub-1111218417177666` is configured in the site code and `ads.txt`; actual ad serving still depends on Google site review and Auto ads status.\n""", encoding='utf-8')

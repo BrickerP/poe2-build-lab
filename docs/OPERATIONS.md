@@ -9,7 +9,7 @@ Search Console property: URL-prefix `https://brickerp.github.io/poe2-build-lab/`
 - Hosting: GitHub Pages, public repo, `main` branch root.
 - Search Console: ownership verified with `googlead1eaf93276e5fa5.html`.
 - Sitemap: submitted in Search Console as `sitemap.xml` on 2026-06-16.
-- AdSense: not active. The Google account `yplmicro@gmail.com` currently shows "没有 AdSense 账号" / no associated AdSense account.
+- AdSense: account exists as `pub-1111218417177666`; site code and `ads.txt` are configured. Actual ads still depend on Google site review/serving status.
 
 ## Daily monitoring: natural traffic
 
@@ -51,15 +51,14 @@ Priority content backlog:
 
 ## Revenue path
 
-AdSense is not just a script insert. Required next steps:
+AdSense is now configured in code, but revenue starts only after Google accepts/serves ads for the site. Required next steps:
 
-1. Create/register a Google AdSense account for `yplmicro@gmail.com` or another Google account.
-2. Add the site URL.
-3. Wait for AdSense site review/approval.
-4. After approval, add the official AdSense publisher script and update `ads.txt` with the exact publisher ID.
-5. Track revenue in AdSense reports: page RPM, impressions, clicks, estimated earnings.
+1. In AdSense onboarding, use the Website step to check/confirm code detection.
+2. Wait for Google site review/serving status to pass.
+3. Keep `ads.txt` as `google.com, pub-1111218417177666, DIRECT, f08c47fec0942fa0`.
+4. Track revenue in AdSense reports: page RPM, impressions, clicks, estimated earnings.
 
-Do not add fake publisher IDs or placeholder ad scripts. Ads should remain off until AdSense approval is real.
+Do not add fake ad units or placeholder slot IDs. Current setup uses Auto ads script only; manual ad units need real slot IDs from AdSense.
 
 ## What increases revenue
 
