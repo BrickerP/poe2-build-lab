@@ -16,3 +16,7 @@ Live URL target: https://brickerp.github.io/poe2-build-lab/
 ## AdSense status
 
 AdSense is intentionally not active until the site has an approved publisher ID and sufficient original content.
+
+## Operations
+
+See `docs/OPERATIONS.md` for Search Console, sitemap, AdSense, and weekly content operations.
