@@ -1,0 +1,64 @@
+{
+  "name": "Starter Elemental Caster",
+  "author": "PoE2 Build Lab",
+  "ascendancy": "Sorceress1",
+  "passives": [],
+  "skills": [
+    {
+      "id": "Metadata/Items/Gems/SkillGemSpark",
+      "additional_text": "Spark is the shipped import choice: a lightning projectile that fans out and ricochets, so it is easy to land while kiting and a proven Stormweaver starter. The archetype also works with other Intelligence-weighted elemental spells if you prefer.",
+      "support_skills": [
+        {
+          "id": "Metadata/Items/Gems/SupportGemEmpoweredSparks",
+          "additional_text": "Spark-specific damage support; Intelligence-weighted so it fits a pure caster."
+        },
+        {
+          "id": "Metadata/Items/Gems/SupportGemSpellEcho",
+          "additional_text": "Repeats the spell for a smoother, higher-uptime feel before chasing raw damage."
+        }
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemBlink",
+      "additional_text": "Short-range teleport for repositioning — your main defensive layer as a ranged caster."
+    }
+  ],
+  "inventory_slots": [
+    {
+      "inventory_id": "Weapon1",
+      "additional_text": "<silver>{Spell-focused weapon (wand/sceptre/staff)}\n\n<grey>{Stat Priority\n-------------------\n1. +gem levels or spell/elemental damage\n2. cast speed\n3. mana or attributes}\n\n<grey>{Budget: Use a cheap rare during campaign; do not chase perfect affixes early.}"
+    },
+    {
+      "inventory_id": "BodyArmour1",
+      "additional_text": "<silver>{Energy-shield or hybrid base that meets attribute requirements}\n\n<grey>{Stat Priority\n-------------------\n1. life or energy shield\n2. elemental resistances\n3. attributes if a gem is gated}\n\n<grey>{Budget: Survivability first; a defensive chest outvalues a damage roll early.}"
+    },
+    {
+      "inventory_id": "Helm1",
+      "additional_text": "<silver>{Any base meeting attribute requirements}\n\n<grey>{Stat Priority\n-------------------\n1. life or energy shield\n2. resistances\n3. attributes}\n\n<grey>{Budget: A plain rare with life and resists is enough for campaign.}"
+    },
+    {
+      "inventory_id": "Gloves1",
+      "additional_text": "<silver>{Any base meeting attribute requirements}\n\n<grey>{Stat Priority\n-------------------\n1. resistances\n2. life\n3. cast speed if affordable}\n\n<grey>{Budget: Fill resistance gaps here cheaply.}"
+    },
+    {
+      "inventory_id": "Boots1",
+      "additional_text": "<silver>{Any defensive base that meets attribute requirements}\n\n<grey>{Stat Priority\n-------------------\n1. movement speed\n2. life or energy shield\n3. resistances}\n\n<grey>{Budget: Movement speed is a practical defensive stat for a ranged caster.}"
+    },
+    {
+      "inventory_id": "Belt1",
+      "additional_text": "<silver>{Any belt base}\n\n<grey>{Stat Priority\n-------------------\n1. life\n2. resistances\n3. flask or charm utility}\n\n<grey>{Budget: Belts are an easy slot to patch resistance holes.}"
+    },
+    {
+      "inventory_id": "Amulet1",
+      "additional_text": "<silver>{Any amulet base}\n\n<grey>{Stat Priority\n-------------------\n1. +intelligence\n2. spell/elemental damage\n3. life or resistances}\n\n<grey>{Budget: The amulet often carries the Intelligence that keeps your gems usable.}"
+    },
+    {
+      "inventory_id": "Ring1",
+      "additional_text": "<silver>{Any ring base}\n\n<grey>{Stat Priority\n-------------------\n1. elemental resistances\n2. life\n3. attributes if a requirement is tight}\n\n<grey>{Budget: Rings are your most flexible resistance slots.}"
+    },
+    {
+      "inventory_id": "Ring2",
+      "additional_text": "<silver>{Any ring base}\n\n<grey>{Stat Priority\n-------------------\n1. elemental resistances\n2. life\n3. mana or attributes}\n\n<grey>{Budget: Pair with ring 1 to finish capping resistances.}"
+    }
+  ]
+}

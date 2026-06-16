@@ -24,11 +24,13 @@ Safety contract (doc 14 Phase 2 + verification checklist):
   uses a slot id plus free-text stat-priority hints (no base-item id), so this
   needs no base-item dataset.
 
-Reality note: GGG publishes no official skill-gem export, so the starter cards
-keep ``gem_id: "TBD"`` and ``build_file.enabled: false``. Running this exporter
-today therefore reports "no exportable builds" and exits 0 — the honest
-"cleanly disabled" state. The mapping and refusal logic are covered by
-``--selftest`` so the pipeline is ready the moment verified gem ids exist.
+Gem id source: GGG publishes no official skill-gem export, so gem ids are
+resolved from COMMUNITY-extracted data (Path of Building Community PoE2
+``gameId`` field, normalized into ``data/community/skill-gems.json`` and
+``support-gems.json``). Per doc 14 this community data is accepted to power
+export. Every skill/support gem id in an enabled build must be a member of that
+dataset, so a typo'd or fabricated id is refused. A build whose gems are still
+``TBD`` keeps ``build_file.enabled: false`` and is skipped.
 
 Usage:
     python3 scripts/export_build_files.py            # export all enabled builds
@@ -47,6 +49,9 @@ ROOT = Path(__file__).resolve().parent.parent
 BUILDS_DIR = ROOT / "data" / "builds"
 OFFICIAL_DIR = ROOT / "data" / "official"
 PASSIVE_TREE_PATH = OFFICIAL_DIR / "passive-tree.json"
+COMMUNITY_DIR = ROOT / "data" / "community"
+SKILL_GEMS_PATH = COMMUNITY_DIR / "skill-gems.json"
+SUPPORT_GEMS_PATH = COMMUNITY_DIR / "support-gems.json"
 OUT_DIR = ROOT / "assets" / "builds"
 
 TBD = "TBD"
@@ -94,22 +99,48 @@ def official_node_ids(passive_tree):
     return set(pt.get("node_ids", [])) | set(pt.get("semantic_node_ids", []))
 
 
+def community_gem_ids():
+    """Set of every real gem metadata id from the community datasets.
+
+    Returns an empty set if the datasets are absent (e.g. a partial checkout);
+    callers treat an empty set as "no verification available" and skip the
+    membership check rather than refusing every id.
+    """
+    ids = set()
+    for path in (SKILL_GEMS_PATH, SUPPORT_GEMS_PATH):
+        if path.exists():
+            for item in load_json(path).get("items", []):
+                if item.get("id"):
+                    ids.add(item["id"])
+    return ids
+
+
 def _slot_additional_text(slot_name, slot):
     base = slot.get("base", "Any base")
     priorities = slot.get("priority", [])
     lines = ["Stat Priority", "-------------------"]
     lines += [f"{i + 1}. {p}" for i, p in enumerate(priorities)]
-    body = "\\n".join(lines)
-    text = f"<silver>{{{base}}}\\n\\n<grey>{{{body}}}"
+    # Real newlines: json.dumps serializes them as the \n escape GGG's official
+    # .build example uses, so the in-game markup renders line breaks (not a
+    # literal "\n"). See docs/research/03-build-planner-build-files.md.
+    body = "\n".join(lines)
+    text = f"<silver>{{{base}}}\n\n<grey>{{{body}}}"
     if slot.get("budget_note"):
-        text += f"\\n\\n<grey>{{Budget: {slot['budget_note']}}}"
+        text += f"\n\n<grey>{{Budget: {slot['budget_note']}}}"
     return text
 
 
-def build_to_dotbuild(build, passive_tree):
-    """Map a build card dict to an official .build dict, or raise ExportRefused."""
+def build_to_dotbuild(build, passive_tree, valid_gem_ids=None):
+    """Map a build card dict to an official .build dict, or raise ExportRefused.
+
+    ``valid_gem_ids`` is the set of real gem metadata ids from the community
+    datasets. When non-empty, every skill/support gem id must be a member, so a
+    typo'd or fabricated id can never ship. An empty/``None`` set skips the
+    membership check (datasets unavailable).
+    """
     asc_map = ascendancy_code_map(passive_tree)
     valid_nodes = official_node_ids(passive_tree)
+    valid_gem_ids = valid_gem_ids or set()
 
     # Ascendancy: required to be resolved + known.
     asc_name = build.get("ascendancy")
@@ -125,6 +156,8 @@ def build_to_dotbuild(build, passive_tree):
         gem = skill.get("gem_id")
         if not gem or gem == TBD:
             raise ExportRefused(f"skills[{i}].gem_id is TBD")
+        if valid_gem_ids and gem not in valid_gem_ids:
+            raise ExportRefused(f"skills[{i}].gem_id {gem!r} is not a known community gem id")
         entry = {"id": gem}
         if skill.get("note"):
             entry["additional_text"] = skill["note"]
@@ -133,6 +166,10 @@ def build_to_dotbuild(build, passive_tree):
             sup_gem = sup.get("gem_id")
             if not sup_gem or sup_gem == TBD:
                 raise ExportRefused(f"skills[{i}].supports[{j}].gem_id is TBD")
+            if valid_gem_ids and sup_gem not in valid_gem_ids:
+                raise ExportRefused(
+                    f"skills[{i}].supports[{j}].gem_id {sup_gem!r} is not a known community gem id"
+                )
             if sup.get("note"):
                 supports.append({"id": sup_gem, "additional_text": sup["note"]})
             else:
@@ -172,14 +209,14 @@ def build_to_dotbuild(build, passive_tree):
     return dotbuild
 
 
-def export_build(build, passive_tree, write):
+def export_build(build, passive_tree, write, valid_gem_ids=None):
     """Return (status, message). status in {'written','refused','skipped'}."""
     bid = build.get("id", "?")
     bf = build.get("build_file", {})
     if not bf.get("enabled"):
         return ("skipped", f"{bid}: build_file.enabled is false (export disabled)")
     try:
-        dotbuild = build_to_dotbuild(build, passive_tree)
+        dotbuild = build_to_dotbuild(build, passive_tree, valid_gem_ids)
     except ExportRefused as exc:
         return ("refused", f"{bid}: REFUSED — {exc}")
 
@@ -203,15 +240,17 @@ def run(check):
         key=lambda p: p.name,
     )
     passive_tree = load_json(PASSIVE_TREE_PATH) if PASSIVE_TREE_PATH.exists() else None
+    valid_gem_ids = community_gem_ids()
 
     enabled, written, refused = 0, 0, 0
     mode = "check" if check else "export"
-    print(f"Build exporter ({mode} mode): scanning {len(builds)} build file(s)\n")
+    gem_note = f"{len(valid_gem_ids)} community gem ids loaded" if valid_gem_ids else "no community gem dataset (id check skipped)"
+    print(f"Build exporter ({mode} mode): scanning {len(builds)} build file(s); {gem_note}\n")
     for path in builds:
         build = load_json(path)
         if build.get("build_file", {}).get("enabled"):
             enabled += 1
-        status, msg = export_build(build, passive_tree, write=not check)
+        status, msg = export_build(build, passive_tree, write=not check, valid_gem_ids=valid_gem_ids)
         if status == "written":
             written += 1
             print(f"OK    {msg}")
@@ -304,6 +343,24 @@ def selftest():
     expect_refuse(
         lambda b: b["passive_milestones"][0].update(node_ids=["99999"]), "node id not in tree"
     )
+
+    # Community gem-id membership: a non-TBD id absent from the dataset is refused.
+    known = {
+        "Metadata/Items/Gems/SkillGemFireball",
+        "Metadata/Items/Gems/SupportGemAdded",
+        "Metadata/Items/Gems/SupportGemCastSpeed",
+    }
+    try:
+        build_to_dotbuild(base, fake_tree, valid_gem_ids=known)  # all known -> ok
+    except ExportRefused as exc:
+        failures.append(f"membership: rejected a known id set ({exc})")
+    bad = json.loads(json.dumps(base))
+    bad["skills"][0]["gem_id"] = "Metadata/Items/Gems/SkillGemDefinitelyFake"
+    try:
+        build_to_dotbuild(bad, fake_tree, valid_gem_ids=known)
+        failures.append("should refuse: gem id not in community dataset")
+    except ExportRefused:
+        pass
 
     if failures:
         print("SELFTEST FAILED:")

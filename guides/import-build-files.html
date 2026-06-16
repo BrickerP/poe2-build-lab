@@ -36,8 +36,8 @@
 </ol>
 <h2>In-game editing is not supported</h2>
 <p>You can import and follow a build, but you cannot author or edit one inside Path of Exile 2. Make changes in the source file (or an external planner) and reload.</p>
-<h2>Why PoE2 Build Lab does not ship .build files yet</h2>
-<div class="notice notice-warn"><strong>Honest status:</strong> Our exporter targets the official <code>.build</code> schema and maps each build's ascendancy (verified against the official passive-tree export), gear-slot priorities, and skills. But the official data exports do <strong>not</strong> include skill-gem or support-gem ids — those only exist in extracted game files. Rather than ship a <code>.build</code> with placeholder gem ids that would fail to import, we keep export disabled until verified gem ids are available. Build cards say plainly when an import file is not yet available.</div>
+<h2>How we source the ids inside our .build files</h2>
+<div class="notice"><strong>Data provenance:</strong> Our exporter targets the official <code>.build</code> schema. Ascendancy and passive node ids come from the <strong>official</strong> GGG passive-tree export. Skill and support gem ids come from <strong>community-extracted</strong> game data (the <a href="https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2" rel="nofollow noopener">Path of Building Community PoE2</a> project), because GGG does not publish an official gem export. We use each gem's exact in-game metadata id, cross-validated against GGG's own <code>.build</code> example, and we never ship a placeholder or guessed id — a build with unresolved gems simply has no download. Game data is © Grinding Gear Games.</div>
 <p>For background on the decision chain, see the <a href="../builds/index.html">build cards</a>.</p>
 </article></main>
   <footer><p>Independent Path of Exile 2 beginner guide site. Not affiliated with Grinding Gear Games.</p><p><a href="../privacy-policy.html">Privacy Policy</a> · <a href="../contact.html">Contact</a> · <a href="../sitemap.xml">Sitemap</a></p></footer>

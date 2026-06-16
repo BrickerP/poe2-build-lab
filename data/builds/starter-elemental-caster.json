@@ -11,7 +11,7 @@
   "last_reviewed": "2026-06-16",
   "status": "published",
   "review_state": "needs_testing",
-  "review_notes": "Published as a research-backed decision card with its ascendancy resolved from the official GGG passive-tree export (Sorceress -> Stormweaver). Not yet in-game tested, so it is labeled 'needs in-game testing'. Skill/support gem ids stay TBD because GGG publishes no official gem export, so .build export remains disabled (no placeholder ids are ever exported).",
+  "review_notes": "Published as a research-backed decision card. Ascendancy resolved from the official GGG passive-tree export (Sorceress -> Stormweaver). Skill/support gem ids (Spark, Empowered Sparks, Spell Echo, Blink) are resolved from community-extracted data (Path of Building Community PoE2 gameId field, cross-validated against GGG's official .build example), so .build export is now enabled with real ids. Still not in-game tested, hence 'needs in-game testing'.",
   "known_broken_by_patch": [],
   "source": {
     "type": "self-authored",
@@ -19,7 +19,8 @@
     "notes": "Authored from research cards 03-09; not a copied creator build."
   },
   "source_links": [
-    { "label": "Official PoE2 patch notes forum", "url": "https://www.pathofexile.com/forum/view-forum/2212" }
+    { "label": "Official PoE2 patch notes forum", "url": "https://www.pathofexile.com/forum/view-forum/2212" },
+    { "label": "Gem ids: Path of Building Community PoE2 (community data)", "url": "https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2" }
   ],
   "trust": {
     "score": 3,
@@ -50,21 +51,21 @@
   "uses_spirit": false,
   "skills": [
     {
-      "name": "Primary elemental spell",
+      "name": "Spark",
       "role": "main",
-      "gem_id": "TBD",
+      "gem_id": "Metadata/Items/Gems/SkillGemSpark",
       "supports": [
-        { "name": "Added elemental damage support", "gem_id": "TBD", "note": "Flat damage scales well early." },
-        { "name": "Cast speed / reliability support", "gem_id": "TBD", "note": "Smoother feel before chasing raw damage." }
+        { "name": "Empowered Sparks", "gem_id": "Metadata/Items/Gems/SupportGemEmpoweredSparks", "note": "Spark-specific damage support; Intelligence-weighted so it fits a pure caster." },
+        { "name": "Spell Echo", "gem_id": "Metadata/Items/Gems/SupportGemSpellEcho", "note": "Repeats the spell for a smoother, higher-uptime feel before chasing raw damage." }
       ],
-      "note": "Pick one spell you can aim comfortably and commit to scaling it."
+      "note": "Spark is the shipped import choice: a lightning projectile that fans out and ricochets, so it is easy to land while kiting and a proven Stormweaver starter. The archetype also works with other Intelligence-weighted elemental spells if you prefer."
     },
     {
-      "name": "Movement / escape skill",
+      "name": "Blink",
       "role": "movement",
-      "gem_id": "TBD",
+      "gem_id": "Metadata/Items/Gem/SkillGemBlink",
       "supports": [],
-      "note": "Repositioning is a defensive layer for a ranged caster."
+      "note": "Short-range teleport for repositioning — your main defensive layer as a ranged caster."
     }
   ],
   "passive_milestones": [
@@ -184,7 +185,7 @@
     ]
   },
   "build_file": {
-    "enabled": false,
-    "path": ""
+    "enabled": true,
+    "path": "assets/builds/starter-elemental-caster.build"
   }
 }

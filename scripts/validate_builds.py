@@ -30,6 +30,10 @@ SCHEMA_PATH = BUILDS_DIR / "schema.json"
 OFFICIAL_DIR = ROOT / "data" / "official"
 MANIFEST_PATH = OFFICIAL_DIR / "manifest.json"
 PASSIVE_TREE_PATH = OFFICIAL_DIR / "passive-tree.json"
+COMMUNITY_DIR = ROOT / "data" / "community"
+COMMUNITY_MANIFEST_PATH = COMMUNITY_DIR / "manifest.json"
+COMMUNITY_SKILL_GEMS_PATH = COMMUNITY_DIR / "skill-gems.json"
+COMMUNITY_SUPPORT_GEMS_PATH = COMMUNITY_DIR / "support-gems.json"
 
 TBD = "TBD"
 DEFAULT_REVIEW_WINDOW_DAYS = 45
@@ -208,6 +212,17 @@ def official_node_ids(passive_tree):
     return set(passive_tree.get("node_ids", [])) | set(passive_tree.get("semantic_node_ids", []))
 
 
+def load_community_gem_ids():
+    """Set of real gem metadata ids from the community datasets (empty if absent)."""
+    ids = set()
+    for path in (COMMUNITY_SKILL_GEMS_PATH, COMMUNITY_SUPPORT_GEMS_PATH):
+        if path.exists():
+            for item in load_json(path).get("items", []):
+                if item.get("id"):
+                    ids.add(item["id"])
+    return ids
+
+
 def parse_date(value):
     try:
         return datetime.strptime(value, "%Y-%m-%d").date()
@@ -215,13 +230,24 @@ def parse_date(value):
         return None
 
 
-def business_rules(build, manifest, passive_tree, errors):
+def business_rules(build, manifest, passive_tree, community_manifest, community_gem_ids, errors):
     status = build.get("status")
     published = status == "published"
 
     exact_ids = list(collect_exact_ids(build))
     valid_asc = official_ascendancies(passive_tree)
     valid_nodes = official_node_ids(passive_tree)
+
+    # No fabricated gem ids: any non-TBD skill/support gem id must exist in the
+    # community gem datasets. Applies to every build (draft or published) so a
+    # typo'd id can never reach an export-enabled card.
+    if community_gem_ids:
+        for label, value, cat in exact_ids:
+            if cat == "gem" and value and value != TBD and value not in community_gem_ids:
+                errors.append(
+                    f"{label}={value!r} is not a known community gem id "
+                    "(data/community/skill-gems.json / support-gems.json)"
+                )
 
     # Published-build TBD policy (doc 14 build-data rules + release sequence item 5):
     #   - ascendancy is rendered and required by export -> must resolve AND match
@@ -258,10 +284,10 @@ def business_rules(build, manifest, passive_tree, errors):
             elif cat == "base":
                 if value == TBD:
                     errors.append(f"published build has TBD base-item id at {label}")
-                elif dataset_coverage(manifest, "base-items") in (None, "missing"):
+                elif dataset_coverage(community_manifest, "base-items") != "present":
                     errors.append(
                         f"published build asserts exact {label}={value!r} but the "
-                        "base-items dataset is missing/unverified in the manifest"
+                        "community base-items dataset is not marked coverage='present'"
                     )
 
     # .build export must never ship placeholder ids, regardless of status.
@@ -278,6 +304,12 @@ def business_rules(build, manifest, passive_tree, errors):
                 "build_file.enabled=true but official passive-tree dataset is not "
                 "marked coverage='complete' in data/official/manifest.json"
             )
+        for ds_type in ("skill-gems", "support-gems"):
+            if dataset_coverage(community_manifest, ds_type) != "present":
+                errors.append(
+                    f"build_file.enabled=true but community {ds_type} dataset is not "
+                    "marked coverage='present' in data/community/manifest.json"
+                )
         asc = build.get("ascendancy")
         if valid_asc and asc not in valid_asc:
             errors.append(
@@ -339,6 +371,8 @@ def main():
     schema = load_json(SCHEMA_PATH)
     manifest = load_json(MANIFEST_PATH) if MANIFEST_PATH.exists() else None
     passive_tree = load_json(PASSIVE_TREE_PATH) if PASSIVE_TREE_PATH.exists() else None
+    community_manifest = load_json(COMMUNITY_MANIFEST_PATH) if COMMUNITY_MANIFEST_PATH.exists() else None
+    community_gem_ids = load_community_gem_ids()
 
     build_paths = sorted(p for p in BUILDS_DIR.glob("*.json") if p.name != "schema.json")
     if not build_paths:
@@ -372,7 +406,7 @@ def main():
 
         # Only run business rules when the structure is sane enough.
         if isinstance(build, dict):
-            business_rules(build, manifest, passive_tree, errors)
+            business_rules(build, manifest, passive_tree, community_manifest, community_gem_ids, errors)
 
         if errors:
             total_errors += len(errors)
