@@ -14,15 +14,15 @@
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1111218417177666" crossorigin="anonymous"></script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":'PoE2 Attribute, Spirit & Gear-Swap Checker',"description":'Free Path of Exile 2 calculator: check Strength/Dexterity/Intelligence deficits, Spirit reservation, and whether swapping a gear slot breaks a skill or Spirit reservation. Prefills from build cards. No backend.',"url":'https://brickerp.github.io/poe2-build-lab/tools/attribute-checker.html',"dateModified":"2026-06-17"}</script>
 </head>
-<body>
-  <header class="site-header"><a class="brand" href="../index.html">PoE2 Build Lab</a><nav><a href="../index.html">Home</a><a href="../builds/index.html">Build Cards</a><a class="active" href="../tools/attribute-checker.html">Attribute Checker</a><a href="../tools/gear-upgrade-checker.html">Gear Upgrade</a><a href="../tools/beginner-build-checklist.html">Defense Diagnostic</a><a href="../guides/index.html">Guides</a><a href="../guides/endgame-hub.html">Endgame Hub</a><a href="../about.html">About</a></nav></header>
-  <main><section class="page-title"><p class="eyebrow">Planning aid · verify in game</p><h1>Attribute, Spirit &amp; gear-swap checker</h1></section><article class="article">
-<p class="lede">Answer two questions competitors leave separate: <em>what attributes am I missing?</em> and <em>what breaks if I swap this gear?</em> Open this tool from a build card to prefill its Spirit and gear-swap data, or enter values manually.</p>
-<div id="build-banner" class="notice" style="display:none"></div>
-<div class="notice notice-warn"><strong>Planning aid — verify in game.</strong> Exact gem and base attribute requirements need a verified data source; until then, enter the requirement you want to meet. Numbers here are guidance, not a guarantee.</div>
+<body class="tool-page">
+  <header class="site-header"><a class="brand" href="../index.html">PoE2 <span>Build Lab</span></a><nav><a class="nav-link" href="../index.html"><span class="nav-label">Home</span><span class="nav-desc">Start here</span></a><a class="nav-link" href="../builds/index.html"><span class="nav-label">Builds</span><span class="nav-desc">Compare patch-reviewed starters</span></a><a class="nav-link active" href="../tools/attribute-checker.html"><span class="nav-label">Can I Wear It?</span><span class="nav-desc">Stats, Spirit &amp; gear swaps</span></a><a class="nav-link" href="../tools/gear-upgrade-checker.html"><span class="nav-label">Next Upgrade</span><span class="nav-desc">Slot affix priorities by stage</span></a><a class="nav-link" href="../tools/beginner-build-checklist.html"><span class="nav-label">Why Am I Dying?</span><span class="nav-desc">Death pattern → fix path</span></a><a class="nav-link" href="../guides/index.html"><span class="nav-label">Guides</span><span class="nav-desc">Reference when you&#x27;re stuck</span></a><a class="nav-link" href="../guides/endgame-hub.html"><span class="nav-label">Endgame</span><span class="nav-desc">Atlas, waystones &amp; bosses</span></a></nav></header>
+  <main class="tool-page"><section class="page-title tool-title"><p class="eyebrow">Planning aid · verify in game</p><h1>Attribute &amp; gear-swap checker</h1><p class="tool-purpose">What attributes am I missing? What breaks if I swap this amulet? Prefills from build cards.</p></section><article class="article">
+<p class="tool-quicklinks"><a class="button secondary button-sm" href="?build=starter-elemental-caster">Elemental Caster</a> <a class="button secondary button-sm" href="?build=starter-minion-witch">Minion Witch</a></p>
+<div id="build-banner" class="notice notice-compact" style="display:none"></div>
+<div class="notice notice-warn notice-compact"><strong>Verify in game.</strong> Enter requirements from your gem tooltips.</div>
 
 <section class="build-section" id="attr-calc">
-  <h2>1. Attribute deficits</h2>
+  <h2>1. What attributes am I missing?</h2>
   <p class="muted">Enter the highest requirement you need to meet (from a gem or a gear base), your current attributes from the tree/quests, and what your gear adds.</p>
   <table class="calc-input">
     <thead><tr><th>Attribute</th><th>Requirement</th><th>Current (tree/quests)</th><th>From gear</th></tr></thead>
@@ -37,7 +37,7 @@
 </section>
 
 <section class="build-section" id="spirit-calc">
-  <h2>2. Spirit reservation</h2>
+  <h2>2. Do I have enough Spirit?</h2>
   <p class="muted">Reservation builds (auras, minions, companions, persistent buffs) are gated by Spirit. Enter your Spirit capacity and total reservation.</p>
   <table class="calc-input">
     <tbody>
@@ -65,13 +65,8 @@
   </table>
   <div id="swap-result"></div>
 </section>
-
-<section class="build-section">
-  <h2>How this helps</h2>
-  <p>Beginners often swap an amulet or weapon for more damage and suddenly a skill greys out or a minion vanishes. That is usually a lost attribute requirement or a lost Spirit source. This checker connects your planned requirements, your Spirit budget, and the build's gear-swap warnings so you can see the breakage before it happens — then confirm it in game.</p>
-</section>
 </article></main>
-  <footer><p>Independent Path of Exile 2 beginner guide site. Not affiliated with Grinding Gear Games.</p><p><a href="../privacy-policy.html">Privacy Policy</a> · <a href="../contact.html">Contact</a> · <a href="../sitemap.xml">Sitemap</a></p></footer>
+  <footer><p>Independent Path of Exile 2 beginner guide site. Not affiliated with Grinding Gear Games.</p><p><a href="../privacy-policy.html">Privacy</a> · <a href="../contact.html">Contact</a> · <a href="../about.html">About</a> · <a href="../sitemap.xml">Sitemap</a></p></footer>
   <script src="../assets/js/attribute-calculator.js" defer></script>
 </body>
 </html>

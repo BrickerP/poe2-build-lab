@@ -14,19 +14,20 @@
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1111218417177666" crossorigin="anonymous"></script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":'PoE2 Gear Upgrade Planner by Build & Stage',"description":'Interactive gear upgrade planner for Path of Exile 2: required, good, and luxury affixes per slot for campaign, early maps, and red maps. Prefills from build cards.',"url":'https://brickerp.github.io/poe2-build-lab/tools/gear-upgrade-checker.html',"dateModified":"2026-06-17"}</script>
 </head>
-<body>
-  <header class="site-header"><a class="brand" href="../index.html">PoE2 Build Lab</a><nav><a href="../index.html">Home</a><a href="../builds/index.html">Build Cards</a><a href="../tools/attribute-checker.html">Attribute Checker</a><a class="active" href="../tools/gear-upgrade-checker.html">Gear Upgrade</a><a href="../tools/beginner-build-checklist.html">Defense Diagnostic</a><a href="../guides/index.html">Guides</a><a href="../guides/endgame-hub.html">Endgame Hub</a><a href="../about.html">About</a></nav></header>
-  <main><section class="page-title"><p class="eyebrow">Slot affix tiers · stage targets</p><h1>Gear upgrade planner</h1></section><article class="article">
-<p class="lede">Generic "get better gear" advice fails because value depends on <em>slot</em>, <em>stage</em>, and <em>build</em>. Pick a stage and slot — or open from a build card to prefill.</p>
-<div id="build-banner" class="notice" style="display:none"></div>
-<div class="notice notice-warn"><strong>No price promises.</strong> Trade links open the official site; type the filter recipe manually if deep links do not prefill.</div>
+<body class="tool-page">
+  <header class="site-header"><a class="brand" href="../index.html">PoE2 <span>Build Lab</span></a><nav><a class="nav-link" href="../index.html"><span class="nav-label">Home</span><span class="nav-desc">Start here</span></a><a class="nav-link" href="../builds/index.html"><span class="nav-label">Builds</span><span class="nav-desc">Compare patch-reviewed starters</span></a><a class="nav-link" href="../tools/attribute-checker.html"><span class="nav-label">Can I Wear It?</span><span class="nav-desc">Stats, Spirit &amp; gear swaps</span></a><a class="nav-link active" href="../tools/gear-upgrade-checker.html"><span class="nav-label">Next Upgrade</span><span class="nav-desc">Slot affix priorities by stage</span></a><a class="nav-link" href="../tools/beginner-build-checklist.html"><span class="nav-label">Why Am I Dying?</span><span class="nav-desc">Death pattern → fix path</span></a><a class="nav-link" href="../guides/index.html"><span class="nav-label">Guides</span><span class="nav-desc">Reference when you&#x27;re stuck</span></a><a class="nav-link" href="../guides/endgame-hub.html"><span class="nav-label">Endgame</span><span class="nav-desc">Atlas, waystones &amp; bosses</span></a></nav></header>
+  <main class="tool-page"><section class="page-title tool-title"><p class="eyebrow">Slot affix tiers by stage</p><h1>Gear upgrade planner</h1><p class="tool-purpose">What affixes matter on this slot at campaign vs maps? Open from a build card to prefill slot priorities.</p></section><article class="article">
+<p class="tool-quicklinks"><a class="button secondary button-sm" href="../builds/starter-elemental-caster.html?via=gear">Elemental Caster</a> <a class="button secondary button-sm" href="../builds/starter-minion-witch.html?via=gear">Minion Witch</a></p>
+<div id="build-banner" class="notice notice-compact" style="display:none"></div>
+<div class="notice notice-warn notice-compact"><strong>No price promises.</strong> Trade links open the official site; type filter recipes manually if deep links do not prefill.</div>
+<div class="tool-controls">
+<label>Stage: <select id="upgrade-stage"><option value="campaign">Campaign</option><option value="early_maps">Early maps</option><option value="red_maps">Red maps / pinnacle</option></select></label>
+<label>Slot: <select id="upgrade-slot"></select></label>
+</div>
 <p id="upgrade-suggest" class="muted"></p>
-<p><label>Stage: <select id="upgrade-stage"><option value="campaign">Campaign</option><option value="early_maps">Early maps</option><option value="red_maps">Red maps / pinnacle</option></select></label>
-<label>Slot: <select id="upgrade-slot"></select></label></p>
 <div id="upgrade-output" class="build-section"></div>
-<p class="muted">Open with <code>?build=starter-elemental-caster</code> or <code>?build=starter-minion-witch</code> to prefill from a build card.</p>
 </article></main>
-  <footer><p>Independent Path of Exile 2 beginner guide site. Not affiliated with Grinding Gear Games.</p><p><a href="../privacy-policy.html">Privacy Policy</a> · <a href="../contact.html">Contact</a> · <a href="../sitemap.xml">Sitemap</a></p></footer>
+  <footer><p>Independent Path of Exile 2 beginner guide site. Not affiliated with Grinding Gear Games.</p><p><a href="../privacy-policy.html">Privacy</a> · <a href="../contact.html">Contact</a> · <a href="../about.html">About</a> · <a href="../sitemap.xml">Sitemap</a></p></footer>
   <script src="../assets/js/gear-upgrade-checker.js" defer></script>
 </body>
 </html>

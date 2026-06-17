@@ -14,14 +14,21 @@ SITE = {
 }
 
 NAV = [
-    ("Home", "index.html"),
-    ("Build Cards", "builds/index.html"),
-    ("Attribute Checker", "tools/attribute-checker.html"),
-    ("Gear Upgrade", "tools/gear-upgrade-checker.html"),
-    ("Defense Diagnostic", "tools/beginner-build-checklist.html"),
-    ("Guides", "guides/index.html"),
-    ("Endgame Hub", "guides/endgame-hub.html"),
-    ("About", "about.html"),
+    ("Builds", "builds/index.html", "Compare patch-reviewed starters"),
+    ("Can I Wear It?", "tools/attribute-checker.html", "Stats, Spirit & gear swaps"),
+    ("Next Upgrade", "tools/gear-upgrade-checker.html", "Slot affix priorities by stage"),
+    ("Why Am I Dying?", "tools/beginner-build-checklist.html", "Death pattern → fix path"),
+    ("Guides", "guides/index.html", "Reference when you're stuck"),
+    ("Endgame", "guides/endgame-hub.html", "Atlas, waystones & bosses"),
+]
+
+DECISION_GRID = [
+    ("◇", "Pick a build", "Compare starters by budget & trust", "builds/index.html"),
+    ("◆", "Can I wear this?", "Check attributes & Spirit", "tools/attribute-checker.html"),
+    ("▣", "Next gear piece", "Slot affix targets by stage", "tools/gear-upgrade-checker.html"),
+    ("✕", "Why am I dying?", "Death pattern → first fix", "tools/beginner-build-checklist.html"),
+    ("↓", "Import .build", "Download & load in-game", "guides/import-build-files.html"),
+    ("◎", "Endgame path", "Atlas & progression blockers", "guides/endgame-hub.html"),
 ]
 
 # Review-state presentation. Keys must match build review_state enum values.
@@ -42,23 +49,7 @@ pages = [
         "title": "PoE2 Build Lab: Path of Exile 2 Beginner Builds and Guides",
         "description": "Patch-aware Path of Exile 2 beginner builds, leveling notes, currency basics, and checklists for new and returning players.",
         "hero": True,
-        "content": """
-<section class=\"grid cards\">
-  <article class=\"card highlight\"><p class=\"eyebrow\">Decision assistant</p><h2>Build cards</h2><p>Compare starters by patch trust, budget, gear slots, attributes, Spirit, defenses, trade filters, and .build import status — one decision chain, not a prose tier list.</p><a class=\"button\" href=\"builds/index.html\">Browse build cards</a></article>
-  <article class=\"card\"><p class=\"eyebrow\">Tools</p><h2>Attribute &amp; gear-swap checker</h2><p>What am I missing? What breaks if I swap this amulet?</p><a href=\"tools/attribute-checker.html\">Open checker</a></article>
-  <article class=\"card\"><p class=\"eyebrow\">Tools</p><h2>Gear upgrade planner</h2><p>Slot-by-slot affix priorities for campaign vs maps — tied to each build card.</p><a href=\"tools/gear-upgrade-checker.html\">Plan upgrades</a></article>
-</section>
-<section class=\"content-block\">
-  <h2>How this beats a generic guide site</h2>
-  <p>Maxroll and Mobalytics excel at guide volume and planners. PoE2 Build Lab connects the jobs they leave separate: trust metadata, attribute deficits, gear-slot priorities, trade filter recipes (not prices), defense diagnostics, and official <code>.build</code> handoff from the same build JSON.</p>
-  <div class=\"notice\"><strong>Patch context:</strong> Tracking <b>0.5.2 Early Access</b>. Every build card shows <code>last_reviewed</code>, <code>review_state</code>, and <code>known_broken_by_patch</code>. Verify in game before expensive investments.</div>
-</section>
-<section class=\"grid cards\">
-  <article class=\"card\"><h3>Defense diagnostic</h3><p>Death pattern → cause → first fix → responsible gear slot.</p><a href=\"tools/beginner-build-checklist.html\">Run diagnostic</a></article>
-  <article class=\"card\"><h3>Guides hub</h3><p>Attributes, gear priorities, build bait, post-campaign, and endgame blockers.</p><a href=\"guides/index.html\">Browse guides</a></article>
-  <article class=\"card\"><h3>Import .build files</h3><p>Download path, Windows/SteamOS folders, and data provenance.</p><a href=\"guides/import-build-files.html\">How to import</a></article>
-</section>
-"""
+        "content": "__HOMEPAGE__",
     },
     {
         "path": "builds/best-beginner-builds.html",
@@ -210,18 +201,19 @@ pages = [
         "title": "PoE2 Defense Diagnostic — Why Am I Dying?",
         "description": "Path of Exile 2 defense diagnostic: map death patterns to causes, first fixes, and responsible gear slots. Build-aware mode prefills from build cards.",
         "heading": "Defense diagnostic",
-        "subtitle": "Death pattern → fix path · build-aware",
+        "subtitle": "Death pattern → fix path",
+        "tool_purpose": "Match how you died to a likely cause, first fix, and gear slot. Open from a build card for per-build targets.",
         "scripts": ["assets/js/defense-diagnostic.js"],
         "in_sitemap": True,
         "content": """
-<p class=\"lede\">Most early deaths are one missing layer — not a doomed build. Search your death pattern or open from a build card for per-build targets and map mods to avoid.</p>
-<div id=\"build-banner\" class=\"notice\" style=\"display:none\"></div>
-<div class=\"notice\"><strong>Planning aid.</strong> Use this before rerolling. Fix the responsible gear slot, then test one change at a time.</div>
-<p><label>Filter patterns: <input id=\"diag-search\" type=\"search\" placeholder=\"e.g. one-shot, mana, greyed out\"></label></p>
-<table class=\"gear\"><thead><tr><th>Death pattern</th><th>Likely cause</th><th>First fix</th><th>Gear slot</th></tr></thead><tbody id=\"diag-results\"></tbody></table>
-<section class=\"build-section\" id=\"build-defense-targets\"></section>
-<h2>Still stuck?</h2>
-<p>Open the <a href=\"gear-upgrade-checker.html\">gear upgrade planner</a> for slot targets, or the <a href=\"attribute-checker.html\">attribute checker</a> if a skill greyed out after a swap.</p>
+<p class="tool-quicklinks"><a class="button secondary button-sm" href="../builds/starter-elemental-caster.html">Elemental Caster</a> <a class="button secondary button-sm" href="../builds/starter-minion-witch.html">Minion Witch</a> <span class="muted">— prefill from a build</span></p>
+<div id="build-banner" class="notice notice-compact" style="display:none"></div>
+<div class="notice notice-warn notice-compact"><strong>Verify in game.</strong> Enter the requirement you see on your gem tooltip — numbers here are planning guidance.</div>
+<p><label>Filter patterns: <input id="diag-search" type="search" placeholder="e.g. one-shot, mana, greyed out"></label></p>
+<table class="gear responsive-stack"><thead><tr><th>Death pattern</th><th>Likely cause</th><th>First fix</th><th>Gear slot</th></tr></thead><tbody id="diag-results"></tbody></table>
+<section class="build-section" id="build-defense-targets"></section>
+<h2>Related tools</h2>
+<p class="muted"><a href="gear-upgrade-checker.html">Gear upgrade planner</a> · <a href="attribute-checker.html">Attribute checker</a></p>
 """
     },
     {
@@ -229,35 +221,38 @@ pages = [
         "title": "PoE2 Gear Upgrade Planner by Build & Stage",
         "description": "Interactive gear upgrade planner for Path of Exile 2: required, good, and luxury affixes per slot for campaign, early maps, and red maps. Prefills from build cards.",
         "heading": "Gear upgrade planner",
-        "subtitle": "Slot affix tiers · stage targets",
+        "subtitle": "Slot affix tiers by stage",
+        "tool_purpose": "What affixes matter on this slot at campaign vs maps? Open from a build card to prefill slot priorities.",
         "scripts": ["assets/js/gear-upgrade-checker.js"],
         "in_sitemap": True,
         "content": """
-<p class=\"lede\">Generic \"get better gear\" advice fails because value depends on <em>slot</em>, <em>stage</em>, and <em>build</em>. Pick a stage and slot — or open from a build card to prefill.</p>
-<div id=\"build-banner\" class=\"notice\" style=\"display:none\"></div>
-<div class=\"notice notice-warn\"><strong>No price promises.</strong> Trade links open the official site; type the filter recipe manually if deep links do not prefill.</div>
-<p id=\"upgrade-suggest\" class=\"muted\"></p>
-<p><label>Stage: <select id=\"upgrade-stage\"><option value=\"campaign\">Campaign</option><option value=\"early_maps\">Early maps</option><option value=\"red_maps\">Red maps / pinnacle</option></select></label>
-<label>Slot: <select id=\"upgrade-slot\"></select></label></p>
-<div id=\"upgrade-output\" class=\"build-section\"></div>
-<p class=\"muted\">Open with <code>?build=starter-elemental-caster</code> or <code>?build=starter-minion-witch</code> to prefill from a build card.</p>
+<p class="tool-quicklinks"><a class="button secondary button-sm" href="../builds/starter-elemental-caster.html?via=gear">Elemental Caster</a> <a class="button secondary button-sm" href="../builds/starter-minion-witch.html?via=gear">Minion Witch</a></p>
+<div id="build-banner" class="notice notice-compact" style="display:none"></div>
+<div class="notice notice-warn notice-compact"><strong>No price promises.</strong> Trade links open the official site; type filter recipes manually if deep links do not prefill.</div>
+<div class="tool-controls">
+<label>Stage: <select id="upgrade-stage"><option value="campaign">Campaign</option><option value="early_maps">Early maps</option><option value="red_maps">Red maps / pinnacle</option></select></label>
+<label>Slot: <select id="upgrade-slot"></select></label>
+</div>
+<p id="upgrade-suggest" class="muted"></p>
+<div id="upgrade-output" class="build-section"></div>
 """
     },
     {
         "path": "tools/attribute-checker.html",
         "title": "PoE2 Attribute, Spirit & Gear-Swap Checker",
         "description": "Free Path of Exile 2 calculator: check Strength/Dexterity/Intelligence deficits, Spirit reservation, and whether swapping a gear slot breaks a skill or Spirit reservation. Prefills from build cards. No backend.",
-        "heading": "Attribute, Spirit & gear-swap checker",
+        "heading": "Attribute & gear-swap checker",
         "subtitle": "Planning aid · verify in game",
+        "tool_purpose": "What attributes am I missing? What breaks if I swap this amulet? Prefills from build cards.",
         "in_sitemap": True,
         "scripts": ["assets/js/attribute-calculator.js"],
         "content": """
-<p class=\"lede\">Answer two questions competitors leave separate: <em>what attributes am I missing?</em> and <em>what breaks if I swap this gear?</em> Open this tool from a build card to prefill its Spirit and gear-swap data, or enter values manually.</p>
-<div id=\"build-banner\" class=\"notice\" style=\"display:none\"></div>
-<div class=\"notice notice-warn\"><strong>Planning aid — verify in game.</strong> Exact gem and base attribute requirements need a verified data source; until then, enter the requirement you want to meet. Numbers here are guidance, not a guarantee.</div>
+<p class="tool-quicklinks"><a class="button secondary button-sm" href="?build=starter-elemental-caster">Elemental Caster</a> <a class="button secondary button-sm" href="?build=starter-minion-witch">Minion Witch</a></p>
+<div id="build-banner" class="notice notice-compact" style="display:none"></div>
+<div class="notice notice-warn notice-compact"><strong>Verify in game.</strong> Enter requirements from your gem tooltips.</div>
 
-<section class=\"build-section\" id=\"attr-calc\">
-  <h2>1. Attribute deficits</h2>
+<section class="build-section" id="attr-calc">
+  <h2>1. What attributes am I missing?</h2>
   <p class=\"muted\">Enter the highest requirement you need to meet (from a gem or a gear base), your current attributes from the tree/quests, and what your gear adds.</p>
   <table class=\"calc-input\">
     <thead><tr><th>Attribute</th><th>Requirement</th><th>Current (tree/quests)</th><th>From gear</th></tr></thead>
@@ -271,8 +266,8 @@ pages = [
   <table class=\"kv\"><thead><tr><th>Attribute</th><th>Required</th><th>Effective</th><th>Result</th></tr></thead><tbody id=\"attr-results\"></tbody></table>
 </section>
 
-<section class=\"build-section\" id=\"spirit-calc\">
-  <h2>2. Spirit reservation</h2>
+<section class="build-section" id="spirit-calc">
+  <h2>2. Do I have enough Spirit?</h2>
   <p class=\"muted\">Reservation builds (auras, minions, companions, persistent buffs) are gated by Spirit. Enter your Spirit capacity and total reservation.</p>
   <table class=\"calc-input\">
     <tbody>
@@ -284,7 +279,7 @@ pages = [
   <div id=\"spirit-sources\"></div>
 </section>
 
-<section class=\"build-section\" id=\"swap-calc\">
+<section class="build-section" id="swap-calc">
   <h2>3. Will this gear swap break something?</h2>
   <p class=\"muted\">Pick the slot you want to change. We show the build's authored swap warnings, then simulate the attributes/Spirit you would lose.</p>
   <p><label>Slot to swap: <select id=\"swap-slot\"></select></label></p>
@@ -299,11 +294,6 @@ pages = [
     </tr></tbody>
   </table>
   <div id=\"swap-result\"></div>
-</section>
-
-<section class=\"build-section\">
-  <h2>How this helps</h2>
-  <p>Beginners often swap an amulet or weapon for more damage and suddenly a skill greys out or a minion vanishes. That is usually a lost attribute requirement or a lost Spirit source. This checker connects your planned requirements, your Spirit budget, and the build's gear-swap warnings so you can see the breakage before it happens — then confirm it in game.</p>
 </section>
 """
     },
@@ -343,19 +333,7 @@ pages = [
         "description": "Guides for Path of Exile 2 build decisions: attributes, gear priorities, build bait, defenses, .build files, and post-campaign progression.",
         "heading": "Guides",
         "in_sitemap": True,
-        "content": """
-<p class=\"lede\">Long-tail guides tied to real player pain — each links back to build cards and tools where possible.</p>
-<section class=\"grid cards\">
-  <article class=\"card\"><h3>Import .build files</h3><p>Windows/SteamOS paths and provenance.</p><a href=\"import-build-files.html\">Read guide</a></article>
-  <article class=\"card\"><h3>Attribute requirements</h3><p>Str/Dex/Int starvation and gear swaps.</p><a href=\"attribute-requirements.html\">Read guide</a></article>
-  <article class=\"card\"><h3>Why can't I equip this gem?</h3><p>Gem requirements and fixes.</p><a href=\"why-cant-equip-gem.html\">Read guide</a></article>
-  <article class=\"card\"><h3>Beginner gear priorities</h3><p>Slot-level stat priorities by stage.</p><a href=\"beginner-gear-priorities.html\">Read guide</a></article>
-  <article class=\"card\"><h3>Build bait checklist</h3><p>Trust rubric before you invest.</p><a href=\"build-bait-checklist.html\">Read guide</a></article>
-  <article class=\"card\"><h3>Defensive layers</h3><p>Life, resists, recovery, movement.</p><a href=\"beginner-defensive-layers.html\">Read guide</a></article>
-  <article class=\"card\"><h3>After campaign</h3><p>First maps and sustain habits.</p><a href=\"after-campaign.html\">Read guide</a></article>
-  <article class=\"card highlight\"><h3>Endgame hub</h3><p>Atlas, waystones, bosses, blockers.</p><a href=\"endgame-hub.html\">Open hub</a></article>
-</section>
-"""
+        "content": "__GUIDES_INDEX__",
     },
     {
         "path": "guides/attribute-requirements.html",
@@ -550,32 +528,115 @@ def depth_prefix(path):
     return "../" * (len(parts)-1)
 
 def nav_html(prefix, current):
-    items=[]
-    for label, href in NAV:
+    items = []
+    home_url = prefix + "index.html"
+    home_cls = ' active' if current == "index.html" else ""
+    items.append(
+        f'<a class="nav-link{home_cls}" href="{home_url}">'
+        f'<span class="nav-label">Home</span>'
+        f'<span class="nav-desc">Start here</span></a>'
+    )
+    for label, href, desc in NAV:
         url = prefix + href
-        cls = ' class="active"' if href == current else ''
-        items.append(f'<a{cls} href="{url}">{escape(label)}</a>')
-    return ''.join(items)
+        cls = " active" if href == current else ""
+        items.append(
+            f'<a class="nav-link{cls}" href="{url}">'
+            f'<span class="nav-label">{escape(label)}</span>'
+            f'<span class="nav-desc">{escape(desc)}</span></a>'
+        )
+    return "".join(items)
 
-def render_page(page):
+
+def decision_grid_html(prefix=""):
+    cards = []
+    for icon, label, desc, href in DECISION_GRID:
+        cards.append(
+            f'<a class="decision-card" href="{prefix}{href}">'
+            f'<span class="decision-icon">{icon}</span>'
+            f'<span class="decision-label">{escape(label)}</span>'
+            f'<span class="decision-desc">{escape(desc)}</span></a>'
+        )
+    return f'<div class="decision-grid">{"".join(cards)}</div>'
+
+
+def guides_index_content():
+    return f"""
+<p class="lede">Deep-dive reference — each links back to build cards and tools.</p>
+{decision_grid_html("../")}
+<section class="section-block" style="margin-top:2rem">
+  <h2>All guides</h2>
+  <div class="decision-grid">
+    <a class="decision-card" href="import-build-files.html"><span class="decision-icon">↓</span><span class="decision-label">Import .build</span><span class="decision-desc">Windows/SteamOS paths</span></a>
+    <a class="decision-card" href="attribute-requirements.html"><span class="decision-icon">◆</span><span class="decision-label">Attributes</span><span class="decision-desc">Str/Dex/Int & gear swaps</span></a>
+    <a class="decision-card" href="why-cant-equip-gem.html"><span class="decision-icon">?</span><span class="decision-label">Can't equip gem</span><span class="decision-desc">Requirements & fixes</span></a>
+    <a class="decision-card" href="beginner-gear-priorities.html"><span class="decision-icon">▣</span><span class="decision-label">Gear priorities</span><span class="decision-desc">Stat targets by slot</span></a>
+    <a class="decision-card" href="build-bait-checklist.html"><span class="decision-icon">⚠</span><span class="decision-label">Build bait</span><span class="decision-desc">Trust before you invest</span></a>
+    <a class="decision-card" href="beginner-defensive-layers.html"><span class="decision-icon">🛡</span><span class="decision-label">Defenses</span><span class="decision-desc">Life, resists, recovery</span></a>
+    <a class="decision-card" href="after-campaign.html"><span class="decision-icon">→</span><span class="decision-label">After campaign</span><span class="decision-desc">First maps checklist</span></a>
+    <a class="decision-card" href="endgame-hub.html"><span class="decision-icon">◎</span><span class="decision-label">Endgame hub</span><span class="decision-desc">Atlas & blockers</span></a>
+  </div>
+</section>
+"""
+
+
+def homepage_content(published_builds):
+    featured = "".join(
+        render_build_card(b, compact=True, card_prefix="builds/", asset_prefix="")
+        for b in published_builds[:2]
+    )
+    return f"""
+<section class="section-block">
+  <div class="section-head">
+    <h2>Starter builds</h2>
+    <a class="link-more" href="builds/index.html">All builds →</a>
+  </div>
+  <div class="grid featured-builds">{featured}</div>
+</section>
+<section class="section-block">
+  <h2>What do you need?</h2>
+  <p class="muted" style="margin:-0.25rem 0 1rem">Every link answers a real in-game question.</p>
+  {decision_grid_html()}
+</section>
+<section class="content-block">
+  <p class="muted" style="margin:0"><strong>Patch {escape(SITE["patch"])}</strong> · Updated {SITE["updated"]}. Build cards show review state and <code>known_broken_by_patch</code> — verify in game before expensive investments.</p>
+</section>
+"""
+
+def render_page(page, build=None):
     path = page['path']
     prefix = depth_prefix(path)
     canonical = SITE['url'] + ('' if path == 'index.html' else path)
     heading = page.get('heading', SITE['name'])
     hero = page.get('hero', False)
+    is_tool = path.startswith('tools/')
+    is_build = path.startswith('builds/') and path != 'builds/index.html' and build
     nav = nav_html(prefix, path)
+    body_class = ' class="tool-page"' if is_tool else ''
+    main_class = ' class="tool-page"' if is_tool else ''
     if hero:
         main_intro = f'''
-<section class="hero">
-  <p class="eyebrow">Patch-aware beginner guides · Updated {SITE['updated']}</p>
-  <h1>{SITE['name']}</h1>
-  <p>{SITE['tagline']}</p>
-  <div class="hero-actions"><a class="button" href="builds/index.html">Browse build cards</a><a class="button secondary" href="tools/attribute-checker.html">Attribute checker</a></div>
+<section class="hero hero-compact">
+  <div class="hero-top">
+    <span class="patch-pill">{escape(SITE["patch"])}</span>
+    <span class="patch-pill muted-pill">Updated {SITE["updated"]}</span>
+  </div>
+  <h1>Pick your starter. Know what breaks.</h1>
+  <p class="hero-sub">Patch-reviewed build cards and tools for the decisions that actually matter in Path of Exile 2.</p>
 </section>
 '''
+    elif is_tool:
+        purpose = page.get("tool_purpose", page.get("description", ""))
+        main_intro = (
+            f'<section class="page-title tool-title">'
+            f'<p class="eyebrow">{escape(page.get("subtitle", "Planning aid · verify in game"))}</p>'
+            f'<h1>{escape(heading)}</h1>'
+            f'<p class="tool-purpose">{escape(purpose)}</p></section>'
+        )
     else:
         subtitle = page.get('subtitle', f'Updated {SITE["updated"]} · {SITE["patch"]}')
-        main_intro = f'<section class="page-title"><p class="eyebrow">{subtitle}</p><h1>{escape(heading)}</h1></section>'
+        main_intro = f'<section class="page-title"><p class="eyebrow">{escape(subtitle)}</p><h1>{escape(heading)}</h1></section>'
+    sticky_html = render_build_sticky(build, prefix) if is_build else ""
+    content = page['content']
     robots_meta = '\n  <meta name="robots" content="noindex, follow">' if page.get('noindex') else ''
     scripts_html = ''.join(f'<script src="{prefix}{escape(s)}" defer></script>' for s in page.get('scripts', []))
     html = f'''<!doctype html>
@@ -594,10 +655,10 @@ def render_page(page):
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client={ADSENSE_CLIENT}" crossorigin="anonymous"></script>
   <script type="application/ld+json">{{"@context":"https://schema.org","@type":"WebPage","name":{page['title']!r},"description":{page['description']!r},"url":{canonical!r},"dateModified":"{SITE['updated']}"}}</script>
 </head>
-<body>
-  <header class="site-header"><a class="brand" href="{prefix}index.html">PoE2 Build Lab</a><nav>{nav}</nav></header>
-  <main>{main_intro}<article class="article">{page['content']}</article></main>
-  <footer><p>Independent Path of Exile 2 beginner guide site. Not affiliated with Grinding Gear Games.</p><p><a href="{prefix}privacy-policy.html">Privacy Policy</a> · <a href="{prefix}contact.html">Contact</a> · <a href="{prefix}sitemap.xml">Sitemap</a></p></footer>
+<body{body_class}>
+  <header class="site-header"><a class="brand" href="{prefix}index.html">PoE2 <span>Build Lab</span></a><nav>{nav}</nav></header>
+  <main{main_class}>{main_intro}{sticky_html}<article class="article">{content}</article></main>
+  <footer><p>Independent Path of Exile 2 beginner guide site. Not affiliated with Grinding Gear Games.</p><p><a href="{prefix}privacy-policy.html">Privacy</a> · <a href="{prefix}contact.html">Contact</a> · <a href="{prefix}about.html">About</a> · <a href="{prefix}sitemap.xml">Sitemap</a></p></footer>
   {scripts_html}
 </body>
 </html>'''
@@ -646,12 +707,44 @@ def render_stale_warning(build):
     if state == "current":
         return ""
     label, _ = REVIEW_STATE_LABELS.get(state, ("Unknown", "warn"))
-    notes = f" {escape(build['review_notes'])}" if build.get("review_notes") else ""
     return (
-        f'<div class="notice notice-warn"><strong>Review state: {escape(label)}.</strong> '
-        f'Last reviewed {escape(build.get("last_reviewed", "?"))} · '
-        f'Patch {escape(build.get("patch_version", "?"))}.{notes}</div>'
+        f'<div class="notice notice-warn notice-compact">'
+        f'<strong>{escape(label)}</strong> · patch {escape(build.get("patch_version", "?"))}'
+        f' · reviewed {escape(build.get("last_reviewed", "?"))}'
+        f'</div>'
     )
+
+
+def render_build_sticky(build, prefix):
+    """Sticky summary bar for build detail pages."""
+    imp_kind, _ = import_status(build)
+    review_label, review_kind = REVIEW_STATE_LABELS.get(
+        build.get("review_state", "draft"), ("Unknown", "warn")
+    )
+    actions = []
+    if imp_kind == "available":
+        bf = build["build_file"]
+        actions.append(
+            f'<a class="button button-sm" href="{prefix}{escape(bf["path"])}">Download .build</a>'
+        )
+    actions.append(
+        f'<a class="button secondary button-sm" href="{prefix}tools/attribute-checker.html?build={build["id"]}">Check stats</a>'
+    )
+    actions.append(
+        f'<a class="button secondary button-sm" href="{prefix}tools/gear-upgrade-checker.html?build={build["id"]}">Gear upgrades</a>'
+    )
+    return f'''
+<div class="build-sticky">
+  <div class="build-sticky-inner">
+    <div class="build-sticky-meta">
+      <span class="build-sticky-name">{escape(build["name"])}</span>
+      <span class="tag">{escape(class_line(build))}</span>
+      <span class="badge badge-{review_kind}">{escape(review_label)}</span>
+      <span class="tag">Budget: <b>{escape(build.get("budget", "?"))}</b></span>
+    </div>
+    <div class="build-sticky-actions">{"".join(actions)}</div>
+  </div>
+</div>'''
 
 
 def render_provenance_block(build):
@@ -676,60 +769,46 @@ def render_build_tags(build):
     return '<div class="tag-row">' + "".join(tags) + "</div>"
 
 
-def render_patch_trust_block(build):
+def render_trust_section(build):
+    """Combined patch/trust/viability — lower priority, compact."""
     src = build.get("source", {})
     trust = build.get("trust", {})
+    fit = build.get("content_fit", {})
     links = "".join(
         f'<a href="{escape(l["url"])}" rel="nofollow noopener">{escape(l["label"])}</a>'
         for l in build.get("source_links", []) if l.get("url")
     )
-    links_html = f'<p class="src-links">Sources: {links}</p>' if links else ""
+    links_html = f'<p class="src-links muted">Sources: {links}</p>' if links else ""
     asc = build.get("ascendancy", "")
     asc_display = asc if asc and asc != "TBD" else "Pending verified data"
+    broken = build.get("known_broken_by_patch", [])
+    broken_html = ""
+    if broken:
+        broken_html = f'<div class="notice notice-bad notice-compact"><strong>Known broken:</strong> {"; ".join(escape(b) for b in broken)}</div>'
     rows = [
-        ("Patch version", build.get("patch_version", "?")),
-        ("Class / ascendancy", f'{build.get("class","?")} / {asc_display}'),
+        ("Patch", build.get("patch_version", "?")),
+        ("Class", f'{build.get("class","?")} / {asc_display}'),
         ("Last reviewed", build.get("last_reviewed", "?")),
         ("Review state", REVIEW_STATE_LABELS.get(build.get("review_state", "draft"), ("Unknown", ""))[0]),
         ("Trust score", f'{trust.get("score", "?")} / 5'),
         ("Source", f'{escape(src.get("type", "?"))} — {escape(src.get("notes", ""))}'),
-        ("Verification proof", ", ".join(trust.get("proof", [])) or "none"),
-    ]
-    table = "".join(f"<tr><th>{escape(k)}</th><td>{v if k=='Source' else escape(str(v))}</td></tr>" for k, v in rows)
-    return f"""
-<section class="build-section">
-  <h2>Patch &amp; trust</h2>
-  <table class="kv">{table}</table>
-  {links_html}
-</section>"""
-
-
-def render_known_broken_block(build):
-    broken = build.get("known_broken_by_patch", [])
-    if broken:
-        body = f'<div class="notice notice-bad"><strong>Known broken by patch:</strong><ul>{li_list(broken)}</ul></div>'
-    else:
-        body = '<p class="muted">No patches are currently recorded as breaking this build. This field is always tracked so a patch cannot silently invalidate the page.</p>'
-    return f'<section class="build-section"><h2>Known broken by patch</h2>{body}</section>'
-
-
-def render_viability_block(build):
-    trust = build.get("trust", {})
-    fit = build.get("content_fit", {})
-    rows = [
-        ("Controller-friendly", VIABILITY_LABELS.get(trust.get("controller_friendly", "unknown"))),
-        ("Hardcore viable", VIABILITY_LABELS.get(trust.get("hardcore_viable", "unknown"))),
-        ("SSF viable", VIABILITY_LABELS.get(trust.get("ssf_viable", "unknown"))),
-        ("Trade viable", VIABILITY_LABELS.get(trust.get("trade_viable", "unknown"))),
-        ("Trust score", f'{trust.get("score", "?")} / 5'),
-        ("Budget floor", trust.get("budget_floor", "?")),
-        ("Proof", ", ".join(trust.get("proof", [])) or "none"),
-        ("Campaign", fit.get("campaign", "unknown").replace("_", " ")),
+        ("Controller", VIABILITY_LABELS.get(trust.get("controller_friendly", "unknown"))),
+        ("Hardcore", VIABILITY_LABELS.get(trust.get("hardcore_viable", "unknown"))),
+        ("SSF", VIABILITY_LABELS.get(trust.get("ssf_viable", "unknown"))),
+        ("Trade", VIABILITY_LABELS.get(trust.get("trade_viable", "unknown"))),
+        ("Campaign fit", fit.get("campaign", "unknown").replace("_", " ")),
         ("Early maps", fit.get("early_maps", "unknown").replace("_", " ")),
         ("Pinnacle", fit.get("pinnacle", "unknown").replace("_", " ")),
     ]
-    table = "".join(f"<tr><th>{escape(k)}</th><td>{escape(str(v))}</td></tr>" for k, v in rows)
-    return f'<section class="build-section"><h2>Trust rubric &amp; content fit</h2><table class="kv">{table}</table></section>'
+    table = "".join(
+        f"<tr><th>{escape(k)}</th><td>{v if k == 'Source' else escape(str(v))}</td></tr>"
+        for k, v in rows
+    )
+    return (
+        f'<section class="build-section trust-section"><h2>Patch &amp; trust details</h2>'
+        f'{broken_html}'
+        f'<table class="kv">{table}</table>{links_html}</section>'
+    )
 
 
 def render_skills_block(build):
@@ -748,7 +827,7 @@ def render_skills_block(build):
             f"<div class='skill'><h3>{escape(skill['name'])} "
             f"<span class='role'>{escape(skill['role'])}</span></h3>{note}{sup_html}</div>"
         )
-    return f'<section class="build-section"><h2>Skills &amp; supports</h2>{"".join(items)}</section>'
+    return f'<section class="build-section"><h2>What skills do I use?</h2>{"".join(items)}</section>'
 
 
 def render_passive_block(build):
@@ -771,7 +850,7 @@ def render_passive_block(build):
             body += '<p class="muted">Node ids above are included in the downloadable .build file (official tree export).</p>'
         elif not has_nodes:
             body += '<p class="muted">Goals are directional until node ids are mapped.</p>'
-    return f'<section class="build-section"><h2>Passive milestones</h2>{body}</section>'
+    return f'<section class="build-section"><h2>Where do I path on the tree?</h2>{body}</section>'
 
 
 def render_attributes_block(build):
@@ -781,12 +860,12 @@ def render_attributes_block(build):
     notes = li_list(attrs.get("notes", []))
     checker = f'../tools/attribute-checker.html?build={build["id"]}'
     return (
-        '<section class="build-section"><h2>Attributes</h2>'
+        '<section class="build-section"><h2>Can I equip my gems?</h2>'
         f'<p>Deficit policy: <b>{escape(attrs.get("deficit_policy", "warn"))}</b>. '
         f'Required (gems): Str {req.get("str", 0)} / Dex {req.get("dex", 0)} / Int {req.get("int", 0)} · '
         f'Planned loadout: Str {planned.get("str", 0)} / Dex {planned.get("dex", 0)} / Int {planned.get("int", 0)}.</p>'
         f'<ul>{notes}</ul>'
-        f'<p><a class="button" href="{checker}">Open in attribute &amp; gear-swap checker</a></p></section>'
+        f'<p><a class="button secondary" href="{checker}">Open attribute checker</a></p></section>'
     )
 
 
@@ -800,7 +879,7 @@ def render_spirit_block(build):
         if sources else "<li>Sources not yet itemized.</li>"
     )
     return (
-        '<section class="build-section"><h2>Spirit budget</h2>'
+        '<section class="build-section"><h2>Do I have enough Spirit?</h2>'
         f'<p>Required: <b>{spirit.get("required", 0)}</b> · Planned: <b>{spirit.get("planned", 0)}</b></p>'
         f'<p class="muted">Reservation sources:</p><ul>{src_html}</ul>'
         f'<ul>{li_list(spirit.get("notes", []))}</ul></section>'
@@ -855,8 +934,8 @@ def render_gear_block(build):
             f"{affix_table}{stage_table}{compromise}</div>"
         )
     return (
-        '<section class="build-section"><h2>Gear slot priorities</h2>'
-        f'<p><a class="button secondary" href="{upgrade}">Open in gear upgrade planner</a></p>'
+        '<section class="build-section"><h2>What gear goes in each slot?</h2>'
+        f'<p><a class="button secondary" href="{upgrade}">Open gear upgrade planner</a></p>'
         f'{"".join(sections)}</section>'
     )
 
@@ -872,7 +951,7 @@ def render_gear_swap_block(build):
         "</div>"
         for w in warnings
     )
-    return f'<section class="build-section"><h2>Gear-swap warnings</h2>{items}</section>'
+    return f'<section class="build-section"><h2>What breaks if I swap gear?</h2>{items}</section>'
 
 
 def render_defense_block(build):
@@ -903,13 +982,13 @@ def render_defense_block(build):
             '<table class="gear"><thead><tr><th>Pattern</th><th>Cause</th><th>First fix</th><th>Slot</th></tr></thead>'
             f'<tbody>{rows}</tbody></table>'
         )
-    return f'<section class="build-section"><h2>Defensive checklist</h2>{"".join(parts)}</section>'
+    return f'<section class="build-section"><h2>How do I not die?</h2>{"".join(parts)}</section>'
 
 
 def render_risks_block(build):
     trust = build.get("trust", {})
     return (
-        '<section class="build-section"><h2>Known risks &amp; failure modes</h2>'
+        '<section class="build-section"><h2>What can go wrong?</h2>'
         f'<h3>Failure modes</h3><ul>{li_list(trust.get("failure_modes", []))}</ul>'
         f'<h3>Risk flags</h3><ul>{li_list(trust.get("risks", []))}</ul></section>'
     )
@@ -942,7 +1021,7 @@ def render_trade_block(build):
             f"Ignore: {escape(', '.join(f.get('ignore_at_low_budget', [])))}{price}</p></div>"
         )
     return (
-        '<section class="build-section"><h2>How to search trade</h2>'
+        '<section class="build-section"><h2>How do I find gear on trade?</h2>'
         '<p class="muted">Filter recipes only — we do not quote live prices. '
         'Official trade may require manual filter entry.</p>'
         f'{"".join(blocks)}</section>'
@@ -952,22 +1031,18 @@ def render_trade_block(build):
 def render_import_block(build):
     kind, text = import_status(build)
     if kind == "available":
-        bf = build["build_file"]
         return (
-            '<section class="build-section"><h2>In-game import (.build)</h2>'
-            f'<p><a class="button" href="../{escape(bf["path"])}">Download .build file</a></p>'
-            '<p class="muted">New to import files? See '
+            '<section class="build-section"><h2>Load this in-game</h2>'
+            '<p class="muted">Use the <strong>Download .build</strong> button above. '
+            'New to import files? See '
             '<a href="../guides/import-build-files.html">how to import PoE2 .build files</a>.</p>'
             '</section>'
         )
     return (
-        '<section class="build-section"><h2>In-game import (.build)</h2>'
-        '<div class="notice"><strong>Import file not yet available.</strong> '
-        'This is a published guide, not yet an in-game import file. A <code>.build</code> export will be '
-        'added once verified skill-gem ids exist (GGG publishes no official gem export, and we never '
-        'ship placeholder ids). The ascendancy and gear-slot hints are already resolved; only the gem ids are pending.</div>'
-        '<p class="muted">Want to understand the format and folder paths? See '
-        '<a href="../guides/import-build-files.html">how to import PoE2 .build files</a>.</p>'
+        '<section class="build-section"><h2>Load this in-game</h2>'
+        '<div class="notice notice-compact"><strong>.build file pending.</strong> '
+        'Gem ids still being verified — gear and passive hints are ready on the card.</div>'
+        '<p class="muted"><a href="../guides/import-build-files.html">How to import .build files</a></p>'
         '</section>'
     )
 
@@ -976,23 +1051,18 @@ def build_page_content(build):
     draft_notice = ""
     if build.get("status") == "draft":
         draft_notice = (
-            '<div class="notice notice-warn"><strong>Draft card.</strong> '
-            'This archetype is research-backed but not yet in-game verified, so it is not indexed for search. '
-            'Exact gem, base, and passive ids are still being confirmed against verified data before this card is published.</div>'
+            '<div class="notice notice-warn notice-compact"><strong>Draft card</strong> — '
+            'not indexed; gem and passive ids still being verified.</div>'
         )
     summary = f'<p class="lede">{escape(build.get("summary", ""))}</p>' if build.get("summary") else ""
     who = ""
     if build.get("who_should_play"):
-        who = f'<section class="build-section"><h2>Who should play this</h2><ul>{li_list(build["who_should_play"])}</ul></section>'
+        who = f'<section class="build-section"><h2>Is this build for me?</h2><ul>{li_list(build["who_should_play"])}</ul></section>'
     return "".join([
-        render_build_tags(build),
         render_stale_warning(build),
         draft_notice,
         summary,
         who,
-        render_patch_trust_block(build),
-        render_known_broken_block(build),
-        render_viability_block(build),
         render_skills_block(build),
         render_passive_block(build),
         render_attributes_block(build),
@@ -1000,9 +1070,10 @@ def build_page_content(build):
         render_gear_block(build),
         render_gear_swap_block(build),
         render_defense_block(build),
-        render_risks_block(build),
         render_trade_block(build),
+        render_risks_block(build),
         render_import_block(build),
+        render_trust_section(build),
         render_provenance_block(build),
     ])
 
@@ -1034,17 +1105,28 @@ def class_line(build):
     return cls
 
 
-def render_build_card(build):
+def render_build_card(build, compact=False, card_prefix="", asset_prefix="../"):
     imp_kind, imp_text = import_status(build)
     trust = build.get("trust", {})
-    href = f"{build['id']}.html"
-    rubric = (
-        f'<p class="muted import-line">'
-        f'Controller {VIABILITY_LABELS.get(trust.get("controller_friendly","unknown"))} · '
-        f'HC {VIABILITY_LABELS.get(trust.get("hardcore_viable","unknown"))} · '
-        f'SSF {VIABILITY_LABELS.get(trust.get("ssf_viable","unknown"))} · '
-        f'Trade {VIABILITY_LABELS.get(trust.get("trade_viable","unknown"))}'
-        f'</p>'
+    href = f"{card_prefix}{build['id']}.html"
+    rubric = ""
+    if not compact:
+        rubric = (
+            f'<p class="muted import-line">'
+            f'Controller {VIABILITY_LABELS.get(trust.get("controller_friendly","unknown"))} · '
+            f'HC {VIABILITY_LABELS.get(trust.get("hardcore_viable","unknown"))} · '
+            f'SSF {VIABILITY_LABELS.get(trust.get("ssf_viable","unknown"))} · '
+            f'Trade {VIABILITY_LABELS.get(trust.get("trade_viable","unknown"))}'
+            f'</p>'
+        )
+    download_btn = ""
+    if imp_kind == "available":
+        download_btn = f'<a class="button secondary button-sm" href="{asset_prefix}{escape(build["build_file"]["path"])}">.build</a>'
+    actions = (
+        f'<div class="build-card-actions">'
+        f'<a class="button" href="{href}">View build</a>'
+        f'{download_btn}'
+        f'</div>'
     )
     return f"""
 <article class="card build-card">
@@ -1055,23 +1137,21 @@ def render_build_card(build):
     {tag("Budget", build.get("budget","?"))}
     {tag("Complexity", build.get("complexity","?"))}
     {tag("Gear", build.get("gear_dependency","?"))}
-    {tag("Review", REVIEW_STATE_LABELS.get(build.get("review_state","draft"),("?","warn"))[0], "warn")}
   </div>
   {rubric}
-  <p class="muted import-line">{escape(imp_text)} · Patch {escape(build.get('patch_version','?'))} · Reviewed {escape(build.get('last_reviewed','?'))}</p>
-  <a class="button" href="{href}">Open build card</a>
+  <p class="muted import-line">{escape(imp_text)} · {escape(build.get('patch_version','?'))}</p>
+  {actions}
 </article>"""
 
 
 def build_index_content(builds):
     cards = "".join(render_build_card(b) for b in builds)
     return f"""
-<p class="lede">Each build card connects the decisions a starter actually has to make: is it patch-reviewed, how expensive is it, how complex is it, which gear slots matter first, and what can go wrong. Compare archetypes here before reading a long guide.</p>
-<div class="notice"><strong>Updated:</strong> {SITE['updated']} · <strong>Patch:</strong> {SITE['patch']}. Draft cards are research-backed starting points, not in-game-verified meta promises.</div>
-<section class="grid cards build-grid">{cards}</section>
+<p class="lede">Each card connects the decisions a starter actually faces: patch trust, budget, gear slots, attributes, defenses, and .build import — not a prose tier list.</p>
+<section class="grid featured-builds">{cards}</section>
 <section class="content-block">
-  <h2>Looking for the archetype overview?</h2>
-  <p>The original <a href="best-beginner-builds.html">beginner build archetypes</a> page is still available as a higher-level comparison.</p>
+  <p class="muted" style="margin:0">Updated {SITE['updated']} · {SITE['patch']}. Draft cards are research-backed, not in-game-verified meta promises.</p>
+  <p style="margin:0.75rem 0 0"><a href="best-beginner-builds.html">Archetype overview</a> — higher-level comparison if you have not picked a class yet.</p>
 </section>
 """
 
@@ -1082,7 +1162,7 @@ build_index_page = {
     "path": "builds/index.html",
     "title": "PoE2 Build Cards: Patch-Reviewed Starter Builds",
     "description": "Path of Exile 2 build cards comparing starter builds by patch trust, budget, complexity, gear slot priorities, attributes, defenses, and .build import status.",
-    "heading": "PoE2 build cards",
+    "heading": "Starter builds",
     "in_sitemap": True,
     "content": build_index_content(published_builds),
 }
@@ -1090,15 +1170,20 @@ build_pages = [build_index_page] + [build_detail_page(b) for b in builds_data]
 
 all_pages = pages + build_pages
 
-for p in all_pages:
-    out = Path(p['path'])
-    out.parent.mkdir(parents=True, exist_ok=True)
-    out.write_text(render_page(p), encoding='utf-8')
+build_by_path = {f"builds/{b['id']}.html": b for b in builds_data}
 
-Path('styles.css').write_text(r'''
-:root{--bg:#0d1117;--panel:#161b22;--panel2:#1f2937;--text:#e6edf3;--muted:#9da7b3;--accent:#f59e0b;--accent2:#60a5fa;--line:#30363d;--good:#34d399}*{box-sizing:border-box}body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:radial-gradient(circle at top left,#1d2a3a 0,#0d1117 36rem);color:var(--text);line-height:1.65}.site-header{position:sticky;top:0;z-index:10;display:flex;justify-content:space-between;align-items:center;padding:1rem clamp(1rem,4vw,4rem);background:rgba(13,17,23,.88);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}.brand{font-weight:800;color:var(--text);text-decoration:none;letter-spacing:.02em}nav{display:flex;gap:.85rem;flex-wrap:wrap}nav a,footer a,.article a{color:#93c5fd;text-decoration:none}nav a{font-size:.93rem;color:var(--muted)}nav a.active,nav a:hover{color:var(--text)}main{max-width:1120px;margin:auto;padding:2.5rem clamp(1rem,4vw,3rem)}.hero{padding:4rem 0 3rem;max-width:860px}.hero h1,.page-title h1{font-size:clamp(2.4rem,7vw,5.4rem);line-height:1;margin:.25rem 0 1rem;letter-spacing:-.06em}.hero p{font-size:1.22rem;color:var(--muted);max-width:760px}.eyebrow{color:var(--accent);text-transform:uppercase;font-size:.78rem;font-weight:800;letter-spacing:.12em}.hero-actions{display:flex;gap:1rem;flex-wrap:wrap;margin-top:1.5rem}.button{display:inline-block;background:linear-gradient(135deg,#f59e0b,#f97316);color:#111827!important;padding:.78rem 1rem;border-radius:999px;font-weight:800;text-decoration:none}.button.secondary{background:#243244;color:var(--text)!important;border:1px solid var(--line)}.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem}.card,.content-block,.article{background:rgba(22,27,34,.78);border:1px solid var(--line);border-radius:20px;padding:1.25rem;box-shadow:0 20px 60px rgba(0,0,0,.18)}.card.highlight{background:linear-gradient(160deg,rgba(245,158,11,.18),rgba(22,27,34,.9));border-color:rgba(245,158,11,.45)}.card h2,.card h3{line-height:1.15;margin:.3rem 0}.content-block{margin:1rem 0}.page-title{padding:2rem 0 1rem}.article{max-width:880px;margin:auto}.article .lede{font-size:1.2rem;color:#c9d1d9}.notice{border-left:4px solid var(--accent);background:rgba(245,158,11,.08);padding:1rem;border-radius:12px;margin:1rem 0}table{width:100%;border-collapse:collapse;margin:1.25rem 0;background:rgba(15,23,42,.4);border-radius:14px;overflow:hidden}th,td{border-bottom:1px solid var(--line);padding:.8rem;text-align:left;vertical-align:top}th{color:#facc15;background:rgba(255,255,255,.04)}tr:last-child td{border-bottom:0}h2{margin-top:2rem;line-height:1.2}ul,ol{padding-left:1.35rem}.checklist{display:grid;gap:.75rem}.checklist label{display:flex;gap:.65rem;align-items:flex-start;background:rgba(255,255,255,.04);padding:.85rem;border-radius:12px;border:1px solid var(--line)}input[type=checkbox]{margin-top:.35rem}footer{max-width:1120px;margin:2rem auto;padding:2rem clamp(1rem,4vw,3rem);color:var(--muted);border-top:1px solid var(--line)}.tag-row{display:flex;flex-wrap:wrap;gap:.5rem;margin:1rem 0}.tag{display:inline-block;font-size:.8rem;background:rgba(255,255,255,.05);border:1px solid var(--line);border-radius:999px;padding:.25rem .7rem;color:var(--muted)}.tag b{color:var(--text);font-weight:700}.tag-ok{border-color:rgba(52,211,153,.5)}.tag-warn{border-color:rgba(245,158,11,.5)}.badge{display:inline-block;font-size:.72rem;font-weight:800;text-transform:uppercase;letter-spacing:.06em;padding:.2rem .55rem;border-radius:6px}.badge-ok{background:rgba(52,211,153,.18);color:#6ee7b7}.badge-warn{background:rgba(245,158,11,.18);color:#fcd34d}.badge-bad{background:rgba(248,113,113,.18);color:#fca5a5}.muted{color:var(--muted)}.build-section{margin-top:2rem;padding-top:1.25rem;border-top:1px solid var(--line)}.build-section h2{margin-top:0}.build-section h3{margin:1rem 0 .3rem;font-size:1rem;color:#facc15}table.kv th{width:34%;color:var(--muted);background:transparent}table.kv td{color:var(--text)}table.gear th{color:#facc15}.skill{background:rgba(255,255,255,.03);border:1px solid var(--line);border-radius:12px;padding:.8rem 1rem;margin:.6rem 0}.skill h3{margin:.1rem 0;color:var(--text)}.skill .role{font-size:.7rem;text-transform:uppercase;letter-spacing:.08em;color:var(--accent);border:1px solid var(--line);border-radius:6px;padding:.1rem .4rem;margin-left:.4rem}.supports{margin:.4rem 0 0}.notice-warn{border-left-color:var(--accent)}.notice-bad{border-left-color:#f87171;background:rgba(248,113,113,.08)}.src-links a{margin-right:.8rem}.build-card .card-head{display:flex;align-items:center;gap:.6rem;margin-bottom:.3rem}.build-card .cls{color:var(--muted);font-size:.85rem}.build-card h2{margin:.2rem 0}.build-card h2 a{color:var(--text)}.build-card .import-line{font-size:.82rem;margin:.4rem 0 .8rem}.build-grid .button{margin-top:.4rem}.calc-input input{width:100%;max-width:8rem;background:rgba(15,23,42,.6);border:1px solid var(--line);border-radius:8px;color:var(--text);padding:.45rem .55rem;font:inherit}.calc-input th{color:var(--muted)}.calc-summary{font-weight:700;padding:.6rem .8rem;border-radius:10px;margin:1rem 0}.res-ok{color:#6ee7b7}.res-bad{color:#fca5a5}td.res-ok{color:#6ee7b7}td.res-bad{color:#fca5a5}.calc-summary.res-ok{background:rgba(52,211,153,.12)}.calc-summary.res-bad{background:rgba(248,113,113,.12)}#swap-slot{background:rgba(15,23,42,.6);border:1px solid var(--line);border-radius:8px;color:var(--text);padding:.45rem .6rem;font:inherit}
-@media(max-width:820px){.site-header{align-items:flex-start;gap:1rem;flex-direction:column}.grid{grid-template-columns:1fr}.hero{padding-top:2rem}th,td{display:block;width:100%}th{display:none}td{border-bottom:0;padding:.55rem .8rem}tr{display:block;border-bottom:1px solid var(--line);padding:.45rem 0}table.kv th{display:none}}
-'''.strip()+"\n", encoding='utf-8')
+for p in all_pages:
+    page = dict(p)
+    if page.get("content") == "__HOMEPAGE__":
+        page["content"] = homepage_content(published_builds)
+    elif page.get("content") == "__GUIDES_INDEX__":
+        page["content"] = guides_index_content()
+    build = build_by_path.get(page["path"])
+    out = Path(page["path"])
+    out.parent.mkdir(parents=True, exist_ok=True)
+    out.write_text(render_page(page, build=build), encoding="utf-8")
+
+# styles.css is maintained as a standalone file (not regenerated here).
 
 # Search and crawling helpers.
 # Public pages go in the sitemap; draft/noindex build pages are excluded so
@@ -1112,5 +1197,14 @@ for p in all_pages:
 Path('sitemap.xml').write_text('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + '\n'.join(urls) + '\n</urlset>\n', encoding='utf-8')
 Path('robots.txt').write_text(f"User-agent: *\nAllow: /\nSitemap: {SITE['url']}sitemap.xml\n", encoding='utf-8')
 Path('ads.txt').write_text("google.com, pub-1111218417177666, DIRECT, f08c47fec0942fa0\n", encoding='utf-8')
-Path('404.html').write_text(render_page({"path":"404.html","title":"Page not found - PoE2 Build Lab","description":"Page not found.","heading":"Page not found","content":"<p>The page you requested does not exist yet. Start from the <a href=\"index.html\">homepage</a>.</p>"}), encoding='utf-8')
+Path("404.html").write_text(
+    render_page({
+        "path": "404.html",
+        "title": "Page not found - PoE2 Build Lab",
+        "description": "Page not found.",
+        "heading": "Page not found",
+        "content": '<p class="lede">This page does not exist.</p><p><a class="button" href="index.html">Back to home</a></p>',
+    }),
+    encoding="utf-8",
+)
 Path('README.md').write_text(f"""# PoE2 Build Lab\n\nStatic beginner-guide site for Path of Exile 2.\n\nLive URL target: {SITE['url']}\n\n## Launch checklist\n\n- [x] Static pages\n- [x] SEO titles/descriptions\n- [x] `robots.txt` and `sitemap.xml`\n- [x] About / Contact / Privacy Policy\n- [x] Google Search Console URL-prefix property and verification\n- [x] AdSense publisher ID configured in site code\n\n## AdSense status\n\nAdSense publisher ID `pub-1111218417177666` is configured in the site code and `ads.txt`; actual ad serving still depends on Google site review and Auto ads status.\n""", encoding='utf-8')
