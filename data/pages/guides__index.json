@@ -1,0 +1,9 @@
+{
+  "path": "guides/index.html",
+  "title": "PoE2 Build Lab Guides Hub",
+  "description": "Guides for Path of Exile 2 build decisions: attributes, gear priorities, build bait, defenses, .build files, and post-campaign progression.",
+  "heading": "Guides",
+  "in_sitemap": true,
+  "content": "__GUIDES_INDEX__",
+  "order": 10
+}

@@ -1,0 +1,8 @@
+{
+  "path": "privacy-policy.html",
+  "title": "Privacy Policy for PoE2 Build Lab",
+  "description": "Privacy policy for PoE2 Build Lab, including analytics and advertising readiness notes.",
+  "heading": "Privacy Policy",
+  "content": "\n<p><strong>Effective date:</strong> 2026-06-16</p>\n<p>PoE2 Build Lab is a static informational website. At launch, the site does not collect account registrations, comments, payments, or direct personal information.</p>\n<h2>Analytics</h2>\n<p>The site may use Google Search Console to understand how pages appear in Google Search. Search Console reports aggregated search performance and does not create user accounts on this site.</p>\n<h2>Advertising</h2>\n<p>The site includes Google AdSense code using publisher ID <code>pub-1111218417177666</code>. Google and its advertising partners may use cookies or similar technologies to serve and measure ads when Google enables ad serving for this site.</p>\n<h2>External links</h2>\n<p>The site links to external resources such as official game pages, patch notes, and GitHub. External sites have their own privacy policies.</p>\n<h2>Contact</h2>\n<p>For privacy questions or corrections, contact the maintainer through the GitHub repository.</p>\n",
+  "order": 20
+}

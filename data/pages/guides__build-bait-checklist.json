@@ -1,0 +1,9 @@
+{
+  "path": "guides/build-bait-checklist.html",
+  "title": "PoE2 Build Bait Checklist — Trust Before You Invest",
+  "description": "Checklist to spot Path of Exile 2 build bait: patch date, budget, complexity, source, and failure modes before copying a showcase build.",
+  "heading": "Build bait checklist",
+  "in_sitemap": true,
+  "content": "\n<p class=\"lede\">A build is \"bait\" when it looks strong in a video but fails without expensive items, ignores defenses, or is stale after a patch.</p>\n<section class=\"checklist\">\n<label><input type=\"checkbox\"> Patch version and <code>last_reviewed</code> date are visible and recent.</label>\n<label><input type=\"checkbox\"> Budget/complexity/gear dependency match your situation.</label>\n<label><input type=\"checkbox\"> Source is identified (creator, self-tested, or research-backed).</label>\n<label><input type=\"checkbox\"> Failure modes and risks are stated — not only highlight moments.</label>\n<label><input type=\"checkbox\"> Controller/HC/SSF/trade viability is labeled, not assumed.</label>\n<label><input type=\"checkbox\"> Defensive targets exist — not \"just don't get hit\".</label>\n<label><input type=\"checkbox\"> Attribute and Spirit requirements are explainable.</label>\n</section>\n<p>Our <a href=\"../builds/index.html\">build cards</a> expose this rubric on every published starter.</p>\n",
+  "order": 14
+}

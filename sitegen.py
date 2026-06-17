@@ -43,485 +43,30 @@ REVIEW_STATE_LABELS = {
 
 VIABILITY_LABELS = {"yes": "Yes", "no": "No", "unknown": "Unknown"}
 
-pages = [
-    {
-        "path": "index.html",
-        "title": "PoE2 Build Lab: Path of Exile 2 Beginner Builds and Guides",
-        "description": "Patch-aware Path of Exile 2 beginner builds, leveling notes, currency basics, and checklists for new and returning players.",
-        "hero": True,
-        "content": "__HOMEPAGE__",
-    },
-    {
-        "path": "builds/best-beginner-builds.html",
-        "title": "Best Path of Exile 2 Beginner Build Archetypes for Patch 0.5.2",
-        "description": "Beginner-friendly Path of Exile 2 build archetypes for patch 0.5.2, with pros, risks, and safe gearing priorities.",
-        "heading": "Best PoE2 beginner build archetypes",
-        "content": """
-<p class=\"lede\">If you are new to Path of Exile 2, your first build should be simple to pilot, cheap to repair, and forgiving when your gear is bad. This page ranks <em>archetypes</em>, not unverified exact meta builds.</p>
-<div class=\"notice\"><strong>Updated:</strong> 2026-06-16 · <strong>Patch:</strong> 0.5.2 Early Access · This page is meant as a safe starter direction, not a promise of endgame dominance.</div>
-<table>
-<thead><tr><th>Starter direction</th><th>Why it is beginner-friendly</th><th>Main risk</th><th>First gearing priority</th></tr></thead>
-<tbody>
-<tr><td>Ranged elemental caster</td><td>Clear targeting, easier boss spacing, strong learning value for skill/support gems.</td><td>Can feel fragile if you ignore life, resistances, and movement.</td><td>Life, resistances, cast speed, relevant elemental damage.</td></tr>
-<tr><td>Minion / companion-oriented Witch</td><td>Extra bodies reduce pressure while you learn enemy attacks.</td><td>Minion scaling can be confusing and patch-sensitive.</td><td>Gem levels, minion damage/survivability, defensive stats on gear.</td></tr>
-<tr><td>Ranged projectile Ranger / Mercenary</td><td>Good for learning positioning, kiting, and screen control.</td><td>Requires movement discipline and weapon upgrades.</td><td>Weapon damage, attack speed, life, resistances.</td></tr>
-<tr><td>Simple melee bruiser</td><td>Teaches stun windows, dodge timing, and defensive gearing.</td><td>More punishing for brand-new players because you stand closer to danger.</td><td>Weapon DPS, armour/evasion as appropriate, life, recovery.</td></tr>
-</tbody>
-</table>
-<h2>Fast recommendation</h2>
-<p>For a first character, start with a ranged elemental caster or minion-oriented Witch-style build. They let you learn boss patterns without also fighting melee range, weapon breakpoints, and perfect dodge timing at the same time.</p>
-<h2>What makes a good starter build?</h2>
-<ul>
-<li><strong>Low currency dependence:</strong> it should function on campaign rares, not require a rare unique item.</li>
-<li><strong>Simple buttons:</strong> one main damage skill, one movement/defense plan, one boss setup.</li>
-<li><strong>Clear scaling:</strong> you understand whether to upgrade gem levels, weapon DPS, elemental damage, minion stats, or defenses.</li>
-<li><strong>Patch resilience:</strong> if one support gem gets nerfed, the build should still be playable.</li>
-</ul>
-<h2>Beginner mistakes to avoid</h2>
-<ul>
-<li>Following an endgame showcase without checking whether it works during leveling.</li>
-<li>Spending all currency on damage while entering acts with weak resistances and low life.</li>
-<li>Changing several systems at once; change one skill/support setup, then test.</li>
-<li>Trusting an old guide without checking the patch date.</li>
-</ul>
-<h2>Next step</h2>
-<p>Pick one archetype, finish Act 1 with it, and keep notes on deaths: one-shot, damage too low, mana issues, or unclear mechanics. Those notes tell you what to fix before copying a more advanced build.</p>
-<p>For a structured, decision-by-decision view of each starter, see the <a href=\"index.html\">build cards</a>: patch trust, budget, gear slot priorities, defenses, and import status in one place.</p>
-"""
-    },
-    {
-        "path": "guides/beginner-guide.html",
-        "title": "Path of Exile 2 Beginner Guide: What to Do First",
-        "description": "A practical Path of Exile 2 beginner guide covering skills, support gems, defenses, gear upgrades, and early progression habits.",
-        "heading": "PoE2 beginner guide: what to do first",
-        "content": """
-<p class=\"lede\">Path of Exile 2 is easier when you treat the campaign as a learning lab. Your goal is not to copy a perfect build immediately; your goal is to keep damage, defenses, and movement improving together.</p>
-<div class=\"notice\"><strong>Quick answer:</strong> Choose one main skill, support it properly, keep defenses current, upgrade weapons or gem levels often, and read boss attacks instead of face-tanking.</div>
-<h2>1. Pick one main damage plan</h2>
-<p>New players often equip every interesting skill and end up with no coherent scaling. Start with one main damage skill, one support setup, and one utility or movement option.</p>
-<h2>2. Support gems matter</h2>
-<p>A support gem can change how a skill behaves, how it scales, or how safe it feels. When comparing supports, test on the same enemy type and ask: does this improve clear speed, boss damage, uptime, or survival?</p>
-<h2>3. Upgrade defenses before you feel stuck</h2>
-<ul>
-<li>Keep life or equivalent survivability on gear.</li>
-<li>Watch elemental resistances as you enter harder zones.</li>
-<li>Use flasks/recovery deliberately; do not wait until every fight is desperate.</li>
-<li>Practice dodge timing against bosses before blaming your build.</li>
-</ul>
-<h2>4. Replace weak gear frequently</h2>
-<p>During leveling, a plain rare item with the right stats can beat a flashy item with irrelevant modifiers. If your damage suddenly falls off, check your weapon, gem level, and support setup first.</p>
-<h2>5. Learn from deaths</h2>
-<table><thead><tr><th>Death pattern</th><th>Likely issue</th><th>Fix</th></tr></thead><tbody>
-<tr><td>Boss one-shots you</td><td>Too little defense or missing dodge window</td><td>Add life/resists, learn telegraphs, improve spacing</td></tr>
-<tr><td>Packs overwhelm you</td><td>Weak clear or poor crowd control</td><td>Improve AoE support, positioning, or utility skill</td></tr>
-<tr><td>Fights take too long</td><td>Damage scaling behind curve</td><td>Upgrade weapon/gem/supports, simplify rotation</td></tr>
-<tr><td>Always out of resource</td><td>Cost/recovery mismatch</td><td>Change supports, add recovery, avoid over-linking early</td></tr>
-</tbody></table>
-<h2>Beginner rule</h2>
-<p>If a guide cannot explain how the build works before expensive items, do not use it as your first character.</p>
-"""
-    },
-    {
-        "path": "guides/classes-explained.html",
-        "title": "Path of Exile 2 Classes Explained for Beginners",
-        "description": "A beginner-friendly explanation of Path of Exile 2 class choice, playstyle, range, defenses, and learning curve.",
-        "heading": "PoE2 classes explained for beginners",
-        "content": """
-<p class=\"lede\">Your class is your starting point on the passive tree and your early identity. It does not permanently lock every decision, but it strongly shapes your first hours.</p>
-<table><thead><tr><th>Playstyle question</th><th>Beginner-friendly answer</th></tr></thead><tbody>
-<tr><td>Do you want safer spacing?</td><td>Start ranged: caster, bow/projectile, or minion direction.</td></tr>
-<tr><td>Do you enjoy timing and close-range pressure?</td><td>Melee can be satisfying, but it is less forgiving while learning bosses.</td></tr>
-<tr><td>Do you want fewer active decisions?</td><td>Minions/companions can reduce pressure, but scaling details still matter.</td></tr>
-<tr><td>Do you want fast clear?</td><td>Projectile or AoE spell directions often feel smoother for early mapping-style content.</td></tr>
-</tbody></table>
-<h2>How to choose your first class</h2>
-<ol>
-<li>Pick the combat range you enjoy.</li>
-<li>Check whether the build needs a specific item to function.</li>
-<li>Prefer clear scaling words: spell damage, elemental damage, minion damage, projectile damage, attack weapon DPS.</li>
-<li>Avoid a build that needs three mechanics you do not understand yet.</li>
-</ol>
-<h2>What not to overthink</h2>
-<p>Do not restart every time a tier list changes. In Early Access, patches move numbers around often. A stable learning build that reaches later content teaches more than rerolling into every trend.</p>
-"""
-    },
-    {
-        "path": "guides/skill-gems-explained.html",
-        "title": "Path of Exile 2 Skill Gems and Support Gems Explained",
-        "description": "Understand Path of Exile 2 skill gems, support gems, main skills, utility skills, and how to test gem setups safely.",
-        "heading": "Skill gems and support gems explained",
-        "content": """
-<p class=\"lede\">Most beginner builds fail because the player swaps skills randomly instead of understanding the role of each gem.</p>
-<h2>The simple model</h2>
-<ul>
-<li><strong>Main skill:</strong> the button that kills most enemies.</li>
-<li><strong>Boss skill or setup:</strong> extra damage or uptime against tougher enemies.</li>
-<li><strong>Support gems:</strong> modifiers that change damage, behavior, cost, or reliability.</li>
-<li><strong>Utility:</strong> movement, defense, exposure, curse-like effects, crowd control, or recovery.</li>
-</ul>
-<h2>How to test a support gem</h2>
-<ol>
-<li>Change only one support at a time.</li>
-<li>Test against a similar pack or boss phase.</li>
-<li>Watch clear speed, resource cost, safety, and boss uptime.</li>
-<li>Keep notes if the result is patch-sensitive.</li>
-</ol>
-<h2>Common beginner trap</h2>
-<p>The highest tooltip number is not always the best support. A support that makes a skill easier to land, cheaper to sustain, or safer to use can be better during campaign progression.</p>
-"""
-    },
-    {
-        "path": "guides/currency-guide.html",
-        "title": "Path of Exile 2 Currency Guide for Beginners",
-        "description": "A beginner-friendly Path of Exile 2 currency guide explaining how to think about crafting, upgrades, trading value, and waste prevention.",
-        "heading": "PoE2 currency guide for beginners",
-        "content": """
-<p class=\"lede\">Currency in Path of Exile 2 is not just money. Many currency items are crafting actions. The beginner goal is to avoid wasting valuable items on gear you will replace quickly.</p>
-<div class=\"notice\"><strong>Rule:</strong> During campaign, use common upgrade tools to fix weak slots. Save rare/high-value currency until you understand what item base and modifiers you are chasing.</div>
-<h2>How to think about currency</h2>
-<table><thead><tr><th>Use case</th><th>Beginner approach</th></tr></thead><tbody>
-<tr><td>Fixing a bad weapon</td><td>Worth spending common resources if your damage is blocking progress.</td></tr>
-<tr><td>Improving resistances</td><td>Often worth it; defenses keep your build playable.</td></tr>
-<tr><td>Rolling random endgame items</td><td>Avoid until you know bases, affixes, and current market value.</td></tr>
-<tr><td>Trading</td><td>Check multiple listings and avoid panic-buying after one hard boss.</td></tr>
-</tbody></table>
-<h2>Beginner spending priorities</h2>
-<ol>
-<li>Keep your main weapon or gem scaling current.</li>
-<li>Patch holes in life/resistances.</li>
-<li>Improve movement/recovery if deaths come from being trapped or too slow.</li>
-<li>Only then chase luxury damage stats.</li>
-</ol>
-<h2>When to save currency</h2>
-<p>If you cannot explain why an item base is good, why a modifier matters, and how long you will keep the item, save your expensive currency.</p>
-"""
-    },
-    {
-        "path": "tools/beginner-build-checklist.html",
-        "title": "PoE2 Defense Diagnostic — Why Am I Dying?",
-        "description": "Path of Exile 2 defense diagnostic: map death patterns to causes, first fixes, and responsible gear slots. Build-aware mode prefills from build cards.",
-        "heading": "Defense diagnostic",
-        "subtitle": "Death pattern → fix path",
-        "tool_purpose": "Match how you died to a likely cause, first fix, and gear slot. Open from a build card for per-build targets.",
-        "scripts": ["assets/js/defense-diagnostic.js"],
-        "in_sitemap": True,
-        "content": """
-<p class="tool-quicklinks"><a class="button secondary button-sm" href="../builds/starter-elemental-caster.html">Elemental Caster</a> <a class="button secondary button-sm" href="../builds/starter-minion-witch.html">Minion Witch</a> <span class="muted">— prefill from a build</span></p>
-<div id="build-banner" class="notice notice-compact" style="display:none"></div>
-<div class="notice notice-warn notice-compact"><strong>Verify in game.</strong> Enter the requirement you see on your gem tooltip — numbers here are planning guidance.</div>
-<p><label>Filter patterns: <input id="diag-search" type="search" placeholder="e.g. one-shot, mana, greyed out"></label></p>
-<table class="gear responsive-stack"><thead><tr><th>Death pattern</th><th>Likely cause</th><th>First fix</th><th>Gear slot</th></tr></thead><tbody id="diag-results"></tbody></table>
-<section class="build-section" id="build-defense-targets"></section>
-<h2>Related tools</h2>
-<p class="muted"><a href="gear-upgrade-checker.html">Gear upgrade planner</a> · <a href="attribute-checker.html">Attribute checker</a></p>
-"""
-    },
-    {
-        "path": "tools/gear-upgrade-checker.html",
-        "title": "PoE2 Gear Upgrade Planner by Build & Stage",
-        "description": "Interactive gear upgrade planner for Path of Exile 2: required, good, and luxury affixes per slot for campaign, early maps, and red maps. Prefills from build cards.",
-        "heading": "Gear upgrade planner",
-        "subtitle": "Slot affix tiers by stage",
-        "tool_purpose": "What affixes matter on this slot at campaign vs maps? Open from a build card to prefill slot priorities.",
-        "scripts": ["assets/js/gear-upgrade-checker.js"],
-        "in_sitemap": True,
-        "content": """
-<p class="tool-quicklinks"><a class="button secondary button-sm" href="../builds/starter-elemental-caster.html?via=gear">Elemental Caster</a> <a class="button secondary button-sm" href="../builds/starter-minion-witch.html?via=gear">Minion Witch</a></p>
-<div id="build-banner" class="notice notice-compact" style="display:none"></div>
-<div class="notice notice-warn notice-compact"><strong>No price promises.</strong> Trade links open the official site; type filter recipes manually if deep links do not prefill.</div>
-<div class="tool-controls">
-<label>Stage: <select id="upgrade-stage"><option value="campaign">Campaign</option><option value="early_maps">Early maps</option><option value="red_maps">Red maps / pinnacle</option></select></label>
-<label>Slot: <select id="upgrade-slot"></select></label>
-</div>
-<p id="upgrade-suggest" class="muted"></p>
-<div id="upgrade-output" class="build-section"></div>
-"""
-    },
-    {
-        "path": "tools/attribute-checker.html",
-        "title": "PoE2 Attribute, Spirit & Gear-Swap Checker",
-        "description": "Free Path of Exile 2 calculator: check Strength/Dexterity/Intelligence deficits, Spirit reservation, and whether swapping a gear slot breaks a skill or Spirit reservation. Prefills from build cards. No backend.",
-        "heading": "Attribute & gear-swap checker",
-        "subtitle": "Planning aid · verify in game",
-        "tool_purpose": "What attributes am I missing? What breaks if I swap this amulet? Prefills from build cards.",
-        "in_sitemap": True,
-        "scripts": ["assets/js/attribute-calculator.js"],
-        "content": """
-<p class="tool-quicklinks"><a class="button secondary button-sm" href="?build=starter-elemental-caster">Elemental Caster</a> <a class="button secondary button-sm" href="?build=starter-minion-witch">Minion Witch</a></p>
-<div id="build-banner" class="notice notice-compact" style="display:none"></div>
-<div class="notice notice-warn notice-compact"><strong>Verify in game.</strong> Enter requirements from your gem tooltips.</div>
+PAGES_DIR = Path("data/pages")
 
-<section class="build-section" id="attr-calc">
-  <h2>1. What attributes am I missing?</h2>
-  <p class=\"muted\">Enter the highest requirement you need to meet (from a gem or a gear base), your current attributes from the tree/quests, and what your gear adds.</p>
-  <table class=\"calc-input\">
-    <thead><tr><th>Attribute</th><th>Requirement</th><th>Current (tree/quests)</th><th>From gear</th></tr></thead>
-    <tbody>
-      <tr><th>Strength</th><td><input id=\"req-str\" type=\"number\" min=\"0\" value=\"0\"></td><td><input id=\"cur-str\" type=\"number\" min=\"0\" value=\"0\"></td><td><input id=\"gear-str\" type=\"number\" min=\"0\" value=\"0\"></td></tr>
-      <tr><th>Dexterity</th><td><input id=\"req-dex\" type=\"number\" min=\"0\" value=\"0\"></td><td><input id=\"cur-dex\" type=\"number\" min=\"0\" value=\"0\"></td><td><input id=\"gear-dex\" type=\"number\" min=\"0\" value=\"0\"></td></tr>
-      <tr><th>Intelligence</th><td><input id=\"req-int\" type=\"number\" min=\"0\" value=\"0\"></td><td><input id=\"cur-int\" type=\"number\" min=\"0\" value=\"0\"></td><td><input id=\"gear-int\" type=\"number\" min=\"0\" value=\"0\"></td></tr>
-    </tbody>
-  </table>
-  <p id=\"attr-summary\" class=\"calc-summary\"></p>
-  <table class=\"kv\"><thead><tr><th>Attribute</th><th>Required</th><th>Effective</th><th>Result</th></tr></thead><tbody id=\"attr-results\"></tbody></table>
-</section>
 
-<section class="build-section" id="spirit-calc">
-  <h2>2. Do I have enough Spirit?</h2>
-  <p class=\"muted\">Reservation builds (auras, minions, companions, persistent buffs) are gated by Spirit. Enter your Spirit capacity and total reservation.</p>
-  <table class=\"calc-input\">
-    <tbody>
-      <tr><th>Spirit capacity</th><td><input id=\"spirit-capacity\" type=\"number\" min=\"0\" value=\"0\"></td></tr>
-      <tr><th>Spirit reserved</th><td><input id=\"spirit-reserved\" type=\"number\" min=\"0\" value=\"0\"></td></tr>
-    </tbody>
-  </table>
-  <p id=\"spirit-result\" class=\"calc-summary\"></p>
-  <div id=\"spirit-sources\"></div>
-</section>
+def load_static_pages():
+    """Load generated-page source data from JSON so content edits do not touch Python."""
+    pages = []
+    if not PAGES_DIR.exists():
+        raise FileNotFoundError(f"Missing page data directory: {PAGES_DIR}")
+    for path in sorted(PAGES_DIR.glob("*.json")):
+        page = json.loads(path.read_text(encoding="utf-8"))
+        page.setdefault("order", 999)
+        for key in ("path", "title", "description", "content"):
+            if key not in page:
+                raise ValueError(f"{path} missing required field: {key}")
+        pages.append(page)
+    seen = set()
+    for page in pages:
+        if page["path"] in seen:
+            raise ValueError(f"Duplicate generated page path: {page['path']}")
+        seen.add(page["path"])
+    return sorted(pages, key=lambda page: (page.get("order", 999), page["path"]))
 
-<section class="build-section" id="swap-calc">
-  <h2>3. Will this gear swap break something?</h2>
-  <p class=\"muted\">Pick the slot you want to change. We show the build's authored swap warnings, then simulate the attributes/Spirit you would lose.</p>
-  <p><label>Slot to swap: <select id=\"swap-slot\"></select></label></p>
-  <table class=\"calc-input\">
-    <thead><tr><th colspan=\"4\">Attributes / Spirit this slot currently gives you</th></tr>
-    <tr><th>Strength</th><th>Dexterity</th><th>Intelligence</th><th>Spirit</th></tr></thead>
-    <tbody><tr>
-      <td><input id=\"swap-str\" type=\"number\" min=\"0\" value=\"0\"></td>
-      <td><input id=\"swap-dex\" type=\"number\" min=\"0\" value=\"0\"></td>
-      <td><input id=\"swap-int\" type=\"number\" min=\"0\" value=\"0\"></td>
-      <td><input id=\"swap-spirit\" type=\"number\" min=\"0\" value=\"0\"></td>
-    </tr></tbody>
-  </table>
-  <div id=\"swap-result\"></div>
-</section>
-"""
-    },
-    {
-        "path": "guides/import-build-files.html",
-        "title": "How to Import PoE2 .build Files (In-Game Build Planner)",
-        "description": "Where to put Path of Exile 2 .build files on Windows and SteamOS, how to load them in the in-game Build Planner, and why in-game editing is not supported.",
-        "heading": "How to import PoE2 .build files",
-        "content": """
-<p class=\"lede\">Path of Exile 2 has an official in-game <strong>Build Planner</strong>. It reads <code>.build</code> files and highlights the matching passives, skill gems, and gear slots inside the game — no alt-tabbing. It is plug-and-play: importing works, but creating or editing builds inside the game is not currently supported.</p>
-<div class=\"notice\"><strong>Source:</strong> Official <a href=\"https://www.pathofexile.com/developer/docs/game\" rel=\"nofollow noopener\">Path of Exile developer docs — Build Planner</a>. The <code>.build</code> format is Version 1 (Experimental); paths below are the official defaults.</div>
-<h2>1. Get a .build file</h2>
-<p>Download a <code>.build</code> file from a guide that offers one. The file is plain JSON describing the ascendancy, passives, skill/support gems, and per-slot gear priorities.</p>
-<h2>2. Put it in the Build Planner folder</h2>
-<p>The game only reads <code>.build</code> files from a specific folder. Create it if it does not exist, then drop the file in.</p>
-<table><thead><tr><th>Platform</th><th>Build Planner folder</th></tr></thead><tbody>
-<tr><td>Windows</td><td><code>C:\\Users\\&lt;YourName&gt;\\Documents\\My Games\\Path of Exile 2\\BuildPlanner</code></td></tr>
-<tr><td>SteamOS</td><td><code>/home/deck/.local/share/Steam/steamapps/compatdata/2315204395/pfx/drive_c/users/steamuser/Documents/My Games/Path of Exile 2/BuildPlanner</code></td></tr>
-</tbody></table>
-<h2>3. Load it in-game</h2>
-<ol>
-<li>Launch Path of Exile 2 and load your character.</li>
-<li>Open the Passive Skill Tree (default <kbd>P</kbd>).</li>
-<li>Click the Build Planner icon in the top-left of the tree screen.</li>
-<li>Select your imported build from the list. Hints light up across your tree, skill bar, and gear slots.</li>
-</ol>
-<h2>In-game editing is not supported</h2>
-<p>You can import and follow a build, but you cannot author or edit one inside Path of Exile 2. Make changes in the source file (or an external planner) and reload.</p>
-<h2>How we source the ids inside our .build files</h2>
-<div class=\"notice\"><strong>Data provenance:</strong> Our exporter targets the official <code>.build</code> schema. Ascendancy and passive node ids come from the <strong>official</strong> GGG passive-tree export. Skill and support gem ids come from <strong>community-extracted</strong> game data (the <a href=\"https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2\" rel=\"nofollow noopener\">Path of Building Community PoE2</a> project), because GGG does not publish an official gem export. We use each gem's exact in-game metadata id, cross-validated against GGG's own <code>.build</code> example, and we never ship a placeholder or guessed id — a build with unresolved gems simply has no download. Game data is © Grinding Gear Games.</div>
-<p>For background on the decision chain, see the <a href=\"../builds/index.html\">build cards</a>.</p>
-"""
-    },
-    {
-        "path": "guides/index.html",
-        "title": "PoE2 Build Lab Guides Hub",
-        "description": "Guides for Path of Exile 2 build decisions: attributes, gear priorities, build bait, defenses, .build files, and post-campaign progression.",
-        "heading": "Guides",
-        "in_sitemap": True,
-        "content": "__GUIDES_INDEX__",
-    },
-    {
-        "path": "guides/attribute-requirements.html",
-        "title": "PoE2 Attribute Requirements Explained",
-        "description": "Path of Exile 2 Strength, Dexterity, and Intelligence requirements: where they come from, how gear swaps break gems, and how to fix deficits.",
-        "heading": "PoE2 attribute requirements explained",
-        "in_sitemap": True,
-        "content": """
-<p class=\"lede\">Attributes gate gems and some gear bases. They come from your class start, passive tree, quests, and equipment — and a single swap can silently disable a skill.</p>
-<h2>Where requirements come from</h2>
-<ul>
-<li><strong>Skill and support gems</strong> — each gem lists Str/Dex/Int requirements that scale with level.</li>
-<li><strong>Weapon and armour bases</strong> — some bases need attributes to equip.</li>
-<li><strong>Passive tree</strong> — primary source of \"free\" attributes during leveling.</li>
-</ul>
-<h2>Common failure mode</h2>
-<p>You upgrade the amulet for damage and your main skill greys out because the old amulet supplied +Intelligence. This is attribute starvation — not a broken build.</p>
-<h2>What to do</h2>
-<p>Use the <a href=\"../tools/attribute-checker.html\">attribute &amp; gear-swap checker</a> with a <a href=\"../builds/index.html\">build card</a> prefill, or read gem requirements on the tooltip and patch the deficit on amulet, rings, or helmet.</p>
-<div class=\"notice\"><strong>Data:</strong> Gem requirements on build cards use community-extracted ids (Path of Building Community PoE2). Verify in game before expensive crafts.</div>
-"""
-    },
-    {
-        "path": "guides/why-cant-equip-gem.html",
-        "title": "Why Can't I Equip This Gem in PoE2?",
-        "description": "Troubleshoot Path of Exile 2 gem equip failures: attribute deficits, weapon restrictions, duplicate skills, and Spirit reservation.",
-        "heading": "Why can't I equip this gem?",
-        "in_sitemap": True,
-        "content": """
-<p class=\"lede\">When a gem won't equip, the game is usually telling you one of four things.</p>
-<table><thead><tr><th>Symptom</th><th>Cause</th><th>Fix</th></tr></thead><tbody>
-<tr><td>Greyed out in inventory</td><td>Attribute requirement too high</td><td>Add Str/Dex/Int on gear or take tree nodes; use attribute checker</td></tr>
-<tr><td>Cannot link to weapon</td><td>Wrong weapon type or skill tag mismatch</td><td>Match gem tags (spell vs attack, minion vs direct)</td></tr>
-<tr><td>Skill works then stops after gear swap</td><td>Lost attributes from removed piece</td><td>Model swap in gear-swap checker before committing</td></tr>
-<tr><td>Cannot add another minion/aura</td><td>Spirit reservation exceeded</td><td>Track Spirit on weapon/amulet/body; drop a reservation source</td></tr>
-</tbody></table>
-<p>See <a href=\"attribute-requirements.html\">attribute requirements</a> and the <a href=\"../tools/attribute-checker.html\">checker tool</a>.</p>
-"""
-    },
-    {
-        "path": "guides/beginner-gear-priorities.html",
-        "title": "PoE2 Beginner Gear Stat Priorities by Slot",
-        "description": "Beginner Path of Exile 2 gearing: required vs luxury affixes per slot for campaign and early maps, without fixed price promises.",
-        "heading": "Beginner gear stat priorities",
-        "in_sitemap": True,
-        "content": """
-<p class=\"lede\">During leveling, a plain rare with the <em>right</em> stats beats a flashy item with wrong modifiers. Priorities depend on slot and stage — not a single tier list.</p>
-<h2>Universal rules</h2>
-<ul>
-<li><strong>Weapon</strong> — keeps damage scaling current (spell damage, minion damage, or weapon DPS).</li>
-<li><strong>Boots</strong> — movement speed is a defense stat; do not skip it.</li>
-<li><strong>Rings/amulet/belt</strong> — patch life and resistances before luxury damage.</li>
-<li><strong>Chest/helmet/gloves</strong> — life or ES plus resistances; attributes if gems are gated.</li>
-</ul>
-<p>Per-build slot tables live on <a href=\"../builds/index.html\">build cards</a> and the <a href=\"../tools/gear-upgrade-checker.html\">gear upgrade planner</a>.</p>
-"""
-    },
-    {
-        "path": "guides/build-bait-checklist.html",
-        "title": "PoE2 Build Bait Checklist — Trust Before You Invest",
-        "description": "Checklist to spot Path of Exile 2 build bait: patch date, budget, complexity, source, and failure modes before copying a showcase build.",
-        "heading": "Build bait checklist",
-        "in_sitemap": True,
-        "content": """
-<p class=\"lede\">A build is \"bait\" when it looks strong in a video but fails without expensive items, ignores defenses, or is stale after a patch.</p>
-<section class=\"checklist\">
-<label><input type=\"checkbox\"> Patch version and <code>last_reviewed</code> date are visible and recent.</label>
-<label><input type=\"checkbox\"> Budget/complexity/gear dependency match your situation.</label>
-<label><input type=\"checkbox\"> Source is identified (creator, self-tested, or research-backed).</label>
-<label><input type=\"checkbox\"> Failure modes and risks are stated — not only highlight moments.</label>
-<label><input type=\"checkbox\"> Controller/HC/SSF/trade viability is labeled, not assumed.</label>
-<label><input type=\"checkbox\"> Defensive targets exist — not \"just don't get hit\".</label>
-<label><input type=\"checkbox\"> Attribute and Spirit requirements are explainable.</label>
-</section>
-<p>Our <a href=\"../builds/index.html\">build cards</a> expose this rubric on every published starter.</p>
-"""
-    },
-    {
-        "path": "guides/beginner-defensive-layers.html",
-        "title": "PoE2 Beginner Defensive Layers Explained",
-        "description": "Path of Exile 2 defensive layers for beginners: life/ES, resistances, recovery, movement, and map mods to avoid.",
-        "heading": "Beginner defensive layers",
-        "in_sitemap": True,
-        "content": """
-<p class=\"lede\">Survival is layered. Fixing one layer without checking the others is why \"I capped resists but still die\" happens.</p>
-<h2>Layers to track</h2>
-<ul>
-<li><strong>Life or energy shield</strong> — raw hit pool.</li>
-<li><strong>Elemental resistances</strong> — cap fire/cold/lightning for maps when possible.</li>
-<li><strong>Recovery</strong> — flasks, regeneration, leech, or sustain skills.</li>
-<li><strong>Movement</strong> — boots movement speed plus a reposition skill.</li>
-<li><strong>Mechanics</strong> — dodge telegraphs, don't face-tank.</li>
-</ul>
-<p>Map mods that punish recovery or add player damage are listed per build on build cards. Use the <a href=\"../tools/beginner-build-checklist.html\">defense diagnostic</a> when you know <em>how</em> you die.</p>
-"""
-    },
-    {
-        "path": "guides/after-campaign.html",
-        "title": "What to Do After the PoE2 Campaign",
-        "description": "Path of Exile 2 post-campaign checklist: first maps, resistance caps, waystone sustain habits, and when to push harder content.",
-        "heading": "What to do after campaign",
-        "in_sitemap": True,
-        "content": """
-<p class=\"lede\">Finishing the campaign is not endgame — it is the point where defenses and economy matter more than raw leveling speed.</p>
-<h2>First-hour checklist</h2>
-<ul>
-<li>Cap elemental resistances if possible before pushing harder maps.</li>
-<li>Keep weapon/gem scaling current — campaign gear falls off quickly.</li>
-<li>Pick map mods you can sustain; avoid player damage/recovery penalties until stable.</li>
-<li>Stock waystones and learn sustain loops (see <a href=\"endgame-hub.html\">Endgame hub</a>).</li>
-</ul>
-<p>Match expectations to your <a href=\"../builds/index.html\">build card</a> content-fit tags (campaign vs early maps vs pinnacle).</p>
-"""
-    },
-    {
-        "path": "guides/endgame-hub.html",
-        "title": "PoE2 Endgame Hub — Atlas, Waystones, Bosses",
-        "description": "Static Path of Exile 2 endgame hub: Atlas first steps, waystone sustain overview, boss unlock paths, and known progression blockers for 0.5.2.",
-        "heading": "Endgame hub",
-        "in_sitemap": True,
-        "content": """
-<p class=\"lede\">Endgame in PoE2 Early Access is still moving with patches. This hub summarizes progression blockers and where to look official — not a full Maxroll-style atlas guide.</p>
-<div class=\"notice\"><strong>Patch:</strong> 0.5.2 Early Access · Last hub review 2026-06-17. Verify mechanics after hotfixes.</div>
-<h2>Atlas first steps</h2>
-<ul>
-<li>Unlock the Atlas through campaign progression and follow in-game prompts for your league.</li>
-<li>Start on white/yellow maps until resistances and recovery are stable.</li>
-<li>Read map modifiers before activating — player damage and less recovery are common pain points.</li>
-</ul>
-<h2>Waystone sustain</h2>
-<p>Sustain is a loop: run maps that reward waystones, use vendors and content that refill supply, and avoid burning high-tier stones before your build is ready. Exact rates change with patches — track your own runs rather than trusting stale numbers.</p>
-<h2>Boss unlock overview</h2>
-<p>Pinnacle and boss content unlock through Atlas progression and specific encounters. Treat boss guides as patch-dated; check <a href=\"https://www.pathofexile.com/forum/view-forum/2212\" rel=\"nofollow noopener\">official patch notes</a> when a gate changes.</p>
-<h2>Known progression blockers</h2>
-<ul>
-<li><strong>Defense not maps-ready</strong> — fix via build card defense targets and <a href=\"../tools/beginner-build-checklist.html\">diagnostic</a>.</li>
-<li><strong>Attribute/Spirit breakage after upgrade</strong> — use <a href=\"../tools/attribute-checker.html\">attribute checker</a> before expensive trades.</li>
-<li><strong>Economy volatility</strong> — use trade filter recipes on build cards, not fixed prices.</li>
-</ul>
-<p>Per-build endgame viability is labeled on each <a href=\"../builds/index.html\">build card</a> (campaign / early maps / pinnacle).</p>
-"""
-    },
-    {
-        "path": "about.html",
-        "title": "About PoE2 Build Lab",
-        "description": "About PoE2 Build Lab, an independent Path of Exile 2 beginner guide site.",
-        "heading": "About PoE2 Build Lab",
-        "content": """
-<p>PoE2 Build Lab is an independent beginner-focused Path of Exile 2 guide site. The goal is to publish practical, patch-labeled guides that help new and returning players make better early decisions.</p>
-<p>This site is not affiliated with Grinding Gear Games. Path of Exile 2 names and related marks belong to their respective owners.</p>
-<h2>Editorial policy</h2>
-<ul>
-<li>Pages should show an updated date and patch context when advice may change.</li>
-<li>We avoid copying forum, wiki, or Reddit text.</li>
-<li>Build claims should be updated when official patch notes change the underlying mechanic.</li>
-<li>Future hands-on screenshots and testing notes will be added as the site grows.</li>
-</ul>
-"""
-    },
-    {
-        "path": "contact.html",
-        "title": "Contact PoE2 Build Lab",
-        "description": "Contact information for PoE2 Build Lab corrections, guide updates, and feedback.",
-        "heading": "Contact",
-        "content": """
-<p>For corrections, outdated patch notes, or guide suggestions, open an issue on the site repository or contact the maintainer through the linked GitHub profile.</p>
-<p><a href=\"https://github.com/BrickerP/poe2-build-lab\">GitHub repository</a></p>
-"""
-    },
-    {
-        "path": "privacy-policy.html",
-        "title": "Privacy Policy for PoE2 Build Lab",
-        "description": "Privacy policy for PoE2 Build Lab, including analytics and advertising readiness notes.",
-        "heading": "Privacy Policy",
-        "content": """
-<p><strong>Effective date:</strong> 2026-06-16</p>
-<p>PoE2 Build Lab is a static informational website. At launch, the site does not collect account registrations, comments, payments, or direct personal information.</p>
-<h2>Analytics</h2>
-<p>The site may use Google Search Console to understand how pages appear in Google Search. Search Console reports aggregated search performance and does not create user accounts on this site.</p>
-<h2>Advertising</h2>
-<p>The site includes Google AdSense code using publisher ID <code>pub-1111218417177666</code>. Google and its advertising partners may use cookies or similar technologies to serve and measure ads when Google enables ad serving for this site.</p>
-<h2>External links</h2>
-<p>The site links to external resources such as official game pages, patch notes, and GitHub. External sites have their own privacy policies.</p>
-<h2>Contact</h2>
-<p>For privacy questions or corrections, contact the maintainer through the GitHub repository.</p>
-"""
-    },
-]
+
+pages = load_static_pages()
 
 def depth_prefix(path):
     parts = Path(path).parts
@@ -532,7 +77,7 @@ def nav_html(prefix, current):
     home_url = prefix + "index.html"
     home_cls = ' active' if current == "index.html" else ""
     items.append(
-        f'<a class="nav-link{home_cls}" href="{home_url}">'
+        f'<a class="nav-link home-link{home_cls}" href="{home_url}">'
         f'<span class="nav-label">Home</span>'
         f'<span class="nav-desc">Start here</span></a>'
     )
@@ -563,7 +108,7 @@ def guides_index_content():
     return f"""
 <p class="lede">Deep-dive reference — each links back to build cards and tools.</p>
 {decision_grid_html("../")}
-<section class="section-block" style="margin-top:2rem">
+<section class="section-block section-spaced">
   <h2>All guides</h2>
   <div class="decision-grid">
     <a class="decision-card" href="import-build-files.html"><span class="decision-icon">↓</span><span class="decision-label">Import .build</span><span class="decision-desc">Windows/SteamOS paths</span></a>
@@ -594,11 +139,11 @@ def homepage_content(published_builds):
 </section>
 <section class="section-block">
   <h2>What do you need?</h2>
-  <p class="muted" style="margin:-0.25rem 0 1rem">Every link answers a real in-game question.</p>
+  <p class="muted section-kicker">Every link answers a real in-game question.</p>
   {decision_grid_html()}
 </section>
 <section class="content-block">
-  <p class="muted" style="margin:0"><strong>Patch {escape(SITE["patch"])}</strong> · Updated {SITE["updated"]}. Build cards show review state and <code>known_broken_by_patch</code> — verify in game before expensive investments.</p>
+  <p class="muted flush"><strong>Patch {escape(SITE["patch"])}</strong> · Updated {SITE["updated"]}. Build cards show review state and <code>known_broken_by_patch</code> — verify in game before expensive investments.</p>
 </section>
 """
 
@@ -616,12 +161,28 @@ def render_page(page, build=None):
     if hero:
         main_intro = f'''
 <section class="hero hero-compact">
-  <div class="hero-top">
-    <span class="patch-pill">{escape(SITE["patch"])}</span>
-    <span class="patch-pill muted-pill">Updated {SITE["updated"]}</span>
+  <div class="hero-grid">
+    <div class="hero-copy">
+      <div class="hero-top">
+        <span class="patch-pill">{escape(SITE["patch"])}</span>
+        <span class="patch-pill muted-pill">Updated {SITE["updated"]}</span>
+      </div>
+      <h1>Pick your starter. Know what breaks.</h1>
+      <p class="hero-sub">Choose a build, import it, then check stats, gear, and death patterns before you waste currency.</p>
+      <div class="hero-actions">
+        <a class="button" href="builds/index.html">Compare builds</a>
+        <a class="button secondary" href="tools/attribute-checker.html">Check my stats</a>
+      </div>
+    </div>
+    <div class="start-panel" aria-label="Recommended first steps">
+      <p class="eyebrow">Start here</p>
+      <ol class="start-steps">
+        <li><span>1</span><strong>Choose a starter</strong><em>Low budget, honest risks, current patch.</em></li>
+        <li><span>2</span><strong>Import the .build</strong><em>Load skills and slot hints in-game.</em></li>
+        <li><span>3</span><strong>Check before trading</strong><em>Attributes, Spirit, gear swaps, defenses.</em></li>
+      </ol>
+    </div>
   </div>
-  <h1>Pick your starter. Know what breaks.</h1>
-  <p class="hero-sub">Patch-reviewed build cards and tools for the decisions that actually matter in Path of Exile 2.</p>
 </section>
 '''
     elif is_tool:
@@ -1121,10 +682,11 @@ def render_build_card(build, compact=False, card_prefix="", asset_prefix="../"):
         )
     download_btn = ""
     if imp_kind == "available":
-        download_btn = f'<a class="button secondary button-sm" href="{asset_prefix}{escape(build["build_file"]["path"])}">.build</a>'
+        download_btn = f'<a class="button secondary button-sm" href="{asset_prefix}{escape(build["build_file"]["path"])}">Import to game</a>'
+    primary_label = "Start this build" if compact else "Open build plan"
     actions = (
         f'<div class="build-card-actions">'
-        f'<a class="button" href="{href}">View build</a>'
+        f'<a class="button" href="{href}">{primary_label}</a>'
         f'{download_btn}'
         f'</div>'
     )
@@ -1150,8 +712,8 @@ def build_index_content(builds):
 <p class="lede">Each card connects the decisions a starter actually faces: patch trust, budget, gear slots, attributes, defenses, and .build import — not a prose tier list.</p>
 <section class="grid featured-builds">{cards}</section>
 <section class="content-block">
-  <p class="muted" style="margin:0">Updated {SITE['updated']} · {SITE['patch']}. Draft cards are research-backed, not in-game-verified meta promises.</p>
-  <p style="margin:0.75rem 0 0"><a href="best-beginner-builds.html">Archetype overview</a> — higher-level comparison if you have not picked a class yet.</p>
+  <p class="muted flush">Updated {SITE['updated']} · {SITE['patch']}. Draft cards are research-backed, not in-game-verified meta promises.</p>
+  <p class="content-followup"><a href="best-beginner-builds.html">Archetype overview</a> — higher-level comparison if you have not picked a class yet.</p>
 </section>
 """
 
@@ -1207,4 +769,4 @@ Path("404.html").write_text(
     }),
     encoding="utf-8",
 )
-Path('README.md').write_text(f"""# PoE2 Build Lab\n\nStatic beginner-guide site for Path of Exile 2.\n\nLive URL target: {SITE['url']}\n\n## Launch checklist\n\n- [x] Static pages\n- [x] SEO titles/descriptions\n- [x] `robots.txt` and `sitemap.xml`\n- [x] About / Contact / Privacy Policy\n- [x] Google Search Console URL-prefix property and verification\n- [x] AdSense publisher ID configured in site code\n\n## AdSense status\n\nAdSense publisher ID `pub-1111218417177666` is configured in the site code and `ads.txt`; actual ad serving still depends on Google site review and Auto ads status.\n""", encoding='utf-8')
+Path('README.md').write_text(f"""# PoE2 Build Lab\n\nStatic beginner-guide site for Path of Exile 2.\n\nLive URL target: {SITE['url']}\n\n## Maintenance model\n\n- Edit build data in `data/builds/*.json`.\n- Edit generated page content in `data/pages/*.json`.\n- Edit visual system in `styles.css`.\n- Run `python3 sitegen.py` after content or data changes.\n\n## Launch checklist\n\n- [x] Static pages\n- [x] SEO titles/descriptions\n- [x] `robots.txt` and `sitemap.xml`\n- [x] About / Contact / Privacy Policy\n- [x] Google Search Console URL-prefix property and verification\n- [x] AdSense publisher ID configured in site code\n\n## AdSense status\n\nAdSense publisher ID `pub-1111218417177666` is configured in the site code and `ads.txt`; actual ad serving still depends on Google site review and Auto ads status.\n""", encoding='utf-8')

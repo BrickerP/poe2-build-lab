@@ -1,0 +1,8 @@
+{
+  "path": "about.html",
+  "title": "About PoE2 Build Lab",
+  "description": "About PoE2 Build Lab, an independent Path of Exile 2 beginner guide site.",
+  "heading": "About PoE2 Build Lab",
+  "content": "\n<p>PoE2 Build Lab is an independent beginner-focused Path of Exile 2 guide site. The goal is to publish practical, patch-labeled guides that help new and returning players make better early decisions.</p>\n<p>This site is not affiliated with Grinding Gear Games. Path of Exile 2 names and related marks belong to their respective owners.</p>\n<h2>Editorial policy</h2>\n<ul>\n<li>Pages should show an updated date and patch context when advice may change.</li>\n<li>We avoid copying forum, wiki, or Reddit text.</li>\n<li>Build claims should be updated when official patch notes change the underlying mechanic.</li>\n<li>Future hands-on screenshots and testing notes will be added as the site grows.</li>\n</ul>\n",
+  "order": 18
+}

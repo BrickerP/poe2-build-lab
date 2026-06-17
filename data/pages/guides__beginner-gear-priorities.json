@@ -1,0 +1,9 @@
+{
+  "path": "guides/beginner-gear-priorities.html",
+  "title": "PoE2 Beginner Gear Stat Priorities by Slot",
+  "description": "Beginner Path of Exile 2 gearing: required vs luxury affixes per slot for campaign and early maps, without fixed price promises.",
+  "heading": "Beginner gear stat priorities",
+  "in_sitemap": true,
+  "content": "\n<p class=\"lede\">During leveling, a plain rare with the <em>right</em> stats beats a flashy item with wrong modifiers. Priorities depend on slot and stage — not a single tier list.</p>\n<h2>Universal rules</h2>\n<ul>\n<li><strong>Weapon</strong> — keeps damage scaling current (spell damage, minion damage, or weapon DPS).</li>\n<li><strong>Boots</strong> — movement speed is a defense stat; do not skip it.</li>\n<li><strong>Rings/amulet/belt</strong> — patch life and resistances before luxury damage.</li>\n<li><strong>Chest/helmet/gloves</strong> — life or ES plus resistances; attributes if gems are gated.</li>\n</ul>\n<p>Per-build slot tables live on <a href=\"../builds/index.html\">build cards</a> and the <a href=\"../tools/gear-upgrade-checker.html\">gear upgrade planner</a>.</p>\n",
+  "order": 13
+}

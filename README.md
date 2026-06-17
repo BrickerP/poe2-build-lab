@@ -4,6 +4,13 @@ Static beginner-guide site for Path of Exile 2.
 
 Live URL target: https://brickerp.github.io/poe2-build-lab/
 
+## Maintenance model
+
+- Edit build data in `data/builds/*.json`.
+- Edit generated page content in `data/pages/*.json`.
+- Edit visual system in `styles.css`.
+- Run `python3 sitegen.py` after content or data changes.
+
 ## Launch checklist
 
 - [x] Static pages

@@ -1,0 +1,8 @@
+{
+  "path": "guides/skill-gems-explained.html",
+  "title": "Path of Exile 2 Skill Gems and Support Gems Explained",
+  "description": "Understand Path of Exile 2 skill gems, support gems, main skills, utility skills, and how to test gem setups safely.",
+  "heading": "Skill gems and support gems explained",
+  "content": "\n<p class=\"lede\">Most beginner builds fail because the player swaps skills randomly instead of understanding the role of each gem.</p>\n<h2>The simple model</h2>\n<ul>\n<li><strong>Main skill:</strong> the button that kills most enemies.</li>\n<li><strong>Boss skill or setup:</strong> extra damage or uptime against tougher enemies.</li>\n<li><strong>Support gems:</strong> modifiers that change damage, behavior, cost, or reliability.</li>\n<li><strong>Utility:</strong> movement, defense, exposure, curse-like effects, crowd control, or recovery.</li>\n</ul>\n<h2>How to test a support gem</h2>\n<ol>\n<li>Change only one support at a time.</li>\n<li>Test against a similar pack or boss phase.</li>\n<li>Watch clear speed, resource cost, safety, and boss uptime.</li>\n<li>Keep notes if the result is patch-sensitive.</li>\n</ol>\n<h2>Common beginner trap</h2>\n<p>The highest tooltip number is not always the best support. A support that makes a skill easier to land, cheaper to sustain, or safer to use can be better during campaign progression.</p>\n",
+  "order": 4
+}

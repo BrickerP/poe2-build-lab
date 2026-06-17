@@ -1,0 +1,14 @@
+{
+  "path": "tools/gear-upgrade-checker.html",
+  "title": "PoE2 Gear Upgrade Planner by Build & Stage",
+  "description": "Interactive gear upgrade planner for Path of Exile 2: required, good, and luxury affixes per slot for campaign, early maps, and red maps. Prefills from build cards.",
+  "heading": "Gear upgrade planner",
+  "subtitle": "Slot affix tiers by stage",
+  "tool_purpose": "What affixes matter on this slot at campaign vs maps? Open from a build card to prefill slot priorities.",
+  "scripts": [
+    "assets/js/gear-upgrade-checker.js"
+  ],
+  "in_sitemap": true,
+  "content": "\n<p class=\"tool-quicklinks\"><a class=\"button secondary button-sm\" href=\"../builds/starter-elemental-caster.html?via=gear\">Elemental Caster</a> <a class=\"button secondary button-sm\" href=\"../builds/starter-minion-witch.html?via=gear\">Minion Witch</a></p>\n<div id=\"build-banner\" class=\"notice notice-compact\" style=\"display:none\"></div>\n<div class=\"notice notice-warn notice-compact\"><strong>No price promises.</strong> Trade links open the official site; type filter recipes manually if deep links do not prefill.</div>\n<div class=\"tool-controls\">\n<label>Stage: <select id=\"upgrade-stage\"><option value=\"campaign\">Campaign</option><option value=\"early_maps\">Early maps</option><option value=\"red_maps\">Red maps / pinnacle</option></select></label>\n<label>Slot: <select id=\"upgrade-slot\"></select></label>\n</div>\n<p id=\"upgrade-suggest\" class=\"muted\"></p>\n<div id=\"upgrade-output\" class=\"build-section\"></div>\n",
+  "order": 7
+}

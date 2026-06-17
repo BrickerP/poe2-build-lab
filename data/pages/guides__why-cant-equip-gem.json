@@ -1,0 +1,9 @@
+{
+  "path": "guides/why-cant-equip-gem.html",
+  "title": "Why Can't I Equip This Gem in PoE2?",
+  "description": "Troubleshoot Path of Exile 2 gem equip failures: attribute deficits, weapon restrictions, duplicate skills, and Spirit reservation.",
+  "heading": "Why can't I equip this gem?",
+  "in_sitemap": true,
+  "content": "\n<p class=\"lede\">When a gem won't equip, the game is usually telling you one of four things.</p>\n<table><thead><tr><th>Symptom</th><th>Cause</th><th>Fix</th></tr></thead><tbody>\n<tr><td>Greyed out in inventory</td><td>Attribute requirement too high</td><td>Add Str/Dex/Int on gear or take tree nodes; use attribute checker</td></tr>\n<tr><td>Cannot link to weapon</td><td>Wrong weapon type or skill tag mismatch</td><td>Match gem tags (spell vs attack, minion vs direct)</td></tr>\n<tr><td>Skill works then stops after gear swap</td><td>Lost attributes from removed piece</td><td>Model swap in gear-swap checker before committing</td></tr>\n<tr><td>Cannot add another minion/aura</td><td>Spirit reservation exceeded</td><td>Track Spirit on weapon/amulet/body; drop a reservation source</td></tr>\n</tbody></table>\n<p>See <a href=\"attribute-requirements.html\">attribute requirements</a> and the <a href=\"../tools/attribute-checker.html\">checker tool</a>.</p>\n",
+  "order": 12
+}

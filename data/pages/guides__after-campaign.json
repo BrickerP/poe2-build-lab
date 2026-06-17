@@ -1,0 +1,9 @@
+{
+  "path": "guides/after-campaign.html",
+  "title": "What to Do After the PoE2 Campaign",
+  "description": "Path of Exile 2 post-campaign checklist: first maps, resistance caps, waystone sustain habits, and when to push harder content.",
+  "heading": "What to do after campaign",
+  "in_sitemap": true,
+  "content": "\n<p class=\"lede\">Finishing the campaign is not endgame — it is the point where defenses and economy matter more than raw leveling speed.</p>\n<h2>First-hour checklist</h2>\n<ul>\n<li>Cap elemental resistances if possible before pushing harder maps.</li>\n<li>Keep weapon/gem scaling current — campaign gear falls off quickly.</li>\n<li>Pick map mods you can sustain; avoid player damage/recovery penalties until stable.</li>\n<li>Stock waystones and learn sustain loops (see <a href=\"endgame-hub.html\">Endgame hub</a>).</li>\n</ul>\n<p>Match expectations to your <a href=\"../builds/index.html\">build card</a> content-fit tags (campaign vs early maps vs pinnacle).</p>\n",
+  "order": 16
+}

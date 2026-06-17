@@ -1,0 +1,14 @@
+{
+  "path": "tools/beginner-build-checklist.html",
+  "title": "PoE2 Defense Diagnostic — Why Am I Dying?",
+  "description": "Path of Exile 2 defense diagnostic: map death patterns to causes, first fixes, and responsible gear slots. Build-aware mode prefills from build cards.",
+  "heading": "Defense diagnostic",
+  "subtitle": "Death pattern → fix path",
+  "tool_purpose": "Match how you died to a likely cause, first fix, and gear slot. Open from a build card for per-build targets.",
+  "scripts": [
+    "assets/js/defense-diagnostic.js"
+  ],
+  "in_sitemap": true,
+  "content": "\n<p class=\"tool-quicklinks\"><a class=\"button secondary button-sm\" href=\"../builds/starter-elemental-caster.html\">Elemental Caster</a> <a class=\"button secondary button-sm\" href=\"../builds/starter-minion-witch.html\">Minion Witch</a> <span class=\"muted\">— prefill from a build</span></p>\n<div id=\"build-banner\" class=\"notice notice-compact\" style=\"display:none\"></div>\n<div class=\"notice notice-warn notice-compact\"><strong>Verify in game.</strong> Enter the requirement you see on your gem tooltip — numbers here are planning guidance.</div>\n<p><label>Filter patterns: <input id=\"diag-search\" type=\"search\" placeholder=\"e.g. one-shot, mana, greyed out\"></label></p>\n<table class=\"gear responsive-stack\"><thead><tr><th>Death pattern</th><th>Likely cause</th><th>First fix</th><th>Gear slot</th></tr></thead><tbody id=\"diag-results\"></tbody></table>\n<section class=\"build-section\" id=\"build-defense-targets\"></section>\n<h2>Related tools</h2>\n<p class=\"muted\"><a href=\"gear-upgrade-checker.html\">Gear upgrade planner</a> · <a href=\"attribute-checker.html\">Attribute checker</a></p>\n",
+  "order": 6
+}

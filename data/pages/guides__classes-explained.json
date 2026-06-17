@@ -1,0 +1,8 @@
+{
+  "path": "guides/classes-explained.html",
+  "title": "Path of Exile 2 Classes Explained for Beginners",
+  "description": "A beginner-friendly explanation of Path of Exile 2 class choice, playstyle, range, defenses, and learning curve.",
+  "heading": "PoE2 classes explained for beginners",
+  "content": "\n<p class=\"lede\">Your class is your starting point on the passive tree and your early identity. It does not permanently lock every decision, but it strongly shapes your first hours.</p>\n<table><thead><tr><th>Playstyle question</th><th>Beginner-friendly answer</th></tr></thead><tbody>\n<tr><td>Do you want safer spacing?</td><td>Start ranged: caster, bow/projectile, or minion direction.</td></tr>\n<tr><td>Do you enjoy timing and close-range pressure?</td><td>Melee can be satisfying, but it is less forgiving while learning bosses.</td></tr>\n<tr><td>Do you want fewer active decisions?</td><td>Minions/companions can reduce pressure, but scaling details still matter.</td></tr>\n<tr><td>Do you want fast clear?</td><td>Projectile or AoE spell directions often feel smoother for early mapping-style content.</td></tr>\n</tbody></table>\n<h2>How to choose your first class</h2>\n<ol>\n<li>Pick the combat range you enjoy.</li>\n<li>Check whether the build needs a specific item to function.</li>\n<li>Prefer clear scaling words: spell damage, elemental damage, minion damage, projectile damage, attack weapon DPS.</li>\n<li>Avoid a build that needs three mechanics you do not understand yet.</li>\n</ol>\n<h2>What not to overthink</h2>\n<p>Do not restart every time a tier list changes. In Early Access, patches move numbers around often. A stable learning build that reaches later content teaches more than rerolling into every trend.</p>\n",
+  "order": 3
+}

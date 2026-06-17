@@ -1,0 +1,9 @@
+{
+  "path": "guides/beginner-defensive-layers.html",
+  "title": "PoE2 Beginner Defensive Layers Explained",
+  "description": "Path of Exile 2 defensive layers for beginners: life/ES, resistances, recovery, movement, and map mods to avoid.",
+  "heading": "Beginner defensive layers",
+  "in_sitemap": true,
+  "content": "\n<p class=\"lede\">Survival is layered. Fixing one layer without checking the others is why \"I capped resists but still die\" happens.</p>\n<h2>Layers to track</h2>\n<ul>\n<li><strong>Life or energy shield</strong> — raw hit pool.</li>\n<li><strong>Elemental resistances</strong> — cap fire/cold/lightning for maps when possible.</li>\n<li><strong>Recovery</strong> — flasks, regeneration, leech, or sustain skills.</li>\n<li><strong>Movement</strong> — boots movement speed plus a reposition skill.</li>\n<li><strong>Mechanics</strong> — dodge telegraphs, don't face-tank.</li>\n</ul>\n<p>Map mods that punish recovery or add player damage are listed per build on build cards. Use the <a href=\"../tools/beginner-build-checklist.html\">defense diagnostic</a> when you know <em>how</em> you die.</p>\n",
+  "order": 15
+}

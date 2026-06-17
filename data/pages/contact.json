@@ -1,0 +1,8 @@
+{
+  "path": "contact.html",
+  "title": "Contact PoE2 Build Lab",
+  "description": "Contact information for PoE2 Build Lab corrections, guide updates, and feedback.",
+  "heading": "Contact",
+  "content": "\n<p>For corrections, outdated patch notes, or guide suggestions, open an issue on the site repository or contact the maintainer through the linked GitHub profile.</p>\n<p><a href=\"https://github.com/BrickerP/poe2-build-lab\">GitHub repository</a></p>\n",
+  "order": 19
+}
