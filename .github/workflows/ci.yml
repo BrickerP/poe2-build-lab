@@ -19,6 +19,9 @@ jobs:
       - name: Validate build data
         run: python3 scripts/validate_builds.py
 
+      - name: Check patch and review-state SLA
+        run: python3 scripts/check_patch_status.py --check
+
       - name: Check .build exporter (refuses placeholder ids)
         run: |
           python3 scripts/export_build_files.py --selftest
