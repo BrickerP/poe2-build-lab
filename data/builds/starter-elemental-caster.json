@@ -19,12 +19,21 @@
     "notes": "Authored from research cards 03-09; not a copied creator build."
   },
   "source_links": [
-    { "label": "Official PoE2 patch notes forum", "url": "https://www.pathofexile.com/forum/view-forum/2212" },
-    { "label": "Gem ids: Path of Building Community PoE2 (community data)", "url": "https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2" }
+    {
+      "label": "Official PoE2 patch notes forum",
+      "url": "https://www.pathofexile.com/forum/view-forum/2212"
+    },
+    {
+      "label": "Gem ids: Path of Building Community PoE2 (community data)",
+      "url": "https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2"
+    }
   ],
   "trust": {
     "score": 3,
-    "proof": ["research-card", "manual-review"],
+    "proof": [
+      "research-card",
+      "manual-review"
+    ],
     "source_type": "self-authored",
     "verified_at": "2026-06-16",
     "budget_floor": "low",
@@ -36,7 +45,10 @@
       "Fragile if elemental resistances and life are ignored while pushing damage.",
       "Mana sustain can stall the rotation if too many supports are added early."
     ],
-    "risks": ["not-in-game-tested", "patch-sensitive"]
+    "risks": [
+      "not-in-game-tested",
+      "patch-sensitive"
+    ]
   },
   "class": "Sorceress",
   "ascendancy": "Stormweaver",
@@ -55,8 +67,16 @@
       "role": "main",
       "gem_id": "Metadata/Items/Gems/SkillGemSpark",
       "supports": [
-        { "name": "Empowered Sparks", "gem_id": "Metadata/Items/Gems/SupportGemEmpoweredSparks", "note": "Spark-specific damage support; Intelligence-weighted so it fits a pure caster." },
-        { "name": "Spell Echo", "gem_id": "Metadata/Items/Gems/SupportGemSpellEcho", "note": "Repeats the spell for a smoother, higher-uptime feel before chasing raw damage." }
+        {
+          "name": "Empowered Sparks",
+          "gem_id": "Metadata/Items/Gems/SupportGemEmpoweredSparks",
+          "note": "Spark-specific damage support; Intelligence-weighted so it fits a pure caster."
+        },
+        {
+          "name": "Spell Echo",
+          "gem_id": "Metadata/Items/Gems/SupportGemSpellEcho",
+          "note": "Repeats the spell for a smoother, higher-uptime feel before chasing raw damage."
+        }
       ],
       "note": "Spark is the shipped import choice: a lightning projectile that fans out and ricochets, so it is easy to land while kiting and a proven Stormweaver starter. The archetype also works with other Intelligence-weighted elemental spells if you prefer."
     },
@@ -65,75 +85,277 @@
       "role": "movement",
       "gem_id": "Metadata/Items/Gem/SkillGemBlink",
       "supports": [],
-      "note": "Short-range teleport for repositioning — your main defensive layer as a ranged caster."
+      "note": "Short-range teleport for repositioning \u2014 your main defensive layer as a ranged caster."
     }
   ],
   "passive_milestones": [
-    { "stage": "Early campaign", "goal": "Take nearby life and elemental damage clusters; avoid travelling far for niche keystones." },
-    { "stage": "Mid campaign", "goal": "Pick up cast speed and a recovery/leech node so the rotation sustains during longer fights." },
-    { "stage": "Late campaign", "goal": "Path toward resistance and life mastery options before chasing pure damage." }
+    {
+      "stage": "Early campaign",
+      "goal": "Take nearby lightning and life clusters from the Sorceress start.",
+      "node_ids": [
+        "lightning1_",
+        "lightning2",
+        "mastery_life128"
+      ]
+    },
+    {
+      "stage": "Mid campaign",
+      "goal": "Pick up cast speed and recovery so Spark sustains during fights.",
+      "node_ids": [
+        "cast_speed1",
+        "cast_speed2"
+      ]
+    },
+    {
+      "stage": "Late campaign",
+      "goal": "Path toward resistance and life masteries before pure damage.",
+      "node_ids": [
+        "mastery_life131",
+        "mastery_fire_resistance_6526"
+      ]
+    }
   ],
   "attributes": {
-    "required": { "str": 0, "dex": 0, "int": 0 },
-    "planned": { "str": 0, "dex": 0, "int": 0 },
+    "required": {
+      "str": 0,
+      "dex": 0,
+      "int": 100
+    },
+    "planned": {
+      "str": 0,
+      "dex": 0,
+      "int": 120
+    },
     "deficit_policy": "warn",
     "notes": [
-      "Exact Strength/Dexterity/Intelligence requirements need verified gem and base data before publishing as final.",
-      "Caster gems are Intelligence-weighted; keep Intelligence comfortably above your highest gem requirement."
+      "Spark and linked supports require 100 Intelligence at level 1 (community gem data).",
+      "Sorceress start supplies Intelligence from the tree; amulet/rings patch gaps from gear swaps."
     ]
   },
   "gear_slots": {
     "weapon": {
       "base": "Spell-focused weapon (wand/sceptre/staff)",
-      "priority": ["+gem levels or spell/elemental damage", "cast speed", "mana or attributes"],
+      "priority": [
+        "+gem levels or spell/elemental damage",
+        "cast speed",
+        "mana or attributes"
+      ],
+      "required_affixes": [
+        "spell or elemental damage",
+        "+gem levels"
+      ],
+      "good_affixes": [
+        "cast speed",
+        "mana or attributes"
+      ],
+      "luxury_affixes": [
+        "high-tier dual damage prefixes"
+      ],
+      "budget_compromise": "One damage line on a cheap rare beats an empty socket.",
+      "campaign_target": "Any wand with spell/elemental damage",
+      "early_maps_target": "+1 levels with cast speed if affordable",
+      "red_maps_target": "Strong spell damage + cast speed on a good base",
       "budget_note": "Use a cheap rare during campaign; do not chase perfect affixes early."
     },
     "body_armour": {
       "base": "Energy-shield or hybrid base that meets attribute requirements",
-      "priority": ["life or energy shield", "elemental resistances", "attributes if a gem is gated"],
+      "priority": [
+        "life or energy shield",
+        "elemental resistances",
+        "attributes if a gem is gated"
+      ],
+      "required_affixes": [
+        "life or energy shield",
+        "one elemental resistance"
+      ],
+      "good_affixes": [
+        "second resistance",
+        "+intelligence"
+      ],
+      "luxury_affixes": [
+        "high life + dual res + ES"
+      ],
+      "budget_compromise": "Life/ES with one resistance.",
+      "campaign_target": "Life + two resistances",
+      "early_maps_target": "Fill resistance gaps before luxury ES",
+      "red_maps_target": "High life/ES with capped resists",
       "budget_note": "Survivability first; a defensive chest outvalues a damage roll early."
     },
     "helmet": {
       "base": "Any base meeting attribute requirements",
-      "priority": ["life or energy shield", "resistances", "attributes"],
-      "budget_note": "A plain rare with life and resists is enough for campaign."
+      "priority": [
+        "life or energy shield",
+        "resistances",
+        "attributes"
+      ],
+      "required_affixes": [
+        "life or energy shield",
+        "one resistance"
+      ],
+      "good_affixes": [
+        "second resistance",
+        "attributes"
+      ],
+      "luxury_affixes": [
+        "+gem levels on helmet"
+      ],
+      "budget_compromise": "Life + one resistance.",
+      "campaign_target": "Life + two resistances",
+      "early_maps_target": "Attributes if gem requirements tighten",
+      "red_maps_target": "Life + resists before damage",
+      "budget_note": "Plain rare with life and resists is enough for campaign."
     },
     "gloves": {
       "base": "Any base meeting attribute requirements",
-      "priority": ["resistances", "life", "cast speed if affordable"],
+      "priority": [
+        "resistances",
+        "life",
+        "cast speed if affordable"
+      ],
+      "required_affixes": [
+        "elemental resistance"
+      ],
+      "good_affixes": [
+        "life",
+        "cast speed"
+      ],
+      "luxury_affixes": [
+        "+gem levels"
+      ],
+      "budget_compromise": "Resistance filler slot.",
+      "campaign_target": "Life + resistances",
+      "early_maps_target": "Cast speed if resists capped",
+      "red_maps_target": "Cast speed + life with capped resists",
       "budget_note": "Fill resistance gaps here cheaply."
     },
     "boots": {
       "base": "Any defensive base that meets attribute requirements",
-      "priority": ["movement speed", "life or energy shield", "resistances"],
+      "priority": [
+        "movement speed",
+        "life or energy shield",
+        "resistances"
+      ],
+      "required_affixes": [
+        "movement speed"
+      ],
+      "good_affixes": [
+        "life or energy shield",
+        "one resistance"
+      ],
+      "luxury_affixes": [
+        "high movement + dual res"
+      ],
+      "budget_compromise": "Movement speed is non-negotiable.",
+      "campaign_target": "Movement speed + life + one res",
+      "early_maps_target": "Movement speed with two resistances",
+      "red_maps_target": "High movement with capped resists",
       "budget_note": "Movement speed is a practical defensive stat for a ranged caster."
     },
     "belt": {
       "base": "Any belt base",
-      "priority": ["life", "resistances", "flask or charm utility"],
-      "budget_note": "Belts are an easy slot to patch resistance holes."
+      "priority": [
+        "life",
+        "resistances",
+        "flask or charm utility"
+      ],
+      "required_affixes": [
+        "life",
+        "one resistance"
+      ],
+      "good_affixes": [
+        "second resistance",
+        "flask duration"
+      ],
+      "luxury_affixes": [
+        "high life triple resistance"
+      ],
+      "budget_compromise": "Life + resistance to patch gaps.",
+      "campaign_target": "Life + two resistances",
+      "early_maps_target": "Flask utility with life",
+      "red_maps_target": "High life and resistances",
+      "budget_note": "Easy slot to patch resistance holes."
     },
     "amulet": {
       "base": "Any amulet base",
-      "priority": ["+intelligence", "spell/elemental damage", "life or resistances"],
-      "budget_note": "The amulet often carries the Intelligence that keeps your gems usable."
+      "priority": [
+        "+intelligence",
+        "spell/elemental damage",
+        "life or resistances"
+      ],
+      "required_affixes": [
+        "+intelligence"
+      ],
+      "good_affixes": [
+        "spell/elemental damage",
+        "life"
+      ],
+      "luxury_affixes": [
+        "+gem levels",
+        "critical modifiers"
+      ],
+      "budget_compromise": "Intelligence to meet gem requirements.",
+      "campaign_target": "Int + life or res",
+      "early_maps_target": "Spell damage with Int buffer",
+      "red_maps_target": "Damage + Int with capped resists",
+      "budget_note": "Often carries Intelligence that keeps gems usable."
     },
     "ring_1": {
       "base": "Any ring base",
-      "priority": ["elemental resistances", "life", "attributes if a requirement is tight"],
-      "budget_note": "Rings are your most flexible resistance slots."
+      "priority": [
+        "elemental resistances",
+        "life",
+        "attributes if a requirement is tight"
+      ],
+      "required_affixes": [
+        "elemental resistance"
+      ],
+      "good_affixes": [
+        "life",
+        "attributes"
+      ],
+      "luxury_affixes": [
+        "mana",
+        "cast speed"
+      ],
+      "budget_compromise": "Resistance + life rare.",
+      "campaign_target": "Two resistances or life + res",
+      "early_maps_target": "Life + dual res",
+      "red_maps_target": "Patch resistance gaps",
+      "budget_note": "Most flexible resistance slots."
     },
     "ring_2": {
       "base": "Any ring base",
-      "priority": ["elemental resistances", "life", "mana or attributes"],
+      "priority": [
+        "elemental resistances",
+        "life",
+        "mana or attributes"
+      ],
+      "required_affixes": [
+        "elemental resistance"
+      ],
+      "good_affixes": [
+        "life",
+        "mana"
+      ],
+      "luxury_affixes": [
+        "cast speed"
+      ],
+      "budget_compromise": "Second resistance filler.",
+      "campaign_target": "Life + resistance",
+      "early_maps_target": "Dual resistances",
+      "red_maps_target": "Last resistance gap",
       "budget_note": "Pair with ring 1 to finish capping resistances."
     }
   },
   "gear_swap_warnings": [
     {
       "slot": "amulet",
-      "removed_stats": ["+intelligence"],
-      "breaks": ["Primary elemental spell"],
+      "removed_stats": [
+        "+intelligence"
+      ],
+      "breaks": [
+        "Primary elemental spell"
+      ],
       "message": "If your amulet supplies the Intelligence that meets your spell gem requirement, swapping it without replacing that Intelligence can disable your main skill."
     }
   ],
@@ -149,7 +371,37 @@
     "recovery": "Plan one reliable recovery layer (life/ES regeneration, leech, or flask uptime).",
     "movement_baseline": "Movement speed on boots plus a movement/escape skill.",
     "chaos_resistance_note": "Chaos resistance is a bonus during campaign, not a campaign priority.",
-    "map_mods_to_avoid": ["Not yet verified in-game for this draft; review before mapping."]
+    "map_mods_to_avoid": [
+      "Reduced player recovery \u2014 harder to sustain mana and life between packs.",
+      "Monsters deal extra damage / player takes increased damage before resists are capped.",
+      "Less player damage if your clear is already borderline."
+    ],
+    "death_diagnostic": [
+      {
+        "pattern": "Boss one-shots you",
+        "cause": "Low life/resists or missed telegraph",
+        "first_fix": "Cap resists and add life on chest/belt/rings",
+        "gear_slot": "body_armour"
+      },
+      {
+        "pattern": "Skill greys out after gear swap",
+        "cause": "Lost Intelligence from amulet or rings",
+        "first_fix": "Restore Int on amulet before chasing damage",
+        "gear_slot": "amulet"
+      },
+      {
+        "pattern": "Runs out of mana constantly",
+        "cause": "Too many mana-heavy supports early",
+        "first_fix": "Drop one support or add mana on weapon/rings",
+        "gear_slot": "weapon"
+      },
+      {
+        "pattern": "Clear is slow but you rarely die",
+        "cause": "Weapon or gem levels behind",
+        "first_fix": "Upgrade weapon spell damage or gem levels",
+        "gear_slot": "weapon"
+      }
+    ]
   },
   "trade_handoff": {
     "enabled": true,
@@ -157,30 +409,82 @@
       {
         "slot": "weapon",
         "budget_tier": "low",
-        "required_stats": ["spell or elemental damage", "matching attribute requirement you can meet"],
-        "optional_stats": ["+gem levels", "cast speed"],
-        "ignore_at_low_budget": ["perfect tier affixes", "high-cost prefix/suffix combos"]
+        "required_stats": [
+          "spell or elemental damage"
+        ],
+        "optional_stats": [
+          "+gem levels",
+          "cast speed"
+        ],
+        "ignore_at_low_budget": [
+          "perfect tier combos"
+        ],
+        "filter_recipe": "Search: Rare wand/sceptre with spell or elemental damage; add cast speed if budget allows.",
+        "trade_url": "https://www.pathofexile.com/trade2"
       },
       {
         "slot": "boots",
         "budget_tier": "low",
-        "required_stats": ["movement speed", "one needed resistance"],
-        "optional_stats": ["life or energy shield"],
-        "ignore_at_low_budget": ["damage rolls"]
+        "required_stats": [
+          "movement speed"
+        ],
+        "optional_stats": [
+          "life or energy shield",
+          "elemental resistance"
+        ],
+        "ignore_at_low_budget": [
+          "damage rolls"
+        ],
+        "filter_recipe": "Search: Rare boots with movement speed; life and one resistance are ideal.",
+        "trade_url": "https://www.pathofexile.com/trade2"
       },
       {
         "slot": "ring_1",
         "budget_tier": "low",
-        "required_stats": ["elemental resistance"],
-        "optional_stats": ["life", "attributes"],
-        "ignore_at_low_budget": ["damage rolls"]
+        "required_stats": [
+          "elemental resistance"
+        ],
+        "optional_stats": [
+          "life",
+          "attributes"
+        ],
+        "ignore_at_low_budget": [
+          "damage rolls"
+        ],
+        "filter_recipe": "Search: Rare ring with any elemental resistance.",
+        "trade_url": "https://www.pathofexile.com/trade2"
+      },
+      {
+        "slot": "ring_2",
+        "budget_tier": "low",
+        "required_stats": [
+          "elemental resistance"
+        ],
+        "optional_stats": [
+          "life",
+          "mana"
+        ],
+        "ignore_at_low_budget": [
+          "damage rolls"
+        ],
+        "filter_recipe": "Search: Second ring to finish resistance coverage.",
+        "trade_url": "https://www.pathofexile.com/trade2"
       },
       {
         "slot": "amulet",
         "budget_tier": "low",
-        "required_stats": ["+intelligence or resistances"],
-        "optional_stats": ["spell/elemental damage", "life"],
-        "ignore_at_low_budget": ["luxury double-damage rolls"]
+        "required_stats": [
+          "+intelligence or resistances"
+        ],
+        "optional_stats": [
+          "spell/elemental damage",
+          "life"
+        ],
+        "ignore_at_low_budget": [
+          "luxury double-damage"
+        ],
+        "filter_recipe": "Search: Amulet with Intelligence so Spark stays active.",
+        "trade_url": "https://www.pathofexile.com/trade2"
       }
     ]
   },

@@ -342,6 +342,26 @@ def business_rules(build, manifest, passive_tree, community_manifest, community_
                 f"trade_handoff.filters[{i}] has approx_price without checked_at"
             )
 
+    # Published builds: expanded gear guidance (Phase 4) on core slots.
+    if published:
+        core_slots = (
+            "weapon", "body_armour", "helmet", "gloves", "boots",
+            "belt", "amulet", "ring_1", "ring_2",
+        )
+        for slot in core_slots:
+            data = build.get("gear_slots", {}).get(slot)
+            if not data:
+                errors.append(f"published build missing gear_slots.{slot}")
+                continue
+            for field in (
+                "required_affixes", "good_affixes", "luxury_affixes",
+                "campaign_target", "early_maps_target",
+            ):
+                if not data.get(field):
+                    errors.append(
+                        f"published build gear_slots.{slot} missing {field}"
+                    )
+
     # Patch staleness: a published build cannot claim 'current' past its window.
     if published and build.get("review_state") == "current":
         reviewed = parse_date(build.get("last_reviewed"))

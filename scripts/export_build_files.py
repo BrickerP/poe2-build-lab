@@ -120,6 +120,16 @@ def _slot_additional_text(slot_name, slot):
     priorities = slot.get("priority", [])
     lines = ["Stat Priority", "-------------------"]
     lines += [f"{i + 1}. {p}" for i, p in enumerate(priorities)]
+    if slot.get("required_affixes"):
+        lines += ["", "Required affixes", "-------------------"]
+        lines += [f"- {a}" for a in slot["required_affixes"]]
+    if slot.get("good_affixes"):
+        lines += ["", "Good affixes", "-------------------"]
+        lines += [f"- {a}" for a in slot["good_affixes"]]
+    if slot.get("campaign_target"):
+        lines += ["", f"Campaign: {slot['campaign_target']}"]
+    if slot.get("early_maps_target"):
+        lines += [f"Early maps: {slot['early_maps_target']}"]
     # Real newlines: json.dumps serializes them as the \n escape GGG's official
     # .build example uses, so the in-game markup renders line breaks (not a
     # literal "\n"). See docs/research/03-build-planner-build-files.md.

@@ -2,7 +2,15 @@
   "name": "Starter Elemental Caster",
   "author": "PoE2 Build Lab",
   "ascendancy": "Sorceress1",
-  "passives": [],
+  "passives": [
+    "lightning1_",
+    "lightning2",
+    "mastery_life128",
+    "cast_speed1",
+    "cast_speed2",
+    "mastery_life131",
+    "mastery_fire_resistance_6526"
+  ],
   "skills": [
     {
       "id": "Metadata/Items/Gems/SkillGemSpark",
@@ -26,39 +34,39 @@
   "inventory_slots": [
     {
       "inventory_id": "Weapon1",
-      "additional_text": "<silver>{Spell-focused weapon (wand/sceptre/staff)}\n\n<grey>{Stat Priority\n-------------------\n1. +gem levels or spell/elemental damage\n2. cast speed\n3. mana or attributes}\n\n<grey>{Budget: Use a cheap rare during campaign; do not chase perfect affixes early.}"
+      "additional_text": "<silver>{Spell-focused weapon (wand/sceptre/staff)}\n\n<grey>{Stat Priority\n-------------------\n1. +gem levels or spell/elemental damage\n2. cast speed\n3. mana or attributes\n\nRequired affixes\n-------------------\n- spell or elemental damage\n- +gem levels\n\nGood affixes\n-------------------\n- cast speed\n- mana or attributes\n\nCampaign: Any wand with spell/elemental damage\nEarly maps: +1 levels with cast speed if affordable}\n\n<grey>{Budget: Use a cheap rare during campaign; do not chase perfect affixes early.}"
     },
     {
       "inventory_id": "BodyArmour1",
-      "additional_text": "<silver>{Energy-shield or hybrid base that meets attribute requirements}\n\n<grey>{Stat Priority\n-------------------\n1. life or energy shield\n2. elemental resistances\n3. attributes if a gem is gated}\n\n<grey>{Budget: Survivability first; a defensive chest outvalues a damage roll early.}"
+      "additional_text": "<silver>{Energy-shield or hybrid base that meets attribute requirements}\n\n<grey>{Stat Priority\n-------------------\n1. life or energy shield\n2. elemental resistances\n3. attributes if a gem is gated\n\nRequired affixes\n-------------------\n- life or energy shield\n- one elemental resistance\n\nGood affixes\n-------------------\n- second resistance\n- +intelligence\n\nCampaign: Life + two resistances\nEarly maps: Fill resistance gaps before luxury ES}\n\n<grey>{Budget: Survivability first; a defensive chest outvalues a damage roll early.}"
     },
     {
       "inventory_id": "Helm1",
-      "additional_text": "<silver>{Any base meeting attribute requirements}\n\n<grey>{Stat Priority\n-------------------\n1. life or energy shield\n2. resistances\n3. attributes}\n\n<grey>{Budget: A plain rare with life and resists is enough for campaign.}"
+      "additional_text": "<silver>{Any base meeting attribute requirements}\n\n<grey>{Stat Priority\n-------------------\n1. life or energy shield\n2. resistances\n3. attributes\n\nRequired affixes\n-------------------\n- life or energy shield\n- one resistance\n\nGood affixes\n-------------------\n- second resistance\n- attributes\n\nCampaign: Life + two resistances\nEarly maps: Attributes if gem requirements tighten}\n\n<grey>{Budget: Plain rare with life and resists is enough for campaign.}"
     },
     {
       "inventory_id": "Gloves1",
-      "additional_text": "<silver>{Any base meeting attribute requirements}\n\n<grey>{Stat Priority\n-------------------\n1. resistances\n2. life\n3. cast speed if affordable}\n\n<grey>{Budget: Fill resistance gaps here cheaply.}"
+      "additional_text": "<silver>{Any base meeting attribute requirements}\n\n<grey>{Stat Priority\n-------------------\n1. resistances\n2. life\n3. cast speed if affordable\n\nRequired affixes\n-------------------\n- elemental resistance\n\nGood affixes\n-------------------\n- life\n- cast speed\n\nCampaign: Life + resistances\nEarly maps: Cast speed if resists capped}\n\n<grey>{Budget: Fill resistance gaps here cheaply.}"
     },
     {
       "inventory_id": "Boots1",
-      "additional_text": "<silver>{Any defensive base that meets attribute requirements}\n\n<grey>{Stat Priority\n-------------------\n1. movement speed\n2. life or energy shield\n3. resistances}\n\n<grey>{Budget: Movement speed is a practical defensive stat for a ranged caster.}"
+      "additional_text": "<silver>{Any defensive base that meets attribute requirements}\n\n<grey>{Stat Priority\n-------------------\n1. movement speed\n2. life or energy shield\n3. resistances\n\nRequired affixes\n-------------------\n- movement speed\n\nGood affixes\n-------------------\n- life or energy shield\n- one resistance\n\nCampaign: Movement speed + life + one res\nEarly maps: Movement speed with two resistances}\n\n<grey>{Budget: Movement speed is a practical defensive stat for a ranged caster.}"
     },
     {
       "inventory_id": "Belt1",
-      "additional_text": "<silver>{Any belt base}\n\n<grey>{Stat Priority\n-------------------\n1. life\n2. resistances\n3. flask or charm utility}\n\n<grey>{Budget: Belts are an easy slot to patch resistance holes.}"
+      "additional_text": "<silver>{Any belt base}\n\n<grey>{Stat Priority\n-------------------\n1. life\n2. resistances\n3. flask or charm utility\n\nRequired affixes\n-------------------\n- life\n- one resistance\n\nGood affixes\n-------------------\n- second resistance\n- flask duration\n\nCampaign: Life + two resistances\nEarly maps: Flask utility with life}\n\n<grey>{Budget: Easy slot to patch resistance holes.}"
     },
     {
       "inventory_id": "Amulet1",
-      "additional_text": "<silver>{Any amulet base}\n\n<grey>{Stat Priority\n-------------------\n1. +intelligence\n2. spell/elemental damage\n3. life or resistances}\n\n<grey>{Budget: The amulet often carries the Intelligence that keeps your gems usable.}"
+      "additional_text": "<silver>{Any amulet base}\n\n<grey>{Stat Priority\n-------------------\n1. +intelligence\n2. spell/elemental damage\n3. life or resistances\n\nRequired affixes\n-------------------\n- +intelligence\n\nGood affixes\n-------------------\n- spell/elemental damage\n- life\n\nCampaign: Int + life or res\nEarly maps: Spell damage with Int buffer}\n\n<grey>{Budget: Often carries Intelligence that keeps gems usable.}"
     },
     {
       "inventory_id": "Ring1",
-      "additional_text": "<silver>{Any ring base}\n\n<grey>{Stat Priority\n-------------------\n1. elemental resistances\n2. life\n3. attributes if a requirement is tight}\n\n<grey>{Budget: Rings are your most flexible resistance slots.}"
+      "additional_text": "<silver>{Any ring base}\n\n<grey>{Stat Priority\n-------------------\n1. elemental resistances\n2. life\n3. attributes if a requirement is tight\n\nRequired affixes\n-------------------\n- elemental resistance\n\nGood affixes\n-------------------\n- life\n- attributes\n\nCampaign: Two resistances or life + res\nEarly maps: Life + dual res}\n\n<grey>{Budget: Most flexible resistance slots.}"
     },
     {
       "inventory_id": "Ring2",
-      "additional_text": "<silver>{Any ring base}\n\n<grey>{Stat Priority\n-------------------\n1. elemental resistances\n2. life\n3. mana or attributes}\n\n<grey>{Budget: Pair with ring 1 to finish capping resistances.}"
+      "additional_text": "<silver>{Any ring base}\n\n<grey>{Stat Priority\n-------------------\n1. elemental resistances\n2. life\n3. mana or attributes\n\nRequired affixes\n-------------------\n- elemental resistance\n\nGood affixes\n-------------------\n- life\n- mana\n\nCampaign: Life + resistance\nEarly maps: Dual resistances}\n\n<grey>{Budget: Pair with ring 1 to finish capping resistances.}"
     }
   ]
 }

@@ -1,0 +1,78 @@
+{
+  "name": "Starter Minion / Companion Witch",
+  "author": "PoE2 Build Lab",
+  "ascendancy": "Witch3",
+  "passives": [
+    "minion_offence1",
+    "minion_offence3",
+    "minion_defence1",
+    "minion_defence2",
+    "minion_offence4",
+    "mastery_life131",
+    "minion_offence5",
+    "minion_defence3",
+    "mastery_life132"
+  ],
+  "skills": [
+    {
+      "id": "Metadata/Items/Gems/SkillGemRaiseZombie",
+      "additional_text": "Your main army skill. Keep zombie count stable before chasing luxury damage supports.",
+      "support_skills": [
+        {
+          "id": "Metadata/Items/Gem/SupportGemMinionPact",
+          "additional_text": "Core minion damage scaling; Intelligence-weighted."
+        },
+        {
+          "id": "Metadata/Items/Gem/SupportGemLastGasp",
+          "additional_text": "Helps minions survive longer between resummons."
+        }
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemFrostWall",
+      "additional_text": "Blocks enemy paths while minions fight — cheap defensive utility that does not add Spirit reservation."
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemBlink",
+      "additional_text": "Short-range escape. Minions do not make you invincible — you still dodge."
+    }
+  ],
+  "inventory_slots": [
+    {
+      "inventory_id": "Weapon1",
+      "additional_text": "<silver>{Sceptre or minion-supporting spell weapon}\n\n<grey>{Stat Priority\n-------------------\n1. +minion gem levels or minion damage\n2. Spirit\n3. attributes\n\nRequired affixes\n-------------------\n- +minion levels or minion damage\n\nGood affixes\n-------------------\n- Spirit\n- +intelligence\n\nCampaign: Any sceptre with minion damage or +levels\nEarly maps: Spirit source plus minion damage}\n\n<grey>{Budget: Spirit or +minion levels beats raw spell damage for this build.}"
+    },
+    {
+      "inventory_id": "BodyArmour1",
+      "additional_text": "<silver>{Energy-shield or hybrid base that meets attribute requirements}\n\n<grey>{Stat Priority\n-------------------\n1. life or energy shield\n2. elemental resistances\n3. Spirit if available\n\nRequired affixes\n-------------------\n- life or energy shield\n- one elemental resistance\n\nGood affixes\n-------------------\n- second resistance\n- Spirit\n\nCampaign: Life/ES with two resistances\nEarly maps: Fill resistance gaps; Spirit is a bonus}\n\n<grey>{Budget: Your own survivability matters; do not hide behind minions alone.}"
+    },
+    {
+      "inventory_id": "Helm1",
+      "additional_text": "<silver>{Any base meeting attribute requirements}\n\n<grey>{Stat Priority\n-------------------\n1. life or energy shield\n2. resistances\n3. minion modifiers if available\n\nRequired affixes\n-------------------\n- life or energy shield\n- one resistance\n\nGood affixes\n-------------------\n- minion life or damage\n- second resistance\n\nCampaign: Life + two resistances\nEarly maps: Minion survivability modifiers if affordable}\n\n<grey>{Budget: Plain rare with life and resists is enough for campaign.}"
+    },
+    {
+      "inventory_id": "Gloves1",
+      "additional_text": "<silver>{Any base meeting attribute requirements}\n\n<grey>{Stat Priority\n-------------------\n1. resistances\n2. life\n3. minion or cast modifiers if affordable\n\nRequired affixes\n-------------------\n- elemental resistance\n\nGood affixes\n-------------------\n- life\n- minion damage\n\nCampaign: Life + resistances\nEarly maps: Minion damage if resistances are capped}\n\n<grey>{Budget: Fill resistance gaps cheaply here.}"
+    },
+    {
+      "inventory_id": "Boots1",
+      "additional_text": "<silver>{Any defensive base that meets attribute requirements}\n\n<grey>{Stat Priority\n-------------------\n1. movement speed\n2. life or energy shield\n3. resistances\n\nRequired affixes\n-------------------\n- movement speed\n\nGood affixes\n-------------------\n- life or energy shield\n- one resistance\n\nCampaign: Movement speed + life + one res\nEarly maps: Movement speed with two resistances}\n\n<grey>{Budget: Movement speed keeps you out of danger while minions fight.}"
+    },
+    {
+      "inventory_id": "Belt1",
+      "additional_text": "<silver>{Any belt base}\n\n<grey>{Stat Priority\n-------------------\n1. life\n2. resistances\n3. flask or charm utility\n\nRequired affixes\n-------------------\n- life\n- one resistance\n\nGood affixes\n-------------------\n- second resistance\n- flask duration\n\nCampaign: Life + two resistances\nEarly maps: Flask/charm utility with life}\n\n<grey>{Budget: Easy slot to patch resistance holes.}"
+    },
+    {
+      "inventory_id": "Amulet1",
+      "additional_text": "<silver>{Any amulet base}\n\n<grey>{Stat Priority\n-------------------\n1. Spirit or +intelligence\n2. minion modifiers\n3. life or resistances\n\nRequired affixes\n-------------------\n- +intelligence or Spirit\n\nGood affixes\n-------------------\n- minion damage\n- life\n\nCampaign: Int/Spirit with life or res\nEarly maps: Minion damage with Spirit or Int}\n\n<grey>{Budget: Can carry Spirit or Intelligence that keeps minions running.}"
+    },
+    {
+      "inventory_id": "Ring1",
+      "additional_text": "<silver>{Any ring base}\n\n<grey>{Stat Priority\n-------------------\n1. elemental resistances\n2. life\n3. attributes if a requirement is tight\n\nRequired affixes\n-------------------\n- elemental resistance\n\nGood affixes\n-------------------\n- life\n- attributes\n\nCampaign: Two resistances or life + res\nEarly maps: Life + dual res}\n\n<grey>{Budget: Most flexible resistance slot.}"
+    },
+    {
+      "inventory_id": "Ring2",
+      "additional_text": "<silver>{Any ring base}\n\n<grey>{Stat Priority\n-------------------\n1. elemental resistances\n2. life\n3. mana or attributes\n\nRequired affixes\n-------------------\n- elemental resistance\n\nGood affixes\n-------------------\n- life\n- mana\n\nCampaign: Life + resistance\nEarly maps: Dual resistances}\n\n<grey>{Budget: Pair with ring 1 to finish capping resistances.}"
+    }
+  ]
+}

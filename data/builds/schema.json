@@ -249,7 +249,14 @@
             "minItems": 1,
             "items": { "type": "string" }
           },
-          "budget_note": { "type": "string" }
+          "budget_note": { "type": "string" },
+          "required_affixes": { "type": "array", "items": { "type": "string" } },
+          "good_affixes": { "type": "array", "items": { "type": "string" } },
+          "luxury_affixes": { "type": "array", "items": { "type": "string" } },
+          "budget_compromise": { "type": "string" },
+          "campaign_target": { "type": "string" },
+          "early_maps_target": { "type": "string" },
+          "red_maps_target": { "type": "string" }
         }
       }
     },
@@ -277,7 +284,21 @@
         "recovery": { "type": "string" },
         "movement_baseline": { "type": "string" },
         "chaos_resistance_note": { "type": "string" },
-        "map_mods_to_avoid": { "type": "array", "items": { "type": "string" } }
+        "map_mods_to_avoid": { "type": "array", "items": { "type": "string" } },
+        "death_diagnostic": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["pattern", "cause", "first_fix", "gear_slot"],
+            "properties": {
+              "pattern": { "type": "string" },
+              "cause": { "type": "string" },
+              "first_fix": { "type": "string" },
+              "gear_slot": { "type": "string" }
+            }
+          }
+        }
       }
     },
     "trade_handoff": {
@@ -299,6 +320,7 @@
               "optional_stats": { "type": "array", "items": { "type": "string" } },
               "ignore_at_low_budget": { "type": "array", "items": { "type": "string" } },
               "trade_url": { "type": "string" },
+              "filter_recipe": { "type": "string" },
               "approx_price": { "type": "string" },
               "checked_at": {
                 "type": "string",
