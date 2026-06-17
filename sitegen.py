@@ -7,9 +7,9 @@ ADSENSE_CLIENT = "ca-pub-1111218417177666"
 
 SITE = {
     "name": "PoE2 Build Lab",
-    "tagline": "Clear Path of Exile 2 starter guides, build checklists, and patch-aware beginner notes.",
+    "tagline": "PoE2 Build Decision Assistant — patch-reviewed build cards, attribute checks, gear upgrades, defenses, trade handoff, and .build import.",
     "url": "https://brickerp.github.io/poe2-build-lab/",
-    "updated": "2026-06-16",
+    "updated": "2026-06-17",
     "patch": "0.5.2 Early Access"
 }
 
@@ -17,9 +17,10 @@ NAV = [
     ("Home", "index.html"),
     ("Build Cards", "builds/index.html"),
     ("Attribute Checker", "tools/attribute-checker.html"),
-    ("Beginner Guide", "guides/beginner-guide.html"),
-    ("Currency", "guides/currency-guide.html"),
-    ("Checklist", "tools/beginner-build-checklist.html"),
+    ("Gear Upgrade", "tools/gear-upgrade-checker.html"),
+    ("Defense Diagnostic", "tools/beginner-build-checklist.html"),
+    ("Guides", "guides/index.html"),
+    ("Endgame Hub", "guides/endgame-hub.html"),
     ("About", "about.html"),
 ]
 
@@ -43,19 +44,19 @@ pages = [
         "hero": True,
         "content": """
 <section class=\"grid cards\">
-  <article class=\"card highlight\"><p class=\"eyebrow\">Start here</p><h2>Build cards</h2><p>Compare starter builds by patch trust, budget, complexity, gear priorities, and what can go wrong — before spending your first passive points.</p><a class=\"button\" href=\"builds/index.html\">Browse build cards</a></article>
-  <article class=\"card\"><p class=\"eyebrow\">New player guide</p><h2>What to do first</h2><p>A quick path through skills, support gems, defenses, and early upgrades.</p><a href=\"guides/beginner-guide.html\">Open guide</a></article>
-  <article class=\"card\"><p class=\"eyebrow\">Systems</p><h2>Currency basics</h2><p>Understand common crafting and upgrade currencies before you waste valuable items.</p><a href=\"guides/currency-guide.html\">Learn currency</a></article>
+  <article class=\"card highlight\"><p class=\"eyebrow\">Decision assistant</p><h2>Build cards</h2><p>Compare starters by patch trust, budget, gear slots, attributes, Spirit, defenses, trade filters, and .build import status — one decision chain, not a prose tier list.</p><a class=\"button\" href=\"builds/index.html\">Browse build cards</a></article>
+  <article class=\"card\"><p class=\"eyebrow\">Tools</p><h2>Attribute &amp; gear-swap checker</h2><p>What am I missing? What breaks if I swap this amulet?</p><a href=\"tools/attribute-checker.html\">Open checker</a></article>
+  <article class=\"card\"><p class=\"eyebrow\">Tools</p><h2>Gear upgrade planner</h2><p>Slot-by-slot affix priorities for campaign vs maps — tied to each build card.</p><a href=\"tools/gear-upgrade-checker.html\">Plan upgrades</a></article>
 </section>
 <section class=\"content-block\">
-  <h2>Current editorial stance</h2>
-  <p>PoE2 Build Lab is starting as a focused beginner resource for Path of Exile 2 Early Access. Guides are written to be version-labeled and easy to update after patches. We avoid claiming a build is the absolute best unless it has been checked against current patch notes and in-game evidence.</p>
-  <div class=\"notice\"><strong>Patch context:</strong> The site currently tracks <b>0.5.2 Early Access</b>. Treat all build advice as a starting point and verify before investing expensive currency.</div>
+  <h2>How this beats a generic guide site</h2>
+  <p>Maxroll and Mobalytics excel at guide volume and planners. PoE2 Build Lab connects the jobs they leave separate: trust metadata, attribute deficits, gear-slot priorities, trade filter recipes (not prices), defense diagnostics, and official <code>.build</code> handoff from the same build JSON.</p>
+  <div class=\"notice\"><strong>Patch context:</strong> Tracking <b>0.5.2 Early Access</b>. Every build card shows <code>last_reviewed</code>, <code>review_state</code>, and <code>known_broken_by_patch</code>. Verify in game before expensive investments.</div>
 </section>
 <section class=\"grid cards\">
-  <article class=\"card\"><h3>Classes explained</h3><p>Choose a class based on playstyle, range, defense, and early learning curve.</p><a href=\"guides/classes-explained.html\">Compare classes</a></article>
-  <article class=\"card\"><h3>Skill gems explained</h3><p>Skill gems, support gems, and why links matter more than raw tooltip damage.</p><a href=\"guides/skill-gems-explained.html\">Read systems guide</a></article>
-  <article class=\"card\"><h3>Beginner checklist</h3><p>A practical act-by-act checklist for defenses, flasks, gems, and upgrades.</p><a href=\"tools/beginner-build-checklist.html\">Use checklist</a></article>
+  <article class=\"card\"><h3>Defense diagnostic</h3><p>Death pattern → cause → first fix → responsible gear slot.</p><a href=\"tools/beginner-build-checklist.html\">Run diagnostic</a></article>
+  <article class=\"card\"><h3>Guides hub</h3><p>Attributes, gear priorities, build bait, post-campaign, and endgame blockers.</p><a href=\"guides/index.html\">Browse guides</a></article>
+  <article class=\"card\"><h3>Import .build files</h3><p>Download path, Windows/SteamOS folders, and data provenance.</p><a href=\"guides/import-build-files.html\">How to import</a></article>
 </section>
 """
     },
@@ -206,23 +207,40 @@ pages = [
     },
     {
         "path": "tools/beginner-build-checklist.html",
-        "title": "Path of Exile 2 Beginner Build Checklist",
-        "description": "A practical PoE2 beginner build checklist for damage, defenses, gems, gear, resources, and patch-safe guide following.",
-        "heading": "PoE2 beginner build checklist",
+        "title": "PoE2 Defense Diagnostic — Why Am I Dying?",
+        "description": "Path of Exile 2 defense diagnostic: map death patterns to causes, first fixes, and responsible gear slots. Build-aware mode prefills from build cards.",
+        "heading": "Defense diagnostic",
+        "subtitle": "Death pattern → fix path · build-aware",
+        "scripts": ["assets/js/defense-diagnostic.js"],
+        "in_sitemap": True,
         "content": """
-<p class=\"lede\">Use this checklist before deciding your build is broken. Most early problems are caused by one missing layer, not by the entire character being doomed.</p>
-<section class=\"checklist\">
-<label><input type=\"checkbox\"> I have one main damage skill, not five half-supported skills.</label>
-<label><input type=\"checkbox\"> My supports improve real gameplay, not just tooltip damage.</label>
-<label><input type=\"checkbox\"> My weapon or gem level has been updated recently.</label>
-<label><input type=\"checkbox\"> My gear has life or relevant survivability.</label>
-<label><input type=\"checkbox\"> My elemental resistances are not obviously neglected.</label>
-<label><input type=\"checkbox\"> I know whether deaths come from one-shots, crowd pressure, resource issues, or low damage.</label>
-<label><input type=\"checkbox\"> The guide I follow has a recent patch date.</label>
-<label><input type=\"checkbox\"> I have not spent rare currency on a temporary item without a reason.</label>
-</section>
-<h2>How to use it</h2>
-<p>If two or more boxes are unchecked, fix those before rerolling. If all boxes are checked and the build still fails, the issue may be a bad archetype for the current patch, a missing key mechanic, or content that expects stronger gear.</p>
+<p class=\"lede\">Most early deaths are one missing layer — not a doomed build. Search your death pattern or open from a build card for per-build targets and map mods to avoid.</p>
+<div id=\"build-banner\" class=\"notice\" style=\"display:none\"></div>
+<div class=\"notice\"><strong>Planning aid.</strong> Use this before rerolling. Fix the responsible gear slot, then test one change at a time.</div>
+<p><label>Filter patterns: <input id=\"diag-search\" type=\"search\" placeholder=\"e.g. one-shot, mana, greyed out\"></label></p>
+<table class=\"gear\"><thead><tr><th>Death pattern</th><th>Likely cause</th><th>First fix</th><th>Gear slot</th></tr></thead><tbody id=\"diag-results\"></tbody></table>
+<section class=\"build-section\" id=\"build-defense-targets\"></section>
+<h2>Still stuck?</h2>
+<p>Open the <a href=\"gear-upgrade-checker.html\">gear upgrade planner</a> for slot targets, or the <a href=\"attribute-checker.html\">attribute checker</a> if a skill greyed out after a swap.</p>
+"""
+    },
+    {
+        "path": "tools/gear-upgrade-checker.html",
+        "title": "PoE2 Gear Upgrade Planner by Build & Stage",
+        "description": "Interactive gear upgrade planner for Path of Exile 2: required, good, and luxury affixes per slot for campaign, early maps, and red maps. Prefills from build cards.",
+        "heading": "Gear upgrade planner",
+        "subtitle": "Slot affix tiers · stage targets",
+        "scripts": ["assets/js/gear-upgrade-checker.js"],
+        "in_sitemap": True,
+        "content": """
+<p class=\"lede\">Generic \"get better gear\" advice fails because value depends on <em>slot</em>, <em>stage</em>, and <em>build</em>. Pick a stage and slot — or open from a build card to prefill.</p>
+<div id=\"build-banner\" class=\"notice\" style=\"display:none\"></div>
+<div class=\"notice notice-warn\"><strong>No price promises.</strong> Trade links open the official site; type the filter recipe manually if deep links do not prefill.</div>
+<p id=\"upgrade-suggest\" class=\"muted\"></p>
+<p><label>Stage: <select id=\"upgrade-stage\"><option value=\"campaign\">Campaign</option><option value=\"early_maps\">Early maps</option><option value=\"red_maps\">Red maps / pinnacle</option></select></label>
+<label>Slot: <select id=\"upgrade-slot\"></select></label></p>
+<div id=\"upgrade-output\" class=\"build-section\"></div>
+<p class=\"muted\">Open with <code>?build=starter-elemental-caster</code> or <code>?build=starter-minion-witch</code> to prefill from a build card.</p>
 """
     },
     {
@@ -231,6 +249,7 @@ pages = [
         "description": "Free Path of Exile 2 calculator: check Strength/Dexterity/Intelligence deficits, Spirit reservation, and whether swapping a gear slot breaks a skill or Spirit reservation. Prefills from build cards. No backend.",
         "heading": "Attribute, Spirit & gear-swap checker",
         "subtitle": "Planning aid · verify in game",
+        "in_sitemap": True,
         "scripts": ["assets/js/attribute-calculator.js"],
         "content": """
 <p class=\"lede\">Answer two questions competitors leave separate: <em>what attributes am I missing?</em> and <em>what breaks if I swap this gear?</em> Open this tool from a build card to prefill its Spirit and gear-swap data, or enter values manually.</p>
@@ -319,6 +338,167 @@ pages = [
 """
     },
     {
+        "path": "guides/index.html",
+        "title": "PoE2 Build Lab Guides Hub",
+        "description": "Guides for Path of Exile 2 build decisions: attributes, gear priorities, build bait, defenses, .build files, and post-campaign progression.",
+        "heading": "Guides",
+        "in_sitemap": True,
+        "content": """
+<p class=\"lede\">Long-tail guides tied to real player pain — each links back to build cards and tools where possible.</p>
+<section class=\"grid cards\">
+  <article class=\"card\"><h3>Import .build files</h3><p>Windows/SteamOS paths and provenance.</p><a href=\"import-build-files.html\">Read guide</a></article>
+  <article class=\"card\"><h3>Attribute requirements</h3><p>Str/Dex/Int starvation and gear swaps.</p><a href=\"attribute-requirements.html\">Read guide</a></article>
+  <article class=\"card\"><h3>Why can't I equip this gem?</h3><p>Gem requirements and fixes.</p><a href=\"why-cant-equip-gem.html\">Read guide</a></article>
+  <article class=\"card\"><h3>Beginner gear priorities</h3><p>Slot-level stat priorities by stage.</p><a href=\"beginner-gear-priorities.html\">Read guide</a></article>
+  <article class=\"card\"><h3>Build bait checklist</h3><p>Trust rubric before you invest.</p><a href=\"build-bait-checklist.html\">Read guide</a></article>
+  <article class=\"card\"><h3>Defensive layers</h3><p>Life, resists, recovery, movement.</p><a href=\"beginner-defensive-layers.html\">Read guide</a></article>
+  <article class=\"card\"><h3>After campaign</h3><p>First maps and sustain habits.</p><a href=\"after-campaign.html\">Read guide</a></article>
+  <article class=\"card highlight\"><h3>Endgame hub</h3><p>Atlas, waystones, bosses, blockers.</p><a href=\"endgame-hub.html\">Open hub</a></article>
+</section>
+"""
+    },
+    {
+        "path": "guides/attribute-requirements.html",
+        "title": "PoE2 Attribute Requirements Explained",
+        "description": "Path of Exile 2 Strength, Dexterity, and Intelligence requirements: where they come from, how gear swaps break gems, and how to fix deficits.",
+        "heading": "PoE2 attribute requirements explained",
+        "in_sitemap": True,
+        "content": """
+<p class=\"lede\">Attributes gate gems and some gear bases. They come from your class start, passive tree, quests, and equipment — and a single swap can silently disable a skill.</p>
+<h2>Where requirements come from</h2>
+<ul>
+<li><strong>Skill and support gems</strong> — each gem lists Str/Dex/Int requirements that scale with level.</li>
+<li><strong>Weapon and armour bases</strong> — some bases need attributes to equip.</li>
+<li><strong>Passive tree</strong> — primary source of \"free\" attributes during leveling.</li>
+</ul>
+<h2>Common failure mode</h2>
+<p>You upgrade the amulet for damage and your main skill greys out because the old amulet supplied +Intelligence. This is attribute starvation — not a broken build.</p>
+<h2>What to do</h2>
+<p>Use the <a href=\"../tools/attribute-checker.html\">attribute &amp; gear-swap checker</a> with a <a href=\"../builds/index.html\">build card</a> prefill, or read gem requirements on the tooltip and patch the deficit on amulet, rings, or helmet.</p>
+<div class=\"notice\"><strong>Data:</strong> Gem requirements on build cards use community-extracted ids (Path of Building Community PoE2). Verify in game before expensive crafts.</div>
+"""
+    },
+    {
+        "path": "guides/why-cant-equip-gem.html",
+        "title": "Why Can't I Equip This Gem in PoE2?",
+        "description": "Troubleshoot Path of Exile 2 gem equip failures: attribute deficits, weapon restrictions, duplicate skills, and Spirit reservation.",
+        "heading": "Why can't I equip this gem?",
+        "in_sitemap": True,
+        "content": """
+<p class=\"lede\">When a gem won't equip, the game is usually telling you one of four things.</p>
+<table><thead><tr><th>Symptom</th><th>Cause</th><th>Fix</th></tr></thead><tbody>
+<tr><td>Greyed out in inventory</td><td>Attribute requirement too high</td><td>Add Str/Dex/Int on gear or take tree nodes; use attribute checker</td></tr>
+<tr><td>Cannot link to weapon</td><td>Wrong weapon type or skill tag mismatch</td><td>Match gem tags (spell vs attack, minion vs direct)</td></tr>
+<tr><td>Skill works then stops after gear swap</td><td>Lost attributes from removed piece</td><td>Model swap in gear-swap checker before committing</td></tr>
+<tr><td>Cannot add another minion/aura</td><td>Spirit reservation exceeded</td><td>Track Spirit on weapon/amulet/body; drop a reservation source</td></tr>
+</tbody></table>
+<p>See <a href=\"attribute-requirements.html\">attribute requirements</a> and the <a href=\"../tools/attribute-checker.html\">checker tool</a>.</p>
+"""
+    },
+    {
+        "path": "guides/beginner-gear-priorities.html",
+        "title": "PoE2 Beginner Gear Stat Priorities by Slot",
+        "description": "Beginner Path of Exile 2 gearing: required vs luxury affixes per slot for campaign and early maps, without fixed price promises.",
+        "heading": "Beginner gear stat priorities",
+        "in_sitemap": True,
+        "content": """
+<p class=\"lede\">During leveling, a plain rare with the <em>right</em> stats beats a flashy item with wrong modifiers. Priorities depend on slot and stage — not a single tier list.</p>
+<h2>Universal rules</h2>
+<ul>
+<li><strong>Weapon</strong> — keeps damage scaling current (spell damage, minion damage, or weapon DPS).</li>
+<li><strong>Boots</strong> — movement speed is a defense stat; do not skip it.</li>
+<li><strong>Rings/amulet/belt</strong> — patch life and resistances before luxury damage.</li>
+<li><strong>Chest/helmet/gloves</strong> — life or ES plus resistances; attributes if gems are gated.</li>
+</ul>
+<p>Per-build slot tables live on <a href=\"../builds/index.html\">build cards</a> and the <a href=\"../tools/gear-upgrade-checker.html\">gear upgrade planner</a>.</p>
+"""
+    },
+    {
+        "path": "guides/build-bait-checklist.html",
+        "title": "PoE2 Build Bait Checklist — Trust Before You Invest",
+        "description": "Checklist to spot Path of Exile 2 build bait: patch date, budget, complexity, source, and failure modes before copying a showcase build.",
+        "heading": "Build bait checklist",
+        "in_sitemap": True,
+        "content": """
+<p class=\"lede\">A build is \"bait\" when it looks strong in a video but fails without expensive items, ignores defenses, or is stale after a patch.</p>
+<section class=\"checklist\">
+<label><input type=\"checkbox\"> Patch version and <code>last_reviewed</code> date are visible and recent.</label>
+<label><input type=\"checkbox\"> Budget/complexity/gear dependency match your situation.</label>
+<label><input type=\"checkbox\"> Source is identified (creator, self-tested, or research-backed).</label>
+<label><input type=\"checkbox\"> Failure modes and risks are stated — not only highlight moments.</label>
+<label><input type=\"checkbox\"> Controller/HC/SSF/trade viability is labeled, not assumed.</label>
+<label><input type=\"checkbox\"> Defensive targets exist — not \"just don't get hit\".</label>
+<label><input type=\"checkbox\"> Attribute and Spirit requirements are explainable.</label>
+</section>
+<p>Our <a href=\"../builds/index.html\">build cards</a> expose this rubric on every published starter.</p>
+"""
+    },
+    {
+        "path": "guides/beginner-defensive-layers.html",
+        "title": "PoE2 Beginner Defensive Layers Explained",
+        "description": "Path of Exile 2 defensive layers for beginners: life/ES, resistances, recovery, movement, and map mods to avoid.",
+        "heading": "Beginner defensive layers",
+        "in_sitemap": True,
+        "content": """
+<p class=\"lede\">Survival is layered. Fixing one layer without checking the others is why \"I capped resists but still die\" happens.</p>
+<h2>Layers to track</h2>
+<ul>
+<li><strong>Life or energy shield</strong> — raw hit pool.</li>
+<li><strong>Elemental resistances</strong> — cap fire/cold/lightning for maps when possible.</li>
+<li><strong>Recovery</strong> — flasks, regeneration, leech, or sustain skills.</li>
+<li><strong>Movement</strong> — boots movement speed plus a reposition skill.</li>
+<li><strong>Mechanics</strong> — dodge telegraphs, don't face-tank.</li>
+</ul>
+<p>Map mods that punish recovery or add player damage are listed per build on build cards. Use the <a href=\"../tools/beginner-build-checklist.html\">defense diagnostic</a> when you know <em>how</em> you die.</p>
+"""
+    },
+    {
+        "path": "guides/after-campaign.html",
+        "title": "What to Do After the PoE2 Campaign",
+        "description": "Path of Exile 2 post-campaign checklist: first maps, resistance caps, waystone sustain habits, and when to push harder content.",
+        "heading": "What to do after campaign",
+        "in_sitemap": True,
+        "content": """
+<p class=\"lede\">Finishing the campaign is not endgame — it is the point where defenses and economy matter more than raw leveling speed.</p>
+<h2>First-hour checklist</h2>
+<ul>
+<li>Cap elemental resistances if possible before pushing harder maps.</li>
+<li>Keep weapon/gem scaling current — campaign gear falls off quickly.</li>
+<li>Pick map mods you can sustain; avoid player damage/recovery penalties until stable.</li>
+<li>Stock waystones and learn sustain loops (see <a href=\"endgame-hub.html\">Endgame hub</a>).</li>
+</ul>
+<p>Match expectations to your <a href=\"../builds/index.html\">build card</a> content-fit tags (campaign vs early maps vs pinnacle).</p>
+"""
+    },
+    {
+        "path": "guides/endgame-hub.html",
+        "title": "PoE2 Endgame Hub — Atlas, Waystones, Bosses",
+        "description": "Static Path of Exile 2 endgame hub: Atlas first steps, waystone sustain overview, boss unlock paths, and known progression blockers for 0.5.2.",
+        "heading": "Endgame hub",
+        "in_sitemap": True,
+        "content": """
+<p class=\"lede\">Endgame in PoE2 Early Access is still moving with patches. This hub summarizes progression blockers and where to look official — not a full Maxroll-style atlas guide.</p>
+<div class=\"notice\"><strong>Patch:</strong> 0.5.2 Early Access · Last hub review 2026-06-17. Verify mechanics after hotfixes.</div>
+<h2>Atlas first steps</h2>
+<ul>
+<li>Unlock the Atlas through campaign progression and follow in-game prompts for your league.</li>
+<li>Start on white/yellow maps until resistances and recovery are stable.</li>
+<li>Read map modifiers before activating — player damage and less recovery are common pain points.</li>
+</ul>
+<h2>Waystone sustain</h2>
+<p>Sustain is a loop: run maps that reward waystones, use vendors and content that refill supply, and avoid burning high-tier stones before your build is ready. Exact rates change with patches — track your own runs rather than trusting stale numbers.</p>
+<h2>Boss unlock overview</h2>
+<p>Pinnacle and boss content unlock through Atlas progression and specific encounters. Treat boss guides as patch-dated; check <a href=\"https://www.pathofexile.com/forum/view-forum/2212\" rel=\"nofollow noopener\">official patch notes</a> when a gate changes.</p>
+<h2>Known progression blockers</h2>
+<ul>
+<li><strong>Defense not maps-ready</strong> — fix via build card defense targets and <a href=\"../tools/beginner-build-checklist.html\">diagnostic</a>.</li>
+<li><strong>Attribute/Spirit breakage after upgrade</strong> — use <a href=\"../tools/attribute-checker.html\">attribute checker</a> before expensive trades.</li>
+<li><strong>Economy volatility</strong> — use trade filter recipes on build cards, not fixed prices.</li>
+</ul>
+<p>Per-build endgame viability is labeled on each <a href=\"../builds/index.html\">build card</a> (campaign / early maps / pinnacle).</p>
+"""
+    },
+    {
         "path": "about.html",
         "title": "About PoE2 Build Lab",
         "description": "About PoE2 Build Lab, an independent Path of Exile 2 beginner guide site.",
@@ -390,7 +570,7 @@ def render_page(page):
   <p class="eyebrow">Patch-aware beginner guides · Updated {SITE['updated']}</p>
   <h1>{SITE['name']}</h1>
   <p>{SITE['tagline']}</p>
-  <div class="hero-actions"><a class="button" href="builds/index.html">Browse build cards</a><a class="button secondary" href="tools/beginner-build-checklist.html">Open checklist</a></div>
+  <div class="hero-actions"><a class="button" href="builds/index.html">Browse build cards</a><a class="button secondary" href="tools/attribute-checker.html">Attribute checker</a></div>
 </section>
 '''
     else:
@@ -461,6 +641,29 @@ def li_list(items):
     return "".join(f"<li>{escape(str(i))}</li>" for i in items) if items else "<li>None recorded yet.</li>"
 
 
+def render_stale_warning(build):
+    state = build.get("review_state", "draft")
+    if state == "current":
+        return ""
+    label, _ = REVIEW_STATE_LABELS.get(state, ("Unknown", "warn"))
+    notes = f" {escape(build['review_notes'])}" if build.get("review_notes") else ""
+    return (
+        f'<div class="notice notice-warn"><strong>Review state: {escape(label)}.</strong> '
+        f'Last reviewed {escape(build.get("last_reviewed", "?"))} · '
+        f'Patch {escape(build.get("patch_version", "?"))}.{notes}</div>'
+    )
+
+
+def render_provenance_block(build):
+    return (
+        '<section class="build-section"><h2>Data provenance</h2>'
+        '<p class="muted">Ascendancy and passive node ids come from the official GGG passive-tree export. '
+        'Skill and support gem ids come from community-extracted data (Path of Building Community PoE2); '
+        'GGG does not publish an official gem export. Gear affix tables are authored guidance. '
+        'Trade handoff is filter-recipe text — not live price data.</p></section>'
+    )
+
+
 def render_build_tags(build):
     imp_kind, imp_text = import_status(build)
     tags = [
@@ -518,12 +721,15 @@ def render_viability_block(build):
         ("Hardcore viable", VIABILITY_LABELS.get(trust.get("hardcore_viable", "unknown"))),
         ("SSF viable", VIABILITY_LABELS.get(trust.get("ssf_viable", "unknown"))),
         ("Trade viable", VIABILITY_LABELS.get(trust.get("trade_viable", "unknown"))),
+        ("Trust score", f'{trust.get("score", "?")} / 5'),
+        ("Budget floor", trust.get("budget_floor", "?")),
+        ("Proof", ", ".join(trust.get("proof", [])) or "none"),
         ("Campaign", fit.get("campaign", "unknown").replace("_", " ")),
         ("Early maps", fit.get("early_maps", "unknown").replace("_", " ")),
         ("Pinnacle", fit.get("pinnacle", "unknown").replace("_", " ")),
     ]
     table = "".join(f"<tr><th>{escape(k)}</th><td>{escape(str(v))}</td></tr>" for k, v in rows)
-    return f'<section class="build-section"><h2>Viability &amp; content fit</h2><table class="kv">{table}</table></section>'
+    return f'<section class="build-section"><h2>Trust rubric &amp; content fit</h2><table class="kv">{table}</table></section>'
 
 
 def render_skills_block(build):
@@ -550,25 +756,35 @@ def render_passive_block(build):
     if not milestones:
         body = '<p class="muted">Passive milestones placeholder — exact node ids pending verified passive-tree mapping.</p>'
     else:
-        rows = "".join(
-            f"<tr><th>{escape(m['stage'])}</th><td>{escape(m['goal'])}</td></tr>"
-            for m in milestones
-        )
-        body = (
-            f'<table class="kv">{rows}</table>'
-            '<p class="muted">Exact passive node ids are not yet mapped for this draft; goals are directional.</p>'
-        )
+        rows = []
+        has_nodes = False
+        for m in milestones:
+            nodes = m.get("node_ids", [])
+            if nodes:
+                has_nodes = True
+            node_note = f'<br><span class="muted">Nodes: {escape(", ".join(nodes))}</span>' if nodes else ""
+            rows.append(
+                f"<tr><th>{escape(m['stage'])}</th><td>{escape(m['goal'])}{node_note}</td></tr>"
+            )
+        body = f'<table class="kv">{"".join(rows)}</table>'
+        if has_nodes and build.get("build_file", {}).get("enabled"):
+            body += '<p class="muted">Node ids above are included in the downloadable .build file (official tree export).</p>'
+        elif not has_nodes:
+            body += '<p class="muted">Goals are directional until node ids are mapped.</p>'
     return f'<section class="build-section"><h2>Passive milestones</h2>{body}</section>'
 
 
 def render_attributes_block(build):
     attrs = build.get("attributes", {})
+    req = attrs.get("required", {})
+    planned = attrs.get("planned", {})
     notes = li_list(attrs.get("notes", []))
     checker = f'../tools/attribute-checker.html?build={build["id"]}'
     return (
         '<section class="build-section"><h2>Attributes</h2>'
         f'<p>Deficit policy: <b>{escape(attrs.get("deficit_policy", "warn"))}</b>. '
-        'Exact Str/Dex/Int numbers depend on verified gem and base data; enter the requirement you want to meet in the checker.</p>'
+        f'Required (gems): Str {req.get("str", 0)} / Dex {req.get("dex", 0)} / Int {req.get("int", 0)} · '
+        f'Planned loadout: Str {planned.get("str", 0)} / Dex {planned.get("dex", 0)} / Int {planned.get("int", 0)}.</p>'
         f'<ul>{notes}</ul>'
         f'<p><a class="button" href="{checker}">Open in attribute &amp; gear-swap checker</a></p></section>'
     )
@@ -592,22 +808,57 @@ def render_spirit_block(build):
 
 
 def render_gear_block(build):
-    rows = []
+    bid = build["id"]
+    upgrade = f'../tools/gear-upgrade-checker.html?build={bid}'
+    sections = []
     for slot, data in build.get("gear_slots", {}).items():
-        prio = ", ".join(data.get("priority", []))
-        note = data.get("budget_note", "")
-        rows.append(
-            f"<tr><th>{escape(slot.replace('_', ' '))}</th>"
-            f"<td>{escape(data.get('base', ''))}</td>"
-            f"<td>{escape(prio)}</td>"
-            f"<td class='muted'>{escape(note)}</td></tr>"
+        slot_label = escape(slot.replace("_", " "))
+        affix_rows = []
+        for label, key in (
+            ("Required", "required_affixes"),
+            ("Good", "good_affixes"),
+            ("Luxury", "luxury_affixes"),
+        ):
+            vals = data.get(key, [])
+            if vals:
+                affix_rows.append(
+                    f"<tr><th>{label}</th><td>{escape('; '.join(vals))}</td></tr>"
+                )
+        stage_rows = []
+        for label, key in (
+            ("Campaign", "campaign_target"),
+            ("Early maps", "early_maps_target"),
+            ("Red maps", "red_maps_target"),
+        ):
+            if data.get(key):
+                stage_rows.append(
+                    f"<tr><th>{label}</th><td>{escape(data[key])}</td></tr>"
+                )
+        affix_table = ""
+        if affix_rows:
+            affix_table = (
+                "<table class='gear'><thead><tr><th>Tier</th><th>Affixes</th></tr></thead>"
+                f"<tbody>{''.join(affix_rows)}</tbody></table>"
+            )
+        stage_table = ""
+        if stage_rows:
+            stage_table = (
+                "<table class='kv'><tbody>" + "".join(stage_rows) + "</tbody></table>"
+            )
+        compromise = (
+            f"<p class='muted'><strong>Budget compromise:</strong> {escape(data.get('budget_compromise', ''))}</p>"
+            if data.get("budget_compromise") else ""
         )
-    table = (
-        "<table class='gear'><thead><tr><th>Slot</th><th>Base</th>"
-        "<th>Stat priority (highest first)</th><th>Budget note</th></tr></thead>"
-        f"<tbody>{''.join(rows)}</tbody></table>"
+        sections.append(
+            f"<div class='skill'><h3>{slot_label}</h3>"
+            f"<p><strong>Base:</strong> {escape(data.get('base', ''))}</p>"
+            f"{affix_table}{stage_table}{compromise}</div>"
+        )
+    return (
+        '<section class="build-section"><h2>Gear slot priorities</h2>'
+        f'<p><a class="button secondary" href="{upgrade}">Open in gear upgrade planner</a></p>'
+        f'{"".join(sections)}</section>'
     )
-    return f'<section class="build-section"><h2>Gear slot priorities</h2>{table}</section>'
 
 
 def render_gear_swap_block(build):
@@ -626,7 +877,11 @@ def render_gear_swap_block(build):
 
 def render_defense_block(build):
     d = build.get("defenses", {})
-    parts = [f'<h3>Campaign targets</h3><ul>{li_list(d.get("campaign_targets", []))}</ul>']
+    diag = f'../tools/beginner-build-checklist.html?build={build["id"]}'
+    parts = [
+        f'<p><a class="button secondary" href="{diag}">Open defense diagnostic for this build</a></p>',
+        f'<h3>Campaign targets</h3><ul>{li_list(d.get("campaign_targets", []))}</ul>',
+    ]
     if d.get("early_maps_targets"):
         parts.append(f'<h3>Early maps targets</h3><ul>{li_list(d.get("early_maps_targets"))}</ul>')
     extra = []
@@ -637,6 +892,17 @@ def render_defense_block(build):
         parts.append(f'<ul>{"".join(extra)}</ul>')
     if d.get("map_mods_to_avoid"):
         parts.append(f'<h3>Map mods to avoid</h3><ul>{li_list(d.get("map_mods_to_avoid"))}</ul>')
+    if d.get("death_diagnostic"):
+        rows = "".join(
+            f"<tr><td>{escape(x['pattern'])}</td><td>{escape(x['cause'])}</td>"
+            f"<td>{escape(x['first_fix'])}</td><td>{escape(x['gear_slot'].replace('_', ' '))}</td></tr>"
+            for x in d["death_diagnostic"]
+        )
+        parts.append(
+            '<h3>Death pattern → fix</h3>'
+            '<table class="gear"><thead><tr><th>Pattern</th><th>Cause</th><th>First fix</th><th>Slot</th></tr></thead>'
+            f'<tbody>{rows}</tbody></table>'
+        )
     return f'<section class="build-section"><h2>Defensive checklist</h2>{"".join(parts)}</section>'
 
 
@@ -653,28 +919,33 @@ def render_trade_block(build):
     handoff = build.get("trade_handoff", {})
     if not handoff.get("enabled") or not handoff.get("filters"):
         return ""
-    rows = []
+    blocks = []
     for f in handoff["filters"]:
+        recipe = f.get("filter_recipe") or (
+            "Required: " + ", ".join(f.get("required_stats", []))
+        )
         price = ""
         if f.get("approx_price"):
             price = f" <span class='muted'>(~{escape(f['approx_price'])}, checked {escape(f.get('checked_at',''))})</span>"
-        rows.append(
-            f"<tr><th>{escape(f['slot'].replace('_',' '))}</th>"
-            f"<td>{escape(f.get('budget_tier',''))}</td>"
-            f"<td>{escape(', '.join(f.get('required_stats', [])))}</td>"
-            f"<td class='muted'>{escape(', '.join(f.get('optional_stats', [])))}</td>"
-            f"<td class='muted'>{escape(', '.join(f.get('ignore_at_low_budget', [])))}{price}</td></tr>"
+        link = ""
+        if f.get("trade_url"):
+            link = (
+                f'<p><a href="{escape(f["trade_url"])}" rel="nofollow noopener">Open official trade</a> '
+                '<span class="muted">— if the link does not prefill filters, use the recipe text below.</span></p>'
+            )
+        blocks.append(
+            f"<div class='skill'><h3>{escape(f['slot'].replace('_',' '))} "
+            f"<span class='role'>{escape(f.get('budget_tier',''))} budget</span></h3>"
+            f"{link}<p>{escape(recipe)}</p>"
+            f"<p class='muted'>Required: {escape(', '.join(f.get('required_stats', [])))} · "
+            f"Optional: {escape(', '.join(f.get('optional_stats', [])))} · "
+            f"Ignore: {escape(', '.join(f.get('ignore_at_low_budget', [])))}{price}</p></div>"
         )
-    table = (
-        "<table class='gear'><thead><tr><th>Slot</th><th>Budget</th><th>Required stats</th>"
-        "<th>Nice to have</th><th>Ignore at low budget</th></tr></thead>"
-        f"<tbody>{''.join(rows)}</tbody></table>"
-    )
     return (
         '<section class="build-section"><h2>How to search trade</h2>'
-        '<p class="muted">Search these stats on the official trade site. We do not quote live prices; '
-        'use this as a filter recipe, not a price promise.</p>'
-        f'{table}</section>'
+        '<p class="muted">Filter recipes only — we do not quote live prices. '
+        'Official trade may require manual filter entry.</p>'
+        f'{"".join(blocks)}</section>'
     )
 
 
@@ -715,6 +986,7 @@ def build_page_content(build):
         who = f'<section class="build-section"><h2>Who should play this</h2><ul>{li_list(build["who_should_play"])}</ul></section>'
     return "".join([
         render_build_tags(build),
+        render_stale_warning(build),
         draft_notice,
         summary,
         who,
@@ -731,6 +1003,7 @@ def build_page_content(build):
         render_risks_block(build),
         render_trade_block(build),
         render_import_block(build),
+        render_provenance_block(build),
     ])
 
 
@@ -763,7 +1036,16 @@ def class_line(build):
 
 def render_build_card(build):
     imp_kind, imp_text = import_status(build)
+    trust = build.get("trust", {})
     href = f"{build['id']}.html"
+    rubric = (
+        f'<p class="muted import-line">'
+        f'Controller {VIABILITY_LABELS.get(trust.get("controller_friendly","unknown"))} · '
+        f'HC {VIABILITY_LABELS.get(trust.get("hardcore_viable","unknown"))} · '
+        f'SSF {VIABILITY_LABELS.get(trust.get("ssf_viable","unknown"))} · '
+        f'Trade {VIABILITY_LABELS.get(trust.get("trade_viable","unknown"))}'
+        f'</p>'
+    )
     return f"""
 <article class="card build-card">
   <div class="card-head">{review_badge(build)} <span class="cls">{escape(class_line(build))}</span></div>
@@ -773,8 +1055,10 @@ def render_build_card(build):
     {tag("Budget", build.get("budget","?"))}
     {tag("Complexity", build.get("complexity","?"))}
     {tag("Gear", build.get("gear_dependency","?"))}
+    {tag("Review", REVIEW_STATE_LABELS.get(build.get("review_state","draft"),("?","warn"))[0], "warn")}
   </div>
-  <p class="muted import-line">{escape(imp_text)} · Patch {escape(build.get('patch_version','?'))}</p>
+  {rubric}
+  <p class="muted import-line">{escape(imp_text)} · Patch {escape(build.get('patch_version','?'))} · Reviewed {escape(build.get('last_reviewed','?'))}</p>
   <a class="button" href="{href}">Open build card</a>
 </article>"""
 
@@ -793,13 +1077,14 @@ def build_index_content(builds):
 
 
 builds_data = load_builds()
+published_builds = [b for b in builds_data if b.get("status") == "published"]
 build_index_page = {
     "path": "builds/index.html",
     "title": "PoE2 Build Cards: Patch-Reviewed Starter Builds",
     "description": "Path of Exile 2 build cards comparing starter builds by patch trust, budget, complexity, gear slot priorities, attributes, defenses, and .build import status.",
     "heading": "PoE2 build cards",
     "in_sitemap": True,
-    "content": build_index_content(builds_data),
+    "content": build_index_content(published_builds),
 }
 build_pages = [build_index_page] + [build_detail_page(b) for b in builds_data]
 
