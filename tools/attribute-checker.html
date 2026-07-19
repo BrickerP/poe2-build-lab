@@ -26,24 +26,24 @@
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"PoE2 Attribute, Spirit & Gear-Swap Checker","description":"Free Path of Exile 2 calculator: check Strength/Dexterity/Intelligence deficits, Spirit reservation, and whether swapping a gear slot breaks a skill or Spirit reservation. Prefills from build cards. No backend.","url":"https://brickerp.github.io/poe2-build-lab/tools/attribute-checker.html","dateModified":"2026-06-17"}</script>
 </head>
 <body class="tool-page">
-  <header class="site-header"><a class="brand" href="../index.html">PoE2 <span>Build Lab</span></a><nav><a class="nav-link home-link" href="../index.html"><span class="nav-label">Home</span><span class="nav-desc">Start here</span></a><a class="nav-link" href="../builds/index.html"><span class="nav-label">Builds</span><span class="nav-desc">Compare patch-labeled starters</span></a><a class="nav-link active" href="../tools/attribute-checker.html"><span class="nav-label">Can I Wear It?</span><span class="nav-desc">Stats, Spirit &amp; gear swaps</span></a><a class="nav-link" href="../tools/gear-upgrade-checker.html"><span class="nav-label">Next Upgrade</span><span class="nav-desc">Slot affix priorities by stage</span></a><a class="nav-link" href="../tools/beginner-build-checklist.html"><span class="nav-label">Why Am I Dying?</span><span class="nav-desc">Death pattern → fix path</span></a><a class="nav-link" href="../guides/index.html"><span class="nav-label">Guides</span><span class="nav-desc">Reference when you&#x27;re stuck</span></a><a class="nav-link" href="../guides/endgame-hub.html"><span class="nav-label">Endgame</span><span class="nav-desc">Atlas, waystones &amp; bosses</span></a></nav></header>
+  <header class="site-header"><a class="brand" href="../index.html">PoE2 <span>Build Lab</span></a><nav><a class="nav-link home-link" href="../index.html"><span class="nav-label">Home</span><span class="nav-desc">Start here</span></a><a class="nav-link" href="../builds/index.html"><span class="nav-label">Builds</span><span class="nav-desc">Compare patch-labeled starters</span></a><a class="nav-link active" href="../tools/attribute-checker.html" aria-current="page"><span class="nav-label">Can I Wear It?</span><span class="nav-desc">Stats, Spirit &amp; gear swaps</span></a><a class="nav-link" href="../tools/gear-upgrade-checker.html"><span class="nav-label">Next Upgrade</span><span class="nav-desc">Slot affix priorities by stage</span></a><a class="nav-link" href="../tools/beginner-build-checklist.html"><span class="nav-label">Why Am I Dying?</span><span class="nav-desc">Death pattern → fix path</span></a><a class="nav-link" href="../guides/index.html"><span class="nav-label">Guides</span><span class="nav-desc">Reference when you&#x27;re stuck</span></a><a class="nav-link" href="../guides/endgame-hub.html"><span class="nav-label">Endgame</span><span class="nav-desc">Atlas, waystones &amp; bosses</span></a></nav></header>
   <main class="tool-page"><section class="page-title tool-title"><p class="eyebrow">Planning aid · verify in game</p><h1>Attribute &amp; gear-swap checker</h1><p class="tool-purpose">What attributes am I missing? What breaks if I swap this amulet? Prefills from build cards.</p></section><article class="article">
 <p class="tool-quicklinks"><a class="button secondary button-sm" href="?build=starter-elemental-caster">Elemental Caster</a> <a class="button secondary button-sm" href="?build=starter-minion-witch">Minion Witch</a></p>
-<div id="build-banner" class="notice notice-compact" style="display:none"></div>
+<div id="build-banner" class="notice notice-compact" role="status" aria-live="polite" style="display:none"></div>
 <div class="notice notice-warn notice-compact"><strong>Verify in game.</strong> Enter requirements from your gem tooltips.</div>
 
 <section class="build-section" id="attr-calc">
   <h2>1. What attributes am I missing?</h2>
   <p class="muted">Enter the highest requirement you need to meet (from a gem or a gear base), your current attributes from the tree/quests, and what your gear adds.</p>
   <table class="calc-input">
-    <thead><tr><th>Attribute</th><th>Requirement</th><th>Current (tree/quests)</th><th>From gear</th></tr></thead>
+    <thead><tr><th>Attribute</th><th id="attr-requirement">Requirement</th><th id="attr-current">Current (tree/quests)</th><th id="attr-gear">From gear</th></tr></thead>
     <tbody>
-      <tr><th>Strength</th><td><input id="req-str" type="number" min="0" value="0"></td><td><input id="cur-str" type="number" min="0" value="0"></td><td><input id="gear-str" type="number" min="0" value="0"></td></tr>
-      <tr><th>Dexterity</th><td><input id="req-dex" type="number" min="0" value="0"></td><td><input id="cur-dex" type="number" min="0" value="0"></td><td><input id="gear-dex" type="number" min="0" value="0"></td></tr>
-      <tr><th>Intelligence</th><td><input id="req-int" type="number" min="0" value="0"></td><td><input id="cur-int" type="number" min="0" value="0"></td><td><input id="gear-int" type="number" min="0" value="0"></td></tr>
+      <tr><th id="attr-strength">Strength</th><td><input id="req-str" type="number" min="0" value="0" aria-labelledby="attr-strength attr-requirement"></td><td><input id="cur-str" type="number" min="0" value="0" aria-labelledby="attr-strength attr-current"></td><td><input id="gear-str" type="number" min="0" value="0" aria-labelledby="attr-strength attr-gear"></td></tr>
+      <tr><th id="attr-dexterity">Dexterity</th><td><input id="req-dex" type="number" min="0" value="0" aria-labelledby="attr-dexterity attr-requirement"></td><td><input id="cur-dex" type="number" min="0" value="0" aria-labelledby="attr-dexterity attr-current"></td><td><input id="gear-dex" type="number" min="0" value="0" aria-labelledby="attr-dexterity attr-gear"></td></tr>
+      <tr><th id="attr-intelligence">Intelligence</th><td><input id="req-int" type="number" min="0" value="0" aria-labelledby="attr-intelligence attr-requirement"></td><td><input id="cur-int" type="number" min="0" value="0" aria-labelledby="attr-intelligence attr-current"></td><td><input id="gear-int" type="number" min="0" value="0" aria-labelledby="attr-intelligence attr-gear"></td></tr>
     </tbody>
   </table>
-  <p id="attr-summary" class="calc-summary"></p>
+  <p id="attr-summary" class="calc-summary" role="status" aria-live="polite"></p>
   <table class="kv"><thead><tr><th>Attribute</th><th>Required</th><th>Effective</th><th>Result</th></tr></thead><tbody id="attr-results"></tbody></table>
 </section>
 
@@ -52,11 +52,11 @@
   <p class="muted">Reservation builds (auras, minions, companions, persistent buffs) are gated by Spirit. Enter your Spirit capacity and total reservation.</p>
   <table class="calc-input">
     <tbody>
-      <tr><th>Spirit capacity</th><td><input id="spirit-capacity" type="number" min="0" value="0"></td></tr>
-      <tr><th>Spirit reserved</th><td><input id="spirit-reserved" type="number" min="0" value="0"></td></tr>
+      <tr><th id="spirit-capacity-label">Spirit capacity</th><td><input id="spirit-capacity" type="number" min="0" value="0" aria-labelledby="spirit-capacity-label"></td></tr>
+      <tr><th id="spirit-reserved-label">Spirit reserved</th><td><input id="spirit-reserved" type="number" min="0" value="0" aria-labelledby="spirit-reserved-label"></td></tr>
     </tbody>
   </table>
-  <p id="spirit-result" class="calc-summary"></p>
+  <p id="spirit-result" class="calc-summary" role="status" aria-live="polite"></p>
   <div id="spirit-sources"></div>
 </section>
 
@@ -65,16 +65,16 @@
   <p class="muted">Pick the slot you want to change. We show the build's authored swap warnings, then simulate the attributes/Spirit you would lose.</p>
   <p><label>Slot to swap: <select id="swap-slot"></select></label></p>
   <table class="calc-input">
-    <thead><tr><th colspan="4">Attributes / Spirit this slot currently gives you</th></tr>
-    <tr><th>Strength</th><th>Dexterity</th><th>Intelligence</th><th>Spirit</th></tr></thead>
+    <thead><tr><th id="swap-loss-group" colspan="4">Attributes / Spirit this slot currently gives you</th></tr>
+    <tr><th id="swap-strength-label">Strength</th><th id="swap-dexterity-label">Dexterity</th><th id="swap-intelligence-label">Intelligence</th><th id="swap-spirit-label">Spirit</th></tr></thead>
     <tbody><tr>
-      <td><input id="swap-str" type="number" min="0" value="0"></td>
-      <td><input id="swap-dex" type="number" min="0" value="0"></td>
-      <td><input id="swap-int" type="number" min="0" value="0"></td>
-      <td><input id="swap-spirit" type="number" min="0" value="0"></td>
+      <td><input id="swap-str" type="number" min="0" value="0" aria-labelledby="swap-loss-group swap-strength-label"></td>
+      <td><input id="swap-dex" type="number" min="0" value="0" aria-labelledby="swap-loss-group swap-dexterity-label"></td>
+      <td><input id="swap-int" type="number" min="0" value="0" aria-labelledby="swap-loss-group swap-intelligence-label"></td>
+      <td><input id="swap-spirit" type="number" min="0" value="0" aria-labelledby="swap-loss-group swap-spirit-label"></td>
     </tr></tbody>
   </table>
-  <div id="swap-result"></div>
+  <div id="swap-result" role="status" aria-live="polite"></div>
 </section>
 </article></main>
   <footer><p>Independent Path of Exile 2 beginner guide site. Not affiliated with Grinding Gear Games.</p><p><a href="../privacy-policy.html">Privacy</a> · <a href="../contact.html">Contact</a> · <a href="../about.html">About</a> · <a href="../sitemap.xml">Sitemap</a></p></footer>

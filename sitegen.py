@@ -2,9 +2,36 @@ import json
 from datetime import date
 from html import escape
 from pathlib import Path
+from urllib.parse import unquote, urlsplit
 
 ROOT = Path(__file__).resolve().parent
 PATCH_LEDGER_PATH = ROOT / "data" / "sources" / "patch-notes.json"
+PYTHON_VERSION = (ROOT / ".python-version").read_text(encoding="utf-8").strip()
+OFFICIAL_TRADE_HOST = "www.pathofexile.com"
+OFFICIAL_TRADE_LANDING_PATH = "/trade2"
+OFFICIAL_POE2_TRADE_PATH = "/trade2/search/poe2/"
+
+
+def safe_trade_url(value):
+    if not isinstance(value, str) or value != value.strip():
+        return ""
+    try:
+        parts = urlsplit(value)
+    except ValueError:
+        return ""
+    if (
+        parts.scheme != "https"
+        or parts.netloc != OFFICIAL_TRADE_HOST
+        or parts.query
+        or parts.fragment
+    ):
+        return ""
+    path = unquote(parts.path)
+    if "\\" in path or any(segment in {".", ".."} for segment in path.split("/")):
+        return ""
+    if path == OFFICIAL_TRADE_LANDING_PATH or path.startswith(OFFICIAL_POE2_TRADE_PATH):
+        return value
+    return ""
 
 
 def load_current_patch():
@@ -105,20 +132,43 @@ def depth_prefix(path):
     parts = Path(path).parts
     return "../" * (len(parts)-1)
 
+
+def current_nav_href(current):
+    if current == "index.html":
+        return "index.html"
+    if current.startswith("builds/"):
+        return "builds/index.html"
+    if current in {
+        "tools/attribute-checker.html",
+        "tools/gear-upgrade-checker.html",
+        "tools/beginner-build-checklist.html",
+        "guides/endgame-hub.html",
+    }:
+        return current
+    if current.startswith("guides/"):
+        return "guides/index.html"
+    return None
+
+
 def nav_html(prefix, current):
     items = []
+    active_href = current_nav_href(current)
     home_url = prefix + "index.html"
-    home_cls = ' active' if current == "index.html" else ""
+    home_active = active_href == "index.html"
+    home_cls = " active" if home_active else ""
+    home_current = ' aria-current="page"' if current == "index.html" else ""
     items.append(
-        f'<a class="nav-link home-link{home_cls}" href="{home_url}">'
+        f'<a class="nav-link home-link{home_cls}" href="{home_url}"{home_current}>'
         f'<span class="nav-label">Home</span>'
         f'<span class="nav-desc">Start here</span></a>'
     )
     for label, href, desc in NAV:
         url = prefix + href
-        cls = " active" if href == current else ""
+        active = href == active_href
+        cls = " active" if active else ""
+        aria_current = ' aria-current="page"' if href == current else ""
         items.append(
-            f'<a class="nav-link{cls}" href="{url}">'
+            f'<a class="nav-link{cls}" href="{url}"{aria_current}>'
             f'<span class="nav-label">{escape(label)}</span>'
             f'<span class="nav-desc">{escape(desc)}</span></a>'
         )
@@ -625,11 +675,16 @@ def render_trade_block(build):
         price = ""
         if f.get("approx_price"):
             price = f" <span class='muted'>(~{escape(f['approx_price'])}, checked {escape(f.get('checked_at',''))})</span>"
-        link = ""
-        if f.get("trade_url"):
+        trade_url = safe_trade_url(f.get("trade_url"))
+        if trade_url:
             link = (
-                f'<p><a href="{escape(f["trade_url"])}" rel="nofollow noopener">Open official trade</a> '
+                f'<p><a href="{escape(trade_url)}" rel="nofollow noopener">Open official trade</a> '
                 '<span class="muted">— if the link does not prefill filters, use the recipe text below.</span></p>'
+            )
+        else:
+            link = (
+                '<p class="muted"><strong>Official trade link unavailable.</strong> '
+                'Use the filter recipe manually.</p>'
             )
         blocks.append(
             f"<div class='skill'><h3>{escape(f['slot'].replace('_',' '))} "
@@ -833,4 +888,4 @@ Path("404.html").write_text(
     }),
     encoding="utf-8",
 )
-Path('README.md').write_text(f"""# PoE2 Build Lab\n\nStatic beginner-guide site for Path of Exile 2.\n\nLive URL target: {SITE['url']}\n\n## Maintenance model\n\n- Python is pinned exactly by `.python-version`; CI and local release checks must report that same patch version.\n- Edit build data in `data/builds/*.json`.\n- Edit generated page content and each page's real `last_modified` date in `data/pages/*.json`.\n- Edit visual system in `styles.css`.\n- Run `python3 sitegen.py` after content or data changes.\n- Verify the active runtime with `test "$(python3 -c 'import platform; print(platform.python_version())')" = "$(tr -d '[:space:]' < .python-version)"`.\n\n## Launch checklist\n\n- [x] Python runtime pinned to `3.14.6` through `.python-version` and CI `python-version-file`\n- [x] Static pages\n- [x] SEO titles/descriptions and valid JSON-LD\n- [x] `robots.txt` and `sitemap.xml`\n- [x] About / Contact / Privacy Policy\n- [x] Google Search Console URL-prefix property and verification\n- [x] Advertising disabled until a Google-certified consent management platform is configured\n\n## Current patch\n\nThe site tracks **{SITE['patch']}** as the latest official patch, posted {SITE['patch_published']} according to the date displayed on the canonical forum thread: {SITE['patch_notes_url']}. Build cards keep their actual last-reviewed patch and visibly show `needs_review` when they have not been retested. Site metadata was last regenerated {SITE['updated']}.\n\n## Advertising status\n\nAd loading is intentionally disabled on every page. The publisher declaration remains in `ads.txt`, but no AdSense, DoubleClick, or other advertising script is loaded until a Google-certified consent management platform is configured and the privacy policy is updated.\n""", encoding='utf-8')
+Path('README.md').write_text(f"""# PoE2 Build Lab\n\nStatic beginner-guide site for Path of Exile 2.\n\nLive URL target: {SITE['url']}\n\n## Maintenance model\n\n- Python is pinned exactly by `.python-version`; CI and local release checks must report that same patch version.\n- Edit build data in `data/builds/*.json`.\n- Edit generated page content and each page's real `last_modified` date in `data/pages/*.json`.\n- Edit visual system in `styles.css`.\n- Run `python3 sitegen.py` after content or data changes.\n- Verify the active runtime with `test "$(python3 -c 'import platform; print(platform.python_version())')" = "$(tr -d '[:space:]' < .python-version)"`.\n\n## Launch checklist\n\n- [x] Python runtime pinned to `{PYTHON_VERSION}` through `.python-version` and CI `python-version-file`\n- [x] Static pages\n- [x] SEO titles/descriptions and valid JSON-LD\n- [x] `robots.txt` and `sitemap.xml`\n- [x] About / Contact / Privacy Policy\n- [x] Google Search Console URL-prefix property and verification\n- [x] Advertising disabled until a Google-certified consent management platform is configured\n\n## Current patch\n\nThe site tracks **{SITE['patch']}** as the latest official patch, posted {SITE['patch_published']} according to the date displayed on the canonical forum thread: {SITE['patch_notes_url']}. Build cards keep their actual last-reviewed patch and visibly show `needs_review` when they have not been retested. Site metadata was last regenerated {SITE['updated']}.\n\n## Advertising status\n\nAd loading is intentionally disabled on every page. The publisher declaration remains in `ads.txt`, but no AdSense, DoubleClick, or other advertising script is loaded until a Google-certified consent management platform is configured and the privacy policy is updated.\n""", encoding='utf-8')
