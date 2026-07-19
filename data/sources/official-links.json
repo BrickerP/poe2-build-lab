@@ -6,8 +6,10 @@
       "label": "GGG PoE2 passive skill tree export",
       "type": "official-data-export",
       "url": "https://github.com/grindinggear/poe2-skilltree-export",
-      "raw_data_url": "https://raw.githubusercontent.com/grindinggear/poe2-skilltree-export/master/data.json",
-      "notes": "Primary source for passive node ids used by .build export and passive milestones."
+      "source_commit": "1e9eb2d8c1946398c3aaaacfbaead5c75c0d1fa6",
+      "source_path": "data.json",
+      "raw_data_url": "https://raw.githubusercontent.com/grindinggear/poe2-skilltree-export/1e9eb2d8c1946398c3aaaacfbaead5c75c0d1fa6/data.json",
+      "notes": "Primary source for passive node ids used by .build export and passive milestones. The raw snapshot is pinned to the reviewed upstream commit; update the manifest trust anchor and validation tests before advancing it."
     },
     {
       "id": "poe2-official-site",

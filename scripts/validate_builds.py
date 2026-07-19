@@ -18,18 +18,19 @@ Exit code is non-zero if any build fails, so it doubles as a CI/PR gate.
 
 from __future__ import annotations
 
+import hashlib
 import json
 import re
 import sys
 from datetime import date, datetime
 from pathlib import Path
+from urllib.parse import unquote, urlsplit
 
 ROOT = Path(__file__).resolve().parent.parent
 BUILDS_DIR = ROOT / "data" / "builds"
 SCHEMA_PATH = BUILDS_DIR / "schema.json"
 OFFICIAL_DIR = ROOT / "data" / "official"
 MANIFEST_PATH = OFFICIAL_DIR / "manifest.json"
-PASSIVE_TREE_PATH = OFFICIAL_DIR / "passive-tree.json"
 COMMUNITY_DIR = ROOT / "data" / "community"
 COMMUNITY_MANIFEST_PATH = COMMUNITY_DIR / "manifest.json"
 COMMUNITY_SKILL_GEMS_PATH = COMMUNITY_DIR / "skill-gems.json"
@@ -37,6 +38,356 @@ COMMUNITY_SUPPORT_GEMS_PATH = COMMUNITY_DIR / "support-gems.json"
 
 TBD = "TBD"
 DEFAULT_REVIEW_WINDOW_DAYS = 45
+OFFICIAL_TRADE_HOST = "www.pathofexile.com"
+OFFICIAL_TRADE_LANDING_PATH = "/trade2"
+OFFICIAL_POE2_TRADE_PATH = "/trade2/search/poe2/"
+
+# Reviewed immutable upstream snapshot. Updating the passive tree requires
+# independently verifying a new GGG commit and changing this trust anchor in
+# code review; editing the data file and manifest together is not sufficient.
+PASSIVE_TREE_TRUSTED_SNAPSHOT = {
+    "source_repo": "grindinggear/poe2-skilltree-export",
+    "source_commit": "1e9eb2d8c1946398c3aaaacfbaead5c75c0d1fa6",
+    "source_path": "data.json",
+    "source_url": (
+        "https://raw.githubusercontent.com/grindinggear/poe2-skilltree-export/"
+        "1e9eb2d8c1946398c3aaaacfbaead5c75c0d1fa6/data.json"
+    ),
+    "source_commit_url": (
+        "https://github.com/grindinggear/poe2-skilltree-export/commit/"
+        "1e9eb2d8c1946398c3aaaacfbaead5c75c0d1fa6"
+    ),
+    "source_commit_subject": "0.5.2",
+    "source_blob_git_sha1": "65986cb127f51e73ff691d01b1c7289f8d7e5def",
+    "raw_sha256": "f83c94ce7b09f2bfc5b3b1d63523c2ab3d2582d0e964f6aeec34b8b0390abcfe",
+    "normalized_sha256": "b1bc8b023bd922adf156fe29eb20c96c313e0239f1942abe0f70d2ea77285c42",
+    "raw_tree_name": "Default",
+}
+
+PASSIVE_TREE_SOURCE_FIELDS = tuple(PASSIVE_TREE_TRUSTED_SNAPSHOT)
+PASSIVE_TREE_COUNT_FIELDS = {
+    "raw_node_record_count": ("nodes", dict),
+    "group_count": ("groups", dict),
+    "edge_count": ("edges", list),
+    "skill_override_count": ("skillOverrides", dict),
+    "jewel_slot_count": ("jewelSlots", list),
+}
+
+
+def _sha256(path):
+    digest = hashlib.sha256()
+    with path.open("rb") as fh:
+        for chunk in iter(lambda: fh.read(1024 * 1024), b""):
+            digest.update(chunk)
+    return digest.hexdigest()
+
+
+def _git_blob_sha1(path):
+    payload = path.read_bytes()
+    header = f"blob {len(payload)}\0".encode("ascii")
+    return hashlib.sha1(header + payload, usedforsecurity=False).hexdigest()
+
+
+def _resolve_manifest_path(root, dataset_type, field, value, errors):
+    label = f"official manifest {dataset_type}.{field}"
+    if not isinstance(value, str) or not value:
+        errors.append(f"{label} must be a non-empty repository-relative path")
+        return None
+    candidate = Path(value)
+    if candidate.is_absolute():
+        errors.append(f"{label} must be repository-relative, got {value!r}")
+        return None
+    resolved_root = root.resolve()
+    resolved = (resolved_root / candidate).resolve()
+    if not resolved.is_relative_to(resolved_root):
+        errors.append(f"{label} escapes repository root: {value!r}")
+        return None
+    if not resolved.is_file():
+        errors.append(f"{label} does not exist as a file: {value!r}")
+        return None
+    return resolved
+
+
+def _load_provenance_json(path, label, errors):
+    try:
+        return load_json(path)
+    except (json.JSONDecodeError, UnicodeDecodeError) as exc:
+        errors.append(f"{label} is not valid JSON: {exc}")
+    except OSError as exc:
+        errors.append(f"{label} could not be read: {exc}")
+    return None
+
+
+def _normalization_extractors():
+    try:
+        from scripts.normalize_official_data import (
+            extract_ascendancies,
+            extract_classes,
+            extract_node_ids,
+        )
+    except ModuleNotFoundError:
+        from normalize_official_data import (  # type: ignore[no-redef]
+            extract_ascendancies,
+            extract_classes,
+            extract_node_ids,
+        )
+    return extract_node_ids, extract_classes, extract_ascendancies
+
+
+def validate_passive_tree_source_contract(
+    dataset, trusted_snapshot=PASSIVE_TREE_TRUSTED_SNAPSHOT
+):
+    """Validate immutable upstream identity separately from local file state."""
+    errors = []
+    if not isinstance(dataset, dict):
+        return ["official manifest passive-tree dataset must be an object"]
+    for field in PASSIVE_TREE_SOURCE_FIELDS:
+        expected = trusted_snapshot.get(field)
+        if field not in dataset:
+            errors.append(f"official manifest passive-tree missing required {field}")
+        elif dataset[field] != expected:
+            errors.append(
+                f"official manifest passive-tree {field} is not the reviewed immutable "
+                f"upstream value: expected {expected!r}, got {dataset[field]!r}"
+            )
+    return errors
+
+
+def validate_passive_tree_raw_payload(raw, dataset):
+    """Validate the pinned export's schema and recorded raw structure."""
+    errors = []
+    if not isinstance(raw, dict):
+        return ["passive-tree local_raw must contain a JSON object"]
+
+    if raw.get("tree") != dataset.get("raw_tree_name"):
+        errors.append(
+            "official manifest passive-tree raw_tree_name mismatch: "
+            f"recorded {dataset.get('raw_tree_name')!r}, raw export {raw.get('tree')!r}"
+        )
+
+    for field, (raw_field, expected_type) in PASSIVE_TREE_COUNT_FIELDS.items():
+        value = raw.get(raw_field)
+        if not isinstance(value, expected_type):
+            errors.append(
+                f"passive-tree local_raw {raw_field} must be a {expected_type.__name__}"
+            )
+            continue
+        recorded = dataset.get(field)
+        actual = len(value)
+        if not isinstance(recorded, int) or isinstance(recorded, bool) or recorded < 0:
+            errors.append(
+                f"official manifest passive-tree {field} must be a non-negative integer"
+            )
+        elif recorded != actual:
+            errors.append(
+                f"official manifest passive-tree {field} mismatch: "
+                f"recorded {recorded!r}, derived {actual}"
+            )
+    return errors
+
+
+def validate_passive_tree_source_catalog(dataset, root=ROOT):
+    """Keep the public source catalog bound to the reviewed manifest snapshot."""
+    errors = []
+    path = root / "data" / "sources" / "official-links.json"
+    if not path.is_file():
+        return ["data/sources/official-links.json does not exist"]
+    catalog = _load_provenance_json(path, "official source catalog", errors)
+    if not isinstance(catalog, dict):
+        if catalog is not None:
+            errors.append("official source catalog must contain a JSON object")
+        return errors
+    sources = catalog.get("sources")
+    matches = (
+        [
+            source
+            for source in sources
+            if isinstance(source, dict)
+            and source.get("id") == "ggg-passive-tree-export"
+        ]
+        if isinstance(sources, list)
+        else []
+    )
+    if len(matches) != 1:
+        errors.append(
+            "official source catalog must contain exactly one "
+            f"ggg-passive-tree-export entry, found {len(matches)}"
+        )
+        return errors
+    source = matches[0]
+    expected = {
+        "url": f"https://github.com/{dataset.get('source_repo')}",
+        "source_commit": dataset.get("source_commit"),
+        "source_path": dataset.get("source_path"),
+        "raw_data_url": dataset.get("source_url"),
+    }
+    for field, value in expected.items():
+        if source.get(field) != value:
+            errors.append(
+                f"official source catalog ggg-passive-tree-export.{field} mismatch: "
+                f"expected {value!r}, got {source.get(field)!r}"
+            )
+    return errors
+
+
+def validate_official_manifest_provenance(
+    manifest, root=ROOT, trusted_snapshot=PASSIVE_TREE_TRUSTED_SNAPSHOT
+):
+    """Prove every local manifest resource and the passive-tree derivation.
+
+    SHA-256 checks bind the manifest to committed bytes. The deterministic
+    comparison reconstructs every normalized field derived from the raw GGG
+    export; ``generated_at`` is retained from the committed artifact because it
+    records snapshot production time rather than raw source content.
+    """
+    errors = []
+    if not isinstance(manifest, dict):
+        return ["data/official/manifest.json must contain a JSON object"]
+    datasets = manifest.get("datasets")
+    if not isinstance(datasets, list):
+        return ["data/official/manifest.json datasets must be an array"]
+
+    local_paths = {}
+    for index, dataset in enumerate(datasets):
+        if not isinstance(dataset, dict):
+            errors.append(f"official manifest datasets[{index}] must be an object")
+            continue
+        dataset_type = dataset.get("type") or f"datasets[{index}]"
+        for field, value in dataset.items():
+            if field.startswith("local_"):
+                local_paths[(index, field)] = _resolve_manifest_path(
+                    root, dataset_type, field, value, errors
+                )
+
+    passive_entries = [
+        (index, dataset)
+        for index, dataset in enumerate(datasets)
+        if isinstance(dataset, dict) and dataset.get("type") == "passive-tree"
+    ]
+    if len(passive_entries) != 1:
+        errors.append(
+            "official manifest must contain exactly one passive-tree dataset, "
+            f"found {len(passive_entries)}"
+        )
+        return errors
+
+    index, dataset = passive_entries[0]
+    if dataset.get("coverage") != "complete":
+        errors.append(
+            "official manifest passive-tree coverage must be 'complete' for "
+            "published build validation"
+        )
+
+    errors.extend(validate_passive_tree_source_contract(dataset, trusted_snapshot))
+    errors.extend(validate_passive_tree_source_catalog(dataset, root))
+
+    required_metadata = (
+        "local_raw",
+        "local_normalized",
+        "raw_sha256",
+        "normalized_sha256",
+        "raw_node_record_count",
+        "node_count",
+        "semantic_node_count",
+        "class_count",
+        "ascendancy_count",
+        *PASSIVE_TREE_COUNT_FIELDS,
+    )
+    for field in required_metadata:
+        if field not in dataset:
+            errors.append(f"official manifest passive-tree missing required {field}")
+
+    raw_path = local_paths.get((index, "local_raw"))
+    normalized_path = local_paths.get((index, "local_normalized"))
+    if not raw_path or not normalized_path:
+        return errors
+
+    for field, path in (("raw_sha256", raw_path), ("normalized_sha256", normalized_path)):
+        recorded = dataset.get(field)
+        if not isinstance(recorded, str) or not re.fullmatch(r"[0-9a-f]{64}", recorded):
+            errors.append(f"official manifest passive-tree {field} must be 64 lowercase hex digits")
+        else:
+            actual = _sha256(path)
+            if actual != recorded:
+                errors.append(
+                    f"official manifest passive-tree {field} mismatch: "
+                    f"recorded {recorded}, actual {actual}"
+                )
+
+    recorded_blob = dataset.get("source_blob_git_sha1")
+    if isinstance(recorded_blob, str) and re.fullmatch(r"[0-9a-f]{40}", recorded_blob):
+        actual_blob = _git_blob_sha1(raw_path)
+        if actual_blob != recorded_blob:
+            errors.append(
+                "official manifest passive-tree source_blob_git_sha1 mismatch: "
+                f"recorded {recorded_blob}, actual {actual_blob}"
+            )
+
+    raw = _load_provenance_json(raw_path, "passive-tree local_raw", errors)
+    normalized = _load_provenance_json(
+        normalized_path, "passive-tree local_normalized", errors
+    )
+    if not isinstance(raw, dict) or not isinstance(normalized, dict):
+        if raw is not None and not isinstance(raw, dict):
+            errors.append("passive-tree local_raw must contain a JSON object")
+        if normalized is not None and not isinstance(normalized, dict):
+            errors.append("passive-tree local_normalized must contain a JSON object")
+        return errors
+
+    errors.extend(validate_passive_tree_raw_payload(raw, dataset))
+    raw_nodes = raw.get("nodes")
+    if not isinstance(raw_nodes, dict):
+        return errors
+
+    extract_node_ids, extract_classes, extract_ascendancies = _normalization_extractors()
+    node_ids, semantic_node_ids = extract_node_ids(raw)
+    classes = extract_classes(raw)
+    ascendancies = extract_ascendancies(raw)
+    raw_node_record_count = len(raw_nodes)
+
+    derived_counts = {
+        "raw_node_record_count": raw_node_record_count,
+        "node_count": len(node_ids),
+        "semantic_node_count": len(semantic_node_ids),
+        "class_count": len(classes),
+        "ascendancy_count": len(ascendancies),
+    }
+    for field, actual in derived_counts.items():
+        recorded = dataset.get(field)
+        if not isinstance(recorded, int) or isinstance(recorded, bool) or recorded < 0:
+            errors.append(
+                f"official manifest passive-tree {field} must be a non-negative integer"
+            )
+        elif recorded != actual:
+            errors.append(
+                f"official manifest passive-tree {field} mismatch: "
+                f"recorded {recorded!r}, derived {actual}"
+            )
+
+    known_gaps = []
+    if not node_ids:
+        known_gaps.append("No passive node ids extracted; export schema may differ from expectations.")
+    if not classes:
+        known_gaps.append("No class base-attribute metadata extracted.")
+    if not ascendancies:
+        known_gaps.append("No ascendancy code/name mapping extracted.")
+    expected = {
+        "generated_at": normalized.get("generated_at"),
+        "source": dataset.get("local_raw"),
+        "patch_version": raw.get("tree", "unknown"),
+        "node_count": len(node_ids),
+        "semantic_node_count": len(semantic_node_ids),
+        "classes": classes,
+        "ascendancies": ascendancies,
+        "node_ids": node_ids,
+        "semantic_node_ids": semantic_node_ids,
+        "known_gaps": known_gaps,
+    }
+    if normalized != expected:
+        errors.append(
+            "passive-tree local_normalized does not deterministically match local_raw"
+        )
+    return errors
 
 
 # --------------------------------------------------------------------------- #
@@ -230,6 +581,28 @@ def parse_date(value):
         return None
 
 
+def is_official_trade_url(value):
+    if not isinstance(value, str) or value != value.strip():
+        return False
+    try:
+        parts = urlsplit(value)
+    except ValueError:
+        return False
+    if (
+        parts.scheme != "https"
+        or parts.netloc != OFFICIAL_TRADE_HOST
+        or parts.query
+        or parts.fragment
+    ):
+        return False
+    path = unquote(parts.path)
+    if "\\" in path or any(segment in {".", ".."} for segment in path.split("/")):
+        return False
+    return path == OFFICIAL_TRADE_LANDING_PATH or path.startswith(
+        OFFICIAL_POE2_TRADE_PATH
+    )
+
+
 def business_rules(build, manifest, passive_tree, community_manifest, community_gem_ids, errors):
     status = build.get("status")
     published = status == "published"
@@ -337,6 +710,12 @@ def business_rules(build, manifest, passive_tree, community_manifest, community_
 
     # Trade handoff: any explicit price needs a check date.
     for i, flt in enumerate(build.get("trade_handoff", {}).get("filters", [])):
+        if "trade_url" in flt and not is_official_trade_url(flt.get("trade_url")):
+            errors.append(
+                f"trade_handoff.filters[{i}].trade_url must use "
+                "https://www.pathofexile.com/trade2 or an official "
+                "/trade2/search/poe2/ path"
+            )
         if flt.get("approx_price") and not flt.get("checked_at"):
             errors.append(
                 f"trade_handoff.filters[{i}] has approx_price without checked_at"
@@ -389,18 +768,48 @@ def main():
         return 2
 
     schema = load_json(SCHEMA_PATH)
-    manifest = load_json(MANIFEST_PATH) if MANIFEST_PATH.exists() else None
-    passive_tree = load_json(PASSIVE_TREE_PATH) if PASSIVE_TREE_PATH.exists() else None
+    provenance_errors = []
+    manifest = None
+    if not MANIFEST_PATH.exists():
+        provenance_errors.append("data/official/manifest.json does not exist")
+    else:
+        try:
+            manifest = load_json(MANIFEST_PATH)
+        except (json.JSONDecodeError, UnicodeDecodeError, OSError) as exc:
+            provenance_errors.append(f"data/official/manifest.json is not valid JSON: {exc}")
+    if manifest is not None:
+        provenance_errors.extend(validate_official_manifest_provenance(manifest, ROOT))
+
+    trusted_manifest = manifest if not provenance_errors else None
+    passive_tree = None
+    if trusted_manifest:
+        passive_dataset = next(
+            ds
+            for ds in trusted_manifest["datasets"]
+            if ds.get("type") == "passive-tree"
+        )
+        passive_tree = load_json(ROOT / passive_dataset["local_normalized"])
     community_manifest = load_json(COMMUNITY_MANIFEST_PATH) if COMMUNITY_MANIFEST_PATH.exists() else None
     community_gem_ids = load_community_gem_ids()
 
     build_paths = sorted(p for p in BUILDS_DIR.glob("*.json") if p.name != "schema.json")
     if not build_paths:
-        print("No build files found in data/builds/ (only schema.json). Nothing to validate.")
+        if provenance_errors:
+            for error in provenance_errors:
+                print(f"ERROR: {error}", file=sys.stderr)
+            return 1
+        print("No build files found in data/builds/ (only schema.json). Provenance validated.")
         return 0
 
-    total_errors = 0
+    total_errors = len(provenance_errors)
     seen_ids = {}
+    if provenance_errors:
+        print(f"FAIL  official passive-tree provenance ({len(provenance_errors)} error(s)):")
+        for error in provenance_errors:
+            print(f"      - {error}")
+        print()
+    else:
+        print("PASS  official passive-tree provenance (paths, hashes, counts, normalization)\n")
     print(f"Validating {len(build_paths)} build file(s) against schema.json\n")
 
     for path in build_paths:
@@ -426,7 +835,14 @@ def main():
 
         # Only run business rules when the structure is sane enough.
         if isinstance(build, dict):
-            business_rules(build, manifest, passive_tree, community_manifest, community_gem_ids, errors)
+            business_rules(
+                build,
+                trusted_manifest,
+                passive_tree,
+                community_manifest,
+                community_gem_ids,
+                errors,
+            )
 
         if errors:
             total_errors += len(errors)
@@ -439,7 +855,7 @@ def main():
 
     print()
     if total_errors:
-        print(f"VALIDATION FAILED: {total_errors} error(s) across builds.")
+        print(f"VALIDATION FAILED: {total_errors} error(s) across provenance/build checks.")
         return 1
     print(f"VALIDATION PASSED: {len(build_paths)} build(s) OK.")
     return 0

@@ -45,13 +45,37 @@
     }));
   }
 
+  function isBuildData(build, id) {
+    return build && build.id === id && typeof build.name === "string" &&
+      build.defenses && typeof build.defenses === "object" &&
+      !Array.isArray(build.defenses);
+  }
+
+  function renderLoadFailure(id) {
+    window.__diagPatterns = DEFAULT_PATTERNS;
+    renderTable(DEFAULT_PATTERNS);
+    var targets = $("build-defense-targets");
+    if (targets) targets.innerHTML = "";
+    var banner = $("build-banner");
+    if (banner) {
+      banner.className = "notice notice-warn notice-compact";
+      banner.innerHTML = "<strong>Build data unavailable.</strong> Could not load build <code>" +
+        esc(id) + "</code>. Showing the default diagnostic below.";
+      banner.style.display = "block";
+    }
+  }
+
   function initBuild(id) {
     fetch("../data/builds/" + id + ".json")
-      .then(function (r) { return r.ok ? r.json() : null; })
+      .then(function (r) {
+        if (!r.ok) throw new Error("build request failed");
+        return r.json();
+      })
       .then(function (build) {
-        if (!build) return;
+        if (!isBuildData(build, id)) throw new Error("invalid build data");
         var banner = $("build-banner");
         if (banner) {
+          banner.className = "notice notice-compact";
           banner.style.display = "block";
           banner.innerHTML = "<strong>Build-aware mode:</strong> " + esc(build.name) +
             " · <a href=\"../builds/" + esc(build.id) + ".html\">Open build card</a>";
@@ -78,7 +102,7 @@
           targets.innerHTML = html;
         }
       })
-      .catch(function () {});
+      .catch(function () { renderLoadFailure(id); });
   }
 
   function init() {
@@ -88,7 +112,12 @@
     if (search) search.addEventListener("input", filterPatterns);
     var params = new URLSearchParams(window.location.search);
     var id = params.get("build");
-    if (id) initBuild(id);
+    if (!id) return;
+    if (!/^[a-z0-9-]+$/.test(id)) {
+      renderLoadFailure(id);
+      return;
+    }
+    initBuild(id);
   }
 
   if (document.readyState === "loading") {

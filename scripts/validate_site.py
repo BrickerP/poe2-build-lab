@@ -5,6 +5,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import re
 import struct
 import sys
 from datetime import date
@@ -31,6 +32,157 @@ AD_DOMAINS = (
     "googletagmanager.com",
     "googletagservices.com",
 )
+RESOURCE_ATTRIBUTES = {
+    "animate": ("href", "xlink:href"),
+    "animatecolor": ("href", "xlink:href"),
+    "animatemotion": ("href", "xlink:href"),
+    "animatetransform": ("href", "xlink:href"),
+    "audio": ("src",),
+    "cursor": ("href", "xlink:href"),
+    "embed": ("src",),
+    "feimage": ("href", "xlink:href"),
+    "filter": ("href", "xlink:href"),
+    "frame": ("src",),
+    "iframe": ("src",),
+    "image": ("href", "xlink:href"),
+    "img": ("src", "srcset"),
+    "input": ("src",),
+    "lineargradient": ("href", "xlink:href"),
+    "link": ("imagesrcset",),
+    "mpath": ("href", "xlink:href"),
+    "object": ("data",),
+    "pattern": ("href", "xlink:href"),
+    "portal": ("src",),
+    "radialgradient": ("href", "xlink:href"),
+    "set": ("href", "xlink:href"),
+    "source": ("src", "srcset"),
+    "textpath": ("href", "xlink:href"),
+    "track": ("src",),
+    "tref": ("href", "xlink:href"),
+    "use": ("href", "xlink:href"),
+    "video": ("src", "poster"),
+}
+FORBIDDEN_ATTRIBUTES = {
+    ("a", "ping"),
+    ("area", "ping"),
+    ("applet", "archive"),
+    ("applet", "code"),
+    ("applet", "codebase"),
+    ("applet", "object"),
+    ("base", "href"),
+    ("bgsound", "src"),
+    ("button", "formaction"),
+    ("command", "icon"),
+    ("form", "action"),
+    ("html", "manifest"),
+    ("iframe", "srcdoc"),
+    ("input", "formaction"),
+    ("menuitem", "icon"),
+    ("object", "archive"),
+    ("object", "classid"),
+    ("object", "codebase"),
+}
+FORBIDDEN_GLOBAL_ATTRIBUTES = {"background"}
+FORBIDDEN_META_HTTP_EQUIV = {"refresh"}
+CSS_RESOURCE_MARKERS = (
+    "url",
+    "image(",
+    "image-set",
+    "@import",
+    "http:",
+    "https:",
+    "//",
+    "\\",
+)
+CSS_COMMENT_RE = re.compile(r"/\*.*?\*/", re.DOTALL)
+CSS_ESCAPE_RE = re.compile(
+    r"\\(?:([0-9a-fA-F]{1,6})(?:\r\n|[ \t\r\n\f])?|(\r\n|[\n\r\f])|(.))",
+    re.DOTALL,
+)
+CSS_URL_FUNCTION_RE = re.compile(r"(?<![\w-])url\s*\(", re.IGNORECASE)
+SVG_URL_PRESENTATION_ATTRIBUTES = {
+    "clip-path",
+    "color-profile",
+    "cursor",
+    "fill",
+    "filter",
+    "marker",
+    "marker-end",
+    "marker-mid",
+    "marker-start",
+    "mask",
+    "mask-border-source",
+    "mask-image",
+    "offset-path",
+    "shape-inside",
+    "shape-outside",
+    "stroke",
+}
+
+
+def normalize_css_escapes(value: str) -> str:
+    """Decode CSS escapes before applying URL policy checks."""
+
+    def replace(match: re.Match[str]) -> str:
+        hexadecimal, newline, escaped = match.groups()
+        if hexadecimal is not None:
+            codepoint = int(hexadecimal, 16)
+            if codepoint == 0 or codepoint > 0x10FFFF or 0xD800 <= codepoint <= 0xDFFF:
+                return "\N{REPLACEMENT CHARACTER}"
+            return chr(codepoint)
+        if newline is not None:
+            return ""
+        return escaped
+
+    return CSS_ESCAPE_RE.sub(replace, value)
+
+
+def css_url_references(value: str) -> tuple[list[str], str | None]:
+    """Extract normalized CSS url() values, failing closed on malformed syntax."""
+    normalized = CSS_COMMENT_RE.sub("", normalize_css_escapes(value))
+    references: list[str] = []
+    offset = 0
+    while match := CSS_URL_FUNCTION_RE.search(normalized, offset):
+        cursor = match.end()
+        while cursor < len(normalized) and normalized[cursor].isspace():
+            cursor += 1
+        if cursor >= len(normalized):
+            return references, "unterminated url()"
+
+        quote = normalized[cursor] if normalized[cursor] in {'"', "'"} else None
+        if quote:
+            cursor += 1
+            end = normalized.find(quote, cursor)
+            if end < 0:
+                return references, "unterminated quoted url()"
+            reference = normalized[cursor:end]
+            cursor = end + 1
+            while cursor < len(normalized) and normalized[cursor].isspace():
+                cursor += 1
+            if cursor >= len(normalized) or normalized[cursor] != ")":
+                return references, "unexpected content after quoted url()"
+        else:
+            end = normalized.find(")", cursor)
+            if end < 0:
+                return references, "unterminated url()"
+            reference = normalized[cursor:end].strip()
+            cursor = end
+
+        if not reference:
+            return references, "empty url()"
+        references.append(reference)
+        offset = cursor + 1
+    return references, None
+
+
+def contains_resource_loading_css(value: str) -> bool:
+    normalized = CSS_COMMENT_RE.sub("", normalize_css_escapes(value)).lower()
+    return any(marker in normalized for marker in CSS_RESOURCE_MARKERS)
+
+
+def is_local_fragment(reference: str) -> bool:
+    parts = urlsplit(reference.strip())
+    return not parts.scheme and not parts.netloc and not parts.path and bool(parts.fragment)
 
 
 def current_patch_metadata() -> tuple[str, str, str]:
@@ -89,30 +241,93 @@ class PageParser(HTMLParser):
         self._in_title = False
         self.meta: list[dict[str, str]] = []
         self.links: list[tuple[str, dict[str, str]]] = []
+        self.nav_links: list[dict[str, str]] = []
+        self._nav_depth = 0
+        self.resources: list[tuple[str, str, str]] = []
+        self.svg_presentation_values: list[tuple[str, str, str]] = []
+        self.duplicate_attributes: list[tuple[str, str]] = []
+        self.forbidden_attributes: list[tuple[str, str]] = []
+        self.forbidden_meta_directives: list[str] = []
+        self.styles: list[dict[str, object]] = []
         self.scripts: list[dict[str, object]] = []
+        self._style_index: int | None = None
         self._script_index: int | None = None
+        self._svg_depth = 0
 
     def handle_starttag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
-        values = {key.lower(): value or "" for key, value in attrs}
+        normalized_attrs = [(key.lower(), value or "") for key, value in attrs]
+        seen_attributes: set[str] = set()
+        for attribute, _ in normalized_attrs:
+            if attribute in seen_attributes:
+                self.duplicate_attributes.append((tag, attribute))
+            seen_attributes.add(attribute)
+        values = dict(normalized_attrs)
+        is_svg_script = tag == "script" and self._svg_depth > 0
+        if tag == "svg":
+            self._svg_depth += 1
+        if tag == "nav":
+            self._nav_depth += 1
         if tag == "title":
             self._in_title = True
         elif tag == "meta":
             self.meta.append(values)
-        elif tag in {"a", "link"}:
+            directive = values.get("http-equiv", "").strip().lower()
+            if directive in FORBIDDEN_META_HTTP_EQUIV:
+                self.forbidden_meta_directives.append(directive)
+        elif tag in {"a", "area", "link"}:
             self.links.append((tag, values))
+        elif tag == "style":
+            self.styles.append({"label": "style element", "parts": []})
+            self._style_index = len(self.styles) - 1
         elif tag == "script":
-            self.scripts.append({"attrs": values, "parts": []})
+            self.scripts.append({"attrs": values, "parts": [], "is_svg": is_svg_script})
             self._script_index = len(self.scripts) - 1
+        if tag == "a" and self._nav_depth:
+            self.nav_links.append(values)
+        if "style" in values:
+            self.styles.append({"label": f"{tag} style", "parts": [values["style"]]})
+        for blocked_tag, attribute in FORBIDDEN_ATTRIBUTES:
+            if tag == blocked_tag and attribute in values:
+                self.forbidden_attributes.append((tag, attribute))
+        for attribute in FORBIDDEN_GLOBAL_ATTRIBUTES:
+            if attribute in values:
+                self.forbidden_attributes.append((tag, attribute))
+        for attribute in values:
+            if attribute.startswith("on"):
+                self.forbidden_attributes.append((tag, attribute))
+        for attribute in RESOURCE_ATTRIBUTES.get(tag, ()):
+            value = values.get(attribute)
+            if value:
+                self.resources.append((tag, attribute, value))
+        if is_svg_script:
+            for attribute in ("href", "xlink:href"):
+                value = values.get(attribute)
+                if value:
+                    self.resources.append((tag, attribute, value))
+        for attribute in SVG_URL_PRESENTATION_ATTRIBUTES:
+            value = values.get(attribute)
+            if value:
+                self.svg_presentation_values.append((tag, attribute, value))
 
     def handle_endtag(self, tag: str) -> None:
         if tag == "title":
             self._in_title = False
+        elif tag == "style":
+            self._style_index = None
         elif tag == "script":
             self._script_index = None
+        if tag == "nav":
+            self._nav_depth -= 1
+        if tag == "svg":
+            self._svg_depth -= 1
 
     def handle_data(self, data: str) -> None:
         if self._in_title:
             self.title += data
+        if self._style_index is not None:
+            parts = self.styles[self._style_index]["parts"]
+            assert isinstance(parts, list)
+            parts.append(data)
         if self._script_index is not None:
             parts = self.scripts[self._script_index]["parts"]
             assert isinstance(parts, list)
@@ -206,6 +421,60 @@ def resolve_reference(
     return target, None
 
 
+def validate_current_nav(root: Path, path: Path, parser: PageParser) -> list[str]:
+    current_links = [link for link in parser.nav_links if "aria-current" in link]
+    errors: list[str] = []
+    exact_links: list[dict[str, str]] = []
+    for link in parser.nav_links:
+        href = link.get("href", "")
+        target, policy_error = resolve_reference(
+            root,
+            path,
+            href,
+            allowed_external=False,
+        )
+        href_parts = urlsplit(href)
+        if (
+            not policy_error
+            and target == path.resolve()
+            and not href_parts.query
+            and not href_parts.fragment
+        ):
+            exact_links.append(link)
+
+    expected_count = 1 if exact_links else 0
+    if len(exact_links) > 1:
+        errors.append(
+            f"nav has {len(exact_links)} links to the rendered page; expected at most 1"
+        )
+    if len(current_links) != expected_count:
+        errors.append(
+            "nav must mark exactly the rendered-page link aria-current; "
+            f"expected {expected_count}, found {len(current_links)}"
+        )
+    for current_link in current_links:
+        if current_link.get("aria-current") != "page":
+            errors.append("current nav link must use aria-current=\"page\"")
+        href = current_link.get("href", "")
+        target, policy_error = resolve_reference(
+            root,
+            path,
+            href,
+            allowed_external=False,
+        )
+        href_parts = urlsplit(href)
+        if (
+            policy_error
+            or target != path.resolve()
+            or href_parts.query
+            or href_parts.fragment
+        ):
+            errors.append(
+                f"current nav link {href!r} does not identify the rendered page"
+            )
+    return errors
+
+
 def validate_references(
     root: Path,
     path: Path,
@@ -214,6 +483,30 @@ def validate_references(
     request_url: str | None = None,
 ) -> list[str]:
     errors: list[str] = []
+    for tag, attribute in parser.duplicate_attributes:
+        errors.append(f"{tag} has duplicate {attribute} attribute")
+    for directive in parser.forbidden_meta_directives:
+        errors.append(f"meta http-equiv={directive!r} is not allowed")
+    for tag, attribute in parser.forbidden_attributes:
+        errors.append(f"{tag} {attribute} is not allowed")
+    for style in parser.styles:
+        label = style["label"]
+        parts = style["parts"]
+        assert isinstance(label, str) and isinstance(parts, list)
+        css = "".join(parts)
+        if contains_resource_loading_css(css):
+            errors.append(f"{label} contains resource-loading CSS")
+    for tag, attribute, value in parser.svg_presentation_values:
+        references, syntax_error = css_url_references(value)
+        if syntax_error:
+            errors.append(f"unsafe {tag} {attribute}: malformed CSS {syntax_error}")
+            continue
+        for reference in references:
+            if not is_local_fragment(reference):
+                errors.append(
+                    f"unsafe {tag} {attribute} url {reference!r}: "
+                    "only local fragment references are allowed"
+                )
     for tag, item in parser.links:
         href = item.get("href")
         if not href:
@@ -223,13 +516,32 @@ def validate_references(
             path,
             href,
             request_url=request_url,
-            allowed_external=tag == "a",
-            allowed_special={"mailto", "tel"} if tag == "a" else set(),
+            allowed_external=tag in {"a", "area"},
+            allowed_special={"mailto", "tel"} if tag in {"a", "area"} else set(),
         )
         if policy_error:
             errors.append(f"unsafe {tag} href {href!r}: {policy_error}")
         elif target is not None and not target.is_file():
             errors.append(f"broken internal {tag} href {href!r}")
+
+    for tag, attribute, value in parser.resources:
+        references = (
+            [candidate.strip().split()[0] for candidate in value.split(",") if candidate.strip()]
+            if attribute.endswith("srcset")
+            else [value]
+        )
+        for reference in references:
+            target, policy_error = resolve_reference(
+                root,
+                path,
+                reference,
+                request_url=request_url,
+                allowed_external=False,
+            )
+            if policy_error:
+                errors.append(f"unsafe {tag} {attribute} {reference!r}: {policy_error}")
+            elif target is not None and not target.is_file():
+                errors.append(f"broken local {tag} {attribute} {reference!r}")
 
     for script in parser.scripts:
         attrs = script["attrs"]
@@ -238,6 +550,16 @@ def validate_references(
         src = attrs.get("src", "")
         script_type = attrs.get("type", "").lower()
         content = "".join(parts).strip()
+        if script.get("is_svg"):
+            href = attrs.get("href", "") or attrs.get("xlink:href", "")
+            if href:
+                if content:
+                    errors.append(
+                        f"external SVG script element {href!r} must not contain inline code"
+                    )
+            else:
+                errors.append("inline SVG script is not allowed")
+            continue
         if src:
             if content:
                 errors.append(f"external script element {src!r} must not contain inline code")
@@ -333,6 +655,7 @@ def validate_page(root: Path, path: Path) -> list[str]:
         if domain in lowered:
             errors.append(f"advertising or tracking network reference is disabled: {domain}")
 
+    errors.extend(validate_current_nav(root, path, parser))
     errors.extend(validate_references(root, path, parser))
     if relative == "404.html":
         nested_url = SITE_URL + "missing/deep/example"

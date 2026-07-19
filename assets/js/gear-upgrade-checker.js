@@ -18,16 +18,58 @@
     });
   }
 
-  function slotScore(slot, stageKey) {
+  function officialTradeUrl(value) {
+    if (typeof value !== "string" || value !== value.trim() ||
+        !/^https:\/\/www[.]pathofexile[.]com\//.test(value)) return "";
+    try {
+      var url = new URL(value);
+      var validPath = url.pathname === "/trade2" ||
+        url.pathname.indexOf("/trade2/search/poe2/") === 0;
+      return url.protocol === "https:" && url.host === "www.pathofexile.com" &&
+        !url.search && !url.hash && validPath ? value : "";
+    } catch (error) {
+      return "";
+    }
+  }
+
+  function stageTarget(slot, stageKey) {
     var targetKey = stageKey === "campaign" ? "campaign_target"
       : stageKey === "early_maps" ? "early_maps_target" : "red_maps_target";
-    var t = slot[targetKey] || slot.campaign_target || "";
-    return t ? 1 : 0;
+    return slot[targetKey] || "";
+  }
+
+  function isBuildData(build, id) {
+    return build && build.id === id && typeof build.name === "string" &&
+      build.gear_slots && typeof build.gear_slots === "object" &&
+      !Array.isArray(build.gear_slots);
+  }
+
+  function renderDefaultState() {
+    var slotSel = $("upgrade-slot");
+    var suggest = $("upgrade-suggest");
+    var out = $("upgrade-output");
+    if (slotSel) slotSel.innerHTML = '<option value="">— choose a build above —</option>';
+    if (suggest) suggest.textContent = "No build-specific suggestion is available.";
+    if (out) {
+      out.innerHTML = '<p class="muted">Open this tool from a build card or choose a build above to load slot targets.</p>';
+    }
+  }
+
+  function renderLoadFailure(id) {
+    var banner = $("build-banner");
+    if (banner) {
+      banner.className = "notice notice-warn notice-compact";
+      banner.innerHTML = "<strong>Build data unavailable.</strong> Could not load build <code>" +
+        esc(id) + "</code>. Choose a build above to continue.";
+      banner.style.display = "block";
+    }
+    renderDefaultState();
   }
 
   function renderBuild(build) {
     var banner = $("build-banner");
     if (banner) {
+      banner.className = "notice notice-compact";
       banner.style.display = "block";
       banner.innerHTML = "<strong>Prefilled from:</strong> " + esc(build.name) +
         " · <a href=\"../builds/" + esc(build.id) + ".html\">Open build card</a>";
@@ -35,14 +77,26 @@
 
     var stage = $("upgrade-stage");
     var slotSel = $("upgrade-slot");
+    var status = $("upgrade-suggest");
     var out = $("upgrade-output");
-    if (!stage || !slotSel || !out) return;
+    if (!stage || !slotSel || !status || !out) return;
+
+    function suggestionFor(stageKey) {
+      var ranked = Object.keys(build.gear_slots).filter(function (name) {
+        return Boolean(stageTarget(build.gear_slots[name], stageKey));
+      });
+      if (!ranked.length) return "";
+      return "start with <b>" + esc(ranked[0].replace(/_/g, " ")) + "</b> — " +
+        esc(stageTarget(build.gear_slots[ranked[0]], stageKey));
+    }
 
     function refresh() {
       var stageKey = stage.value;
+      var stageLabel = stage.options[stage.selectedIndex].text;
       var slotName = slotSel.value;
       var slot = build.gear_slots[slotName];
       if (!slot) {
+        status.innerHTML = "<strong>" + esc(stageLabel) + ":</strong> no slot data is available.";
         out.innerHTML = "<p class=\"muted\">No data for this slot.</p>";
         return;
       }
@@ -65,13 +119,24 @@
         var filt = (build.trade_handoff.filters || []).find(function (f) { return f.slot === slotName; });
         if (filt) {
           html += "<h3>Trade handoff</h3><p>" + esc(filt.filter_recipe || filt.required_stats.join(", ")) + "</p>";
-          if (filt.trade_url) {
-            html += "<p><a href=\"" + esc(filt.trade_url) + "\" rel=\"nofollow noopener\">Open official trade</a> " +
+          var tradeUrl = officialTradeUrl(filt.trade_url);
+          if (tradeUrl) {
+            html += "<p><a href=\"" + esc(tradeUrl) + "\" rel=\"nofollow noopener\">Open official trade</a> " +
               "<span class=\"muted\">(filter manually — deep links may not prefill)</span></p>";
+          } else {
+            html += "<p class=\"muted\"><strong>Official trade link unavailable.</strong> " +
+              "Use the filter recipe manually.</p>";
           }
         }
       }
       out.innerHTML = html;
+
+      var suggestion = suggestionFor(stageKey);
+      var selectedTarget = stageTarget(slot, stageKey) || "no authored target";
+      status.innerHTML = "<strong>" + esc(stageLabel) + ":</strong> " +
+        (suggestion ? "suggested focus is to " + suggestion + ". " : "") +
+        "Selected <b>" + esc(slotName.replace(/_/g, " ")) + "</b>: " +
+        esc(selectedTarget) + ".";
     }
 
     slotSel.innerHTML = "";
@@ -85,29 +150,29 @@
     stage.onchange = refresh;
     slotSel.onchange = refresh;
     refresh();
-
-    // Suggest next slot: lowest priority slot with campaign target not yet "done" — heuristic: first slot in list for stage
-    var suggest = $("upgrade-suggest");
-    if (suggest) {
-      var ranked = Object.keys(build.gear_slots).map(function (name) {
-        return { name: name, score: slotScore(build.gear_slots[name], stage.value) };
-      }).filter(function (x) { return x.score > 0; });
-      if (ranked.length) {
-        suggest.innerHTML = "<strong>Suggested focus:</strong> start with <b>" +
-          esc(ranked[0].name.replace(/_/g, " ")) + "</b> — " +
-          esc(build.gear_slots[ranked[0].name].campaign_target || "see targets below") + ".";
-      }
-    }
   }
 
   function init() {
     var params = new URLSearchParams(window.location.search);
     var id = params.get("build");
-    if (!id) return;
+    if (!id) {
+      renderDefaultState();
+      return;
+    }
+    if (!/^[a-z0-9-]+$/.test(id)) {
+      renderLoadFailure(id);
+      return;
+    }
     fetch("../data/builds/" + id + ".json")
-      .then(function (r) { return r.ok ? r.json() : null; })
-      .then(function (data) { if (data) renderBuild(data); })
-      .catch(function () {});
+      .then(function (r) {
+        if (!r.ok) throw new Error("build request failed");
+        return r.json();
+      })
+      .then(function (data) {
+        if (!isBuildData(data, id)) throw new Error("invalid build data");
+        renderBuild(data);
+      })
+      .catch(function () { renderLoadFailure(id); });
   }
 
   if (document.readyState === "loading") {

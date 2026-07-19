@@ -319,7 +319,10 @@
               "required_stats": { "type": "array", "items": { "type": "string" } },
               "optional_stats": { "type": "array", "items": { "type": "string" } },
               "ignore_at_low_budget": { "type": "array", "items": { "type": "string" } },
-              "trade_url": { "type": "string" },
+              "trade_url": {
+                "type": "string",
+                "pattern": "^https://www[.]pathofexile[.]com(?:/trade2|/trade2/search/poe2/[^\\s?#]*)$"
+              },
               "filter_recipe": { "type": "string" },
               "approx_price": { "type": "string" },
               "checked_at": {

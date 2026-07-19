@@ -1,0 +1,130 @@
+#!/usr/bin/env python3
+"""Regression tests for the post-deploy live artifact gate."""
+
+from __future__ import annotations
+
+import json
+import tempfile
+import unittest
+from pathlib import Path
+
+from verify_live_deploy import (
+    Response,
+    SITE_URL,
+    audit_once,
+    content_type_for,
+    public_url,
+    published_files,
+)
+
+REPO_ROOT = Path(__file__).resolve().parent.parent
+DOWNLOAD_ARTIFACT_SHA = "3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c"
+
+
+class LiveDeployTests(unittest.TestCase):
+    def setUp(self) -> None:
+        self.temp = tempfile.TemporaryDirectory()
+        self.root = Path(self.temp.name)
+        self.dist = self.root / "dist"
+        self.dist.mkdir()
+        marker = (
+            '<a href="https://example.com/patch" rel="nofollow noopener">Patch Test</a>'
+        )
+        (self.dist / "index.html").write_text(
+            '<link rel="canonical" href="' + SITE_URL + '">' + marker,
+            encoding="utf-8",
+        )
+        (self.dist / "styles.css").write_text("body{}\n", encoding="utf-8")
+        (self.dist / ".nojekyll").write_bytes(b"")
+        self.ledger = self.root / "patch-notes.json"
+        self.ledger.write_text(
+            json.dumps(
+                {
+                    "current_patch": "Patch Test",
+                    "patches": [
+                        {
+                            "patch_version": "Patch Test",
+                            "source_url": "https://example.com/patch",
+                        }
+                    ],
+                }
+            ),
+            encoding="utf-8",
+        )
+
+    def tearDown(self) -> None:
+        self.temp.cleanup()
+
+    def responses(self) -> dict[str, Response]:
+        return {
+            public_url("index.html"): Response(
+                200,
+                "text/html",
+                (self.dist / "index.html").read_bytes(),
+                SITE_URL,
+            ),
+            public_url("styles.css"): Response(
+                200,
+                "text/css",
+                (self.dist / "styles.css").read_bytes(),
+                SITE_URL + "styles.css",
+            ),
+        }
+
+    def audit(self, responses: dict[str, Response]) -> list[str]:
+        def fetcher(url: str, _timeout: float) -> Response:
+            return responses[url]
+
+        return audit_once(
+            self.dist,
+            self.ledger,
+            base_url=SITE_URL,
+            timeout=1,
+            fetcher=fetcher,
+        )
+
+    def test_exact_artifact_passes_and_nojekyll_is_not_requested(self) -> None:
+        self.assertEqual(["index.html", "styles.css"], [p.name for p in published_files(self.dist)])
+        self.assertEqual([], self.audit(self.responses()))
+
+    def test_byte_drift_is_rejected(self) -> None:
+        responses = self.responses()
+        responses[SITE_URL + "styles.css"] = Response(
+            200,
+            "text/css",
+            b"body{color:red}\n",
+            SITE_URL + "styles.css",
+        )
+        self.assertIn("live bytes differ from immutable dist", "\n".join(self.audit(responses)))
+
+    def test_mime_redirect_canonical_patch_and_tracking_are_rejected(self) -> None:
+        responses = self.responses()
+        bad_index = (
+            '<link rel="canonical" href="https://wrong.example/">'
+            '<script src="https://www.googletagmanager.com/tag.js"></script>'
+        ).encode()
+        responses[SITE_URL] = Response(200, "text/plain", bad_index, SITE_URL + "index.html")
+        errors = "\n".join(self.audit(responses))
+        self.assertIn("Content-Type", errors)
+        self.assertIn("redirected", errors)
+        self.assertIn("live bytes differ", errors)
+        self.assertIn("canonical", errors)
+        self.assertIn("current patch marker", errors)
+        self.assertIn("advertising or tracking reference", errors)
+
+    def test_known_content_types_are_explicit(self) -> None:
+        self.assertEqual({"application/octet-stream", "text/plain"}, content_type_for(Path("x.build")))
+        self.assertEqual({"application/javascript", "text/javascript"}, content_type_for(Path("x.js")))
+
+    def test_workflow_downloads_existing_artifact_and_verifies_after_deploy(self) -> None:
+        workflow = (REPO_ROOT / ".github" / "workflows" / "ci.yml").read_text(encoding="utf-8")
+        download = f"actions/download-artifact@{DOWNLOAD_ARTIFACT_SHA}"
+        self.assertIn(download, workflow)
+        self.assertIn("name: poe2-site-evidence-${{ github.run_attempt }}", workflow)
+        self.assertIn("python3 scripts/verify_live_deploy.py", workflow)
+        self.assertLess(workflow.index("name: Deploy exact dist artifact"), workflow.index(download))
+        self.assertLess(workflow.index(download), workflow.index("python3 scripts/verify_live_deploy.py"))
+
+
+if __name__ == "__main__":
+    unittest.main()
