@@ -3,39 +3,146 @@ name: CI
 on:
   pull_request:
   push:
-    branches: [main, master]
+    branches: [main]
+  workflow_dispatch:
+
+permissions: {}
+
+concurrency:
+  group: poe2-pages-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   validate-and-build:
+    name: validate-and-build
     runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: read
     steps:
-      - uses: actions/checkout@v4
+      - name: Check out source
+        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
+        with:
+          persist-credentials: false
 
       - name: Set up Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6.3.0
         with:
-          python-version: "3.x"
+          python-version-file: ".python-version"
+          check-latest: false
+
+      - name: Set up Node
+        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version-file: ".node-version"
+          check-latest: false
+
+      - name: Verify exact runtimes
+        run: |
+          expected_python="$(tr -d '[:space:]' < .python-version)"
+          actual_python="$(python3 -c 'import platform; print(platform.python_version())')"
+          test "$actual_python" = "$expected_python" || {
+            echo "Expected Python $expected_python from .python-version, got $actual_python"
+            exit 1
+          }
+          expected_node="v$(tr -d '[:space:]' < .node-version)"
+          actual_node="$(node --version)"
+          test "$actual_node" = "$expected_node" || {
+            echo "Expected Node $expected_node from .node-version, got $actual_node"
+            exit 1
+          }
+          echo "Runtime contracts verified: Python $actual_python; Node $actual_node"
+
+      - name: Prepare validation evidence
+        run: mkdir -p /tmp/poe2-ci-evidence
 
       - name: Validate build data
-        run: python3 scripts/validate_builds.py
+        run: |
+          set -o pipefail
+          python3 scripts/validate_builds.py 2>&1 | tee /tmp/poe2-ci-evidence/validate-builds.log
 
       - name: Check patch and review-state SLA
-        run: python3 scripts/check_patch_status.py --check
-
-      - name: Check .build exporter (refuses placeholder ids)
         run: |
-          python3 scripts/export_build_files.py --selftest
-          python3 scripts/export_build_files.py --check
+          set -o pipefail
+          {
+            python3 scripts/test_patch_status.py
+            python3 scripts/check_patch_status.py --check
+          } 2>&1 | tee /tmp/poe2-ci-evidence/check-patch-status.log
 
-      - name: Regenerate site
-        run: python3 sitegen.py
-
-      - name: Fail if generated files are stale
+      - name: Check .build exporter
         run: |
-          if [ -n "$(git status --porcelain)" ]; then
-            echo "::error::Generated files are out of date. Run 'python3 sitegen.py' and commit the result."
-            git --no-pager diff --stat
-            git --no-pager diff
+          set -o pipefail
+          {
+            python3 scripts/export_build_files.py --selftest
+            python3 scripts/export_build_files.py --check
+          } 2>&1 | tee /tmp/poe2-ci-evidence/export-build-files.log
+
+      - name: Regenerate and validate source site
+        run: |
+          set -o pipefail
+          {
+            python3 sitegen.py
+            python3 scripts/validate_site.py
+          } 2>&1 | tee /tmp/poe2-ci-evidence/validate-source.log
+
+      - name: Fail if generated source is stale
+        run: |
+          status="$(git status --porcelain --untracked-files=all)"
+          if [ -n "$status" ]; then
+            {
+              echo "Generated source is out of date. Run python3 sitegen.py and commit the result."
+              echo "$status"
+              git --no-pager diff --stat
+              git --no-pager diff
+            } | tee /tmp/poe2-ci-evidence/generated-drift.log
             exit 1
           fi
-          echo "Generated files are up to date."
+          echo "Generated source is up to date." | tee /tmp/poe2-ci-evidence/generated-drift.log
+
+      - name: Package deterministic Pages artifact
+        run: |
+          set -o pipefail
+          python3 scripts/package_site.py --check-deterministic 2>&1 | tee /tmp/poe2-ci-evidence/package-site.log
+
+      - name: Validate packaged dist
+        run: |
+          set -o pipefail
+          {
+            python3 scripts/validate_site.py --root dist --dist
+            python3 scripts/test_validate_site.py
+            python3 scripts/test_runtime_site.py
+          } 2>&1 | tee /tmp/poe2-ci-evidence/validate-dist.log
+
+      - name: Upload validation evidence
+        if: ${{ always() }}
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: poe2-site-evidence-${{ github.run_attempt }}
+          path: |
+            /tmp/poe2-ci-evidence
+            dist
+          if-no-files-found: warn
+          retention-days: 7
+
+      - name: Upload GitHub Pages artifact
+        if: ${{ success() && github.ref == 'refs/heads/main' && github.event_name != 'pull_request' }}
+        uses: actions/upload-pages-artifact@fc324d3547104276b827a68afc52ff2a11cc49c9 # v5.0.0
+        with:
+          path: dist
+
+  deploy:
+    name: deploy-pages
+    needs: validate-and-build
+    if: ${{ success() && github.ref == 'refs/heads/main' && github.event_name != 'pull_request' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy exact dist artifact
+        id: deployment
+        uses: actions/deploy-pages@cd2ce8fcbc39b97be8ca5fce6e763baed58fa128 # v5.0.0

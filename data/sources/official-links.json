@@ -1,7 +1,5 @@
 {
   "_comment": "Canonical official / authoritative source links for the data provenance hierarchy in doc 14. Community sources are intentionally excluded here; they belong in per-build source_links with clear labeling.",
-  "patch_version": "0.5.2 Early Access",
-  "updated_at": "2026-06-16",
   "sources": [
     {
       "id": "ggg-passive-tree-export",

@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title description">
+  <title id="title">PoE2 Build Lab</title>
+  <desc id="description">Patch-aware beginner build decisions for Path of Exile 2</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#111827"/>
+      <stop offset="1" stop-color="#35170f"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="72%" cy="22%" r="62%">
+      <stop offset="0" stop-color="#d99045" stop-opacity=".44"/>
+      <stop offset="1" stop-color="#d99045" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect width="1200" height="630" fill="url(#glow)"/>
+  <path d="M0 500 245 360l175 98 270-216 510 295v93H0Z" fill="#080d16" opacity=".72"/>
+  <path d="M0 536 245 396l175 98 270-216 510 295" fill="none" stroke="#e2a158" stroke-width="4" opacity=".72"/>
+  <text x="86" y="224" fill="#f6d8ae" font-family="Georgia,serif" font-size="88" font-weight="700">PoE2 Build Lab</text>
+  <text x="91" y="300" fill="#f5f1e8" font-family="Arial,sans-serif" font-size="34">Patch-aware beginner build decisions</text>
+  <g transform="translate(91 354)" font-family="Arial,sans-serif" font-size="25" fill="#d7dde8">
+    <text x="0" y="0">Build trust</text>
+    <text x="198" y="0">•</text>
+    <text x="230" y="0">Gear priorities</text>
+    <text x="457" y="0">•</text>
+    <text x="489" y="0">Defense diagnostics</text>
+  </g>
+  <rect x="88" y="104" width="194" height="43" rx="21" fill="#b45628"/>
+  <text x="185" y="134" text-anchor="middle" fill="#fff7ed" font-family="Arial,sans-serif" font-size="22" font-weight="700">EARLY ACCESS</text>
+</svg>
