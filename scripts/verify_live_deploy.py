@@ -168,8 +168,8 @@ def validate_live_invariants(
         except UnicodeDecodeError:
             errors.append("styles.css: live stylesheet is not UTF-8")
         else:
-            if "@import" in css.lower() or "fonts.googleapis.com" in css.lower():
-                errors.append("styles.css: live stylesheet must not import remote fonts")
+            if "@import" in css.lower():
+                errors.append("styles.css: live stylesheet must not use @import")
             errors.extend(validate_font_face_contract(css, label="styles.css: live"))
     return errors
 

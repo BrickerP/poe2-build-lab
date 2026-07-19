@@ -187,6 +187,19 @@ class LiveDeployTests(unittest.TestCase):
         self.assertIn("live bytes differ", errors)
         self.assertIn("missing effective font-family", errors)
 
+    def test_live_stylesheet_import_is_rejected(self) -> None:
+        responses = self.responses()
+        bad_css = ('@import url("https://example.com/font.css");\n' + VALID_CSS).encode()
+        responses[SITE_URL + "styles.css"] = Response(
+            200,
+            "text/css",
+            bad_css,
+            SITE_URL + "styles.css",
+        )
+        errors = "\n".join(self.audit(responses))
+        self.assertIn("live bytes differ", errors)
+        self.assertIn("live stylesheet must not use @import", errors)
+
     def test_workflow_downloads_existing_artifact_and_verifies_after_deploy(self) -> None:
         workflow = (REPO_ROOT / ".github" / "workflows" / "ci.yml").read_text(encoding="utf-8")
         download = f"actions/download-artifact@{DOWNLOAD_ARTIFACT_SHA}"
