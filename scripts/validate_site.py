@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 import re
 import struct
@@ -15,6 +16,7 @@ from urllib.parse import unquote, urljoin, urlsplit
 from xml.etree import ElementTree
 
 from package_site import REPO_ROOT, expected_dist_paths
+from font_contract import strip_css_comments, validate_font_face_contract
 from runtime_builds import runtime_dist_paths
 from validate_builds import validate_against_schema
 
@@ -94,12 +96,12 @@ CSS_RESOURCE_MARKERS = (
     "//",
     "\\",
 )
-CSS_COMMENT_RE = re.compile(r"/\*.*?\*/", re.DOTALL)
 CSS_ESCAPE_RE = re.compile(
     r"\\(?:([0-9a-fA-F]{1,6})(?:\r\n|[ \t\r\n\f])?|(\r\n|[\n\r\f])|(.))",
     re.DOTALL,
 )
 CSS_URL_FUNCTION_RE = re.compile(r"(?<![\w-])url\s*\(", re.IGNORECASE)
+CSS_URL_TOKEN_RE = re.compile(r"(?<![\w-])url\b", re.IGNORECASE)
 SVG_URL_PRESENTATION_ATTRIBUTES = {
     "clip-path",
     "color-profile",
@@ -117,6 +119,28 @@ SVG_URL_PRESENTATION_ATTRIBUTES = {
     "shape-inside",
     "shape-outside",
     "stroke",
+}
+IMMUTABLE_FONT_ASSETS = {
+    "assets/fonts/OFL-Libre-Baskerville.txt": (
+        4542,
+        "3624eddd4c8f8a908130a417ae7cd089c9da69899c4e0ca1a5217d0a6fae16fd",
+    ),
+    "assets/fonts/OFL-Source-Sans-3.txt": (
+        4579,
+        "09746787287a289323b0ec3cff4d1a4a801331b82b7207c1e186f5d26619a392",
+    ),
+    "assets/fonts/SOURCES.txt": (
+        1331,
+        "5b671192cf96aebc1086ea9fb6b4e935307496e00516f61723a1f14e41864b84",
+    ),
+    "assets/fonts/libre-baskerville-latin-variable.woff2": (
+        33852,
+        "b62b98ef69e6e55b28b9bcac84513eb1bdd1d312a344b1c76e979219923224a5",
+    ),
+    "assets/fonts/source-sans-3-latin-variable.woff2": (
+        28792,
+        "ac057a5593cbe3df0d2585da5dd5f33b8efa84aa30550c710fe061b37fc5c54b",
+    ),
 }
 
 
@@ -139,7 +163,15 @@ def normalize_css_escapes(value: str) -> str:
 
 def css_url_references(value: str) -> tuple[list[str], str | None]:
     """Extract normalized CSS url() values, failing closed on malformed syntax."""
-    normalized = CSS_COMMENT_RE.sub("", normalize_css_escapes(value))
+    uncommented, scan_error = strip_css_comments(value)
+    if scan_error:
+        if (
+            scan_error.startswith("unterminated CSS string")
+            and CSS_URL_FUNCTION_RE.search(normalize_css_escapes(uncommented))
+        ):
+            return [], "unterminated quoted url()"
+        return [], scan_error
+    normalized = normalize_css_escapes(uncommented)
     references: list[str] = []
     offset = 0
     while match := CSS_URL_FUNCTION_RE.search(normalized, offset):
@@ -176,8 +208,86 @@ def css_url_references(value: str) -> tuple[list[str], str | None]:
 
 
 def contains_resource_loading_css(value: str) -> bool:
-    normalized = CSS_COMMENT_RE.sub("", normalize_css_escapes(value)).lower()
+    uncommented, scan_error = strip_css_comments(value)
+    if scan_error:
+        return True
+    normalized = normalize_css_escapes(uncommented).lower()
     return any(marker in normalized for marker in CSS_RESOURCE_MARKERS)
+
+
+def validate_standalone_css(root: Path) -> list[str]:
+    """Allow only well-formed local files in the site's standalone stylesheet."""
+    path = root / "styles.css"
+    if not path.is_file():
+        return ["styles.css: missing standalone stylesheet"]
+    try:
+        css = path.read_text(encoding="utf-8")
+    except UnicodeDecodeError:
+        return ["styles.css: stylesheet is not UTF-8"]
+
+    errors: list[str] = []
+    uncommented, scan_error = strip_css_comments(css)
+    if scan_error:
+        return [f"styles.css: malformed CSS {scan_error}"]
+    normalized = normalize_css_escapes(uncommented)
+    errors.extend(validate_font_face_contract(css))
+    if "\\" in uncommented:
+        errors.append("styles.css: escaped CSS references are not allowed")
+    if re.search(r"@import\b", normalized, re.IGNORECASE):
+        errors.append("styles.css: @import is not allowed")
+
+    tokens = list(CSS_URL_TOKEN_RE.finditer(normalized))
+    functions = list(CSS_URL_FUNCTION_RE.finditer(normalized))
+    if len(tokens) != len(functions):
+        errors.append("styles.css: malformed url reference")
+        return errors
+
+    references, syntax_error = css_url_references(css)
+    if syntax_error:
+        errors.append(f"styles.css: malformed CSS {syntax_error}")
+        return errors
+    for reference in references:
+        value = reference.strip()
+        if value.startswith("//"):
+            errors.append(f"styles.css: scheme-relative URL is not allowed: {reference!r}")
+            continue
+        parts = urlsplit(value)
+        if parts.scheme or parts.netloc:
+            errors.append(f"styles.css: external or non-local URL is not allowed: {reference!r}")
+            continue
+        if parts.query or parts.fragment or not parts.path:
+            errors.append(f"styles.css: font/resource URL must name one local file: {reference!r}")
+            continue
+        target = (path.parent / unquote(parts.path)).resolve()
+        try:
+            target.relative_to(root.resolve())
+        except ValueError:
+            errors.append(f"styles.css: local URL escapes the site root: {reference!r}")
+            continue
+        if not target.is_file():
+            errors.append(f"styles.css: missing local resource {reference!r}")
+    return errors
+
+
+def validate_font_assets(root: Path) -> list[str]:
+    """Lock the exact audited font subsets and their distributed provenance."""
+    errors: list[str] = []
+    for relative, (expected_size, expected_hash) in IMMUTABLE_FONT_ASSETS.items():
+        path = root / relative
+        if not path.is_file():
+            errors.append(f"{relative}: required font asset or provenance file is missing")
+            continue
+        content = path.read_bytes()
+        actual_hash = hashlib.sha256(content).hexdigest()
+        if len(content) != expected_size:
+            errors.append(
+                f"{relative}: size {len(content)}; expected immutable size {expected_size}"
+            )
+        if actual_hash != expected_hash:
+            errors.append(
+                f"{relative}: SHA-256 {actual_hash}; expected {expected_hash}"
+            )
+    return errors
 
 
 def is_local_fragment(reference: str) -> bool:
@@ -198,7 +308,14 @@ def current_patch_metadata() -> tuple[str, str, str]:
     patch = matches[0]
     patch_date = patch.get("date")
     source_url = patch.get("source_url")
-    date.fromisoformat(str(patch_date))
+    if not isinstance(patch_date, str) or not patch_date:
+        raise ValueError("current patch date must be a YYYY-MM-DD string")
+    try:
+        parsed_patch_date = date.fromisoformat(patch_date)
+    except ValueError as exc:
+        raise ValueError("current patch date must be a YYYY-MM-DD string") from exc
+    if parsed_patch_date.isoformat() != patch_date:
+        raise ValueError("current patch date must be a YYYY-MM-DD string")
     if not isinstance(source_url, str) or not source_url.startswith("https://"):
         raise ValueError("current patch source_url must be absolute HTTPS")
     return version, patch_date, source_url
@@ -813,6 +930,8 @@ def main() -> int:
     errors.extend(validate_patch_marker(root))
     if args.dist:
         errors.extend(validate_dist_inventory(root))
+    errors.extend(validate_standalone_css(root))
+    errors.extend(validate_font_assets(root))
     errors.extend(validate_javascript_policy(root))
     errors.extend(validate_png(root / "assets" / "social-card.png", (1200, 630)))
     errors.extend(validate_png(root / "assets" / "favicon.png", (32, 32)))
@@ -825,7 +944,8 @@ def main() -> int:
     scope = "packaged dist" if args.dist else "source site"
     print(
         f"SITE VALIDATION PASSED ({scope}): {len(pages)} generated page(s), metadata, "
-        "JSON-LD, safe references/scripts, exact sitemap, images, and ad-disable policy are valid."
+        "JSON-LD, safe references/scripts/CSS, immutable fonts, exact sitemap, images, "
+        "and ad-disable policy are valid."
     )
     return 0
 

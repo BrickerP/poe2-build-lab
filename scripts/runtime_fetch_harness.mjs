@@ -183,7 +183,92 @@ for (const testCase of navCases) {
   if (hasCurrent !== testCase.current || currentCount !== (testCase.current ? 1 : 0)) {
     throw new Error(`${testCase.page}: aria-current must identify only an exact nav destination; count=${currentCount}`);
   }
+  if (!html.includes('assets/js/navigation.js" defer')) {
+    throw new Error(`${testCase.page}: responsive navigation helper is not defer-loaded`);
+  }
   console.log(`PASS ${testCase.page}: visual section state and exact-page aria-current are distinct`);
+}
+
+const navigationResponse = await nativeFetch(new URL("assets/js/navigation.js", base));
+if (!navigationResponse.ok) throw new Error(`assets/js/navigation.js: HTTP ${navigationResponse.status}`);
+const navigationSource = await navigationResponse.text();
+
+function runNavigationCase({name, viewport, scrollWidth, activeLeft, activeWidth}) {
+  let resizeCallback = null;
+  let focusCalls = 0;
+  let endPadding = 0;
+  let baseScrollWidth = scrollWidth;
+  const nav = {
+    clientWidth: viewport - 32,
+    get scrollWidth() { return baseScrollWidth + endPadding; },
+    set scrollWidth(value) { baseScrollWidth = value; },
+    scrollLeft: 0,
+    style: {
+      get paddingInlineEnd() { return endPadding ? `${endPadding}px` : ""; },
+      set paddingInlineEnd(value) { endPadding = value ? Number.parseFloat(value) : 0; }
+    },
+    getBoundingClientRect() {
+      return {left: 0, right: this.clientWidth};
+    },
+    querySelector() { return active; }
+  };
+  const active = {
+    offsetLeft: activeLeft,
+    offsetWidth: activeWidth,
+    focus() { focusCalls += 1; },
+    getBoundingClientRect() {
+      return {
+        left: this.offsetLeft - nav.scrollLeft,
+        right: this.offsetLeft - nav.scrollLeft + this.offsetWidth
+      };
+    }
+  };
+  const context = {
+    document: {querySelector() { return nav; }},
+    window: {
+      addEventListener(event, callback, options) {
+        if (event !== "resize" || options?.passive !== true) {
+          throw new Error(`${name}: navigation listener must be passive resize only`);
+        }
+        resizeCallback = callback;
+      }
+    }
+  };
+  vm.runInNewContext(navigationSource, context, {filename: `navigation.js (${name})`});
+  if (focusCalls !== 0) throw new Error(`${name}: navigation helper moved focus`);
+  return {nav, active, resizeCallback};
+}
+
+const home320 = runNavigationCase({
+  name: "home at 320px",
+  viewport: 320,
+  scrollWidth: 508,
+  activeLeft: 0,
+  activeWidth: 0
+});
+if (home320.nav.scrollLeft !== 0) {
+  throw new Error(`home at 320px: hidden Home item caused unnecessary scroll ${home320.nav.scrollLeft}`);
+}
+console.log("PASS Home at 320px: hidden active item causes no unnecessary scroll");
+
+for (const fixture of [
+  {name: "Guides at 390px", viewport: 390, scrollWidth: 508, activeLeft: 388.2109375, activeWidth: 60},
+  {name: "Endgame at 320px", viewport: 320, scrollWidth: 508, activeLeft: 448.2109375, activeWidth: 60}
+]) {
+  const result = runNavigationCase(fixture);
+  const rect = result.active.getBoundingClientRect();
+  const rightGutter = result.nav.clientWidth - rect.right;
+  if (rect.left < 1 || rightGutter < 1) {
+    throw new Error(`${fixture.name}: active link lacks a 1px safety gutter; right=${rightGutter}`);
+  }
+  if (!result.resizeCallback) throw new Error(`${fixture.name}: resize correction is missing`);
+  result.nav.clientWidth = 600;
+  result.nav.scrollWidth = 508;
+  result.resizeCallback();
+  if (result.nav.scrollLeft !== 0) {
+    throw new Error(`${fixture.name}: mobile-to-desktop resize retained horizontal offset`);
+  }
+  console.log(`PASS ${fixture.name}: active link is revealed and desktop resize resets offset`);
 }
 
 const gearResponse = await nativeFetch(new URL("tools/gear-upgrade-checker.html", base));

@@ -16,6 +16,8 @@ from urllib.error import HTTPError, URLError
 from urllib.parse import quote, urljoin
 from urllib.request import Request, urlopen
 
+from font_contract import validate_font_face_contract
+
 SITE_URL = "https://brickerp.github.io/poe2-build-lab/"
 IGNORED_CONTROL_FILES = {".nojekyll"}
 AD_TRACKING_DOMAINS = (
@@ -36,6 +38,7 @@ CONTENT_TYPES = {
     ".json": {"application/json"},
     ".png": {"image/png"},
     ".txt": {"text/plain"},
+    ".woff2": {"font/woff2"},
     ".xml": {"application/xml", "text/xml"},
 }
 
@@ -156,6 +159,18 @@ def validate_live_invariants(
         marker = f'href="{patch_source_url}" rel="nofollow noopener">{patch_version}</a>'
         if marker.encode("utf-8") not in index.body:
             errors.append("index.html: current patch marker does not match patch ledger")
+    stylesheet = live.get("styles.css")
+    if stylesheet is None:
+        errors.append("styles.css: missing from live audit")
+    else:
+        try:
+            css = stylesheet.body.decode("utf-8")
+        except UnicodeDecodeError:
+            errors.append("styles.css: live stylesheet is not UTF-8")
+        else:
+            if "@import" in css.lower() or "fonts.googleapis.com" in css.lower():
+                errors.append("styles.css: live stylesheet must not import remote fonts")
+            errors.extend(validate_font_face_contract(css, label="styles.css: live"))
     return errors
 
 

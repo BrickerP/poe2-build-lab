@@ -19,6 +19,24 @@ from verify_live_deploy import (
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
 DOWNLOAD_ARTIFACT_SHA = "3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c"
+VALID_CSS = """@font-face {
+  font-family: "Source Sans 3";
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url("assets/fonts/source-sans-3-latin-variable.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "Libre Baskerville";
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url("assets/fonts/libre-baskerville-latin-variable.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+body {}
+"""
 
 
 class LiveDeployTests(unittest.TestCase):
@@ -34,7 +52,10 @@ class LiveDeployTests(unittest.TestCase):
             '<link rel="canonical" href="' + SITE_URL + '">' + marker,
             encoding="utf-8",
         )
-        (self.dist / "styles.css").write_text("body{}\n", encoding="utf-8")
+        (self.dist / "styles.css").write_text(VALID_CSS, encoding="utf-8")
+        font_dir = self.dist / "assets/fonts"
+        font_dir.mkdir(parents=True)
+        (font_dir / "source-sans-3-latin-variable.woff2").write_bytes(b"font")
         (self.dist / ".nojekyll").write_bytes(b"")
         self.ledger = self.root / "patch-notes.json"
         self.ledger.write_text(
@@ -69,6 +90,12 @@ class LiveDeployTests(unittest.TestCase):
                 (self.dist / "styles.css").read_bytes(),
                 SITE_URL + "styles.css",
             ),
+            public_url("assets/fonts/source-sans-3-latin-variable.woff2"): Response(
+                200,
+                "font/woff2",
+                b"font",
+                SITE_URL + "assets/fonts/source-sans-3-latin-variable.woff2",
+            ),
         }
 
     def audit(self, responses: dict[str, Response]) -> list[str]:
@@ -84,7 +111,10 @@ class LiveDeployTests(unittest.TestCase):
         )
 
     def test_exact_artifact_passes_and_nojekyll_is_not_requested(self) -> None:
-        self.assertEqual(["index.html", "styles.css"], [p.name for p in published_files(self.dist)])
+        self.assertEqual(
+            ["source-sans-3-latin-variable.woff2", "index.html", "styles.css"],
+            [p.name for p in published_files(self.dist)],
+        )
         self.assertEqual([], self.audit(self.responses()))
 
     def test_byte_drift_is_rejected(self) -> None:
@@ -115,6 +145,47 @@ class LiveDeployTests(unittest.TestCase):
     def test_known_content_types_are_explicit(self) -> None:
         self.assertEqual({"application/octet-stream", "text/plain"}, content_type_for(Path("x.build")))
         self.assertEqual({"application/javascript", "text/javascript"}, content_type_for(Path("x.js")))
+        self.assertEqual({"font/woff2"}, content_type_for(Path("x.woff2")))
+
+    def test_woff2_mime_is_enforced(self) -> None:
+        responses = self.responses()
+        font_url = SITE_URL + "assets/fonts/source-sans-3-latin-variable.woff2"
+        responses[font_url] = Response(200, "application/octet-stream", b"font", font_url)
+        errors = "\n".join(self.audit(responses))
+        self.assertIn("Content-Type 'application/octet-stream'", errors)
+        self.assertIn("font/woff2", errors)
+
+    def test_live_font_css_contract_is_enforced(self) -> None:
+        responses = self.responses()
+        bad_css = VALID_CSS.replace(
+            'url("assets/fonts/source-sans-3-latin-variable.woff2")',
+            'url("https://fonts.gstatic.com/remote.woff2")',
+        ).encode()
+        responses[SITE_URL + "styles.css"] = Response(
+            200,
+            "text/css",
+            bad_css,
+            SITE_URL + "styles.css",
+        )
+        errors = "\n".join(self.audit(responses))
+        self.assertIn("live bytes differ", errors)
+        self.assertIn('contract for "Source Sans 3" differs: mismatched src', errors)
+
+    def test_live_font_css_contract_uses_effective_comment_free_css(self) -> None:
+        responses = self.responses()
+        bad_css = VALID_CSS.replace(
+            '  font-family: "Source Sans 3";',
+            '  /* font-family: "Source Sans 3"; */',
+        ).encode()
+        responses[SITE_URL + "styles.css"] = Response(
+            200,
+            "text/css",
+            bad_css,
+            SITE_URL + "styles.css",
+        )
+        errors = "\n".join(self.audit(responses))
+        self.assertIn("live bytes differ", errors)
+        self.assertIn("missing effective font-family", errors)
 
     def test_workflow_downloads_existing_artifact_and_verifies_after_deploy(self) -> None:
         workflow = (REPO_ROOT / ".github" / "workflows" / "ci.yml").read_text(encoding="utf-8")

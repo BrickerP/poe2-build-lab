@@ -10,6 +10,9 @@ import tempfile
 import unittest
 from html.parser import HTMLParser
 from pathlib import Path
+from unittest.mock import patch
+
+import validate_site
 
 ROOT = Path(__file__).resolve().parent.parent
 VALIDATOR = ROOT / "scripts" / "validate_site.py"
@@ -109,6 +112,37 @@ class SiteGeneratorTests(unittest.TestCase):
             )
 
 
+class PatchMetadataTests(unittest.TestCase):
+    def test_current_patch_date_requires_a_canonical_json_string(self):
+        cases = (12345, None, "", "July 20, 2026")
+        for patch_date in cases:
+            with self.subTest(patch_date=patch_date), tempfile.TemporaryDirectory() as temporary:
+                root = Path(temporary)
+                ledger = root / "data" / "sources" / "patch-notes.json"
+                ledger.parent.mkdir(parents=True)
+                ledger.write_text(
+                    json.dumps(
+                        {
+                            "current_patch": "Patch Test",
+                            "patches": [
+                                {
+                                    "patch_version": "Patch Test",
+                                    "date": patch_date,
+                                    "source_url": "https://example.com/patch",
+                                }
+                            ],
+                        }
+                    ),
+                    encoding="utf-8",
+                )
+                with patch.object(validate_site, "REPO_ROOT", root):
+                    with self.assertRaisesRegex(
+                        ValueError,
+                        "current patch date must be a YYYY-MM-DD string",
+                    ):
+                        validate_site.current_patch_metadata()
+
+
 class SiteValidatorNegativeTests(unittest.TestCase):
     def setUp(self):
         if not DIST.is_dir():
@@ -137,6 +171,141 @@ class SiteValidatorNegativeTests(unittest.TestCase):
         output = result.stdout + result.stderr
         self.assertNotEqual(0, result.returncode, output)
         self.assertIn(expected, output)
+
+    def test_packaged_local_font_contract_is_accepted(self):
+        result = subprocess.run(
+            ["python3", str(VALIDATOR), "--root", str(self.root), "--dist"],
+            cwd=ROOT,
+            text=True,
+            capture_output=True,
+            check=False,
+        )
+        self.assertEqual(0, result.returncode, result.stdout + result.stderr)
+
+    def test_standalone_css_remote_and_malformed_references_are_rejected(self):
+        original = 'url("assets/fonts/source-sans-3-latin-variable.woff2")'
+        cases = (
+            (original, 'url("https://example.com/font.woff2")', "external or non-local URL"),
+            (original, 'url("//example.com/font.woff2")', "scheme-relative URL"),
+            (original, 'url("data:font/woff2,unsafe")', "external or non-local URL"),
+            (original, 'url("assets/fonts/missing.woff2")', "missing local resource"),
+            (original, 'url("assets/fonts/source-sans-3-latin-variable.woff2"', "unexpected content after quoted url()"),
+            (original, r'u\72l("assets/fonts/source-sans-3-latin-variable.woff2")', "escaped CSS references"),
+        )
+        for old, new, expected in cases:
+            with self.subTest(replacement=new):
+                shutil.rmtree(self.root)
+                shutil.copytree(DIST, self.root)
+                self.mutate("styles.css", old, new)
+                self.assert_rejected(expected)
+
+    def test_standalone_css_import_is_rejected_even_when_escaped(self):
+        for directive in (
+            '@import url("assets/fonts/source-sans-3-latin-variable.woff2");\n',
+            r'@\69mport url("assets/fonts/source-sans-3-latin-variable.woff2");' + "\n",
+        ):
+            with self.subTest(directive=directive):
+                shutil.rmtree(self.root)
+                shutil.copytree(DIST, self.root)
+                path = self.root / "styles.css"
+                path.write_text(directive + path.read_text(encoding="utf-8"), encoding="utf-8")
+                self.assert_rejected("@import is not allowed")
+
+    def test_font_hash_drift_and_missing_provenance_are_rejected(self):
+        font = self.root / "assets/fonts/source-sans-3-latin-variable.woff2"
+        font.write_bytes(font.read_bytes() + b"drift")
+        self.assert_rejected("expected immutable size 28792")
+
+        for relative in (
+            "assets/fonts/OFL-Libre-Baskerville.txt",
+            "assets/fonts/SOURCES.txt",
+        ):
+            with self.subTest(relative=relative):
+                shutil.rmtree(self.root)
+                shutil.copytree(DIST, self.root)
+                (self.root / relative).unlink()
+                self.assert_rejected("required font asset or provenance file is missing")
+
+    def test_effective_font_face_contract_rejects_missing_commented_and_mismatched_faces(self):
+        source_family = '  font-family: "Source Sans 3";'
+        source_src = (
+            '  src: url("assets/fonts/source-sans-3-latin-variable.woff2") format("woff2");'
+        )
+        libre_src = (
+            '  src: url("assets/fonts/libre-baskerville-latin-variable.woff2") format("woff2");'
+        )
+        cases = (
+            (
+                source_family,
+                f"/* {source_family} */",
+                "missing effective font-family",
+            ),
+            (
+                source_src,
+                f"/* {source_src} */",
+                'contract for "Source Sans 3" differs: missing src',
+            ),
+            (
+                source_src,
+                libre_src,
+                'contract for "Source Sans 3" differs: mismatched src',
+            ),
+        )
+        for old, new, expected in cases:
+            with self.subTest(expected=expected):
+                shutil.rmtree(self.root)
+                shutil.copytree(DIST, self.root)
+                self.mutate("styles.css", old, new)
+                self.assert_rejected(expected)
+
+    def test_commented_out_font_face_is_not_counted_as_effective_css(self):
+        path = self.root / "styles.css"
+        text = path.read_text(encoding="utf-8")
+        first_face_start = text.index("@font-face")
+        first_face_end = text.index("}\n", first_face_start) + 1
+        text = (
+            text[:first_face_start]
+            + "/* "
+            + text[first_face_start:first_face_end]
+            + " */"
+            + text[first_face_end:]
+        )
+        path.write_text(text, encoding="utf-8")
+        self.assert_rejected("expected exactly 2 effective @font-face blocks; found 1")
+
+    def test_comment_markers_inside_quoted_font_contract_values_are_not_stripped(self):
+        cases = (
+            (
+                'font-family: "Source Sans 3";',
+                'font-family: "Source /*x*/ Sans 3";',
+                'missing effective @font-face contract for "Source Sans 3"',
+            ),
+            (
+                'url("assets/fonts/source-sans-3-latin-variable.woff2")',
+                'url("assets/fonts/source-/*x*/sans-3-latin-variable.woff2")',
+                'contract for "Source Sans 3" differs: mismatched src',
+            ),
+        )
+        for old, new, expected in cases:
+            with self.subTest(expected=expected):
+                shutil.rmtree(self.root)
+                shutil.copytree(DIST, self.root)
+                self.mutate("styles.css", old, new)
+                self.assert_rejected(expected)
+
+    def test_unmatched_comments_and_unterminated_strings_are_rejected(self):
+        cases = (
+            ("\n/* never closed", "unterminated CSS comment"),
+            ("\n*/", "unmatched CSS comment terminator"),
+            ('\n.test { content: "never closed; }', "unterminated CSS string"),
+        )
+        for suffix, expected in cases:
+            with self.subTest(expected=expected):
+                shutil.rmtree(self.root)
+                shutil.copytree(DIST, self.root)
+                path = self.root / "styles.css"
+                path.write_text(path.read_text(encoding="utf-8") + suffix, encoding="utf-8")
+                self.assert_rejected(expected)
 
     def test_javascript_anchor_is_rejected(self):
         self.mutate("index.html", 'href="builds/index.html"', 'href="javascript:alert(1)"')

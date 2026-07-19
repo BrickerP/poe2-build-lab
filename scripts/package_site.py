@@ -25,6 +25,11 @@ ROOT_FILES = (
     "sitemap.xml",
     "styles.css",
     "assets/favicon.png",
+    "assets/fonts/OFL-Libre-Baskerville.txt",
+    "assets/fonts/OFL-Source-Sans-3.txt",
+    "assets/fonts/SOURCES.txt",
+    "assets/fonts/libre-baskerville-latin-variable.woff2",
+    "assets/fonts/source-sans-3-latin-variable.woff2",
     "assets/social-card.png",
 )
 

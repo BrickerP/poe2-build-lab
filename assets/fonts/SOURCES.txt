@@ -1,0 +1,24 @@
+PoE2 Build Lab self-hosted web font sources
+Retrieved: 2026-07-20
+
+Source Sans 3
+- Family/style/weights: Source Sans 3, normal, variable 400-700
+- Subset: latin
+- File: source-sans-3-latin-variable.woff2
+- Bytes: 28792
+- SHA-256: ac057a5593cbe3df0d2585da5dd5f33b8efa84aa30550c710fe061b37fc5c54b
+- Versioned Google Fonts asset: https://fonts.gstatic.com/s/sourcesans3/v19/nwpStKy2OAdR1K-IwhWudF-R3w8aZejf5Hc.woff2
+- License: SIL Open Font License 1.1, OFL-Source-Sans-3.txt
+- Immutable upstream license: https://raw.githubusercontent.com/google/fonts/4013637d2e1a67ceb8b0a50957bbbff41a27d0f6/ofl/sourcesans3/OFL.txt
+- Upstream license commit: 4013637d2e1a67ceb8b0a50957bbbff41a27d0f6
+
+Libre Baskerville
+- Family/style/weights: Libre Baskerville, normal, variable 400-700
+- Subset: latin
+- File: libre-baskerville-latin-variable.woff2
+- Bytes: 33852
+- SHA-256: b62b98ef69e6e55b28b9bcac84513eb1bdd1d312a344b1c76e979219923224a5
+- Versioned Google Fonts asset: https://fonts.gstatic.com/s/librebaskerville/v24/kmKnZrc3Hgbbcjq75U4uslyuy4kn0qNZaxMaC82U.woff2
+- License: SIL Open Font License 1.1, OFL-Libre-Baskerville.txt
+- Immutable upstream license: https://raw.githubusercontent.com/google/fonts/1fee23aceb88190a096292788d35bf7ca0d03968/ofl/librebaskerville/OFL.txt
+- Upstream license commit: 1fee23aceb88190a096292788d35bf7ca0d03968
