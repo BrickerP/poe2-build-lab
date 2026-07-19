@@ -138,6 +138,8 @@ main.tool-page { padding-top: 1rem; }
 
 .article {
   max-width: 100%;
+  min-width: 0;
+  overflow-wrap: anywhere;
 }
 
 /* ── Typography ── */
@@ -1001,6 +1003,21 @@ li { margin: 0.3rem 0; }
   table.kv th {
     color: var(--muted);
     font-size: 0.78rem;
+  }
+
+  .article table:not(.kv):not(.responsive-stack) {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .calc-input input {
+    box-sizing: border-box;
+    width: 100%;
+    min-width: 5.5rem;
+    max-width: none;
   }
 }
 

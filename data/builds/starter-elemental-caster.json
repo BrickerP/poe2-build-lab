@@ -10,8 +10,8 @@
   "patch_version": "0.5.2 Early Access",
   "last_reviewed": "2026-06-16",
   "status": "published",
-  "review_state": "needs_testing",
-  "review_notes": "Published as a research-backed decision card. Ascendancy resolved from the official GGG passive-tree export (Sorceress -> Stormweaver). Skill/support gem ids (Spark, Empowered Sparks, Spell Echo, Blink) are resolved from community-extracted data (Path of Building Community PoE2 gameId field, cross-validated against GGG's official .build example), so .build export is now enabled with real ids. Still not in-game tested, hence 'needs in-game testing'.",
+  "review_state": "needs_review",
+  "review_notes": "Last researched for 0.5.2 and not retested in game. The site now tracks official patch 0.5.4c, so this card remains published only as an explicitly stale decision aid and needs a full mechanics and in-game review before it can be called current.",
   "known_broken_by_patch": [],
   "source": {
     "type": "self-authored",
@@ -19,6 +19,10 @@
     "notes": "Authored from research cards 03-09; not a copied creator build."
   },
   "source_links": [
+    {
+      "label": "Official PoE2 0.5.4c patch notes (review trigger)",
+      "url": "https://www.pathofexile.com/forum/view-thread/3985152"
+    },
     {
       "label": "Official PoE2 patch notes forum",
       "url": "https://www.pathofexile.com/forum/view-forum/2212"

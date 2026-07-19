@@ -4,12 +4,35 @@ Live site: https://brickerp.github.io/poe2-build-lab/
 Repository: https://github.com/BrickerP/poe2-build-lab
 Search Console property: URL-prefix `https://brickerp.github.io/poe2-build-lab/`
 
-## Current launch state
+## Deployment contract
 
-- Hosting: GitHub Pages, public repo, `main` branch root.
+- Hosting target: GitHub Pages Actions deployment of the allowlisted `dist/` artifact from `main`.
+- Required repository setting: Pages build source must be GitHub Actions (`build_type=workflow`), never legacy `main` branch root publishing.
 - Search Console: ownership verified with `googlead1eaf93276e5fa5.html`.
 - Sitemap: submitted in Search Console as `sitemap.xml` on 2026-06-16.
-- AdSense: account exists as `pub-1111218417177666`; site code and `ads.txt` are configured. Actual ads still depend on Google site review/serving status.
+- Advertising: disabled in site code. `ads.txt` retains the publisher declaration but pages load no ad network until a Google-certified consent management platform is configured.
+
+The workflow validates generated source, rejects generator drift, packages twice to prove deterministic output, validates the packaged artifact, and deploys only on `main`. Pull requests may upload generic `dist` evidence but never deploy Pages.
+
+Local release verification:
+
+```sh
+test "$(python3 -c 'import platform; print(platform.python_version())')" = "$(tr -d '[:space:]' < .python-version)"
+test "$(node --version)" = "v$(tr -d '[:space:]' < .node-version)"
+python3 sitegen.py
+python3 -m py_compile sitegen.py scripts/*.py
+python3 scripts/test_patch_status.py
+python3 scripts/check_patch_status.py --check
+python3 scripts/validate_site.py
+python3 scripts/package_site.py --check-deterministic
+python3 scripts/validate_site.py --root dist --dist
+python3 scripts/test_validate_site.py
+python3 scripts/test_runtime_site.py
+```
+
+The `dist/` allowlist contains only public HTML/runtime assets, crawl helpers, Search Console verification, `.build` downloads, the exact schema-valid published build JSON required by the three browser tools, and `.nojekyll`. It excludes source SVG, Python, non-runtime JSON, Markdown operations notes, scripts, repository metadata, and CI configuration.
+
+Every page data record owns its real `last_modified` date. The generator uses that value for both JSON-LD `dateModified` and sitemap `lastmod`; do not replace it with the sitemap generation date. The custom 404 uses project-root paths so its CSS, favicon, navigation, and recovery link also work when GitHub Pages serves the same body for a deeply nested missing URL.
 
 ## Daily monitoring: natural traffic
 
@@ -49,16 +72,17 @@ Priority content backlog:
 - PoE2 early gear upgrade guide
 - PoE2 beginner defensive layers
 
-## Revenue path
+## Advertising safety gate
 
-AdSense is now configured in code, but revenue starts only after Google accepts/serves ads for the site. Required next steps:
+Ad loading is intentionally disabled. Before any future advertising launch:
 
-1. In AdSense onboarding, use the Website step to check/confirm code detection.
-2. Wait for Google site review/serving status to pass.
-3. Keep `ads.txt` as `google.com, pub-1111218417177666, DIRECT, f08c47fec0942fa0`.
-4. Track revenue in AdSense reports: page RPM, impressions, clicks, estimated earnings.
+1. Configure a Google-certified consent management platform for all required regions.
+2. Update the privacy policy to describe the exact vendors, storage, consent controls, and revocation path.
+3. Review Google site and ad-serving status.
+4. Keep `ads.txt` accurate; its publisher declaration does not itself load code or set cookies.
+5. Add only real ad units after consent behavior is tested.
 
-Do not add fake ad units or placeholder slot IDs. Current setup uses Auto ads script only; manual ad units need real slot IDs from AdSense.
+CI rejects ad-network domains in generated HTML. Do not bypass that gate to test production advertising.
 
 ## What increases revenue
 

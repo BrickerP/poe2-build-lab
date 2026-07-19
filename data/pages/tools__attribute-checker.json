@@ -1,5 +1,6 @@
 {
   "path": "tools/attribute-checker.html",
+  "last_modified": "2026-06-17",
   "title": "PoE2 Attribute, Spirit & Gear-Swap Checker",
   "description": "Free Path of Exile 2 calculator: check Strength/Dexterity/Intelligence deficits, Spirit reservation, and whether swapping a gear slot breaks a skill or Spirit reservation. Prefills from build cards. No backend.",
   "heading": "Attribute & gear-swap checker",

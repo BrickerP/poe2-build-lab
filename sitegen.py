@@ -1,20 +1,49 @@
 import json
-from pathlib import Path
-from html import escape
 from datetime import date
+from html import escape
+from pathlib import Path
 
-ADSENSE_CLIENT = "ca-pub-1111218417177666"
+ROOT = Path(__file__).resolve().parent
+PATCH_LEDGER_PATH = ROOT / "data" / "sources" / "patch-notes.json"
+
+
+def load_current_patch():
+    """Load the sole current-patch marker from the operational ledger."""
+    ledger = json.loads(PATCH_LEDGER_PATH.read_text(encoding="utf-8"))
+    current = ledger.get("current_patch")
+    matches = [
+        patch for patch in ledger.get("patches", [])
+        if isinstance(patch, dict) and patch.get("patch_version") == current
+    ]
+    if not isinstance(current, str) or not current or len(matches) != 1:
+        raise ValueError("patch ledger must identify exactly one current patch entry")
+    patch = matches[0]
+    try:
+        date.fromisoformat(patch["date"])
+    except (KeyError, TypeError, ValueError) as exc:
+        raise ValueError("current patch entry must have an ISO date") from exc
+    source_url = patch.get("source_url")
+    if not isinstance(source_url, str) or not source_url.startswith("https://"):
+        raise ValueError("current patch entry must have an absolute HTTPS source_url")
+    return current, patch["date"], source_url
+
+
+CURRENT_PATCH, CURRENT_PATCH_DATE, CURRENT_PATCH_SOURCE = load_current_patch()
 
 SITE = {
     "name": "PoE2 Build Lab",
-    "tagline": "PoE2 Build Decision Assistant — patch-reviewed build cards, attribute checks, gear upgrades, defenses, trade handoff, and .build import.",
+    "tagline": "PoE2 Build Decision Assistant — patch-labeled build cards, attribute checks, gear upgrades, defenses, trade handoff, and .build import.",
     "url": "https://brickerp.github.io/poe2-build-lab/",
-    "updated": "2026-06-17",
-    "patch": "0.5.2 Early Access"
+    "path_prefix": "/poe2-build-lab/",
+    "updated": "2026-07-19",
+    "patch": CURRENT_PATCH,
+    "patch_published": CURRENT_PATCH_DATE,
+    "patch_notes_url": CURRENT_PATCH_SOURCE,
+    "social_image": "assets/social-card.png",
 }
 
 NAV = [
-    ("Builds", "builds/index.html", "Compare patch-reviewed starters"),
+    ("Builds", "builds/index.html", "Compare patch-labeled starters"),
     ("Can I Wear It?", "tools/attribute-checker.html", "Stats, Spirit & gear swaps"),
     ("Next Upgrade", "tools/gear-upgrade-checker.html", "Slot affix priorities by stage"),
     ("Why Am I Dying?", "tools/beginner-build-checklist.html", "Death pattern → fix path"),
@@ -54,9 +83,13 @@ def load_static_pages():
     for path in sorted(PAGES_DIR.glob("*.json")):
         page = json.loads(path.read_text(encoding="utf-8"))
         page.setdefault("order", 999)
-        for key in ("path", "title", "description", "content"):
+        for key in ("path", "title", "description", "content", "last_modified"):
             if key not in page:
                 raise ValueError(f"{path} missing required field: {key}")
+        try:
+            date.fromisoformat(page["last_modified"])
+        except (TypeError, ValueError) as exc:
+            raise ValueError(f"{path} has invalid last_modified date") from exc
         pages.append(page)
     seen = set()
     for page in pages:
@@ -143,14 +176,15 @@ def homepage_content(published_builds):
   {decision_grid_html()}
 </section>
 <section class="content-block">
-  <p class="muted flush"><strong>Patch {escape(SITE["patch"])}</strong> · Updated {SITE["updated"]}. Build cards show review state and <code>known_broken_by_patch</code> — verify in game before expensive investments.</p>
+  <p class="muted flush"><strong>Latest patch: <a href="{SITE['patch_notes_url']}" rel="nofollow noopener">{escape(SITE["patch"])}</a></strong> · Site updated {SITE["updated"]}. Build cards retain their actual last-reviewed patch and show review state plus <code>known_broken_by_patch</code> — verify in game before expensive investments.</p>
 </section>
 """
 
 def render_page(page, build=None):
     path = page['path']
-    prefix = depth_prefix(path)
+    prefix = SITE["path_prefix"] if page.get("absolute_links") else depth_prefix(path)
     canonical = SITE['url'] + ('' if path == 'index.html' else path)
+    modified = page["last_modified"]
     heading = page.get('heading', SITE['name'])
     hero = page.get('hero', False)
     is_tool = path.startswith('tools/')
@@ -177,7 +211,7 @@ def render_page(page, build=None):
     <div class="start-panel" aria-label="Recommended first steps">
       <p class="eyebrow">Start here</p>
       <ol class="start-steps">
-        <li><span>1</span><strong>Choose a starter</strong><em>Low budget, honest risks, current patch.</em></li>
+        <li><span>1</span><strong>Choose a starter</strong><em>Low budget, honest risks, explicit review state.</em></li>
         <li><span>2</span><strong>Import the .build</strong><em>Load skills and slot hints in-game.</em></li>
         <li><span>3</span><strong>Check before trading</strong><em>Attributes, Spirit, gear swaps, defenses.</em></li>
       </ol>
@@ -194,12 +228,25 @@ def render_page(page, build=None):
             f'<p class="tool-purpose">{escape(purpose)}</p></section>'
         )
     else:
-        subtitle = page.get('subtitle', f'Updated {SITE["updated"]} · {SITE["patch"]}')
+        subtitle = page.get('subtitle', f'Site updated {SITE["updated"]} · latest patch {SITE["patch"]}')
         main_intro = f'<section class="page-title"><p class="eyebrow">{escape(subtitle)}</p><h1>{escape(heading)}</h1></section>'
     sticky_html = render_build_sticky(build, prefix) if is_build else ""
     content = page['content']
     robots_meta = '\n  <meta name="robots" content="noindex, follow">' if page.get('noindex') else ''
     scripts_html = ''.join(f'<script src="{prefix}{escape(s)}" defer></script>' for s in page.get('scripts', []))
+    social_image = SITE['url'] + SITE['social_image']
+    structured_data = json.dumps(
+        {
+            "@context": "https://schema.org",
+            "@type": "WebPage",
+            "name": page["title"],
+            "description": page["description"],
+            "url": canonical,
+            "dateModified": modified,
+        },
+        ensure_ascii=False,
+        separators=(",", ":"),
+    )
     html = f'''<!doctype html>
 <html lang="en">
 <head>
@@ -212,9 +259,20 @@ def render_page(page, build=None):
   <meta property="og:description" content="{escape(page['description'])}">
   <meta property="og:type" content="website">
   <meta property="og:url" content="{canonical}">
+  <meta property="og:site_name" content="{SITE['name']}">
+  <meta property="og:image" content="{social_image}">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="PoE2 Build Lab — patch-aware beginner build decisions">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{escape(page['title'])}">
+  <meta name="twitter:description" content="{escape(page['description'])}">
+  <meta name="twitter:image" content="{social_image}">
+  <meta name="twitter:image:alt" content="PoE2 Build Lab — patch-aware beginner build decisions">
+  <link rel="icon" type="image/png" sizes="32x32" href="{prefix}assets/favicon.png">
   <link rel="stylesheet" href="{prefix}styles.css">
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client={ADSENSE_CLIENT}" crossorigin="anonymous"></script>
-  <script type="application/ld+json">{{"@context":"https://schema.org","@type":"WebPage","name":{page['title']!r},"description":{page['description']!r},"url":{canonical!r},"dateModified":"{SITE['updated']}"}}</script>
+  <script type="application/ld+json">{structured_data}</script>
 </head>
 <body{body_class}>
   <header class="site-header"><a class="brand" href="{prefix}index.html">PoE2 <span>Build Lab</span></a><nav>{nav}</nav></header>
@@ -651,6 +709,7 @@ def build_detail_page(build):
         ),
         "heading": name,
         "subtitle": f"{patch} · {REVIEW_STATE_LABELS.get(build.get('review_state','draft'),('Draft','warn'))[0]} · Last reviewed {build.get('last_reviewed','?')}",
+        "last_modified": SITE["updated"],
         "noindex": build.get("status") != "published",
         "in_sitemap": build.get("status") == "published",
         "content": build_page_content(build),
@@ -712,7 +771,7 @@ def build_index_content(builds):
 <p class="lede">Each card connects the decisions a starter actually faces: patch trust, budget, gear slots, attributes, defenses, and .build import — not a prose tier list.</p>
 <section class="grid featured-builds">{cards}</section>
 <section class="content-block">
-  <p class="muted flush">Updated {SITE['updated']} · {SITE['patch']}. Draft cards are research-backed, not in-game-verified meta promises.</p>
+  <p class="muted flush">Site metadata updated {SITE['updated']} · latest official patch {SITE['patch']}. Each card retains its actual last-reviewed patch and review state; no untested card is presented as current.</p>
   <p class="content-followup"><a href="best-beginner-builds.html">Archetype overview</a> — higher-level comparison if you have not picked a class yet.</p>
 </section>
 """
@@ -722,9 +781,10 @@ builds_data = load_builds()
 published_builds = [b for b in builds_data if b.get("status") == "published"]
 build_index_page = {
     "path": "builds/index.html",
-    "title": "PoE2 Build Cards: Patch-Reviewed Starter Builds",
+    "title": "PoE2 Build Cards: Patch-Labeled Starter Builds",
     "description": "Path of Exile 2 build cards comparing starter builds by patch trust, budget, complexity, gear slot priorities, attributes, defenses, and .build import status.",
     "heading": "Starter builds",
+    "last_modified": SITE["updated"],
     "in_sitemap": True,
     "content": build_index_content(published_builds),
 }
@@ -755,7 +815,7 @@ for p in all_pages:
     if p.get('noindex') or p.get('in_sitemap') is False:
         continue
     loc = SITE['url'] + ('' if p['path']=='index.html' else p['path'])
-    urls.append(f"  <url><loc>{loc}</loc><lastmod>{SITE['updated']}</lastmod></url>")
+    urls.append(f"  <url><loc>{loc}</loc><lastmod>{p['last_modified']}</lastmod></url>")
 Path('sitemap.xml').write_text('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + '\n'.join(urls) + '\n</urlset>\n', encoding='utf-8')
 Path('robots.txt').write_text(f"User-agent: *\nAllow: /\nSitemap: {SITE['url']}sitemap.xml\n", encoding='utf-8')
 Path('ads.txt').write_text("google.com, pub-1111218417177666, DIRECT, f08c47fec0942fa0\n", encoding='utf-8')
@@ -765,8 +825,12 @@ Path("404.html").write_text(
         "title": "Page not found - PoE2 Build Lab",
         "description": "Page not found.",
         "heading": "Page not found",
-        "content": '<p class="lede">This page does not exist.</p><p><a class="button" href="index.html">Back to home</a></p>',
+        "last_modified": SITE["updated"],
+        "noindex": True,
+        "in_sitemap": False,
+        "absolute_links": True,
+        "content": '<p class="lede">This page does not exist.</p><p><a class="button" href="/poe2-build-lab/">Back to home</a></p>',
     }),
     encoding="utf-8",
 )
-Path('README.md').write_text(f"""# PoE2 Build Lab\n\nStatic beginner-guide site for Path of Exile 2.\n\nLive URL target: {SITE['url']}\n\n## Maintenance model\n\n- Edit build data in `data/builds/*.json`.\n- Edit generated page content in `data/pages/*.json`.\n- Edit visual system in `styles.css`.\n- Run `python3 sitegen.py` after content or data changes.\n\n## Launch checklist\n\n- [x] Static pages\n- [x] SEO titles/descriptions\n- [x] `robots.txt` and `sitemap.xml`\n- [x] About / Contact / Privacy Policy\n- [x] Google Search Console URL-prefix property and verification\n- [x] AdSense publisher ID configured in site code\n\n## AdSense status\n\nAdSense publisher ID `pub-1111218417177666` is configured in the site code and `ads.txt`; actual ad serving still depends on Google site review and Auto ads status.\n""", encoding='utf-8')
+Path('README.md').write_text(f"""# PoE2 Build Lab\n\nStatic beginner-guide site for Path of Exile 2.\n\nLive URL target: {SITE['url']}\n\n## Maintenance model\n\n- Python is pinned exactly by `.python-version`; CI and local release checks must report that same patch version.\n- Edit build data in `data/builds/*.json`.\n- Edit generated page content and each page's real `last_modified` date in `data/pages/*.json`.\n- Edit visual system in `styles.css`.\n- Run `python3 sitegen.py` after content or data changes.\n- Verify the active runtime with `test "$(python3 -c 'import platform; print(platform.python_version())')" = "$(tr -d '[:space:]' < .python-version)"`.\n\n## Launch checklist\n\n- [x] Python runtime pinned to `3.14.6` through `.python-version` and CI `python-version-file`\n- [x] Static pages\n- [x] SEO titles/descriptions and valid JSON-LD\n- [x] `robots.txt` and `sitemap.xml`\n- [x] About / Contact / Privacy Policy\n- [x] Google Search Console URL-prefix property and verification\n- [x] Advertising disabled until a Google-certified consent management platform is configured\n\n## Current patch\n\nThe site tracks **{SITE['patch']}** as the latest official patch, posted {SITE['patch_published']} according to the date displayed on the canonical forum thread: {SITE['patch_notes_url']}. Build cards keep their actual last-reviewed patch and visibly show `needs_review` when they have not been retested. Site metadata was last regenerated {SITE['updated']}.\n\n## Advertising status\n\nAd loading is intentionally disabled on every page. The publisher declaration remains in `ads.txt`, but no AdSense, DoubleClick, or other advertising script is loaded until a Google-certified consent management platform is configured and the privacy policy is updated.\n""", encoding='utf-8')
