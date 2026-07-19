@@ -283,7 +283,8 @@ def render_page(page, build=None):
     sticky_html = render_build_sticky(build, prefix) if is_build else ""
     content = page['content']
     robots_meta = '\n  <meta name="robots" content="noindex, follow">' if page.get('noindex') else ''
-    scripts_html = ''.join(f'<script src="{prefix}{escape(s)}" defer></script>' for s in page.get('scripts', []))
+    scripts = ["assets/js/navigation.js", *page.get("scripts", [])]
+    scripts_html = ''.join(f'<script src="{prefix}{escape(s)}" defer></script>' for s in scripts)
     social_image = SITE['url'] + SITE['social_image']
     structured_data = json.dumps(
         {
