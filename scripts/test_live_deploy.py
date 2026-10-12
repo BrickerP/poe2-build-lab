@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import json
+import re
 import tempfile
 import unittest
 from pathlib import Path
@@ -18,7 +19,7 @@ from verify_live_deploy import (
 )
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
-DOWNLOAD_ARTIFACT_SHA = "3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c"
+DOWNLOAD_ARTIFACT_PIN = re.compile(r"actions/download-artifact@[0-9a-f]{40}\b")
 VALID_CSS = """@font-face {
   font-family: "Source Sans 3";
   font-style: normal;
@@ -202,8 +203,9 @@ class LiveDeployTests(unittest.TestCase):
 
     def test_workflow_downloads_existing_artifact_and_verifies_after_deploy(self) -> None:
         workflow = (REPO_ROOT / ".github" / "workflows" / "ci.yml").read_text(encoding="utf-8")
-        download = f"actions/download-artifact@{DOWNLOAD_ARTIFACT_SHA}"
-        self.assertIn(download, workflow)
+        match = DOWNLOAD_ARTIFACT_PIN.search(workflow)
+        self.assertIsNotNone(match, "download-artifact must be pinned to a full commit SHA")
+        download = match.group(0)
         self.assertIn("name: poe2-site-evidence-${{ github.run_attempt }}", workflow)
         self.assertIn("python3 scripts/verify_live_deploy.py", workflow)
         self.assertLess(workflow.index("name: Deploy exact dist artifact"), workflow.index(download))
