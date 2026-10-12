@@ -30,3 +30,7 @@ The site tracks **0.5.4c Early Access** as the latest official patch, posted 202
 ## Advertising status
 
 Ad loading is intentionally disabled on every page. The publisher declaration remains in `ads.txt`, but no AdSense, DoubleClick, or other advertising script is loaded until a Google-certified consent management platform is configured and the privacy policy is updated.
+
+## License
+
+[MIT](LICENSE) © 2026 Yupeng Lu (BrickerP)
